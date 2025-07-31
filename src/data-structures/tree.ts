@@ -1,49 +1,56 @@
-import type {
-  TreeConfigInput,
-  TreeNode,
-  TreeNodeBase,
-  TreeNodeResult,
-  TreePredicate,
-  TreeStats,
-  TreeTransformer,
-  TreeVisitor,
-} from '../types'
-import { TreeConfigSchema } from '../types'
+import { z } from 'zod/v4'
 
-/**
- * 树形数据结构操作类，提供树形数据的各种操作方法
- *
- * @category Data Structures
- * @example
- * ```ts
- * // 从扁平数组创建树形结构
- * const flatList = [
- *   { id: '1', name: '根节点', pid: null },
- *   { id: '2', name: '子节点1', pid: '1' },
- *   { id: '3', name: '子节点2', pid: '1' },
- *   { id: '4', name: '孙节点', pid: '2' }
- * ]
- *
- * const tree = Tree.fromList(flatList)
- * console.log(tree) // 树形结构
- *
- * // 查找节点
- * const found = Tree.find(tree, (node) => node.name === '子节点1')
- *
- * // 过滤节点
- * const filtered = Tree.filter(tree, (node) => node.name.includes('子'))
- *
- * // 转换树形结构
- * const transformed = Tree.transform(tree, (node) => ({
- *   ...node,
- *   displayName: `[${node.name}]`
- * }))
- * ```
- */
+type TreeNode<T = any> = T & {
+  children?: TreeNode<T>[]
+  [key: string]: any
+}
+
+const TreeConfigSchema = z.object({
+  id: z.string().default('id'),
+  pid: z.string().default('pid'),
+  children: z.string().default('children'),
+})
+
+type TreeConfigInput = z.input<typeof TreeConfigSchema>
+
+const _TreeStatsSchema = z.object({
+  total: z.number().int().nonnegative(),
+  leaves: z.number().int().nonnegative(),
+  depth: z.number().int().nonnegative(),
+  branches: z.number().int().nonnegative(),
+})
+
+type TreeStats = z.infer<typeof _TreeStatsSchema>
+
+interface TreeNodeResult<T = any> {
+  readonly node: TreeNode<T>
+  readonly path: readonly TreeNode<T>[]
+  readonly depth: number
+  readonly index: number
+}
+
+type TreePredicate<T = any> = (
+  node: TreeNode<T>,
+  depth: number,
+  path: readonly TreeNode<T>[]
+) => boolean
+
+type TreeTransformer<T = any, R = any> = (
+  node: TreeNode<T>,
+  depth: number,
+  path: readonly TreeNode<T>[]
+) => R
+
+type TreeVisitor<T = any> = (
+  node: TreeNode<T>,
+  depth: number,
+  path: readonly TreeNode<T>[]
+) => void | boolean
+
 export class Tree {
-  private static* dfsGenerator<T extends TreeNodeBase>(
+  private static* dfsGenerator<T = any>(
     nodes: TreeNode<T>[],
-    config: TreeConfigInput,
+    config: TreeConfigInput = {},
     path: TreeNode<T>[] = [],
   ): Generator<TreeNodeResult<T>> {
     const { children: childrenKey } = TreeConfigSchema.parse(config)
@@ -60,9 +67,9 @@ export class Tree {
     }
   }
 
-  private static* bfsGenerator<T extends TreeNodeBase>(
+  private static* bfsGenerator<T = any>(
     nodes: TreeNode<T>[],
-    config: TreeConfigInput,
+    config: TreeConfigInput = {},
   ): Generator<TreeNodeResult<T>> {
     const { children: childrenKey } = TreeConfigSchema.parse(config)
     const queue: TreeNodeResult<T>[] = nodes.map((node, index) => ({
@@ -136,7 +143,7 @@ export class Tree {
    * console.log(tree) // 转换为树形结构
    * ```
    */
-  static fromList<T extends TreeNodeBase>(
+  static fromList<T = any>(
     list: T[],
     config: TreeConfigInput = {},
   ): TreeNode<T>[] {
@@ -152,13 +159,13 @@ export class Tree {
     const roots: TreeNode<T>[] = []
 
     // 初始化所有节点
-    list.forEach((item) => {
+    list.forEach((item: any) => {
       const node = { ...item, [childrenKey]: [] } as TreeNode<T>
       nodeMap.set(item[idKey], node)
     })
 
     // 构建树结构
-    list.forEach((item) => {
+    list.forEach((item: any) => {
       const node = nodeMap.get(item[idKey])!
       const parentId = item[pidKey]
 
@@ -198,7 +205,7 @@ export class Tree {
    * console.log(flatList) // [{ id: '1', name: '根节点' }, { id: '2', name: '子节点1' }, ...]
    * ```
    */
-  static toList<T extends TreeNodeBase>(
+  static toList<T = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     config: TreeConfigInput = {},
   ): T[] {
@@ -221,7 +228,31 @@ export class Tree {
     return result
   }
 
-  static estimateSize<T extends TreeNodeBase>(
+  /**
+   * 估算树形结构的节点数量
+   *
+   * @category Data Structures
+   * @param tree 树形结构（单个节点或节点数组）
+   * @param config 树形配置选项
+   * @returns 节点总数量
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     name: '根节点',
+   *     children: [
+   *       { id: '2', name: '子节点1', children: [] },
+   *       { id: '3', name: '子节点2', children: [] }
+   *     ]
+   *   }
+   * ]
+   *
+   * const size = Tree.estimateSize(tree)
+   * console.log(size) // 3
+   * ```
+   */
+  static estimateSize<T = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     config: TreeConfigInput = {},
   ): number {
@@ -243,7 +274,32 @@ export class Tree {
     return count
   }
 
-  static find<T extends TreeNodeBase>(
+  /**
+   * 查找树中第一个满足条件的节点
+   *
+   * @category Data Structures
+   * @param tree 树形结构（单个节点或节点数组）
+   * @param predicate 查找条件函数
+   * @param config 树形配置选项
+   * @returns 匹配的节点结果，包含节点、路径、深度和索引信息；未找到时返回undefined
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     name: '部门1',
+   *     children: [
+   *       { id: '2', name: '部门1-1', children: [] }
+   *     ]
+   *   }
+   * ]
+   *
+   * const result = Tree.find(tree, (node) => node.name === '部门1-1')
+   * console.log(result?.node.id) // '2'
+   * console.log(result?.depth) // 1
+   * ```
+   */
+  static find<T = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     predicate: TreePredicate<T>,
     config: TreeConfigInput = {},
@@ -263,7 +319,33 @@ export class Tree {
     return undefined
   }
 
-  static findAll<T extends TreeNodeBase>(
+  /**
+   * 查找树中所有满足条件的节点
+   *
+   * @category Data Structures
+   * @param tree 树形结构（单个节点或节点数组）
+   * @param predicate 查找条件函数
+   * @param config 树形配置选项
+   * @returns 所有匹配的节点结果数组，每个结果包含节点、路径、深度和索引信息
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     type: 'folder',
+   *     name: '根目录',
+   *     children: [
+   *       { id: '2', type: 'file', name: '文件1', children: [] },
+   *       { id: '3', type: 'file', name: '文件2', children: [] }
+   *     ]
+   *   }
+   * ]
+   *
+   * const files = Tree.findAll(tree, (node) => node.type === 'file')
+   * console.log(files.length) // 2
+   * ```
+   */
+  static findAll<T = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     predicate: TreePredicate<T>,
     config: TreeConfigInput = {},
@@ -285,7 +367,31 @@ export class Tree {
     return results
   }
 
-  static findById<T extends TreeNodeBase>(
+  /**
+   * 根据ID查找树中的节点
+   *
+   * @category Data Structures
+   * @param tree 树形结构（单个节点或节点数组）
+   * @param id 要查找的节点ID
+   * @param config 树形配置选项
+   * @returns 匹配的节点结果，包含节点、路径、深度和索引信息；未找到时返回undefined
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     name: '根节点',
+   *     children: [
+   *       { id: '2', name: '子节点', children: [] }
+   *     ]
+   *   }
+   * ]
+   *
+   * const result = Tree.findById(tree, '2')
+   * console.log(result?.node.name) // '子节点'
+   * ```
+   */
+  static findById<T = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     id: string,
     config: TreeConfigInput = {},
@@ -296,7 +402,33 @@ export class Tree {
     return this.find(tree, node => node[idKey] === id, config)
   }
 
-  static getStats<T extends TreeNodeBase>(
+  /**
+   * 获取树形结构的统计信息
+   *
+   * @category Data Structures
+   * @param tree 树形结构（单个节点或节点数组）
+   * @param config 树形配置选项
+   * @returns 树的统计信息，包含总节点数、叶子节点数、最大深度和分支节点数
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     name: '根节点',
+   *     children: [
+   *       { id: '2', name: '子节点1', children: [] },
+   *       { id: '3', name: '子节点2', children: [
+   *         { id: '4', name: '孙节点', children: [] }
+   *       ] }
+   *     ]
+   *   }
+   * ]
+   *
+   * const stats = Tree.getStats(tree)
+   * console.log(stats) // { total: 4, leaves: 2, depth: 3, branches: 2 }
+   * ```
+   */
+  static getStats<T = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     config: TreeConfigInput = {},
   ): TreeStats {
@@ -333,7 +465,35 @@ export class Tree {
     }
   }
 
-  static filter<T extends TreeNodeBase>(
+  /**
+   * 过滤树形结构，保留满足条件的节点及其祖先和后代
+   *
+   * @category Data Structures
+   * @param tree 树形结构（单个节点或节点数组）
+   * @param predicate 过滤条件函数
+   * @param config 树形配置选项
+   * @returns 过滤后的树形结构数组
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     type: 'folder',
+   *     name: '根目录',
+   *     children: [
+   *       { id: '2', type: 'file', name: '文档.txt', children: [] },
+   *       { id: '3', type: 'folder', name: '子目录', children: [
+   *         { id: '4', type: 'file', name: '图片.jpg', children: [] }
+   *       ] }
+   *     ]
+   *   }
+   * ]
+   *
+   * const filtered = Tree.filter(tree, (node) => node.type === 'file')
+   * // 返回包含所有文件节点及其父级路径的树结构
+   * ```
+   */
+  static filter<T = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     predicate: TreePredicate<T>,
     config: TreeConfigInput = {},
@@ -382,7 +542,35 @@ export class Tree {
     return results
   }
 
-  static transform<T extends TreeNodeBase, R extends TreeNodeBase>(
+  /**
+   * 转换树形结构，将每个节点转换为新的结构
+   *
+   * @category Data Structures
+   * @param tree 树形结构（单个节点或节点数组）
+   * @param transformer 节点转换函数
+   * @param config 树形配置选项
+   * @returns 转换后的树形结构数组
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     name: '部门1',
+   *     children: [
+   *       { id: '2', name: '部门1-1', children: [] }
+   *     ]
+   *   }
+   * ]
+   *
+   * const transformed = Tree.transform(tree, (node, depth) => ({
+   *   key: node.id,
+   *   title: node.name,
+   *   level: depth
+   * }))
+   * // 转换为新的数据结构
+   * ```
+   */
+  static transform<T = any, R = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     transformer: TreeTransformer<T, R>,
     config: TreeConfigInput = {},
@@ -422,7 +610,32 @@ export class Tree {
     return results
   }
 
-  static forEach<T extends TreeNodeBase>(
+  /**
+   * 遍历树形结构的每个节点
+   *
+   * @category Data Structures
+   * @param tree 树形结构（单个节点或节点数组）
+   * @param visitor 访问者函数，返回false可以跳过子节点的遍历
+   * @param config 树形配置选项
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     name: '根节点',
+   *     children: [
+   *       { id: '2', name: '子节点', children: [] }
+   *     ]
+   *   }
+   * ]
+   *
+   * Tree.forEach(tree, (node, depth) => {
+   *   console.log(`${' '.repeat(depth * 2)}${node.name}`)
+   *   // 输出缩进的树结构
+   * })
+   * ```
+   */
+  static forEach<T = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     visitor: TreeVisitor<T>,
     config: TreeConfigInput = {},
@@ -453,7 +666,32 @@ export class Tree {
     nodes.forEach(node => traverse(node, 0, []))
   }
 
-  static insertBefore<T extends TreeNodeBase>(
+  /**
+   * 在指定节点前插入新节点
+   *
+   * @category Data Structures
+   * @param tree 树形结构数组
+   * @param targetId 目标节点的ID
+   * @param newNode 要插入的新节点数据
+   * @param config 树形配置选项
+   * @returns 是否成功插入
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     name: '节点1',
+   *     children: [
+   *       { id: '2', name: '节点2', children: [] }
+   *     ]
+   *   }
+   * ]
+   *
+   * const success = Tree.insertBefore(tree, '2', { id: '1.5', name: '新节点' })
+   * console.log(success) // true
+   * ```
+   */
+  static insertBefore<T = any>(
     tree: TreeNode<T>[],
     targetId: string,
     newNode: T,
@@ -487,7 +725,32 @@ export class Tree {
     return traverse(tree, [])
   }
 
-  static insertAfter<T extends TreeNodeBase>(
+  /**
+   * 在指定节点后插入新节点
+   *
+   * @category Data Structures
+   * @param tree 树形结构数组
+   * @param targetId 目标节点的ID
+   * @param newNode 要插入的新节点数据
+   * @param config 树形配置选项
+   * @returns 是否成功插入
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     name: '节点1',
+   *     children: [
+   *       { id: '2', name: '节点2', children: [] }
+   *     ]
+   *   }
+   * ]
+   *
+   * const success = Tree.insertAfter(tree, '2', { id: '3', name: '新节点' })
+   * console.log(success) // true
+   * ```
+   */
+  static insertAfter<T = any>(
     tree: TreeNode<T>[],
     targetId: string,
     newNode: T,
@@ -521,7 +784,31 @@ export class Tree {
     return traverse(tree, [])
   }
 
-  static remove<T extends TreeNodeBase>(
+  /**
+   * 从树中删除指定节点
+   *
+   * @category Data Structures
+   * @param tree 树形结构数组
+   * @param targetId 要删除的节点ID
+   * @param config 树形配置选项
+   * @returns 被删除的节点，未找到时返回undefined
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     name: '根节点',
+   *     children: [
+   *       { id: '2', name: '子节点', children: [] }
+   *     ]
+   *   }
+   * ]
+   *
+   * const removed = Tree.remove(tree, '2')
+   * console.log(removed?.name) // '子节点'
+   * ```
+   */
+  static remove<T = any>(
     tree: TreeNode<T>[],
     targetId: string,
     config: TreeConfigInput = {},
@@ -550,7 +837,31 @@ export class Tree {
     return traverse(tree)
   }
 
-  static validate<T extends TreeNodeBase>(
+  /**
+   * 验证树形结构的有效性
+   *
+   * @category Data Structures
+   * @param tree 树形结构（单个节点或节点数组）
+   * @param config 树形配置选项
+   * @returns 验证结果，包含是否有效和错误信息数组
+   * @example
+   * ```ts
+   * const tree = [
+   *   {
+   *     id: '1',
+   *     name: '根节点',
+   *     children: [
+   *       { id: '2', name: '子节点', children: [] }
+   *     ]
+   *   }
+   * ]
+   *
+   * const result = Tree.validate(tree)
+   * console.log(result.isValid) // true
+   * console.log(result.errors) // []
+   * ```
+   */
+  static validate<T = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     config: TreeConfigInput = {},
   ): { isValid: boolean, errors: string[] } {
