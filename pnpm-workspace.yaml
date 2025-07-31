@@ -1,0 +1,19 @@
+catalog:
+  '@antfu/eslint-config': ^5.0.0
+  '@release-it/conventional-changelog': ^10.0.1
+  '@types/node': ^24.1.0
+  '@vueuse/core': ^13.6.0
+  bumpp: ^10.2.1
+  eslint: ^9.32.0
+  release-it: ^19.0.4
+  taze: ^19.1.0
+  tsx: ^4.20.3
+  typescript: ^5.8.3
+  unbuild: ^3.6.0
+  vite: ^7.0.6
+  vitest: ^3.2.4
+  vue: ^3.5.18
+  zod: ^4.0.14
+
+onlyBuiltDependencies:
+  - esbuild

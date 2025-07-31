@@ -1,0 +1,75 @@
+{
+  "name": "@movk/core",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.13.1",
+  "description": "Modern Vue.js utilities and composables collection with TypeScript support",
+  "author": "yixuan",
+  "license": "MIT",
+  "homepage": "https://github.com/mhaibaraai/movk-core",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhaibaraai/movk-core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mhaibaraai/movk-core/issues"
+  },
+  "keywords": [
+    "movk",
+    "@movk/core",
+    "tools"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/index.d.mts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "lint:fix": "pnpm run lint --fix",
+    "prepublishOnly": "pnpm run build",
+    "release": "release-it --verbose",
+    "publish": "pnpm publish --access public --no-git-checks",
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "up": "taze major -wIr",
+    "clean": "find . -name 'node_modules' -type d -prune -execdir rm -rf '{}' +"
+  },
+  "peerDependencies": {
+    "vue": "catalog:"
+  },
+  "dependencies": {
+    "@vueuse/core": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:",
+    "@release-it/conventional-changelog": "catalog:",
+    "@types/node": "catalog:",
+    "bumpp": "catalog:",
+    "eslint": "catalog:",
+    "release-it": "catalog:",
+    "taze": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "unbuild": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  }
+}
