@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file. See [Conven
 
 
 
+## [0.0.5](https://github.com/mhaibaraai/movk-core/compare/v0.0.4...v0.0.5) (2025-09-03)
+
+### Features
+
+* **types:** 统一同步/异步返回类型并补充文档注释 ([0358091](https://github.com/mhaibaraai/movk-core/commit/0358091e1b3723f9dfd971af38079146ff797cda))
+* **utils:** 添加 `separateMany` 多分组分离并清理旧文件 ([764d352](https://github.com/mhaibaraai/movk-core/commit/764d3525a31d914f8443a009078d4c485e77b43a))
+
 ## [0.0.4](https://github.com/mhaibaraai/movk-core/compare/v0.0.3...v0.0.4) (2025-07-31)
 
 ### ⚠ BREAKING CHANGES
