@@ -1,5 +1,10 @@
 import { z } from 'zod/v4'
 
+/**
+ * 树节点类型定义
+ *
+ * @template T 节点数据类型
+ */
 type TreeNode<T = any> = T & {
   children?: TreeNode<T>[]
   [key: string]: any
@@ -11,6 +16,9 @@ const TreeConfigSchema = z.object({
   children: z.string().default('children'),
 })
 
+/**
+ * 树形配置输入类型
+ */
 type TreeConfigInput = z.input<typeof TreeConfigSchema>
 
 const _TreeStatsSchema = z.object({
@@ -20,8 +28,16 @@ const _TreeStatsSchema = z.object({
   branches: z.number().int().nonnegative(),
 })
 
+/**
+ * 树统计信息类型
+ */
 type TreeStats = z.infer<typeof _TreeStatsSchema>
 
+/**
+ * 树节点结果接口（内部使用）
+ *
+ * @template T 节点数据类型
+ */
 interface TreeNodeResult<T = any> {
   readonly node: TreeNode<T>
   readonly path: readonly TreeNode<T>[]
@@ -29,24 +45,105 @@ interface TreeNodeResult<T = any> {
   readonly index: number
 }
 
-type TreePredicate<T = any> = (
-  node: TreeNode<T>,
-  depth: number,
+/**
+ * 树节点谓词函数类型
+ *
+ * @template T 节点数据类型
+ * @param params 包含节点信息的对象参数
+ * @param params.node 当前节点
+ * @param params.depth 节点深度（从0开始）
+ * @param params.path 从根节点到当前节点的路径数组
+ * @param params.index 节点在同级节点中的索引
+ * @returns 是否满足条件
+ */
+type TreePredicate<T = any> = (params: {
+  node: TreeNode<T>
+  depth: number
   path: readonly TreeNode<T>[]
-) => boolean
+  index: number
+}) => boolean
 
-type TreeTransformer<T = any, R = any> = (
-  node: TreeNode<T>,
-  depth: number,
+/**
+ * 树节点转换函数类型
+ *
+ * @template T 源节点数据类型
+ * @template R 目标节点数据类型
+ * @param params 包含节点信息的对象参数
+ * @param params.node 当前节点
+ * @param params.depth 节点深度（从0开始）
+ * @param params.path 从根节点到当前节点的路径数组
+ * @param params.index 节点在同级节点中的索引
+ * @returns 转换后的节点数据
+ */
+type TreeTransformer<T = any, R = any> = (params: {
+  node: TreeNode<T>
+  depth: number
   path: readonly TreeNode<T>[]
-) => R
+  index: number
+}) => R
 
-type TreeVisitor<T = any> = (
-  node: TreeNode<T>,
-  depth: number,
+/**
+ * 树节点访问函数类型
+ *
+ * @template T 节点数据类型
+ * @param params 包含节点信息的对象参数
+ * @param params.node 当前节点
+ * @param params.depth 节点深度（从0开始）
+ * @param params.path 从根节点到当前节点的路径数组
+ * @param params.index 节点在同级节点中的索引
+ * @returns 返回false可以终止遍历或跳过子节点
+ */
+type TreeVisitor<T = any> = (params: {
+  node: TreeNode<T>
+  depth: number
   path: readonly TreeNode<T>[]
-) => void | boolean
+  index: number
+}) => void | boolean
 
+/**
+ * 树形数据结构操作工具类
+ *
+ * 提供了一系列操作树形数据的静态方法，包括：
+ * - 查找：find, findAll, findById
+ * - 转换：fromList, toList, transform
+ * - 过滤：filter
+ * - 遍历：forEach
+ * - 统计：estimateSize, getStats
+ * - 修改：insertBefore, insertAfter, remove
+ * - 验证：validate
+ *
+ * 所有使用谓词函数或访问函数的方法都采用对象解构参数格式：
+ * `({ node, depth, path, index }) => boolean`
+ *
+ * @example
+ * ```ts
+ * const tree = [
+ *   {
+ *     id: '1',
+ *     name: '根节点',
+ *     children: [
+ *       { id: '2', name: '子节点1', children: [] },
+ *       { id: '3', name: '子节点2', children: [] }
+ *     ]
+ *   }
+ * ]
+ *
+ * // 查找节点
+ * const node = Tree.find(tree, ({ node }) => node.name === '子节点1')
+ *
+ * // 遍历所有节点
+ * Tree.forEach(tree, ({ node, depth }) => {
+ *   console.log(`${'  '.repeat(depth)}${node.name}`)
+ * })
+ *
+ * // 转换节点结构
+ * const transformed = Tree.transform(tree, ({ node, depth }) => ({
+ *   key: node.id,
+ *   title: node.name,
+ *   level: depth
+ * }))
+ * ```
+ */
 export class Tree {
   private static* dfsGenerator<T = any>(
     nodes: TreeNode<T>[],
@@ -160,7 +257,8 @@ export class Tree {
 
     // 初始化所有节点
     list.forEach((item: any) => {
-      const node = { ...item, [childrenKey]: [] } as TreeNode<T>
+      const { [childrenKey]: _, ...nodeData } = item
+      const node = { ...nodeData, [childrenKey]: [] } as TreeNode<T>
       nodeMap.set(item[idKey], node)
     })
 
@@ -281,7 +379,7 @@ export class Tree {
    * @param tree 树形结构（单个节点或节点数组）
    * @param predicate 查找条件函数
    * @param config 树形配置选项
-   * @returns 匹配的节点结果，包含节点、路径、深度和索引信息；未找到时返回undefined
+   * @returns 匹配的节点；未找到时返回undefined
    * @example
    * ```ts
    * const tree = [
@@ -294,16 +392,15 @@ export class Tree {
    *   }
    * ]
    *
-   * const result = Tree.find(tree, (node) => node.name === '部门1-1')
-   * console.log(result?.node.id) // '2'
-   * console.log(result?.depth) // 1
+   * const result = Tree.find(tree, ({ node }) => node.name === '部门1-1')
+   * console.log(result?.id) // '2'
    * ```
    */
   static find<T = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     predicate: TreePredicate<T>,
     config: TreeConfigInput = {},
-  ): TreeNodeResult<T> | undefined {
+  ): TreeNode<T> | undefined {
     const nodes = Array.isArray(tree) ? tree : [tree]
     const strategy = Tree.selectStrategy('find')
 
@@ -312,8 +409,8 @@ export class Tree {
       : Tree.bfsGenerator(nodes, config)
 
     for (const result of generator) {
-      if (predicate(result.node, result.depth, result.path)) {
-        return result
+      if (predicate({ node: result.node, depth: result.depth, path: result.path, index: result.index })) {
+        return result.node
       }
     }
     return undefined
@@ -326,7 +423,7 @@ export class Tree {
    * @param tree 树形结构（单个节点或节点数组）
    * @param predicate 查找条件函数
    * @param config 树形配置选项
-   * @returns 所有匹配的节点结果数组，每个结果包含节点、路径、深度和索引信息
+   * @returns 所有匹配的节点数组
    * @example
    * ```ts
    * const tree = [
@@ -341,7 +438,7 @@ export class Tree {
    *   }
    * ]
    *
-   * const files = Tree.findAll(tree, (node) => node.type === 'file')
+   * const files = Tree.findAll(tree, ({ node }) => node.type === 'file')
    * console.log(files.length) // 2
    * ```
    */
@@ -349,18 +446,18 @@ export class Tree {
     tree: TreeNode<T> | TreeNode<T>[],
     predicate: TreePredicate<T>,
     config: TreeConfigInput = {},
-  ): TreeNodeResult<T>[] {
+  ): TreeNode<T>[] {
     const nodes = Array.isArray(tree) ? tree : [tree]
     const strategy = Tree.selectStrategy('findAll')
-    const results: TreeNodeResult<T>[] = []
+    const results: TreeNode<T>[] = []
 
     const generator = strategy === 'dfs'
       ? Tree.dfsGenerator(nodes, config)
       : Tree.bfsGenerator(nodes, config)
 
     for (const result of generator) {
-      if (predicate(result.node, result.depth, result.path)) {
-        results.push(result)
+      if (predicate({ node: result.node, depth: result.depth, path: result.path, index: result.index })) {
+        results.push(result.node)
       }
     }
 
@@ -374,7 +471,7 @@ export class Tree {
    * @param tree 树形结构（单个节点或节点数组）
    * @param id 要查找的节点ID
    * @param config 树形配置选项
-   * @returns 匹配的节点结果，包含节点、路径、深度和索引信息；未找到时返回undefined
+   * @returns 匹配的节点；未找到时返回undefined
    * @example
    * ```ts
    * const tree = [
@@ -388,18 +485,18 @@ export class Tree {
    * ]
    *
    * const result = Tree.findById(tree, '2')
-   * console.log(result?.node.name) // '子节点'
+   * console.log(result?.name) // '子节点'
    * ```
    */
   static findById<T = any>(
     tree: TreeNode<T> | TreeNode<T>[],
     id: string,
     config: TreeConfigInput = {},
-  ): TreeNodeResult<T> | undefined {
+  ): TreeNode<T> | undefined {
     const validConfig = TreeConfigSchema.parse(config)
     const { id: idKey } = validConfig
 
-    return this.find(tree, node => node[idKey] === id, config)
+    return this.find(tree, ({ node }) => (node as any)[idKey] === id, config)
   }
 
   /**
@@ -470,7 +567,7 @@ export class Tree {
    *
    * @category Data Structures
    * @param tree 树形结构（单个节点或节点数组）
-   * @param predicate 过滤条件函数
+   * @param predicate 过滤条件函数，接收对象参数 {node, depth, path, index}
    * @param config 树形配置选项
    * @returns 过滤后的树形结构数组
    * @example
@@ -489,7 +586,7 @@ export class Tree {
    *   }
    * ]
    *
-   * const filtered = Tree.filter(tree, (node) => node.type === 'file')
+   * const filtered = Tree.filter(tree, ({ node }) => node.type === 'file')
    * // 返回包含所有文件节点及其父级路径的树结构
    * ```
    */
@@ -508,23 +605,25 @@ export class Tree {
       node: TreeNode<T>,
       depth: number,
       path: readonly TreeNode<T>[],
+      index: number = 0,
     ): TreeNode<T> | null => {
       const children = node[childrenKey]
       const filteredChildren: TreeNode<T>[] = []
 
       if (children && children.length > 0) {
         const newPath = [...path, node]
-        children.forEach((child: TreeNode<T>) => {
-          const filteredChild = traverse(child, depth + 1, newPath)
+        children.forEach((child: TreeNode<T>, childIndex: number) => {
+          const filteredChild = traverse(child, depth + 1, newPath, childIndex)
           if (filteredChild) {
             filteredChildren.push(filteredChild)
           }
         })
       }
 
-      if (predicate(node, depth, path) || filteredChildren.length > 0) {
+      if (predicate({ node, depth, path, index }) || filteredChildren.length > 0) {
+        const { [childrenKey]: _, ...nodeData } = node
         return {
-          ...node,
+          ...nodeData,
           [childrenKey]: filteredChildren,
         } as TreeNode<T>
       }
@@ -532,8 +631,8 @@ export class Tree {
       return null
     }
 
-    nodes.forEach((node) => {
-      const filtered = traverse(node, 0, [])
+    nodes.forEach((node, index) => {
+      const filtered = traverse(node, 0, [node], index)
       if (filtered) {
         results.push(filtered)
       }
@@ -547,7 +646,7 @@ export class Tree {
    *
    * @category Data Structures
    * @param tree 树形结构（单个节点或节点数组）
-   * @param transformer 节点转换函数
+   * @param transformer 节点转换函数，接收对象参数 {node, depth, path, index}
    * @param config 树形配置选项
    * @returns 转换后的树形结构数组
    * @example
@@ -562,7 +661,7 @@ export class Tree {
    *   }
    * ]
    *
-   * const transformed = Tree.transform(tree, (node, depth) => ({
+   * const transformed = Tree.transform(tree, ({ node, depth }) => ({
    *   key: node.id,
    *   title: node.name,
    *   level: depth
@@ -585,26 +684,28 @@ export class Tree {
       node: TreeNode<T>,
       depth: number,
       path: readonly TreeNode<T>[],
+      index: number = 0,
     ): TreeNode<R> => {
       const children = node[childrenKey]
       const transformedChildren: TreeNode<R>[] = []
 
       if (children && children.length > 0) {
         const newPath = [...path, node]
-        children.forEach((child: TreeNode<T>) => {
-          transformedChildren.push(traverse(child, depth + 1, newPath))
+        children.forEach((child: TreeNode<T>, childIndex: number) => {
+          transformedChildren.push(traverse(child, depth + 1, newPath, childIndex))
         })
       }
 
-      const transformed = transformer(node, depth, path)
+      const transformed = transformer({ node, depth, path, index })
+      const { [childrenKey]: _, ...transformedData } = transformed as any
       return {
-        ...transformed,
+        ...transformedData,
         [childrenKey]: transformedChildren,
       } as TreeNode<R>
     }
 
-    nodes.forEach((node) => {
-      results.push(traverse(node, 0, []))
+    nodes.forEach((node, index) => {
+      results.push(traverse(node, 0, [node], index))
     })
 
     return results
@@ -615,7 +716,7 @@ export class Tree {
    *
    * @category Data Structures
    * @param tree 树形结构（单个节点或节点数组）
-   * @param visitor 访问者函数，返回false可以跳过子节点的遍历
+   * @param visitor 访问者函数，接收对象参数 {node, depth, path, index}，返回false可以跳过子节点的遍历
    * @param config 树形配置选项
    * @example
    * ```ts
@@ -629,7 +730,7 @@ export class Tree {
    *   }
    * ]
    *
-   * Tree.forEach(tree, (node, depth) => {
+   * Tree.forEach(tree, ({ node, depth }) => {
    *   console.log(`${' '.repeat(depth * 2)}${node.name}`)
    *   // 输出缩进的树结构
    * })
@@ -640,30 +741,19 @@ export class Tree {
     visitor: TreeVisitor<T>,
     config: TreeConfigInput = {},
   ): void {
-    const validConfig = TreeConfigSchema.parse(config)
-    const { children: childrenKey } = validConfig
-
     const nodes = Array.isArray(tree) ? tree : [tree]
+    const strategy = Tree.selectStrategy('forEach')
 
-    const traverse = (
-      node: TreeNode<T>,
-      depth: number,
-      path: readonly TreeNode<T>[],
-    ) => {
-      const shouldContinue = visitor(node, depth, path)
+    const generator = strategy === 'dfs'
+      ? Tree.dfsGenerator(nodes, config)
+      : Tree.bfsGenerator(nodes, config)
 
-      if (shouldContinue !== false) {
-        const children = node[childrenKey]
-        if (children && children.length > 0) {
-          const newPath = [...path, node]
-          children.forEach((child: TreeNode<T>) => {
-            traverse(child, depth + 1, newPath)
-          })
-        }
+    for (const result of generator) {
+      const shouldContinue = visitor({ node: result.node, depth: result.depth, path: result.path, index: result.index })
+      if (shouldContinue === false) {
+        break
       }
     }
-
-    nodes.forEach(node => traverse(node, 0, []))
   }
 
   /**
@@ -700,7 +790,8 @@ export class Tree {
     const validConfig = TreeConfigSchema.parse(config)
     const { id: idKey, children: childrenKey } = validConfig
 
-    const newTreeNode = { ...newNode, [childrenKey]: [] } as TreeNode<T>
+    const { [childrenKey]: _, ...nodeData } = newNode as any
+    const newTreeNode = { ...nodeData, [childrenKey]: [] } as TreeNode<T>
 
     const traverse = (nodes: TreeNode<T>[], parentPath: readonly TreeNode<T>[]): boolean => {
       for (let i = 0; i < nodes.length; i++) {
@@ -759,7 +850,8 @@ export class Tree {
     const validConfig = TreeConfigSchema.parse(config)
     const { id: idKey, children: childrenKey } = validConfig
 
-    const newTreeNode = { ...newNode, [childrenKey]: [] } as TreeNode<T>
+    const { [childrenKey]: _, ...nodeData } = newNode as any
+    const newTreeNode = { ...nodeData, [childrenKey]: [] } as TreeNode<T>
 
     const traverse = (nodes: TreeNode<T>[], parentPath: readonly TreeNode<T>[]): boolean => {
       for (let i = 0; i < nodes.length; i++) {

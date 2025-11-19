@@ -2,7 +2,7 @@
   "name": "@movk/core",
   "type": "module",
   "version": "0.0.5",
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.22.0",
   "description": "Modern Vue.js utilities and composables collection with TypeScript support",
   "author": "yixuan",
   "license": "MIT",
@@ -27,13 +27,7 @@
     }
   },
   "main": "./dist/index.mjs",
-  "typesVersions": {
-    "*": {
-      ".": [
-        "./dist/index.d.mts"
-      ]
-    }
-  },
+  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
@@ -41,33 +35,32 @@
     "build": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint .",
-    "lint:fix": "pnpm run lint --fix",
-    "prepublishOnly": "pnpm run build",
-    "release": "release-it --verbose",
+    "lint:fix": "eslint . --fix",
+    "prepack": "pnpm run build",
+    "release": "release-it",
     "start": "tsx src/index.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
-    "up": "taze major -wIr",
     "clean": "find . -name 'node_modules' -type d -prune -execdir rm -rf '{}' +"
   },
   "peerDependencies": {
-    "vue": "catalog:"
+    "vue": "^3.5.21"
   },
   "dependencies": {
-    "@vueuse/core": "catalog:",
-    "zod": "catalog:"
+    "@vueuse/core": "^14.0.0",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "catalog:",
-    "@release-it/conventional-changelog": "catalog:",
-    "@types/node": "catalog:",
-    "eslint": "catalog:",
-    "release-it": "catalog:",
-    "taze": "catalog:",
-    "tsx": "catalog:",
-    "typescript": "catalog:",
-    "unbuild": "catalog:",
-    "vite": "catalog:",
-    "vitest": "catalog:"
+    "@antfu/eslint-config": "^6.2.0",
+    "@release-it/bumper": "^7.0.5",
+    "@release-it/conventional-changelog": "^10.0.2",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "release-it": "^19.0.6",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "unbuild": "^3.6.1",
+    "vite": "^7.2.2",
+    "vitest": "^4.0.10"
   }
 }
