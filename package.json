@@ -37,7 +37,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepack": "pnpm run build",
-    "release": "release-it",
+    "release": "release-it && npm publish --access public",
     "start": "tsx src/index.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
