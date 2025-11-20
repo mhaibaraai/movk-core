@@ -3,10 +3,10 @@
   "type": "module",
   "version": "0.0.5",
   "packageManager": "pnpm@10.22.0",
-  "description": "Modern Vue.js utilities and composables collection with TypeScript support",
-  "author": "yixuan",
+  "description": "一个为现代 Vue.js 应用量身打造的高性能实用工具与组合式函数集合。",
+  "author": "YiXuan <mhaibaraai@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/mhaibaraai/movk-core",
+  "homepage": "https://core.mhaibaraai.cn",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mhaibaraai/movk-core.git"
@@ -32,7 +32,7 @@
     "dist"
   ],
   "scripts": {
-    "postinstall": "cd docs && nr prepare",
+    "postinstall": "nr dev && cd docs && nr prepare",
     "build": "unbuild",
     "dev": "unbuild --stub",
     "docs": "cd docs && nr dev",
