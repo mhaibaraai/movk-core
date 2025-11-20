@@ -32,16 +32,19 @@
     "dist"
   ],
   "scripts": {
+    "postinstall": "cd docs && nr prepare",
     "build": "unbuild",
     "dev": "unbuild --stub",
+    "docs": "cd docs && nr dev",
+    "docs:build": "cd docs && nr build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepack": "pnpm run build",
+    "prepack": "nr build",
     "release": "release-it && npm publish --access public",
     "start": "tsx src/index.ts",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && cd docs && nr typecheck",
     "test": "vitest",
-    "clean": "find . -name 'node_modules' -type d -prune -execdir rm -rf '{}' +"
+    "clean": "tsx scripts/rm.ts"
   },
   "peerDependencies": {
     "vue": "^3.5.21"
@@ -52,6 +55,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.2.0",
+    "@antfu/ni": "^27.0.1",
     "@release-it/bumper": "^7.0.5",
     "@release-it/conventional-changelog": "^10.0.2",
     "@types/node": "^24.10.1",

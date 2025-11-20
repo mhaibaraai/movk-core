@@ -16,9 +16,9 @@
   },
   "hooks": {
     "before:init": [
-      "pnpm lint",
-      "pnpm typecheck",
-      "pnpm test"
+      "nr lint",
+      "nr typecheck",
+      "nr test"
     ],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },
