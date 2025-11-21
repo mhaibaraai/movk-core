@@ -2,7 +2,7 @@
   "name": "@movk/core",
   "type": "module",
   "version": "0.0.5",
-  "packageManager": "pnpm@10.22.0",
+  "packageManager": "pnpm@10.23.0",
   "description": "一个为现代 Vue.js 应用量身打造的高性能实用工具与组合式函数集合。",
   "author": "YiXuan <mhaibaraai@gmail.com>",
   "license": "MIT",
@@ -65,7 +65,7 @@
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "unbuild": "^3.6.1",
-    "vite": "^7.2.2",
-    "vitest": "^4.0.10"
+    "vite": "^7.2.4",
+    "vitest": "^4.0.12"
   }
 }

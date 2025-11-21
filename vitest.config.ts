@@ -2,11 +2,8 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   test: {
+    testTimeout: 1000,
     globals: true,
-    environment: 'jsdom',
-    coverage: {
-      provider: 'v8',
-      reporter: ['text', 'json', 'html'],
-    },
+    silent: true,
   },
 })
