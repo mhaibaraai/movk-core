@@ -58,3 +58,7 @@ async function downloadAsPng() {
   返回一个解析为 PNG 格式 `Blob` 对象的 Promise。如果转换失败，Promise 将会 `reject`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/file"}

@@ -98,3 +98,7 @@ activeTree 将会是:
   返回一个新的、经过过滤的树数组。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

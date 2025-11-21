@@ -56,3 +56,7 @@ async function getColoredIcon() {
   返回一个解析为处理后（或原始）SVG 字符串的 Promise。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/file"}

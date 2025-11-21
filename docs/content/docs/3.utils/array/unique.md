@@ -44,3 +44,7 @@ const uniqueStrings = unique(strings)
   返回一个不含重复元素的新数组。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/array"}

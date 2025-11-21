@@ -48,3 +48,7 @@ setPath(user, 'posts[2].title', 'My Third Post')
   要设置的值。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/path"}

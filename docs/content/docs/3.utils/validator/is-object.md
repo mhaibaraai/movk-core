@@ -41,3 +41,7 @@ isObject('hello')    //=> false
   如果值为对象（且非 `null`、非数组），则返回 `true`，否则返回 `false`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/validator"}

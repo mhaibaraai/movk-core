@@ -46,3 +46,7 @@ const cleanedData = omitUndefined(data)
   返回一个不包含 `undefined` 值属性的新对象。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/object"}

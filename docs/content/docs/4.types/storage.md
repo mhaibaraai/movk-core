@@ -80,3 +80,7 @@ export function createStorageConfigSchema<T = unknown>(schema: z.ZodType<T>) {
   })
 }
 ```
+
+## Changelog
+
+:commit-changelog{prefix="types"}

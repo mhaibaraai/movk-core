@@ -49,3 +49,7 @@ const publicUser = pick(user, ['id', 'name', 'email'])
   返回一个只包含指定键的新对象。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/object"}

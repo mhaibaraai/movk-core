@@ -41,3 +41,7 @@ kebabCase('XMLHttpRequest') //=> 'xml-http-request'
   返回短横线式格式的字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/string"}

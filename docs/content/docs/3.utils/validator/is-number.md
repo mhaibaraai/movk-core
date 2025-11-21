@@ -41,3 +41,7 @@ isNumber('123')     //=> false
   如果值为有效的数字（非 `NaN`），则返回 `true`，否则返回 `false`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/validator"}

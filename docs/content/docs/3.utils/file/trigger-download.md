@@ -39,3 +39,7 @@ triggerDownload(textBlob, 'greeting.txt')
   下载时建议使用的文件名。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/file"}

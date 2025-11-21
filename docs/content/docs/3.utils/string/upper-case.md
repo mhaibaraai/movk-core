@@ -41,3 +41,7 @@ upperCase('XMLHttpRequest') //=> 'XML HTTP REQUEST'
   返回大写格式的字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/string"}

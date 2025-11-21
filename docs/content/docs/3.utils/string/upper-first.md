@@ -39,3 +39,7 @@ upperFirst('FOO BAR') //=> 'FOO BAR'
   返回首字母大写的字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/string"}

@@ -41,3 +41,7 @@ words('XMLHttpRequest') //=> ['XML', 'Http', 'Request']
   返回一个包含从输入字符串中提取的单词的数组。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/string"}

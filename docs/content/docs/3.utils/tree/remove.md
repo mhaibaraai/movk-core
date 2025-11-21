@@ -67,3 +67,7 @@ tree 将会是:
   如果成功找到并移除了节点，则返回 `true`，否则返回 `false`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

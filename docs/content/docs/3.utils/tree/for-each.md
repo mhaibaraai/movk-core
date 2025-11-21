@@ -87,3 +87,7 @@ Tree.forEach(tree, ({ node }) => {
   ::
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

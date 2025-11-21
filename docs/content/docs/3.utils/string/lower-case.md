@@ -41,3 +41,7 @@ lowerCase('XMLHttpRequest') //=> 'xml http request'
   返回小写格式的字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/string"}

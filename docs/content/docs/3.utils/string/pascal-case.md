@@ -41,3 +41,7 @@ pascalCase('XMLHttpRequest')//=> 'XmlHttpRequest'
   返回帕斯卡式格式的字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/string"}

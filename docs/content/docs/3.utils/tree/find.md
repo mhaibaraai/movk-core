@@ -85,3 +85,7 @@ const node = Tree.find(tree, ({ node }) => node.name === 'B')
   返回找到的第一个节点，如果未找到则返回 `undefined`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

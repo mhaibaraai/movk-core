@@ -46,3 +46,7 @@ const deepKebab = convertToKebabCase(obj, true)
   是否进行深度转换。默认为 `false`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/object"}

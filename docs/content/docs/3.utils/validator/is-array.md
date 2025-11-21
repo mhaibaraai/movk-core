@@ -40,3 +40,7 @@ isArray({})         //=> false
   如果值为数组，则返回 `true`，否则返回 `false`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/validator"}

@@ -86,3 +86,7 @@ tree 将会是:
   返回一个树形结构的节点数组。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

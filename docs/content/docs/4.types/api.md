@@ -55,3 +55,7 @@ type MyFn = () => Promise<string>
 // R is string
 type R = ApiAwaitedReturn<MyFn>
 ```
+
+## Changelog
+
+:commit-changelog{prefix="types"}

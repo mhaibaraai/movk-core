@@ -77,3 +77,7 @@ list 将会是:
   返回一个扁平的节点数组。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

@@ -49,3 +49,7 @@ const flat2 = flatten(nested, 2)
   返回一个扁平化处理后的新数组。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/array"}

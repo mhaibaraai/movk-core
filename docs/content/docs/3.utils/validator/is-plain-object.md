@@ -41,3 +41,7 @@ isPlainObject([])           //=> false
   如果值为纯对象，则返回 `true`，否则返回 `false`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/validator"}

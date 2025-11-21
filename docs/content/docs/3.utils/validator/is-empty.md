@@ -50,3 +50,7 @@ isEmpty([1])        //=> false
   如果值被视为空，则返回 `true`，否则返回 `false`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/validator"}

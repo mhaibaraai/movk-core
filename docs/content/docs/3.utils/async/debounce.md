@@ -50,3 +50,7 @@ debouncedSearch('nuxt') // 只会输出 "正在搜索: nuxt"
   返回一个经过防抖处理的新函数。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/async"}

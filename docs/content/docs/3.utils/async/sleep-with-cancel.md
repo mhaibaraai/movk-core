@@ -55,3 +55,7 @@ try {
   一个无参数函数，调用它会立即 `reject` 对应的 `promise`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/async"}

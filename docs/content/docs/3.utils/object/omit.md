@@ -49,3 +49,7 @@ const userWithoutPassword = omit(user, ['password'])
   返回一个不包含指定键的新对象。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/object"}

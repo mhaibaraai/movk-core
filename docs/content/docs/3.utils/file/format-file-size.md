@@ -42,3 +42,7 @@ formatFileSize(0)         //=> '0 Bytes'
   返回格式化后的文件大小字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/file"}

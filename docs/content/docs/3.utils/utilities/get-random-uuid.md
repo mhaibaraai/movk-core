@@ -22,17 +22,29 @@ const userId = getRandomUUID()
 //=> "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d" (示例)
 
 const transactionId = `txn_${getRandomUUID()}`
-//=> "txn_f1e2d3c4-b5a6-4f7e-8d9c-0a1b2c3d4e5f" (示例)
+//=> "txn_f1e2d3c4-b5a6-4f7e-d9c-0a1b2c3d4e5f" (示例)
 ```
 
 ### API
 
 `getRandomUUID(): string`{lang="ts-type"}
 
+#### 参数
+
+::field-group
+  ::field{name="str" type="string" required}
+  需要进行哈希计算的源字符串。
+  ::
+::
+
 #### 返回值
 
 ::field-group
   ::field{name="string"}
-  返回一个符合 UUID v4 格式的随机字符串。
+  返回一个由 32 位哈希值转换而来的 36 进制字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/utilities"}

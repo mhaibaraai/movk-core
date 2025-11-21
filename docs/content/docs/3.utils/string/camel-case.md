@@ -41,3 +41,7 @@ camelCase('XMLHttpRequest') //=> 'xmlHttpRequest'
   返回驼峰式格式的字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/string"}

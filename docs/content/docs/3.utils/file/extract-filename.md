@@ -55,3 +55,7 @@ async function downloadFile(url: string) {
   返回提取到的文件名或备用文件名。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/file"}

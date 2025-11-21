@@ -41,3 +41,7 @@ startCase('XMLHttpRequest') //=> 'XML Http Request'
   返回标题式格式的字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/string"}

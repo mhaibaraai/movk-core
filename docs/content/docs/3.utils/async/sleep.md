@@ -44,3 +44,7 @@ showMessageWithDelay()
   返回一个在指定时间后完成的 Promise。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/async"}

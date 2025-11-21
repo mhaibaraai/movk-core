@@ -242,3 +242,7 @@ type T1 = GetFieldValue<User, 'tags'>
 // T2 is string
 type T2 = GetFieldValue<User, 'profile.bio'>
 ```
+
+## Changelog
+
+:commit-changelog{prefix="types"}

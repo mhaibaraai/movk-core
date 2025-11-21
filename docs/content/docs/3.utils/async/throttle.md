@@ -47,3 +47,7 @@ window.addEventListener('scroll', throttledScrollHandler)
   返回一个经过节流处理的新函数。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/async"}

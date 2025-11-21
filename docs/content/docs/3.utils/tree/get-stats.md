@@ -74,3 +74,7 @@ stats 将会是:
   返回一个包含 `total`, `leafCount`, `maxDepth`, `minDepth` 属性的统计对象。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

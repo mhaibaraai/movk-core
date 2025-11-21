@@ -39,3 +39,7 @@ lowerFirst('FOO BAR') //=> 'fOO BAR'
   返回首字母小写的字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/string"}

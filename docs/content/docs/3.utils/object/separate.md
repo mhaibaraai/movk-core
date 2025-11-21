@@ -51,3 +51,7 @@ const { picked, omitted } = separate(user, ['id', 'name'])
   返回一个包含 `picked` 和 `omitted` 两个属性的对象。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/object"}

@@ -53,3 +53,7 @@ console.log(hash1) //=> "nf5xd4"
   返回一个由 32 位哈希值转换而来的 36 进制字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/utilities"}

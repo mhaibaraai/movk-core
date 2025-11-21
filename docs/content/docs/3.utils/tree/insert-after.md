@@ -71,3 +71,7 @@ tree 将会是:
   如果成功找到目标并插入新节点，则返回 `true`，否则返回 `false`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

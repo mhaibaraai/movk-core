@@ -50,3 +50,7 @@ console.log(cloned.self === cloned) // true
   返回一个与源对象结构相同但完全独立的新对象。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/object"}

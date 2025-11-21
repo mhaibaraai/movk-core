@@ -59,3 +59,7 @@ getPath(user, 'profile.age', 30) //=> 30
   当路径解析结果为 `undefined` 时返回的默认值。注意，如果路径值为 `null`，将直接返回 `null` 而不是默认值。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/path"}

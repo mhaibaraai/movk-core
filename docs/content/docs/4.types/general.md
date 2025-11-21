@@ -60,3 +60,7 @@ type MaybeString = string | null | undefined
 // Result is string
 type Result = StripNullable<MaybeString>
 ```
+
+## Changelog
+
+:commit-changelog{prefix="types"}

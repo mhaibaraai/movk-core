@@ -41,3 +41,7 @@ snakeCase('XMLHttpRequest') //=> 'xml_http_request'
   返回下划线式格式的字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/string"}

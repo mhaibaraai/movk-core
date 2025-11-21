@@ -85,3 +85,7 @@ const folders = Tree.findAll(tree, ({ node }) => node.type === 'folder')
   返回一个包含所有匹配节点的数组。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

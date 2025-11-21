@@ -57,3 +57,7 @@ const { meta, data, others } = separateMany(options, {
   返回一个包含所有分组对象以及一个 `others` 对象的聚合对象。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/object"}

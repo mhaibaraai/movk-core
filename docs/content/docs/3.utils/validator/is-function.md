@@ -40,3 +40,7 @@ isFunction({})          //=> false
   如果值为函数，则返回 `true`，否则返回 `false`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/validator"}

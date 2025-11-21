@@ -64,3 +64,7 @@ const node = Tree.findById(tree, 2)
   返回找到的节点，如果未找到则返回 `undefined`。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

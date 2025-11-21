@@ -47,3 +47,7 @@ const chunksOf2 = chunk(data, 2)
   返回一个包含分块后数组的二维数组。如果无法平均分割，最后一个块将包含剩余的元素。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/array"}

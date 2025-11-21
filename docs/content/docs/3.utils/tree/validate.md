@@ -76,3 +76,7 @@ try {
 #### 返回值
 
 如果树结构无效，此方法会抛出一个 `Error`。
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

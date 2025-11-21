@@ -100,3 +100,7 @@ transformedTree 将会是:
   返回转换后的新树形结构数组。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/tree"}

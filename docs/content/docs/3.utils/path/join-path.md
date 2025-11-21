@@ -39,3 +39,7 @@ joinPath(['a', 'key with.dot']) //=> "a['key with.dot']"
   返回组合后的路径字符串。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/path"}

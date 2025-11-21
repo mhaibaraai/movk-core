@@ -39,3 +39,7 @@ toPath("a['key with.dot']") //=> ['a', 'key with.dot']
   返回解析后的片段数组。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="utils/path"}
