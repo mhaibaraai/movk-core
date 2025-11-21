@@ -1,6 +1,10 @@
 ---
 title: replaceCurrentColor
 description: 获取一个 SVG 文件，并将其中的 currentColor 属性替换为指定的颜色。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/file/replaceCurrentColor.ts
 ---
 
 ## `replaceCurrentColor`

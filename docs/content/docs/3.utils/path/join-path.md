@@ -1,6 +1,10 @@
 ---
 title: joinPath
 description: 将一个片段数组组合回一个规范化的路径字符串。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/object/path.ts
 ---
 
 ## `joinPath`

@@ -1,6 +1,10 @@
 ---
 title: debounce
 description: 创建一个防抖函数，在特定延迟后执行。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/async/debounce.ts
 ---
 
 ## `debounce`

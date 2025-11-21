@@ -1,4 +1,7 @@
 export default defineAppConfig({
+  header: {
+    title: 'Movk Core'
+  },
   github: {
     rootDir: 'docs'
   },
@@ -8,8 +11,8 @@ export default defineAppConfig({
     },
     prose: {
       codeIcon: {
-        source: 'i-lucide-file-code-2',
-        example: 'i-lucide-box',
+        source: 'i-lucide-file-code',
+        example: 'i-lucide-app-window-mac',
       }
     }
   },

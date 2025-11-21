@@ -1,6 +1,10 @@
 ---
 title: filter
 description: 根据 `predicate` 过滤树，只保留满足条件的节点及其所有父节点。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
 ---
 
 ## `filter`

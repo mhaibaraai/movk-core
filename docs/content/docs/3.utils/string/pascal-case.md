@@ -1,6 +1,10 @@
 ---
 title: pascalCase
 description: 将字符串转换为帕斯卡式 (HelloWorld)。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
 ---
 
 ## `pascalCase`

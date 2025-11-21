@@ -1,6 +1,10 @@
 ---
 title: isValidContainer
 description: 检查一个值是否为有效的容器（对象或数组）。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/object/path.ts
 ---
 
 ## `isValidContainer`

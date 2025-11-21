@@ -1,6 +1,10 @@
 ---
 title: General
 description: 一组通用的高级工具类型。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/types/general.ts
 ---
 
 ## `Suggest<T>`

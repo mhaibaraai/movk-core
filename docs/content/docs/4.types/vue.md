@@ -1,6 +1,10 @@
 ---
 title: Vue
 description: 一组用于从 Vue 组件中提取类型信息的辅助类型。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/types/vue.ts
 ---
 
 这些类型主要用于在 TypeScript 环境下更精确地推断 Vue 组件的 `props`、`slots`、`emits` 等。

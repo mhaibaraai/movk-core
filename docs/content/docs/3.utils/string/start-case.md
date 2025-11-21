@@ -1,6 +1,10 @@
 ---
 title: startCase
 description: 将字符串转换为标题式 (Hello World)。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
 ---
 
 ## `startCase`

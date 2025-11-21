@@ -1,6 +1,10 @@
 ---
 title: getPath
 description: 安全地获取一个对象中深层嵌套的属性值。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/object/path.ts
 ---
 
 ## `getPath`

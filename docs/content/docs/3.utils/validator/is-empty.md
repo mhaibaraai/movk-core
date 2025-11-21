@@ -1,6 +1,10 @@
 ---
 title: isEmpty
 description: 检查一个值是否为空（null、undefined、空字符串、空数组、空对象）。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/validator/index.ts
 ---
 
 ## `isEmpty`

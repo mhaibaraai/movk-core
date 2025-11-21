@@ -1,6 +1,10 @@
 ---
 title: words
 description: 将字符串分解为单词数组。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/words.ts
 ---
 
 ## `words`

@@ -1,6 +1,10 @@
 ---
 title: isObject
 description: 检查一个值是否为对象，并排除 null 和数组。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/validator/index.ts
 ---
 
 ## `isObject`

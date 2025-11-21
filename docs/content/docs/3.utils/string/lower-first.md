@@ -1,6 +1,10 @@
 ---
 title: lowerFirst
 description: 仅将字符串的第一个字母转换为小写。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
 ---
 
 ## `lowerFirst`

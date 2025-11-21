@@ -1,6 +1,10 @@
 ---
 title: getRandomUUID
 description: 生成一个符合 RFC 4122 v4 规范的通用唯一标识符 (UUID)。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/utilities/uuid.ts
 ---
 
 ## `getRandomUUID`

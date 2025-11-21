@@ -1,6 +1,10 @@
 ---
 title: getStats
 description: 获取关于树的统计信息，如总节点数、叶子节点数、深度等。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
 ---
 
 ## `getStats`

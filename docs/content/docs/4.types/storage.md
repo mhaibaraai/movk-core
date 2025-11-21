@@ -1,6 +1,10 @@
 ---
 title: Storage
 description: 与 useAppStorage 组合式函数相关的类型和 Zod schema。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/types/storage.ts
 ---
 
 ## `StorageType`

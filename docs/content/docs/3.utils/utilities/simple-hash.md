@@ -1,6 +1,10 @@
 ---
 title: simpleHash
 description: 生成一个字符串的简短、稳定的哈希值。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/utilities/simple-hash.ts
 ---
 
 ## `simpleHash`

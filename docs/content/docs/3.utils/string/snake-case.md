@@ -1,6 +1,10 @@
 ---
 title: snakeCase
 description: 将字符串转换为下划线式 (hello_world)。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
 ---
 
 ## `snakeCase`

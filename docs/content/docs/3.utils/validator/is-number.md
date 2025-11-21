@@ -1,6 +1,10 @@
 ---
 title: isNumber
 description: 检查一个值是否为数字，并排除 NaN。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/validator/index.ts
 ---
 
 ## `isNumber`

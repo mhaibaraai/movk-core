@@ -1,6 +1,10 @@
 ---
 title: camelCase
 description: 将字符串转换为驼峰式 (helloWorld)。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
 ---
 
 ## `camelCase`

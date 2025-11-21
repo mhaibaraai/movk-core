@@ -1,6 +1,10 @@
 ---
 title: convertSvgToPng
 description: 将 SVG 字符串转换为 PNG 格式的 Blob 对象。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/file/convertSvgToPng.ts
 ---
 
 ## `convertSvgToPng`

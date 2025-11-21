@@ -1,6 +1,10 @@
 ---
 title: chunk
 description: 将数组分割成指定大小的块。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/array/operations.ts
 ---
 
 ## `chunk`

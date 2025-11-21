@@ -1,6 +1,10 @@
 ---
 title: forEach
 description: 遍历树中的每一个节点，并执行 `visitor` 函数。`visitor` 函数可以返回 `false` 来提前终止整个遍历。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
 ---
 
 ## `forEach`

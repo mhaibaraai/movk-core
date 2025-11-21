@@ -1,6 +1,10 @@
 ---
 title: fromList
 description: 将一个扁平的、包含父子关系（通过 `pid`）的数组转换为树形结构。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
 ---
 
 ## `fromList`

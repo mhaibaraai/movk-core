@@ -1,6 +1,10 @@
 ---
 title: useAppStorage
 description: 一个用于管理 localStorage 和 sessionStorage 的组合式函数，内置了 Zod schema 验证。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/composables/useAppStorage.ts
 ---
 
 ## 用法

@@ -1,6 +1,10 @@
 ---
 title: throttle
 description: 创建一个节流函数，在指定时间间隔内最多只执行一次。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/async/throttle.ts
 ---
 
 ## `throttle`

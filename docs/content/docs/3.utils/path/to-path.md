@@ -1,6 +1,10 @@
 ---
 title: toPath
 description: 将一个路径字符串解析为一个由字符串键和数字索引组成的片段数组。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/object/path.ts
 ---
 
 ## `toPath`

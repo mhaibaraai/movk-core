@@ -1,6 +1,10 @@
 ---
 title: useCopyCode
 description: 一个用于将文本复制到剪贴板的组合式函数，支持现代 Clipboard API 并优雅地回退到传统方法。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/composables/useCopyCode.ts
 ---
 
 ## 用法

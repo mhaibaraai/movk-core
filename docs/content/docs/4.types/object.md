@@ -1,6 +1,10 @@
 ---
 title: Object
 description: 一系列用于在类型级别操作和转换对象的高级工具类型。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/types/object.ts
 ---
 
 ## `OmitByKey<T, K>`

@@ -1,6 +1,10 @@
 ---
 title: omit
 description: 从一个对象中排除一组指定的键，并返回一个不包含这些键值对的新对象。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/object/omit.ts
 ---
 
 ## `omit`

@@ -1,6 +1,10 @@
 ---
 title: unique
 description: 移除数组中的重复元素。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/array/operations.ts
 ---
 
 ## `unique`

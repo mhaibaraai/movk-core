@@ -1,6 +1,10 @@
 ---
 title: separate
 description: 根据一组键将一个对象分离成两个对象。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/object/separate.ts
 ---
 
 ## `separate`

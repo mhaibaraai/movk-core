@@ -1,6 +1,10 @@
 ---
 title: deepClone
 description: 深拷贝任意 JavaScript 值，包括循环引用和各种内建类型。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/object/deepClone.ts
 ---
 
 ## `deepClone`

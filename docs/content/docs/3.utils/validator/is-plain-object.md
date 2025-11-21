@@ -1,6 +1,10 @@
 ---
 title: isPlainObject
 description: 检查一个值是否为“纯”对象（由 {} 或 new Object() 创建）。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/validator/index.ts
 ---
 
 ## `isPlainObject`

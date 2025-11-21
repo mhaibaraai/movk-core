@@ -1,6 +1,10 @@
 ---
 title: insertBefore
 description: 在目标节点之前插入一个新节点。 (此方法会**原地修改**传入的树数组)
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
 ---
 
 ## `insertBefore`

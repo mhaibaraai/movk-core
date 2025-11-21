@@ -1,6 +1,10 @@
 ---
 title: convertToKebabCase
 description: 将一个对象的所有键名（或仅第一层键名）从驼峰式（camelCase）转换为短横线式（kebab-case）。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/object/convert.ts
 ---
 
 ## `convertToKebabCase`

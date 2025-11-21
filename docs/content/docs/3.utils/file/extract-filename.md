@@ -1,6 +1,10 @@
 ---
 title: extractFilename
 description: 从 fetch 请求的 Headers 对象中提取 content-disposition 头里的文件名。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/file/download.ts
 ---
 
 ## `extractFilename`

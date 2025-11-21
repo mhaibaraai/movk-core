@@ -1,6 +1,10 @@
 ---
 title: toList
 description: 将树形结构转换回扁平数组。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
 ---
 
 ## `toList`

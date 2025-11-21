@@ -1,6 +1,10 @@
 ---
 title: separateMany
 description: 根据多个分组规则将对象分离成多个部分。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/object/separate.ts
 ---
 
 ## `separateMany`

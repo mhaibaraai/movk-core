@@ -1,6 +1,10 @@
 ---
 title: setPath
 description: 根据路径在一个对象中设置深层嵌套的属性值。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/object/path.ts
 ---
 
 ## `setPath`

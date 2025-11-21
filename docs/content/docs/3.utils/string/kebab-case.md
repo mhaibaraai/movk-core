@@ -1,6 +1,10 @@
 ---
 title: kebabCase
 description: 将字符串转换为短横线式 (hello-world)。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
 ---
 
 ## `kebabCase`

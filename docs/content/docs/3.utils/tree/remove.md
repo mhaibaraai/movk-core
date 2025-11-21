@@ -1,6 +1,10 @@
 ---
 title: remove
 description: 根据 `id` 从树中移除一个节点及其所有子节点。 (此方法会**原地修改**传入的树数组)
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
 ---
 
 ## `remove`

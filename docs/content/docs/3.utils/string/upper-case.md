@@ -1,6 +1,10 @@
 ---
 title: upperCase
 description: 将字符串转换为全大写，单词间用空格分隔 (HELLO WORLD)。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
 ---
 
 ## `upperCase`

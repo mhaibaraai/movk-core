@@ -1,6 +1,10 @@
 ---
 title: validate
 description: 验证树的结构是否有效，检查重复 ID 和循环引用。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
 ---
 
 ## `validate`

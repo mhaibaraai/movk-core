@@ -1,6 +1,10 @@
 ---
 title: sleepWithCancel
 description: 创建一个可取消的延迟。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/async/sleep.ts
 ---
 
 ## `sleepWithCancel`

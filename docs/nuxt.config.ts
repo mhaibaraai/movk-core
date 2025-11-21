@@ -1,6 +1,11 @@
+import { fileURLToPath } from 'node:url'
+
 export default defineNuxtConfig({
   extends: ['@movk/nuxt-docs'],
   css: ['~/assets/css/main.css'],
+  alias: {
+    '@movk/core': fileURLToPath(new URL('../src/index.ts', import.meta.url))
+  },
   site: {
     name: 'Movk Core',
     url: 'https://core.mhaibaraai.cn',

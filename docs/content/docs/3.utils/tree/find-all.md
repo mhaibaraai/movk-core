@@ -1,6 +1,10 @@
 ---
 title: findAll
 description: 查找并返回所有满足 `predicate` 条件的节点。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
 ---
 
 ## `findAll`

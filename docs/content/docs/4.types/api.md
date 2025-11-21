@@ -1,6 +1,10 @@
 ---
 title: API
 description: 一组用于处理异步函数和 Promise 的工具类型。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/types/api.ts
 ---
 
 ## `ApiAwaitable<T>`

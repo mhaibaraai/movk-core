@@ -1,6 +1,10 @@
 ---
 title: flatten
 description: 将嵌套数组展平到指定深度。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/array/operations.ts
 ---
 
 ## `flatten`

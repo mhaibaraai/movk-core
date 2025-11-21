@@ -1,6 +1,10 @@
 ---
 title: sleep
 description: 返回一个在指定时间后解析的 Promise，用于创建延迟。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/async/sleep.ts
 ---
 
 ## `sleep`

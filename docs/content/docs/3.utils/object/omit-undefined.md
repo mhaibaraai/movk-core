@@ -1,6 +1,10 @@
 ---
 title: omitUndefined
 description: 创建一个新对象，其中排除了所有值为 undefined 的属性。
+links:
+  - label: GitHub
+    icon: i-lucide-github
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/object/omit.ts
 ---
 
 ## `omitUndefined`
