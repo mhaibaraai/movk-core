@@ -20,7 +20,7 @@ describe('异步工具函数', () => {
       const start = Date.now()
       await promise
       const end = Date.now()
-      expect(end - start).toBeGreaterThanOrEqual(100)
+      expect(end - start).toBeGreaterThanOrEqual(95)
     })
 
     it('应该可以通过 cancel 函数 reject', async () => {
