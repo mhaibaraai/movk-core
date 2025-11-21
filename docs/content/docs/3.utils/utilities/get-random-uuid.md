@@ -19,10 +19,10 @@ links:
 import { getRandomUUID } from '@movk/core'
 
 const userId = getRandomUUID()
-//=> "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d" (示例)
+// => "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d" (示例)
 
 const transactionId = `txn_${getRandomUUID()}`
-//=> "txn_f1e2d3c4-b5a6-4f7e-d9c-0a1b2c3d4e5f" (示例)
+// => "txn_f1e2d3c4-b5a6-4f7e-d9c-0a1b2c3d4e5f" (示例)
 ```
 
 ### API

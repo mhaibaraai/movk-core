@@ -21,14 +21,14 @@ links:
 ```ts
 import { isEmpty } from '@movk/core'
 
-isEmpty(null)       //=> true
-isEmpty('')         //=> true
-isEmpty([])         //=> true
-isEmpty({})         //=> true
+isEmpty(null) // => true
+isEmpty('') // => true
+isEmpty([]) // => true
+isEmpty({}) // => true
 
-isEmpty(0)          //=> false
-isEmpty('hello')    //=> false
-isEmpty([1])        //=> false
+isEmpty(0) // => false
+isEmpty('hello') // => false
+isEmpty([1]) // => false
 ```
 
 ### API

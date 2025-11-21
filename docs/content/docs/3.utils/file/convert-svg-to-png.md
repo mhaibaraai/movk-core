@@ -26,14 +26,15 @@ async function downloadAsPng() {
   try {
     const pngBlob = await convertSvgToPng(svg)
     const url = URL.createObjectURL(pngBlob)
-    
+
     // 你可以将其用于下载或显示
     const link = document.createElement('a')
     link.href = url
     link.download = 'circle.png'
     link.click()
     URL.revokeObjectURL(url)
-  } catch (error) {
+  }
+  catch (error) {
     console.error('SVG 转换失败:', error)
   }
 }

@@ -16,10 +16,10 @@ links:
 ```ts
 import { snakeCase } from '@movk/core'
 
-snakeCase('firstName')      //=> 'first_name'
-snakeCase('First Name')     //=> 'first_name'
-snakeCase('first-name')     //=> 'first_name'
-snakeCase('XMLHttpRequest') //=> 'xml_http_request'
+snakeCase('firstName') // => 'first_name'
+snakeCase('First Name') // => 'first_name'
+snakeCase('first-name') // => 'first_name'
+snakeCase('XMLHttpRequest') // => 'xml_http_request'
 ```
 
 ### API

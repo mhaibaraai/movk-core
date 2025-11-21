@@ -16,10 +16,10 @@ links:
 ```ts
 import { isPlainObject } from '@movk/core'
 
-isPlainObject({})         //=> true
-isPlainObject(new Object()) //=> true
-isPlainObject(new Date())   //=> false
-isPlainObject([])           //=> false
+isPlainObject({}) // => true
+isPlainObject(new Object()) // => true
+isPlainObject(new Date()) // => false
+isPlainObject([]) // => false
 ```
 
 ### API

@@ -16,10 +16,10 @@ links:
 ```ts
 import { camelCase } from '@movk/core'
 
-camelCase('First Name')     //=> 'firstName'
-camelCase('first_name')     //=> 'firstName'
-camelCase('first-name')     //=> 'firstName'
-camelCase('XMLHttpRequest') //=> 'xmlHttpRequest'
+camelCase('First Name') // => 'firstName'
+camelCase('first_name') // => 'firstName'
+camelCase('first-name') // => 'firstName'
+camelCase('XMLHttpRequest') // => 'xmlHttpRequest'
 ```
 
 ### API

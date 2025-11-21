@@ -18,7 +18,7 @@ export type OmitByKey<T, K extends keyof T> = {
 ```
 
 ```ts [Example]
-type User = { id: string; name: string; age: number }
+interface User { id: string, name: string, age: number }
 // R is { id: string; name: string }
 type R = OmitByKey<User, 'age'>
 ```
@@ -34,7 +34,7 @@ export type PickByKey<T, K extends keyof T> = {
 ```
 
 ```ts [Example]
-type User = { id: string; name: string; age: number }
+interface User { id: string, name: string, age: number }
 // R is { id: string; name: string }
 type R = PickByKey<User, 'id' | 'name'>
 ```
@@ -50,7 +50,7 @@ export type RenameKeys<T, Mapping extends { [K in keyof T]?: PropertyKey }> = {
 ```
 
 ```ts [Example]
-type Src = { a: number; b: string }
+interface Src { a: number, b: string }
 // R is { id: number; b: string }
 type R = RenameKeys<Src, { a: 'id' }>
 ```
@@ -66,7 +66,7 @@ export type RequiredByKeys<T, K extends keyof T> = T & {
 ```
 
 ```ts [Example]
-type User = { id: string; name?: string }
+interface User { id: string, name?: string }
 // R['name'] is required string
 type R = RequiredByKeys<User, 'name'>
 ```
@@ -80,7 +80,7 @@ export type PartialByKeys<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K
 ```
 
 ```ts [Example]
-type User = { id: string; name: string }
+interface User { id: string, name: string }
 // R['name'] is optional
 type R = PartialByKeys<User, 'name'>
 ```
@@ -140,7 +140,7 @@ export type DeepPartial<T> = {
 ```
 
 ```ts [Example]
-type Src = { a: { b: number } }
+interface Src { a: { b: number } }
 // R is { a?: { b?: number | undefined } | undefined }
 type R = DeepPartial<Src>
 ```
@@ -186,7 +186,7 @@ export type NestedKeys<T, D extends number = 2> = [D] extends [never] ? never : 
 ```
 
 ```ts [Example]
-type User = {
+interface User {
   name: string
   address: {
     city: string
@@ -230,7 +230,7 @@ export type GetFieldValue<T, P extends string> = P extends keyof T ? T[P] : P ex
 ```
 
 ```ts [Example]
-type User = {
+interface User {
   name: string
   tags: string[]
   profile: {

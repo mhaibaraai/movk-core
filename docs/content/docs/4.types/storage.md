@@ -16,7 +16,7 @@ export type StorageType = 'localStorage' | 'sessionStorage'
 ```
 
 ```ts [Example]
-let storage: StorageType = 'localStorage'
+const storage: StorageType = 'localStorage'
 ```
 
 ## `StorageConfig<T>`

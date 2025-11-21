@@ -16,10 +16,10 @@ links:
 ```ts
 import { pascalCase } from '@movk/core'
 
-pascalCase('firstName')     //=> 'FirstName'
-pascalCase('first_name')    //=> 'FirstName'
-pascalCase('first-name')    //=> 'FirstName'
-pascalCase('XMLHttpRequest')//=> 'XmlHttpRequest'
+pascalCase('firstName') // => 'FirstName'
+pascalCase('first_name') // => 'FirstName'
+pascalCase('first-name') // => 'FirstName'
+pascalCase('XMLHttpRequest')// => 'XmlHttpRequest'
 ```
 
 ### API

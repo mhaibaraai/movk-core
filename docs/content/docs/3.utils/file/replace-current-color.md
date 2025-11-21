@@ -28,7 +28,8 @@ async function getColoredIcon() {
     // 获取 SVG 并将 currentColor 替换为红色
     const redIconSvg = await replaceCurrentColor('/icons/star.svg', '#FF0000')
     document.getElementById('icon-container').innerHTML = redIconSvg
-  } catch (error) {
+  }
+  catch (error) {
     console.error('处理 SVG 失败:', error)
   }
 }

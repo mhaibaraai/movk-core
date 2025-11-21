@@ -16,9 +16,9 @@ links:
 ```ts
 import { isFunction } from '@movk/core'
 
-isFunction(() => {})    //=> true
-isFunction(Math.abs)    //=> true
-isFunction({})          //=> false
+isFunction(() => {}) // => true
+isFunction(Math.abs) // => true
+isFunction({}) // => false
 ```
 
 ### API

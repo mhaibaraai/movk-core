@@ -26,7 +26,8 @@ Tree.validate(validTree) // 不会抛出错误
 const invalidTree1 = [{ id: 1 }, { id: 1 }]
 try {
   Tree.validate(invalidTree1)
-} catch (e) {
+}
+catch (e) {
   console.error(e.message) // "Duplicate ID found: 1"
 }
 
@@ -37,7 +38,8 @@ node1.children = [node2]
 const invalidTree2 = [node1]
 try {
   Tree.validate(invalidTree2)
-} catch (e) {
+}
+catch (e) {
   console.error(e.message) // "Circular reference detected in node ID: 2"
 }
 ```

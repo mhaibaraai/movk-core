@@ -16,9 +16,9 @@ links:
 ```ts
 import { isString } from '@movk/core'
 
-isString('hello')   //=> true
-isString('')        //=> true
-isString(123)       //=> false
+isString('hello') // => true
+isString('') // => true
+isString(123) // => false
 ```
 
 ### API

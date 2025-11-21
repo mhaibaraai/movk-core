@@ -16,10 +16,10 @@ links:
 ```ts
 import { lowerCase } from '@movk/core'
 
-lowerCase('firstName')      //=> 'first name'
-lowerCase('First_Name')     //=> 'first name'
-lowerCase('FIRST-NAME')     //=> 'first name'
-lowerCase('XMLHttpRequest') //=> 'xml http request'
+lowerCase('firstName') // => 'first name'
+lowerCase('First_Name') // => 'first name'
+lowerCase('FIRST-NAME') // => 'first name'
+lowerCase('XMLHttpRequest') // => 'xml http request'
 ```
 
 ### API

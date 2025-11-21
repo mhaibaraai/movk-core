@@ -16,8 +16,8 @@ links:
 ```ts
 import { lowerFirst } from '@movk/core'
 
-lowerFirst('Foo Bar') //=> 'foo Bar'
-lowerFirst('FOO BAR') //=> 'fOO BAR'
+lowerFirst('Foo Bar') // => 'foo Bar'
+lowerFirst('FOO BAR') // => 'fOO BAR'
 ```
 
 ### API

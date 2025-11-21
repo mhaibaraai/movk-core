@@ -16,10 +16,10 @@ links:
 ```ts
 import { words } from '@movk/core'
 
-words('helloWorld')     //=> ['hello', 'World']
-words('hello_world')    //=> ['hello', 'world']
-words('hello-world')    //=> ['hello', 'world']
-words('XMLHttpRequest') //=> ['XML', 'Http', 'Request']
+words('helloWorld') // => ['hello', 'World']
+words('hello_world') // => ['hello', 'world']
+words('hello-world') // => ['hello', 'world']
+words('XMLHttpRequest') // => ['XML', 'Http', 'Request']
 ```
 
 ### API

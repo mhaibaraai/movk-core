@@ -68,8 +68,12 @@ function setInvalidData() {
 <template>
   <div>
     <p>当前主题: {{ state.theme }}</p>
-    <button @click="toggleTheme">切换主题</button>
-    <button @click="setInvalidData">设置无效主题</button>
+    <button @click="toggleTheme">
+      切换主题
+    </button>
+    <button @click="setInvalidData">
+      设置无效主题
+    </button>
   </div>
 </template>
 ```

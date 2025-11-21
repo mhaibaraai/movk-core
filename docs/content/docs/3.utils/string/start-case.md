@@ -16,10 +16,10 @@ links:
 ```ts
 import { startCase } from '@movk/core'
 
-startCase('firstName')      //=> 'First Name'
-startCase('first_name')     //=> 'First Name'
-startCase('first-name')     //=> 'First Name'
-startCase('XMLHttpRequest') //=> 'XML Http Request'
+startCase('firstName') // => 'First Name'
+startCase('first_name') // => 'First Name'
+startCase('first-name') // => 'First Name'
+startCase('XMLHttpRequest') // => 'XML Http Request'
 ```
 
 ### API

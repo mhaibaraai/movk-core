@@ -16,11 +16,11 @@ links:
 ```ts
 import { formatFileSize } from '@movk/core'
 
-formatFileSize(512)       //=> '512 Bytes'
-formatFileSize(1024)      //=> '1 KB'
-formatFileSize(1500)      //=> '1.46 KB'
-formatFileSize(1048576)   //=> '1 MB'
-formatFileSize(0)         //=> '0 Bytes'
+formatFileSize(512) // => '512 Bytes'
+formatFileSize(1024) // => '1 KB'
+formatFileSize(1500) // => '1.46 KB'
+formatFileSize(1048576) // => '1 MB'
+formatFileSize(0) // => '0 Bytes'
 ```
 
 ### API

@@ -16,8 +16,8 @@ links:
 ```ts
 import { upperFirst } from '@movk/core'
 
-upperFirst('foo bar') //=> 'Foo bar'
-upperFirst('FOO BAR') //=> 'FOO BAR'
+upperFirst('foo bar') // => 'Foo bar'
+upperFirst('FOO BAR') // => 'FOO BAR'
 ```
 
 ### API

@@ -16,9 +16,9 @@ links:
 ```ts
 import { isArray } from '@movk/core'
 
-isArray([])         //=> true
-isArray([1, 2])     //=> true
-isArray({})         //=> false
+isArray([]) // => true
+isArray([1, 2]) // => true
+isArray({}) // => false
 ```
 
 ### API

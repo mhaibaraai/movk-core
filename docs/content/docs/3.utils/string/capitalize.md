@@ -16,8 +16,8 @@ links:
 ```ts
 import { capitalize } from '@movk/core'
 
-capitalize('foo bar') //=> 'Foo bar'
-capitalize('FOO BAR') //=> 'Foo bar'
+capitalize('foo bar') // => 'Foo bar'
+capitalize('FOO BAR') // => 'Foo bar'
 ```
 
 ### API

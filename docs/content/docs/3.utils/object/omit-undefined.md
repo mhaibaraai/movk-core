@@ -24,7 +24,7 @@ const data = {
 }
 
 const cleanedData = omitUndefined(data)
-//=> { name: 'Project A', description: 'A cool project', tags: null }
+// => { name: 'Project A', description: 'A cool project', tags: null }
 ```
 
 ### API

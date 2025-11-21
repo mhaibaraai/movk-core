@@ -25,11 +25,11 @@ const obj = {
 
 // 浅层转换
 const kebab = convertToKebabCase(obj)
-//=> { 'user-name': 'john', 'user-details': { emailAddress: 'john@example.com' } }
+// => { 'user-name': 'john', 'user-details': { emailAddress: 'john@example.com' } }
 
 // 深层转换
 const deepKebab = convertToKebabCase(obj, true)
-//=> { 'user-name': 'john', 'user-details': { 'email-address': 'john@example.com' } }
+// => { 'user-name': 'john', 'user-details': { 'email-address': 'john@example.com' } }
 ```
 
 ### API

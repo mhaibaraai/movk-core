@@ -18,11 +18,11 @@ import { unique } from '@movk/core'
 
 const numbers = [1, 2, 2, 3, 4, 3, 5]
 const uniqueNumbers = unique(numbers)
-//=> [1, 2, 3, 4, 5]
+// => [1, 2, 3, 4, 5]
 
 const strings = ['a', 'b', 'a', 'c', 'b']
 const uniqueStrings = unique(strings)
-//=> ['a', 'b', 'c']
+// => ['a', 'b', 'c']
 ```
 
 ### API

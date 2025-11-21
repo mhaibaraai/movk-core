@@ -15,8 +15,8 @@ links:
 
 ```vue
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useCopyCode } from '@movk/core'
+import { ref } from 'vue'
 
 const sourceText = ref('这是要被复制的文本。')
 const copied = ref(false)
@@ -41,7 +41,7 @@ async function handleCopy() {
 
 <template>
   <div>
-    <textarea v-model="sourceText" rows="4" cols="50"></textarea>
+    <textarea v-model="sourceText" rows="4" cols="50" />
     <button @click="handleCopy">
       {{ copied ? '已复制!' : '复制文本' }}
     </button>

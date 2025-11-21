@@ -21,6 +21,7 @@ export type ComponentProps<T> = T extends new (...args: any) => { $props: infer 
 
 ```ts [Example]
 import MyComponent from './MyComponent.vue'
+
 type Props = ComponentProps<typeof MyComponent>
 // Props will be the type of MyComponent's props
 ```

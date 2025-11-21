@@ -16,12 +16,12 @@ links:
 ```ts
 import { isValidContainer } from '@movk/core'
 
-isValidContainer({})              // true
-isValidContainer([])              // true
+isValidContainer({}) // true
+isValidContainer([]) // true
 isValidContainer(new Proxy({}, {})) // true
-isValidContainer(null)            // false
-isValidContainer('string')        // false
-isValidContainer(123)             // false
+isValidContainer(null) // false
+isValidContainer('string') // false
+isValidContainer(123) // false
 ```
 
 ### API

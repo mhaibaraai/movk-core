@@ -16,10 +16,10 @@ links:
 ```ts
 import { isNumber } from '@movk/core'
 
-isNumber(123)       //=> true
-isNumber(0)         //=> true
-isNumber(NaN)       //=> false
-isNumber('123')     //=> false
+isNumber(123) // => true
+isNumber(0) // => true
+isNumber(Number.NaN) // => false
+isNumber('123') // => false
 ```
 
 ### API

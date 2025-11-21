@@ -27,7 +27,8 @@ setTimeout(() => {
 try {
   await promise
   console.log('此消息不会被打印，因为延迟已被取消。')
-} catch (error) {
+}
+catch (error) {
   console.error(error.message) // "Sleep was cancelled"
 }
 ```

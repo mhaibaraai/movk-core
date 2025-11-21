@@ -19,13 +19,15 @@ import { extractFilename, triggerDownload } from '@movk/core'
 async function downloadFile(url: string) {
   try {
     const response = await fetch(url)
-    if (!response.ok) throw new Error('网络响应失败')
+    if (!response.ok)
+      throw new Error('网络响应失败')
 
     const blob = await response.blob()
     const filename = extractFilename(response.headers, 'default-filename.zip')
-    
+
     triggerDownload(blob, filename)
-  } catch (error) {
+  }
+  catch (error) {
     console.error('下载失败:', error)
   }
 }

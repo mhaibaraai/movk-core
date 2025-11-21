@@ -16,8 +16,8 @@ links:
 ```ts
 import { toPath } from '@movk/core'
 
-toPath('a.b[0].c')         //=> ['a', 'b', 0, 'c']
-toPath("a['key with.dot']") //=> ['a', 'key with.dot']
+toPath('a.b[0].c') // => ['a', 'b', 0, 'c']
+toPath('a[\'key with.dot\']') // => ['a', 'key with.dot']
 ```
 
 ### API

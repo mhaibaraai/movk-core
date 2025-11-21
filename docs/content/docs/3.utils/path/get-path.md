@@ -23,23 +23,23 @@ const user = {
     zip: '10001'
   },
   posts: [
-    { title: 'Post 1', comments: [ { text: 'Great!' } ] },
+    { title: 'Post 1', comments: [{ text: 'Great!' }] },
     { title: 'Post 2' }
   ]
 }
 
 // 读取基本属性
-getPath(user, 'address.city') //=> 'New York'
+getPath(user, 'address.city') // => 'New York'
 
 // 读取数组元素
-getPath(user, 'posts[0].title') //=> 'Post 1'
+getPath(user, 'posts[0].title') // => 'Post 1'
 
 // 读取更深层的嵌套属性
-getPath(user, 'posts[0].comments[0].text') //=> 'Great!'
+getPath(user, 'posts[0].comments[0].text') // => 'Great!'
 
 // 路径不存在时返回默认值 (默认为 undefined)
-getPath(user, 'profile.age') //=> undefined
-getPath(user, 'profile.age', 30) //=> 30
+getPath(user, 'profile.age') // => undefined
+getPath(user, 'profile.age', 30) // => 30
 ```
 
 ### API

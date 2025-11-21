@@ -19,10 +19,10 @@ import { chunk } from '@movk/core'
 const data = [1, 2, 3, 4, 5, 6, 7]
 
 const chunksOf3 = chunk(data, 3)
-//=> [[1, 2, 3], [4, 5, 6], [7]]
+// => [[1, 2, 3], [4, 5, 6], [7]]
 
 const chunksOf2 = chunk(data, 2)
-//=> [[1, 2], [3, 4], [5, 6], [7]]
+// => [[1, 2], [3, 4], [5, 6], [7]]
 ```
 
 ### API

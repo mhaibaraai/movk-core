@@ -24,7 +24,7 @@ const user = {
 }
 
 const userWithoutPassword = omit(user, ['password'])
-//=> { id: '123', name: 'John Doe', email: 'john@example.com' }
+// => { id: '123', name: 'John Doe', email: 'john@example.com' }
 ```
 
 ### API

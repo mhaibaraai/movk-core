@@ -16,8 +16,8 @@ links:
 ```ts
 import { joinPath } from '@movk/core'
 
-joinPath(['a', 'b', 0, 'c']) //=> "a.b[0].c"
-joinPath(['a', 'key with.dot']) //=> "a['key with.dot']"
+joinPath(['a', 'b', 0, 'c']) // => "a.b[0].c"
+joinPath(['a', 'key with.dot']) // => "a['key with.dot']"
 ```
 
 ### API

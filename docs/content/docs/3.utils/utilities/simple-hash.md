@@ -24,14 +24,14 @@ import { simpleHash } from '@movk/core'
 const hash1 = simpleHash('hello world')
 const hash2 = simpleHash('hello world')
 // hash1 === hash2
-//=> true
+// => true
 
 // 不同的输入产生不同的输出
 const hash3 = simpleHash('hello there')
 // hash1 !== hash3
-//=> true
+// => true
 
-console.log(hash1) //=> "nf5xd4"
+console.log(hash1) // => "nf5xd4"
 ```
 
 ### API

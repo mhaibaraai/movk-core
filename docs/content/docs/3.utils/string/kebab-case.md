@@ -16,10 +16,10 @@ links:
 ```ts
 import { kebabCase } from '@movk/core'
 
-kebabCase('firstName')      //=> 'first-name'
-kebabCase('First Name')     //=> 'first-name'
-kebabCase('first_name')     //=> 'first-name'
-kebabCase('XMLHttpRequest') //=> 'xml-http-request'
+kebabCase('firstName') // => 'first-name'
+kebabCase('First Name') // => 'first-name'
+kebabCase('first_name') // => 'first-name'
+kebabCase('XMLHttpRequest') // => 'xml-http-request'
 ```
 
 ### API

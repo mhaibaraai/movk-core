@@ -20,8 +20,8 @@ import type { Suggest } from '@movk/core'
 
 type Color = Suggest<'red' | 'green' | 'blue'>
 
-let color1: Color = 'red'     // IDE 会提示 'red', 'green', 'blue'
-let color2: Color = 'yellow'  // 也完全有效
+const color1: Color = 'red' // IDE 会提示 'red', 'green', 'blue'
+const color2: Color = 'yellow' // 也完全有效
 ```
 
 ## `ReactiveValue<T, CTX>`
@@ -37,9 +37,9 @@ export type ReactiveValue<T, CTX = never> = [CTX] extends [never]
 ```ts [Example]
 import type { ReactiveValue } from '@movk/core'
 
-type Context = { user: { isAdmin: boolean } }
+interface Context { user: { isAdmin: boolean } }
 
-const visible: ReactiveValue<boolean, Context> = (ctx) => ctx.user.isAdmin
+const visible: ReactiveValue<boolean, Context> = ctx => ctx.user.isAdmin
 
 // 它可以是 ref, getter, 普通值, 或带上下文的函数
 ```

@@ -24,7 +24,7 @@ const user = {
 }
 
 const publicUser = pick(user, ['id', 'name', 'email'])
-//=> { id: '123', name: 'John Doe', email: 'john@example.com' }
+// => { id: '123', name: 'John Doe', email: 'john@example.com' }
 ```
 
 ### API

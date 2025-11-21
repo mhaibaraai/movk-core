@@ -20,7 +20,7 @@ const tree = [
   { id: 1, name: 'Root', children: [
     { id: 2, name: 'Active User' },
     { id: 3, name: 'Inactive User', children: [{ id: 4, name: 'Active Child' }] }
-  ]}
+  ] }
 ]
 
 const activeTree = Tree.filter(tree, ({ node }) => node.name.includes('Active'))
