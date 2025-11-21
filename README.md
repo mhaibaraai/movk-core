@@ -1,4 +1,4 @@
-[![Movk Nuxt Docs](https://core.mhaibaraai.cn/__og-image__/static/og.png)](https://core.mhaibaraai.cn/)
+[![Movk Core](https://core.mhaibaraai.cn/og-image.png)](https://core.mhaibaraai.cn/)
 
 > `@movk/core` 是一个为 TypeScript 项目设计的现代化、支持 tree-shaking 的工具函数库，涵盖了数组、对象、字符串、异步操作等多个方面。
 
