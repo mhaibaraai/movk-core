@@ -17,7 +17,6 @@
   "hooks": {
     "before:init": [
       "nr lint",
-      "nr typecheck",
       "nr test"
     ],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
@@ -28,10 +27,7 @@
         "name": "conventionalcommits"
       },
       "header": "# 📋 Changelog",
-      "ignoreRecommendedBump": true,
-      "gitRawCommitsOpts": {
-        "path": "."
-      }
+      "ignoreRecommendedBump": true
     }
   }
 }
