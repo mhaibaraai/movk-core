@@ -32,7 +32,7 @@
     "dist"
   ],
   "scripts": {
-    "postinstall": "nr dev && cd docs && nr prepare",
+    "postinstall": "cd docs && nr prepare",
     "build": "unbuild",
     "dev": "unbuild --stub",
     "docs": "cd docs && nr dev",
@@ -57,7 +57,7 @@
     "@antfu/eslint-config": "^6.2.0",
     "@antfu/ni": "^27.0.1",
     "@release-it/bumper": "^7.0.5",
-    "@release-it/conventional-changelog": "^10.0.2",
+    "@release-it/conventional-changelog": "10.0.1",
     "@types/node": "^24.10.1",
     "eslint": "^9.39.1",
     "jsdom": "^27.2.0",

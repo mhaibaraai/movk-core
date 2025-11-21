@@ -129,3 +129,7 @@ function setInvalidData() {
   一个函数，用于从存储中移除该项。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="composables"}

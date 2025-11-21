@@ -1,6 +1,6 @@
 ---
 seo:
-  title: '@movk/core - 现代 Vue.js 高性能实用工具集'
+  title: 现代 Vue.js 高性能实用工具集
   description: 一个为现代 Vue.js 应用量身打造的高性能实用工具与组合式函数集合。全面拥抱 TypeScript，轻量、可摇树，为您的项目注入更多活力与效率。
 ---
 

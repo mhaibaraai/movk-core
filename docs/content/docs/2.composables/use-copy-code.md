@@ -88,3 +88,7 @@ async function handleCopy() {
   - `false`：表示复制失败。
   ::
 ::
+
+## Changelog
+
+:commit-changelog{prefix="composables"}
