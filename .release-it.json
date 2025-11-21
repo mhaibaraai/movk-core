@@ -1,21 +1,24 @@
 {
   "$schema": "https://unpkg.com/release-it@19/schema/release-it.json",
   "git": {
+    "requireCleanWorkingDir": false,
     "commitMessage": "chore(release): v${version}",
     "tagName": "v${version}"
   },
   "npm": {
-    "publish": false
+    "publish": false,
+    "allowSameVersion": true,
+    "ignoreVersion": true
   },
   "github": {
     "release": true,
-    "releaseName": "Release v${version}"
+    "releaseName": "Release v${version}",
+    "web": true
   },
   "hooks": {
     "before:init": [
-      "pnpm lint",
-      "pnpm test",
-      "pnpm typecheck"
+      "nr lint",
+      "nr test"
     ],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },
@@ -25,7 +28,7 @@
         "name": "conventionalcommits"
       },
       "infile": "CHANGELOG.md",
-      "header": "# 📋 Changelog\n\nAll notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.\n\n",
+      "header": "# 📋 Changelog",
       "ignoreRecommendedBump": true
     }
   }

@@ -158,3 +158,159 @@ export type GetObjectField<MaybeObject, Key extends string> = MaybeObject extend
  * // - () => h('div', '标题') 的惰性渲染函数
  */
 export type StringOrVNode = string | VNode | (() => VNode)
+
+/**
+ * 合并两个对象类型，U 中的属性会覆盖 T 中的属性
+ *
+ * @example
+ * ```ts
+ * type T = { a: number, c: string }
+ * type U = { a: string, b: boolean }
+ * type M = Merge<T, U> // { a: string, b: boolean, c: string }
+ * ```
+ */
+export type Merge<T, U> = Omit<T, keyof U> & U
+
+/**
+ * 判断类型 T 是否为纯对象类型
+ * 纯对象是指普通的对象字面量，排除数组、函数、Date 等特殊对象类型
+ * @example
+ * ```ts
+ * type Test1 = IsPlainObject<{ a: number }> // true
+ * type Test2 = IsPlainObject<string[]>      // false
+ * type Test3 = IsPlainObject<() => void>    // false
+ * type Test4 = IsPlainObject<Date>          // false
+ * type Test5 = IsPlainObject<string>        // false
+ * type Test6 = IsPlainObject<null>          // false
+ * ```
+ */
+export type IsPlainObject<T> = (T extends null | undefined ? never : T) extends Record<string, any>
+  ? (T extends null | undefined ? never : T) extends any[]
+      ? false
+      : (T extends null | undefined ? never : T) extends (...args: any[]) => any
+          ? false
+          : (T extends null | undefined ? never : T) extends Date
+              ? false
+              : true
+  : false
+
+/**
+ * 深度控制类型，用于限制类型递归的深度
+ * 防止类型计算超出 TypeScript 的递归限制
+ */
+type Depth = [never, 0, 1, 2, 3, 4]
+
+/**
+ * 提取对象的嵌套键，支持点语法路径
+ *
+ * @template T 源对象类型
+ * @template D 递归深度，默认为2
+ * @example
+ * ```ts
+ * type User = {
+ *   name: string
+ *   address: {
+ *     city: string
+ *     country: string
+ *   }
+ * }
+ * type Keys = NestedKeys<User> // 'name' | 'address' | 'address.city' | 'address.country'
+ * ```
+ */
+export type NestedKeys<T, D extends number = 2> = [D] extends [never]
+  ? never
+  : {
+      [K in keyof T & string]: IsPlainObject<T[K]> extends true
+        ? K | `${K}.${NestedKeys<T[K] extends null | undefined ? never : T[K], Depth[D]>}`
+        : K
+    }[keyof T & string]
+
+/**
+ * 提取对象中所有纯对象字段的键（包括嵌套的），支持点语法路径
+ *
+ * @template T 源对象类型
+ * @template D 递归深度，默认为2
+ * @example
+ * ```ts
+ * type User = {
+ *   name: string
+ *   age: number
+ *   address: {
+ *     city: string
+ *     location: {
+ *       lat: number
+ *       lng: number
+ *     }
+ *   }
+ * }
+ * type ObjectKeys = ObjectFieldKeys<User> // 'address' | 'address.location'
+ * ```
+ */
+export type ObjectFieldKeys<T, D extends number = 2> = [D] extends [never]
+  ? never
+  : {
+      [K in keyof T & string]: IsPlainObject<T[K]> extends true
+        ? K | `${K}.${ObjectFieldKeys<T[K] extends null | undefined ? never : T[K], Depth[D]>}`
+        : never
+    }[keyof T & string]
+
+/**
+ * 提取对象中所有非对象字段的键
+ * 排除纯对象字段，只保留原始类型字段的键
+ *
+ * @template T 源对象类型
+ * @example
+ * ```ts
+ * type User = {
+ *   name: string
+ *   age: number
+ *   address: {
+ *     city: string
+ *   }
+ * }
+ * type NonObjectKeys = NonObjectFieldKeys<User> // 'name' | 'age' | 'address.city'
+ * ```
+ */
+export type NonObjectFieldKeys<T> = Exclude<NestedKeys<T>, ObjectFieldKeys<T>>
+
+/**
+ * 提取对象中所有数组字段的键（包括嵌套的），支持点语法路径
+ *
+ * @template T 源对象类型
+ * @template D 递归深度，默认为2
+ * @example
+ * ```ts
+ * type User = {
+ *   name: string
+ *   tags: string[]
+ *   posts: Array<{ title: string }>
+ *   profile: {
+ *     hobbies: string[]
+ *   }
+ * }
+ * type ArrayKeys = ArrayFieldKeys<User> // 'tags' | 'posts' | 'profile.hobbies'
+ * ```
+ */
+export type ArrayFieldKeys<T, D extends number = 2> = [D] extends [never]
+  ? never
+  : {
+      [K in keyof T & string]: (T[K] extends null | undefined ? never : T[K]) extends any[]
+        ? K
+        : IsPlainObject<T[K]> extends true
+          ? `${K}.${ArrayFieldKeys<T[K] extends null | undefined ? never : T[K], Depth[D]>}`
+          : never
+    }[keyof T & string]
+
+/**
+ * 根据路径字符串提取对象属性的类型，支持点语法和嵌套对象
+ * @example GetFieldValue<User, 'tags'> // string[]
+ * @example GetFieldValue<User, 'profile.bio'> // string
+ */
+export type GetFieldValue<T, P extends string>
+  = P extends keyof T
+    ? T[P]
+    : P extends `${infer K}.${infer Rest}`
+      ? K extends keyof T
+        ? T[K] extends undefined ? undefined : GetFieldValue<NonNullable<T[K]>, Rest>
+        : unknown
+      : unknown

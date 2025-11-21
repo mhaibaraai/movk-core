@@ -2,5 +2,10 @@
 import antfu from '@antfu/eslint-config'
 
 export default antfu({
-  pnpm: true,
+  rules: {
+    'style/comma-dangle': 'off',
+    'ts/no-empty-object-type': 'off',
+    'node/prefer-global/process': 'off',
+    'vue/max-attributes-per-line': ['error', { singleline: 3, multiline: 1 }],
+  },
 })

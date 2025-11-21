@@ -1,12 +1,12 @@
 {
   "name": "@movk/core",
   "type": "module",
-  "version": "0.0.5",
-  "packageManager": "pnpm@10.15.1",
-  "description": "Modern Vue.js utilities and composables collection with TypeScript support",
-  "author": "yixuan",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.23.0",
+  "description": "一个为现代 Vue.js 应用量身打造的高性能实用工具与组合式函数集合。",
+  "author": "YiXuan <mhaibaraai@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/mhaibaraai/movk-core",
+  "homepage": "https://core.mhaibaraai.cn",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mhaibaraai/movk-core.git"
@@ -27,47 +27,42 @@
     }
   },
   "main": "./dist/index.mjs",
-  "typesVersions": {
-    "*": {
-      ".": [
-        "./dist/index.d.mts"
-      ]
-    }
-  },
+  "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
   "scripts": {
+    "postinstall": "cd docs && nr prepare",
     "build": "unbuild",
     "dev": "unbuild --stub",
+    "docs": "cd docs && nr dev",
+    "docs:build": "cd docs && nr build",
     "lint": "eslint .",
-    "lint:fix": "pnpm run lint --fix",
-    "prepublishOnly": "pnpm run build",
-    "release": "release-it --verbose",
+    "lint:fix": "eslint . --fix",
+    "prepack": "nr build",
+    "release": "release-it && npm publish --access public",
     "start": "tsx src/index.ts",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && cd docs && nr typecheck",
     "test": "vitest",
-    "up": "taze major -wIr",
-    "clean": "find . -name 'node_modules' -type d -prune -execdir rm -rf '{}' +"
+    "clean": "tsx scripts/rm.ts"
   },
   "peerDependencies": {
-    "vue": "catalog:"
+    "vue": "^3.5.21"
   },
   "dependencies": {
-    "@vueuse/core": "catalog:",
-    "zod": "catalog:"
+    "@vueuse/core": "^14.0.0",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "catalog:",
-    "@release-it/conventional-changelog": "catalog:",
-    "@types/node": "catalog:",
-    "eslint": "catalog:",
-    "release-it": "catalog:",
-    "taze": "catalog:",
-    "tsx": "catalog:",
-    "typescript": "catalog:",
-    "unbuild": "catalog:",
-    "vite": "catalog:",
-    "vitest": "catalog:"
+    "@antfu/eslint-config": "^6.2.0",
+    "@antfu/ni": "^27.0.1",
+    "@release-it/conventional-changelog": "^10.0.1",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "release-it": "^19.0.6",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "unbuild": "^3.6.1",
+    "vitest": "^4.0.12"
   }
 }

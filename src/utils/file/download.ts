@@ -28,14 +28,23 @@ export function extractFilename(headers?: Headers, fallbackName = 'file'): strin
 
   const disposition = headers.get('content-disposition')
   if (disposition) {
-    const filenameMatch = disposition.match(/filename\*?=['"]?([^'";]+)['"]?/i)
+    const filenameMatch = disposition.match(/filename\*?=(?:"([^"]+)"|([^;]+))/i)
     if (filenameMatch) {
-      let filename = filenameMatch[1]
+      let filename = filenameMatch[1] ?? filenameMatch[2]
+      if (filename.startsWith('"') && filename.endsWith('"'))
+        filename = filename.slice(1, -1)
+
       // 处理 RFC 5987 编码的文件名
       if (disposition.includes('filename*=')) {
         const parts = filename.split('\'\'')
         if (parts.length === 2) {
-          filename = decodeURIComponent(parts[1])
+          try {
+            filename = decodeURIComponent(parts[1])
+          }
+          catch {
+            // 解码失败时回退
+            return fallbackName
+          }
         }
       }
       return filename
