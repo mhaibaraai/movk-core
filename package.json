@@ -32,7 +32,6 @@
     "dist"
   ],
   "scripts": {
-    "postinstall": "cd docs && nr prepare",
     "build": "unbuild",
     "dev": "unbuild --stub",
     "docs": "cd docs && nr dev",
