@@ -1,5 +1,15 @@
 # 📋 Changelog
 
+## [1.0.1](https://github.com/mhaibaraai/movk-core/compare/v1.0.0...v1.0.1) (2025-11-24)
+
+### Bug Fixes
+
+* 增加测试超时时间至6000毫秒 ([9db8c56](https://github.com/mhaibaraai/movk-core/commit/9db8c565e4e8a26855a0d3cfd65a14ae606ac46a))
+
+### Chores
+
+* 移除 package.json 中的 postinstall 脚本 ([b9f8591](https://github.com/mhaibaraai/movk-core/commit/b9f85910de07619f0aded0fd9e1830f8ef66446b))
+
 ## [1.0.0](https://github.com/mhaibaraai/movk-core/compare/v0.0.5...v1.0.0) (2025-11-21)
 
 ### Features
