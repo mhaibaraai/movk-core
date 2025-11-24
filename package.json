@@ -47,22 +47,22 @@
     "clean": "tsx scripts/rm.ts"
   },
   "peerDependencies": {
-    "vue": "^3.5.21"
+    "vue": "^3.5.24"
   },
   "dependencies": {
     "@vueuse/core": "^14.0.0",
-    "zod": "^4.1.12"
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.2.0",
     "@antfu/ni": "^27.0.1",
-    "@release-it/conventional-changelog": "^10.0.1",
+    "@release-it/conventional-changelog": "^10.0.2",
     "@types/node": "^24.10.1",
     "eslint": "^9.39.1",
     "release-it": "^19.0.6",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "unbuild": "^3.6.1",
-    "vitest": "^4.0.12"
+    "vitest": "^4.0.13"
   }
 }
