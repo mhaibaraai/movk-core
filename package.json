@@ -46,7 +46,7 @@
     "clean": "tsx scripts/rm.ts"
   },
   "peerDependencies": {
-    "vue": "^3.5.24"
+    "vue": "^3.5.25"
   },
   "dependencies": {
     "@vueuse/core": "^14.0.0",
