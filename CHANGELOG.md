@@ -1,5 +1,20 @@
 # 📋 Changelog
 
+## [1.0.2](https://github.com/mhaibaraai/movk-core/compare/v1.0.1...v1.0.2) (2025-11-25)
+
+### ♻️ Code Refactoring
+
+* **types:** 使用 NonNullable 简化类型定义 ([36554f1](https://github.com/mhaibaraai/movk-core/commit/36554f1f4c59406dd61092729e63d32a5dc1768e))
+
+### 🔧 Chores
+
+* **config:** 扩展 changelog 配置以显示所有提交类型 ([7a7a4ad](https://github.com/mhaibaraai/movk-core/commit/7a7a4ad68890d9dc715ba70b8f84aca921cb5edd))
+* **deps:** lock file maintenance ([c824c59](https://github.com/mhaibaraai/movk-core/commit/c824c59bf59f67c0b6ca2415ae8740c01db20d68))
+* **deps:** update all non-major dependencies ([a9cab0c](https://github.com/mhaibaraai/movk-core/commit/a9cab0c8510d695dbe1c0c5402a814c0a0b26bb6))
+* **deps:** update dependency @movk/nuxt-docs to ^1.3.6 ([ae37805](https://github.com/mhaibaraai/movk-core/commit/ae37805d4df18f032c76b4646861b615df27b110))
+* **deps:** update peerdependency vue to ^3.5.25 ([195add6](https://github.com/mhaibaraai/movk-core/commit/195add65ff24384dfae27d6c0afd65f9104b8ab7))
+* **deps:** 升级 nuxt-docs 和图标库依赖 ([a3e9ce3](https://github.com/mhaibaraai/movk-core/commit/a3e9ce327aa7e5e17e2c85d8e5a4399d2f47cbc3))
+
 ## [1.0.1](https://github.com/mhaibaraai/movk-core/compare/v1.0.0...v1.0.1) (2025-11-24)
 
 ### Bug Fixes
