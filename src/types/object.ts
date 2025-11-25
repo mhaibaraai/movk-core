@@ -184,14 +184,14 @@ export type Merge<T, U> = Omit<T, keyof U> & U
  * type Test6 = IsPlainObject<null>          // false
  * ```
  */
-export type IsPlainObject<T> = (T extends null | undefined ? never : T) extends Record<string, any>
-  ? (T extends null | undefined ? never : T) extends any[]
+export type IsPlainObject<T> = NonNullable<T> extends Record<string, any>
+  ? NonNullable<T> extends any[]
+    ? false
+    : NonNullable<T> extends (...args: any[]) => any
       ? false
-      : (T extends null | undefined ? never : T) extends (...args: any[]) => any
-          ? false
-          : (T extends null | undefined ? never : T) extends Date
-              ? false
-              : true
+      : NonNullable<T> extends Date
+        ? false
+        : true
   : false
 
 /**
@@ -221,7 +221,7 @@ export type NestedKeys<T, D extends number = 2> = [D] extends [never]
   ? never
   : {
       [K in keyof T & string]: IsPlainObject<T[K]> extends true
-        ? K | `${K}.${NestedKeys<T[K] extends null | undefined ? never : T[K], Depth[D]>}`
+        ? K | `${K}.${NestedKeys<NonNullable<T[K]>, Depth[D]>}`
         : K
     }[keyof T & string]
 
@@ -250,7 +250,7 @@ export type ObjectFieldKeys<T, D extends number = 2> = [D] extends [never]
   ? never
   : {
       [K in keyof T & string]: IsPlainObject<T[K]> extends true
-        ? K | `${K}.${ObjectFieldKeys<T[K] extends null | undefined ? never : T[K], Depth[D]>}`
+        ? K | `${K}.${ObjectFieldKeys<NonNullable<T[K]>, Depth[D]>}`
         : never
     }[keyof T & string]
 
@@ -294,10 +294,10 @@ export type NonObjectFieldKeys<T> = Exclude<NestedKeys<T>, ObjectFieldKeys<T>>
 export type ArrayFieldKeys<T, D extends number = 2> = [D] extends [never]
   ? never
   : {
-      [K in keyof T & string]: (T[K] extends null | undefined ? never : T[K]) extends any[]
+      [K in keyof T & string]: NonNullable<T[K]> extends any[]
         ? K
         : IsPlainObject<T[K]> extends true
-          ? `${K}.${ArrayFieldKeys<T[K] extends null | undefined ? never : T[K], Depth[D]>}`
+          ? `${K}.${ArrayFieldKeys<NonNullable<T[K]>, Depth[D]>}`
           : never
     }[keyof T & string]
 
