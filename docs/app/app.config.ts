@@ -3,7 +3,8 @@ export default defineAppConfig({
     title: 'Movk Core'
   },
   github: {
-    rootDir: 'docs'
+    rootDir: 'docs',
+    suffix: 'ts'
   },
   ui: {
     colors: {
