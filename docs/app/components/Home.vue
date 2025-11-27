@@ -63,6 +63,10 @@ function onDebounceInput() {
   triggerCount.value++
   debouncedFn()
 }
+
+// 响应式布局
+const { width } = useWindowSize()
+const fieldGroupOrientation = computed(() => width.value < 640 ? 'vertical' : 'horizontal')
 </script>
 
 <template>
@@ -90,7 +94,7 @@ function onDebounceInput() {
             />
           </UFormField>
 
-          <UFieldGroup>
+          <UFieldGroup :orientation="fieldGroupOrientation">
             <UButton
               color="neutral"
               variant="solid"
@@ -149,7 +153,7 @@ function onDebounceInput() {
             />
           </UFormField>
 
-          <UFieldGroup>
+          <UFieldGroup :orientation="fieldGroupOrientation">
             <UButton
               color="primary"
               variant="soft"
