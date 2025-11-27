@@ -34,29 +34,29 @@ const folders = Tree.findAll(tree, ({ node }) => node.type === 'folder')
   源树形结构数组。
   ::
   ::field{name="predicate" type="(context: VisitorContext<T>) => boolean" required}
-      一个谓词函数，对树中的每个节点调用。所有使函数返回 `true` 的节点都将被收集到结果数组中。
-      该函数接收一个包含以下属性的 `context` 对象：
+  一个谓词函数，对树中的每个节点调用。如果函数返回 `true`，该节点及其所有父节点将被保留在结果中。
+  该函数接收一个包含以下属性的 `context` 对象：
 
-      ::collapsible
-        ::field-group
-          ::field{name="node" type="T"}
-          当前正在处理的节点。
-          ::
-
-          ::field{name="depth" type="number"}
-          节点的深度（根节点为 0）。
-          ::
-
-          ::field{name="path" type="T[]"}
-          从根节点到当前节点的路径数组（包含当前节点）。
-          ::
-
-          ::field{name="index" type="number"}
-          当前节点在其同级节点中的索引。
-          ::
-        ::
+  ::collapsible
+    ::field-group
+      ::field{name="node" type="T"}
+      当前正在处理的节点。
       ::
+
+      ::field{name="depth" type="number"}
+      节点的深度（根节点为 0）。
       ::
+
+      ::field{name="path" type="T[]"}
+      从根节点到当前节点的路径数组（包含当前节点）。
+      ::
+
+      ::field{name="index" type="number"}
+      当前节点在其同级节点中的索引。
+      ::
+    ::
+  ::
+  ::
   ::field{name="config" type="TreeConfig"}
   用于自定义树形结构中 `id`, `pid`, `children` 键名的配置对象。
 
