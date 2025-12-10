@@ -2,7 +2,7 @@
   "name": "@movk/core",
   "type": "module",
   "version": "1.0.2",
-  "packageManager": "pnpm@10.24.0",
+  "packageManager": "pnpm@10.25.0",
   "description": "一个为现代 Vue.js 应用量身打造的高性能实用工具与组合式函数集合。",
   "author": "YiXuan <mhaibaraai@gmail.com>",
   "license": "MIT",
@@ -53,10 +53,10 @@
     "zod": "^4.1.13"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.3.0",
+    "@antfu/eslint-config": "^6.6.1",
     "@antfu/ni": "^28.0.0",
     "@release-it/conventional-changelog": "^10.0.2",
-    "@types/node": "^24.10.1",
+    "@types/node": "^24.10.2",
     "eslint": "^9.39.1",
     "release-it": "^19.0.6",
     "tsx": "^4.21.0",
