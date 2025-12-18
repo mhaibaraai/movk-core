@@ -1,4 +1,8 @@
 export default defineAppConfig({
+  vercelAnalytics: {
+    enable: true,
+    debug: false
+  },
   header: {
     title: 'Movk Core'
   },
