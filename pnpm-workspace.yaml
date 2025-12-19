@@ -1,6 +1,10 @@
 catalogMode: prefer
 shellEmulator: true
 trustPolicy: no-downgrade
+trustPolicyExclude:
+  - undici
+  - undici-types
+  - chokidar
 
 packages:
   - docs
