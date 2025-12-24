@@ -5,6 +5,7 @@ trustPolicyExclude:
   - undici
   - undici-types
   - chokidar
+  - semver
 
 packages:
   - docs
