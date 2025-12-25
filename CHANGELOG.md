@@ -1,5 +1,54 @@
 # 📋 Changelog
 
+## [1.0.3](https://github.com/mhaibaraai/movk-core/compare/v1.0.2...v1.0.3) (2025-12-25)
+
+### ✨ Features
+
+* **docs:** 迁移到 @movk/nuxt-docs 内置的 Vercel Analytics 支持 ([950934e](https://github.com/mhaibaraai/movk-core/commit/950934e1af50670acf29deb84881f94476a60ae3))
+
+### 🐛 Bug Fixes
+
+* **docs:** 修复移动端 UFieldGroup 宽度溢出问题 ([a4a73ee](https://github.com/mhaibaraai/movk-core/commit/a4a73ee7d1feecdce6c8d13692d40844cb69391f))
+* 修正 pnpm 工作区配置位置 ([de08cb5](https://github.com/mhaibaraai/movk-core/commit/de08cb5b50e7f11e64afa9a8bd9ad478ed6a4057))
+
+### 📝 Documentation
+
+* 修正 Tree 工具函数参数说明 ([23106d7](https://github.com/mhaibaraai/movk-core/commit/23106d73b36b0c138d48cbbdc11e1aee1b8b8b38))
+
+### 💄 Styles
+
+* **docs:** 统一 UI 组件属性尾随逗号格式 ([a4a9417](https://github.com/mhaibaraai/movk-core/commit/a4a941723120f6c5896e935546079e050607611d))
+
+### ♻️ Code Refactoring
+
+* **docs:** 优化文档页面组件和样式 ([97cde4d](https://github.com/mhaibaraai/movk-core/commit/97cde4def346241f7447f5e95ea83c6e4d94b233))
+* 将清理脚本从 TypeScript 迁移至独立 CLI 工具 ([e1a04e9](https://github.com/mhaibaraai/movk-core/commit/e1a04e9d97357c7dc30a860f12314cd466691aa9))
+
+### 🔧 Chores
+
+* **deps:** lock file maintenance ([7f335ea](https://github.com/mhaibaraai/movk-core/commit/7f335ea4708c13addce1d2adafba79a101139a87))
+* **deps:** update all non-major dependencies ([db751b3](https://github.com/mhaibaraai/movk-core/commit/db751b30415794e298db3524f0be2bff65cc426e))
+* **deps:** update all non-major dependencies ([ef1ba81](https://github.com/mhaibaraai/movk-core/commit/ef1ba818d27d8318af918e47e4789eeee29a71c5))
+* **deps:** update all non-major dependencies ([ab24e03](https://github.com/mhaibaraai/movk-core/commit/ab24e03dfc56e941509e8597c9ffb5feb4a1e430))
+* **deps:** update all non-major dependencies ([2f18596](https://github.com/mhaibaraai/movk-core/commit/2f185967e8155946e064f71d064b0d8c110bd582))
+* **deps:** update all non-major dependencies ([1c4f944](https://github.com/mhaibaraai/movk-core/commit/1c4f94437d6c6b7585512f69b8068463a8d8cae2))
+* **deps:** update all non-major dependencies ([36ebd43](https://github.com/mhaibaraai/movk-core/commit/36ebd43980a78dd66b1904d6f6ac2255841d04fa))
+* **deps:** update all non-major dependencies ([3c11b5f](https://github.com/mhaibaraai/movk-core/commit/3c11b5f1cef4721a639074a46aa8f6ee81a3ad27))
+* **deps:** update dependency nuxt to ^4.2.2 ([026da4b](https://github.com/mhaibaraai/movk-core/commit/026da4bf22baba2561f80594ae4b178052b6dd53))
+* **deps:** update devdependency @antfu/ni to v28 ([21fbc5d](https://github.com/mhaibaraai/movk-core/commit/21fbc5dad20850158765c1aef324d462d081c41f))
+* **deps:** update peerdependency vue to ^3.5.25 ([e3214a4](https://github.com/mhaibaraai/movk-core/commit/e3214a4510789c7a884d9af988431340f27ecd02))
+* **deps:** 更新 release-it 和相关依赖 ([fa9e472](https://github.com/mhaibaraai/movk-core/commit/fa9e472926e7a7aba98bb55810eaf1b5ba36d8a5))
+* **deps:** 更新所有非主要版本依赖 ([c1f1ab6](https://github.com/mhaibaraai/movk-core/commit/c1f1ab67310c2f85268f4a49d04fbbaeeff68a68))
+* **docs:** 升级 nuxt-docs 依赖并移除 commit changelog 功能 ([a6016de](https://github.com/mhaibaraai/movk-core/commit/a6016de1f19b403aa5ad923595f8779f557bd543))
+* **docs:** 更新 lockfile 以移除 @octokit/rest ([9978570](https://github.com/mhaibaraai/movk-core/commit/997857079d6c7c1578c0455d3cb7d7952a7cad9f))
+* **docs:** 移除未使用的 @octokit/rest 依赖 ([c833a54](https://github.com/mhaibaraai/movk-core/commit/c833a541a2e62c3b34e99a322e596e1fc1423d82))
+* 删除 pnpm-lock.yaml ([bc09ad8](https://github.com/mhaibaraai/movk-core/commit/bc09ad8299023963392f97c7e1e586e8d7534cca))
+* 更新 renovate.json，禁用 peerDependencies 的包规则 ([cb11fb3](https://github.com/mhaibaraai/movk-core/commit/cb11fb32c814eae41fc520b70675f88c9c750052))
+* 添加 pnpm 工作区必需配置项 ([fddacac](https://github.com/mhaibaraai/movk-core/commit/fddacac18bd45216c8b2c674ae8371e05d04546f))
+* 添加 pnpm-lock.yaml ([24313b9](https://github.com/mhaibaraai/movk-core/commit/24313b99f4838956df057b2c89b2b3cc6c345add))
+* 移除 npm publish 的 --access 参数 ([1753624](https://github.com/mhaibaraai/movk-core/commit/1753624f7b0f8a7a64c2f7cd456f132d41ef2d68))
+* 配置 pnpm 信任策略例外列表 ([320b606](https://github.com/mhaibaraai/movk-core/commit/320b606f000a590585476cbc5adea25f6b32d89a))
+
 ## [1.0.2](https://github.com/mhaibaraai/movk-core/compare/v1.0.1...v1.0.2) (2025-11-25)
 
 ### ♻️ Code Refactoring
