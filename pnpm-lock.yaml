@@ -11,6 +11,9 @@ importers:
       '@vueuse/core':
         specifier: ^14.1.0
         version: 14.1.0(vue@3.5.25(typescript@5.9.3))
+      fast-glob:
+        specifier: ^3.3.3
+        version: 3.3.3
       vue:
         specifier: ^3.5.25
         version: 3.5.25(typescript@5.9.3)
@@ -36,9 +39,6 @@ importers:
       release-it:
         specifier: ^19.1.0
         version: 19.1.0(@types/node@24.10.4)
-      tsx:
-        specifier: ^4.21.0
-        version: 4.21.0
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -14760,6 +14760,7 @@ snapshots:
       get-tsconfig: 4.13.0
     optionalDependencies:
       fsevents: 2.3.3
+    optional: true
 
   tunnel-agent@0.6.0:
     dependencies:

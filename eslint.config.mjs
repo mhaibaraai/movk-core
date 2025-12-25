@@ -8,4 +8,9 @@ export default antfu({
     'node/prefer-global/process': 'off',
     'vue/max-attributes-per-line': ['error', { singleline: 3, multiline: 1 }],
   },
+}, {
+  files: ['bin/**'],
+  rules: {
+    'no-console': 'off',
+  },
 })
