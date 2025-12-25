@@ -26,15 +26,6 @@
 
 ### 🔧 Chores
 
-* **deps:** lock file maintenance ([7f335ea](https://github.com/mhaibaraai/movk-core/commit/7f335ea4708c13addce1d2adafba79a101139a87))
-* **deps:** update all non-major dependencies ([db751b3](https://github.com/mhaibaraai/movk-core/commit/db751b30415794e298db3524f0be2bff65cc426e))
-* **deps:** update all non-major dependencies ([ef1ba81](https://github.com/mhaibaraai/movk-core/commit/ef1ba818d27d8318af918e47e4789eeee29a71c5))
-* **deps:** update all non-major dependencies ([ab24e03](https://github.com/mhaibaraai/movk-core/commit/ab24e03dfc56e941509e8597c9ffb5feb4a1e430))
-* **deps:** update all non-major dependencies ([2f18596](https://github.com/mhaibaraai/movk-core/commit/2f185967e8155946e064f71d064b0d8c110bd582))
-* **deps:** update all non-major dependencies ([1c4f944](https://github.com/mhaibaraai/movk-core/commit/1c4f94437d6c6b7585512f69b8068463a8d8cae2))
-* **deps:** update all non-major dependencies ([36ebd43](https://github.com/mhaibaraai/movk-core/commit/36ebd43980a78dd66b1904d6f6ac2255841d04fa))
-* **deps:** update all non-major dependencies ([3c11b5f](https://github.com/mhaibaraai/movk-core/commit/3c11b5f1cef4721a639074a46aa8f6ee81a3ad27))
-* **deps:** update dependency nuxt to ^4.2.2 ([026da4b](https://github.com/mhaibaraai/movk-core/commit/026da4bf22baba2561f80594ae4b178052b6dd53))
 * **deps:** update devdependency @antfu/ni to v28 ([21fbc5d](https://github.com/mhaibaraai/movk-core/commit/21fbc5dad20850158765c1aef324d462d081c41f))
 * **deps:** update peerdependency vue to ^3.5.25 ([e3214a4](https://github.com/mhaibaraai/movk-core/commit/e3214a4510789c7a884d9af988431340f27ecd02))
 * **deps:** 更新 release-it 和相关依赖 ([fa9e472](https://github.com/mhaibaraai/movk-core/commit/fa9e472926e7a7aba98bb55810eaf1b5ba36d8a5))
