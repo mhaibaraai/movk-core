@@ -28,7 +28,11 @@
   },
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
+  "bin": {
+    "movk-clean": "./bin/clean.mjs"
+  },
   "files": [
+    "bin",
     "dist"
   ],
   "scripts": {
@@ -40,16 +44,16 @@
     "lint:fix": "eslint . --fix",
     "prepack": "nr build",
     "release": "release-it && npm publish",
-    "start": "tsx src/index.ts",
     "typecheck": "tsc --noEmit && cd docs && nr typecheck",
     "test": "vitest",
-    "clean": "tsx scripts/rm.ts"
+    "clean": "node bin/clean.mjs"
   },
   "peerDependencies": {
     "vue": "^3.5.25"
   },
   "dependencies": {
     "@vueuse/core": "^14.1.0",
+    "fast-glob": "^3.3.3",
     "zod": "^4.2.1"
   },
   "devDependencies": {
@@ -58,8 +62,7 @@
     "@release-it/conventional-changelog": "^10.0.4",
     "@types/node": "^24.10.4",
     "eslint": "^9.39.2",
-    "release-it": "^19.2.0",
-    "tsx": "^4.21.0",
+    "release-it": "^19.2.1",
     "typescript": "^5.9.3",
     "unbuild": "^3.6.1",
     "vitest": "^4.0.16"
