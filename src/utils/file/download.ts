@@ -31,13 +31,16 @@ export function extractFilename(headers?: Headers, fallbackName = 'file'): strin
     const filenameMatch = disposition.match(/filename\*?=(?:"([^"]+)"|([^;]+))/i)
     if (filenameMatch) {
       let filename = filenameMatch[1] ?? filenameMatch[2]
+      if (!filename)
+        return fallbackName
+
       if (filename.startsWith('"') && filename.endsWith('"'))
         filename = filename.slice(1, -1)
 
       // 处理 RFC 5987 编码的文件名
       if (disposition.includes('filename*=')) {
         const parts = filename.split('\'\'')
-        if (parts.length === 2) {
+        if (parts.length === 2 && parts[1]) {
           try {
             filename = decodeURIComponent(parts[1])
           }

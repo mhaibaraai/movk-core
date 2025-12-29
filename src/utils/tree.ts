@@ -796,6 +796,8 @@ export class Tree {
     const traverse = (nodes: TreeNode<T>[], parentPath: readonly TreeNode<T>[]): boolean => {
       for (let i = 0; i < nodes.length; i++) {
         const node = nodes[i]
+        if (!node)
+          continue
 
         if (node[idKey] === targetId) {
           nodes.splice(i, 0, newTreeNode)
@@ -804,8 +806,8 @@ export class Tree {
 
         const children = node[childrenKey]
         if (children && children.length > 0) {
-          const newPath = [...parentPath, node]
-          if (traverse(children, newPath)) {
+          const newPath = [...parentPath, node] as const
+          if (traverse(children as TreeNode<T>[], newPath)) {
             return true
           }
         }
@@ -856,6 +858,8 @@ export class Tree {
     const traverse = (nodes: TreeNode<T>[], parentPath: readonly TreeNode<T>[]): boolean => {
       for (let i = 0; i < nodes.length; i++) {
         const node = nodes[i]
+        if (!node)
+          continue
 
         if (node[idKey] === targetId) {
           nodes.splice(i + 1, 0, newTreeNode)
@@ -864,8 +868,8 @@ export class Tree {
 
         const children = node[childrenKey]
         if (children && children.length > 0) {
-          const newPath = [...parentPath, node]
-          if (traverse(children, newPath)) {
+          const newPath = [...parentPath, node] as const
+          if (traverse(children as TreeNode<T>[], newPath)) {
             return true
           }
         }
@@ -911,6 +915,8 @@ export class Tree {
     const traverse = (nodes: TreeNode<T>[]): TreeNode<T> | undefined => {
       for (let i = 0; i < nodes.length; i++) {
         const node = nodes[i]
+        if (!node)
+          continue
 
         if (node[idKey] === targetId) {
           return nodes.splice(i, 1)[0]
@@ -918,7 +924,7 @@ export class Tree {
 
         const children = node[childrenKey]
         if (children && children.length > 0) {
-          const result = traverse(children)
+          const result = traverse(children as TreeNode<T>[])
           if (result)
             return result
         }
