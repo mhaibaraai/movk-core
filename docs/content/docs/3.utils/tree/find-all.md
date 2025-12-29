@@ -33,11 +33,11 @@ const folders = Tree.findAll(tree, ({ node }) => node.type === 'folder')
   ::field{name="tree" type="T[]" required}
   源树形结构数组。
   ::
-  ::field{name="predicate" type="(context: VisitorContext<T>) => boolean" required}
+
+  :::field{name="predicate" type="(context: VisitorContext<T>) => boolean" required}
   一个谓词函数，对树中的每个节点调用。如果函数返回 `true`，该节点及其所有父节点将被保留在结果中。
   该函数接收一个包含以下属性的 `context` 对象：
-
-  ::collapsible
+  :::collapsible
     ::field-group
       ::field{name="node" type="T"}
       当前正在处理的节点。
@@ -55,12 +55,12 @@ const folders = Tree.findAll(tree, ({ node }) => node.type === 'folder')
       当前节点在其同级节点中的索引。
       ::
     ::
-  ::
-  ::
-  ::field{name="config" type="TreeConfig"}
-  用于自定义树形结构中 `id`, `pid`, `children` 键名的配置对象。
+  :::
+  :::
 
-  ::collapsible
+  :::field{name="config" type="TreeConfig"}
+  用于自定义树形结构中 `id`, `pid`, `children` 键名的配置对象。
+  :::collapsible
     ::field-group
       ::field{name="id" type="string"}
       可选。指定节点唯一标识符的键名。默认为 "id"。
@@ -74,8 +74,8 @@ const folders = Tree.findAll(tree, ({ node }) => node.type === 'folder')
       可选。指定子节点数组的键名。默认为 "children"。
       ::
     ::
-  ::
-  ::
+  :::
+  :::
 ::
 
 #### 返回值
