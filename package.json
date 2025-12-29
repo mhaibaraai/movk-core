@@ -38,13 +38,13 @@
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
-    "docs": "cd docs && nr dev",
-    "docs:build": "cd docs && nr build",
+    "docs": "cd docs && pnpm dev",
+    "docs:build": "cd docs && pnpm build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepack": "nr build",
+    "prepack": "pnpm build",
     "release": "release-it && npm publish",
-    "typecheck": "tsc --noEmit && cd docs && nr typecheck",
+    "typecheck": "tsc --noEmit && cd docs && pnpm typecheck",
     "test": "vitest",
     "clean": "node bin/clean.mjs"
   },
@@ -58,7 +58,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.7.3",
-    "@antfu/ni": "^28.0.0",
     "@release-it/conventional-changelog": "^10.0.4",
     "@types/node": "^24.10.4",
     "eslint": "^9.39.2",

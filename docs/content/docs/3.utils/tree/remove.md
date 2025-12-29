@@ -36,13 +36,14 @@ tree 将会是:
   ::field{name="tree" type="T[]" required}
   源树形结构数组。
   ::
+
   ::field{name="id" type="number | string" required}
   需要移除的节点的 ID。
   ::
-  ::field{name="config" type="TreeConfig"}
-  用于自定义树形结构中 `id`, `pid`, `children` 键名的配置对象。
 
-  ::collapsible
+  :::field{name="config" type="TreeConfig"}
+  用于自定义树形结构中 `id`, `pid`, `children` 键名的配置对象。
+  :::collapsible
     ::field-group
       ::field{name="id" type="string"}
       可选。指定节点唯一标识符的键名。默认为 "id"。
@@ -56,8 +57,8 @@ tree 将会是:
       可选。指定子节点数组的键名。默认为 "children"。
       ::
     ::
-  ::
-  ::
+  :::
+  :::
 ::
 
 #### 返回值
