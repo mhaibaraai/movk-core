@@ -11,9 +11,6 @@ export default defineAppConfig({
     suffix: 'ts'
   },
   ui: {
-    colors: {
-      primary: 'green'
-    },
     prose: {
       codeIcon: {
         source: 'i-lucide-file-code',

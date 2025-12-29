@@ -5,7 +5,7 @@ export default defineContentConfig({
   collections: {
     releases: defineCollection(asSeoCollection({
       type: 'page',
-      source: 'releases.yml',
+      source: 'releases.md',
       schema: z.object({
         releases: z.string(),
         hero: property(z.object({})).inherit('@nuxt/ui/components/PageHero.vue')

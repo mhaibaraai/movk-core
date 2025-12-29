@@ -1,3 +1,4 @@
+---
 title: 版本发布
 description: 查看 @movk/core 的版本更新、功能增强与问题修复。
 navigation: false
@@ -12,3 +13,4 @@ hero:
       to: https://github.com/mhaibaraai/movk-core
       target: _blank
       icon: i-lucide-star
+---
