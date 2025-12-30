@@ -53,8 +53,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^14.1.0",
-    "fast-glob": "^3.3.3",
-    "zod": "^4.2.1"
+    "fast-glob": "^3.3.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.7.3",
