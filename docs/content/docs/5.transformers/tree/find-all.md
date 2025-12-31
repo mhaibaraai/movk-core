@@ -4,14 +4,12 @@ description: 查找并返回所有满足 `predicate` 条件的节点。
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/tree/query.ts
 ---
 
-## `findAll`
+## 用法
 
 `findAll` 方法在树中深度优先搜索，并返回所有满足 `predicate` 函数条件的节点组成的数组。
-
-### 用法
 
 ```ts
 import { Tree } from '@movk/core'
@@ -23,11 +21,11 @@ const folders = Tree.findAll(tree, ({ node }) => node.type === 'folder')
 // folders => [{ id: 1, type: 'folder', ... }, { id: 3, type: 'folder' }]
 ```
 
-### API
+## API
 
 `findAll<T extends TreeNode>(tree: T[], predicate: (context: VisitorContext<T>) => boolean, config?: TreeConfig): T[]`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="tree" type="T[]" required}
@@ -78,7 +76,7 @@ const folders = Tree.findAll(tree, ({ node }) => node.type === 'folder')
   :::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="T[]"}
@@ -88,4 +86,4 @@ const folders = Tree.findAll(tree, ({ node }) => node.type === 'folder')
 
 ## Changelog
 
-:commit-changelog{prefix="utils/tree"}
+:commit-changelog{prefix="transformers/tree" name="query"}

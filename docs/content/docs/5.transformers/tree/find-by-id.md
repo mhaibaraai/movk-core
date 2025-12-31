@@ -4,14 +4,12 @@ description: 通过节点 `id` 快速查找节点。
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/tree/query.ts
 ---
 
-## `findById`
+## 用法
 
 `findById` 方法通过节点的 `id` 快速查找并返回对应的节点。这是一个高效率的查找操作。
-
-### 用法
 
 ```ts
 import { Tree } from '@movk/core'
@@ -23,11 +21,11 @@ const node = Tree.findById(tree, 2)
 // node => { id: 2, name: 'B' }
 ```
 
-### API
+## API
 
 `findById<T extends TreeNode>(tree: T[], id: number | string, config?: TreeConfig): T | undefined`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="tree" type="T[]" required}
@@ -58,7 +56,7 @@ const node = Tree.findById(tree, 2)
   :::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="T | undefined"}
@@ -68,4 +66,4 @@ const node = Tree.findById(tree, 2)
 
 ## Changelog
 
-:commit-changelog{prefix="utils/tree"}
+:commit-changelog{prefix="transformers/tree" name="query"}

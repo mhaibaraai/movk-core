@@ -4,7 +4,7 @@ description: 一系列用于在类型级别操作和转换对象的高级工具�
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/types/object.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/types/object
 ---
 
 ## `OmitByKey<T, K>`
@@ -245,4 +245,4 @@ type T2 = GetFieldValue<User, 'profile.bio'>
 
 ## Changelog
 
-:commit-changelog{prefix="types"}
+:commit-changelog{prefix="types/object"}

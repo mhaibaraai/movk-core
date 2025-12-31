@@ -4,14 +4,12 @@ description: 将字符串转换为帕斯卡式 (HelloWorld)。
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/string/pascalCase.ts
 ---
 
-## `pascalCase`
+## 用法
 
 将字符串转换为帕斯卡命名格式（PascalCase，每个单词首字母大写）。
-
-### 用法
 
 ```ts
 import { pascalCase } from '@movk/core'
@@ -22,11 +20,11 @@ pascalCase('first-name') // => 'FirstName'
 pascalCase('XMLHttpRequest')// => 'XmlHttpRequest'
 ```
 
-### API
+## API
 
 `pascalCase(str: string): string`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="str" type="string" required}
@@ -34,7 +32,7 @@ pascalCase('XMLHttpRequest')// => 'XmlHttpRequest'
   ::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="string"}
@@ -44,4 +42,4 @@ pascalCase('XMLHttpRequest')// => 'XmlHttpRequest'
 
 ## Changelog
 
-:commit-changelog{prefix="utils/string"}
+:commit-changelog{prefix="transformers/string"}

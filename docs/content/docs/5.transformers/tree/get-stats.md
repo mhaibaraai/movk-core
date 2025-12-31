@@ -4,14 +4,12 @@ description: 获取关于树的统计信息，如总节点数、叶子节点数�
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/tree/validate.ts
 ---
 
-## `getStats`
+## 用法
 
 `getStats` 方法遍历整个树，并返回一个包含其统计信息的对象。
-
-### 用法
 
 ```ts
 import { Tree } from '@movk/core'
@@ -36,11 +34,11 @@ stats 将会是:
 */
 ```
 
-### API
+## API
 
 `getStats<T extends TreeNode>(tree: T[], config?: TreeConfig): { total: number; leafCount: number; maxDepth: number; minDepth: number }`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="tree" type="T[]" required}
@@ -67,7 +65,7 @@ stats 将会是:
   :::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="object"}
@@ -77,4 +75,4 @@ stats 将会是:
 
 ## Changelog
 
-:commit-changelog{prefix="utils/tree"}
+:commit-changelog{prefix="transformers/tree" name="validate"}

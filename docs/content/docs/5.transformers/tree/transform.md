@@ -4,14 +4,12 @@ description: 遍历树并根据 `transformer` 函数返回一个具有新结构�
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/tree/transform.ts
 ---
 
-## `transform`
+## 用法
 
 `transform` 方法遍历树的每个节点，并使用 `transformer` 函数将其转换为新的形态，从而构建一棵具有新结构的树。
-
-### 用法
 
 ```ts
 import { Tree } from '@movk/core'
@@ -38,11 +36,11 @@ transformedTree 将会是:
 */
 ```
 
-### API
+## API
 
 `transform<T extends TreeNode, R extends TreeNode>(tree: T[], transformer: (context: VisitorContext<T>) => R, config?: TreeConfig): R[]`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="tree" type="T[]" required}
@@ -93,7 +91,7 @@ transformedTree 将会是:
   :::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="R[]"}
@@ -103,4 +101,4 @@ transformedTree 将会是:
 
 ## Changelog
 
-:commit-changelog{prefix="utils/tree"}
+:commit-changelog{prefix="transformers/tree" name="transform"}

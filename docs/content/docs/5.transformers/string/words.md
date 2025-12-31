@@ -4,14 +4,12 @@ description: 将字符串分解为单词数组。
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/words.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/string/words.ts
 ---
 
-## `words`
+## 用法
 
 `words` 函数是所有大小写转换函数的基础。它接收一个字符串，并将其分解为一个由单词组成的数组。它能处理驼峰式、下划线式、短横线式以及缩写词。
-
-### 用法
 
 ```ts
 import { words } from '@movk/core'
@@ -22,11 +20,11 @@ words('hello-world') // => ['hello', 'world']
 words('XMLHttpRequest') // => ['XML', 'Http', 'Request']
 ```
 
-### API
+## API
 
 `words(str: string): string[]`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="str" type="string" required}
@@ -34,7 +32,7 @@ words('XMLHttpRequest') // => ['XML', 'Http', 'Request']
   ::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="string[]"}
@@ -44,4 +42,4 @@ words('XMLHttpRequest') // => ['XML', 'Http', 'Request']
 
 ## Changelog
 
-:commit-changelog{prefix="utils/string"}
+:commit-changelog{prefix="transformers/string"}

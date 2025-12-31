@@ -4,14 +4,12 @@ description: 将字符串转换为标题式 (Hello World)。
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/string/startCase.ts
 ---
 
-## `startCase`
+## 用法
 
 将字符串转换为Start Case格式（每个单词首字母大写，用空格分隔）。
-
-### 用法
 
 ```ts
 import { startCase } from '@movk/core'
@@ -22,11 +20,11 @@ startCase('first-name') // => 'First Name'
 startCase('XMLHttpRequest') // => 'XML Http Request'
 ```
 
-### API
+## API
 
 `startCase(str: string): string`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="str" type="string" required}
@@ -34,7 +32,7 @@ startCase('XMLHttpRequest') // => 'XML Http Request'
   ::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="string"}
@@ -44,4 +42,4 @@ startCase('XMLHttpRequest') // => 'XML Http Request'
 
 ## Changelog
 
-:commit-changelog{prefix="utils/string"}
+:commit-changelog{prefix="transformers/string"}

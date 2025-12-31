@@ -4,14 +4,12 @@ description: 根据 `predicate` 过滤树，只保留满足条件的节点及其
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/tree/transform.ts
 ---
 
-## `filter`
+## 用法
 
 `filter` 方法根据 `predicate` 函数过滤树。与数组的 `filter` 不同，它会保留所有满足条件的节点以及这些节点的所有父节点，从而维持树的结构。
-
-### 用法
 
 ```ts
 import { Tree } from '@movk/core'
@@ -36,11 +34,11 @@ activeTree 将会是:
 */
 ```
 
-### API
+## API
 
 `filter<T extends TreeNode>(tree: T[], predicate: (context: VisitorContext<T>) => boolean, config?: TreeConfig): T[]`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="tree" type="T[]" required}
@@ -91,7 +89,7 @@ activeTree 将会是:
   :::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="T[]"}
@@ -101,4 +99,4 @@ activeTree 将会是:
 
 ## Changelog
 
-:commit-changelog{prefix="utils/tree"}
+:commit-changelog{prefix="transformers/tree" name="transform"}

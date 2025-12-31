@@ -4,14 +4,12 @@ description: 将字符串转换为短横线式 (hello-world)。
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/string/kebabCase.ts
 ---
 
-## `kebabCase`
+## 用法
 
 将字符串转换为短横线命名格式（kebab-case）。
-
-### 用法
 
 ```ts
 import { kebabCase } from '@movk/core'
@@ -22,11 +20,11 @@ kebabCase('first_name') // => 'first-name'
 kebabCase('XMLHttpRequest') // => 'xml-http-request'
 ```
 
-### API
+## API
 
 `kebabCase(str: string): string`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="str" type="string" required}
@@ -34,7 +32,7 @@ kebabCase('XMLHttpRequest') // => 'xml-http-request'
   ::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="string"}
@@ -44,4 +42,4 @@ kebabCase('XMLHttpRequest') // => 'xml-http-request'
 
 ## Changelog
 
-:commit-changelog{prefix="utils/string"}
+:commit-changelog{prefix="transformers/string"}

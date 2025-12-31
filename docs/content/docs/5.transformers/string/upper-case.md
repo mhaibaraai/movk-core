@@ -4,14 +4,12 @@ description: 将字符串转换为全大写，单词间用空格分隔 (HELLO WO
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/string/upperCase.ts
 ---
 
-## `upperCase`
+## 用法
 
 将字符串转换为大写格式，单词之间用空格分隔。
-
-### 用法
 
 ```ts
 import { upperCase } from '@movk/core'
@@ -22,11 +20,11 @@ upperCase('first-name') // => 'FIRST NAME'
 upperCase('XMLHttpRequest') // => 'XML HTTP REQUEST'
 ```
 
-### API
+## API
 
 `upperCase(str: string): string`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="str" type="string" required}
@@ -34,7 +32,7 @@ upperCase('XMLHttpRequest') // => 'XML HTTP REQUEST'
   ::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="string"}
@@ -44,4 +42,4 @@ upperCase('XMLHttpRequest') // => 'XML HTTP REQUEST'
 
 ## Changelog
 
-:commit-changelog{prefix="utils/string"}
+:commit-changelog{prefix="transformers/string"}

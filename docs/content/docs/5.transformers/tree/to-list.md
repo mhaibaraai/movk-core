@@ -4,14 +4,12 @@ description: 将树形结构转换回扁平数组。
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/tree/convert.ts
 ---
 
-## `toList`
+## 用法
 
 `toList` 方法将树形结构转换回扁平数组。
-
-### 用法
 
 ```ts
 import { Tree } from '@movk/core'
@@ -39,11 +37,11 @@ list 将会是:
 */
 ```
 
-### API
+## API
 
 `toList<T extends TreeNode>(tree: T[], config?: TreeConfig): T[]`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="tree" type="T[]" required}
@@ -70,7 +68,7 @@ list 将会是:
   :::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="T[]"}
@@ -80,4 +78,4 @@ list 将会是:
 
 ## Changelog
 
-:commit-changelog{prefix="utils/tree"}
+:commit-changelog{prefix="transformers/tree" name="convert"}

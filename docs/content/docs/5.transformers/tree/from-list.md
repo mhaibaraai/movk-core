@@ -4,14 +4,12 @@ description: 将一个扁平的、包含父子关系（通过 `pid`）的数组�
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/tree/convert.ts
 ---
 
-## `fromList`
+## 用法
 
 `fromList` 方法将一个扁平的、包含父子关系（通过 `pid`）的数组转换为树形结构。
-
-### 用法
 
 ```ts
 import { Tree } from '@movk/core'
@@ -48,11 +46,11 @@ tree 将会是:
 */
 ```
 
-### API
+## API
 
 `fromList<T extends TreeNode>(list: T[], config?: TreeConfig): T[]`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="list" type="T[]" required}
@@ -79,7 +77,7 @@ tree 将会是:
   :::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="T[]"}
@@ -89,4 +87,4 @@ tree 将会是:
 
 ## Changelog
 
-:commit-changelog{prefix="utils/tree"}
+:commit-changelog{prefix="transformers/tree" name="convert"}

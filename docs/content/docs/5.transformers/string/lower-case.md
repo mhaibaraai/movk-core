@@ -4,14 +4,12 @@ description: 将字符串转换为全小写，单词间用空格分隔 (hello wo
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/string/lowerCase.ts
 ---
 
-## `lowerCase`
+## 用法
 
 将字符串转换为小写格式，单词之间用空格分隔。
-
-### 用法
 
 ```ts
 import { lowerCase } from '@movk/core'
@@ -22,11 +20,11 @@ lowerCase('FIRST-NAME') // => 'first name'
 lowerCase('XMLHttpRequest') // => 'xml http request'
 ```
 
-### API
+## API
 
 `lowerCase(str: string): string`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="str" type="string" required}
@@ -34,7 +32,7 @@ lowerCase('XMLHttpRequest') // => 'xml http request'
   ::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="string"}
@@ -44,4 +42,4 @@ lowerCase('XMLHttpRequest') // => 'xml http request'
 
 ## Changelog
 
-:commit-changelog{prefix="utils/string"}
+:commit-changelog{prefix="transformers/string"}

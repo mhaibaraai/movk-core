@@ -4,14 +4,12 @@ description: 查找并返回第一个满足 `predicate` 条件的节点。
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/tree/query.ts
 ---
 
-## `find`
+## 用法
 
 `find` 方法在树中深度优先搜索，并返回第一个满足 `predicate` 函数条件的节点。
-
-### 用法
 
 ```ts
 import { Tree } from '@movk/core'
@@ -23,11 +21,11 @@ const node = Tree.find(tree, ({ node }) => node.name === 'B')
 // node => { id: 2, name: 'B' }
 ```
 
-### API
+## API
 
 `find<T extends TreeNode>(tree: T[], predicate: (context: VisitorContext<T>) => boolean, config?: TreeConfig): T | undefined`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="tree" type="T[]" required}
@@ -78,7 +76,7 @@ const node = Tree.find(tree, ({ node }) => node.name === 'B')
   :::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="T | undefined"}
@@ -88,4 +86,4 @@ const node = Tree.find(tree, ({ node }) => node.name === 'B')
 
 ## Changelog
 
-:commit-changelog{prefix="utils/tree"}
+:commit-changelog{prefix="transformers/tree" name="query"}

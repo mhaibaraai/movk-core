@@ -36,7 +36,7 @@ interface ParsedUrl {
 }
 ```
 
-### 用法
+## 用法
 
 ```ts
 import type { ParsedUrl } from '@movk/core'
@@ -53,7 +53,7 @@ const result: ParsedUrl | null = parseUrl('https://example.com/path')
 type QueryParamValue = string | number | boolean | null | undefined
 ```
 
-### 用法
+## 用法
 
 ```ts
 import type { QueryParamValue } from '@movk/core'
@@ -71,7 +71,7 @@ const boolValue: QueryParamValue = true
 type QueryParams = Record<string, QueryParamValue | QueryParamValue[]>
 ```
 
-### 用法
+## 用法
 
 ```ts
 import type { QueryParams } from '@movk/core'

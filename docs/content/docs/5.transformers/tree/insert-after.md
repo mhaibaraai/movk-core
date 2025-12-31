@@ -4,14 +4,12 @@ description: 在目标节点之后插入一个新节点。 (此方法会**原地
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/tree/mutate.ts
 ---
 
-## `insertAfter`
+## 用法
 
 `insertAfter` 方法在目标节点（通过 `id` 查找）之后插入一个新节点。此方法会 **原地修改** 传入的树数组。
-
-### 用法
 
 ```ts
 import { Tree } from '@movk/core'
@@ -27,11 +25,11 @@ tree 将会是:
 */
 ```
 
-### API
+## API
 
 `insertAfter<T extends TreeNode>(tree: T[], node: T, targetId: number | string, config?: TreeConfig): boolean`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="tree" type="T[]" required}
@@ -66,7 +64,7 @@ tree 将会是:
   :::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="boolean"}
@@ -76,4 +74,4 @@ tree 将会是:
 
 ## Changelog
 
-:commit-changelog{prefix="utils/tree"}
+:commit-changelog{prefix="transformers/tree" name="mutate"}

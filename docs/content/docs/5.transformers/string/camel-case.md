@@ -4,14 +4,12 @@ description: 将字符串转换为驼峰式 (helloWorld)。
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/string/camelCase.ts
 ---
 
-## `camelCase`
+## 用法
 
 将字符串转换为驼峰命名格式（第一个单词小写，后续单词首字母大写）。
-
-### 用法
 
 ```ts
 import { camelCase } from '@movk/core'
@@ -22,11 +20,11 @@ camelCase('first-name') // => 'firstName'
 camelCase('XMLHttpRequest') // => 'xmlHttpRequest'
 ```
 
-### API
+## API
 
 `camelCase(str: string): string`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="str" type="string" required}
@@ -34,7 +32,7 @@ camelCase('XMLHttpRequest') // => 'xmlHttpRequest'
   ::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="string"}
@@ -44,4 +42,4 @@ camelCase('XMLHttpRequest') // => 'xmlHttpRequest'
 
 ## Changelog
 
-:commit-changelog{prefix="utils/string"}
+:commit-changelog{prefix="transformers/string"}

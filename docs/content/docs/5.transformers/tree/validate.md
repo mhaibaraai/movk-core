@@ -4,16 +4,14 @@ description: 验证树的结构是否有效，检查重复 ID 和循环引用。
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/tree/validate.ts
 ---
 
-## `validate`
+## 用法
 
 `validate` 方法用于验证树的结构是否有效。它主要检查两个问题：
 1.  是否存在重复的节点 `id`。
 2.  是否存在循环引用（即一个节点是其自身的祖先）。
-
-### 用法
 
 ```ts
 import { Tree } from '@movk/core'
@@ -44,11 +42,11 @@ catch (e) {
 }
 ```
 
-### API
+## API
 
 `validate<T extends TreeNode>(tree: T[], config?: TreeConfig): void`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="tree" type="T[]" required}
@@ -75,10 +73,10 @@ catch (e) {
   :::
 ::
 
-#### 返回值
+### 返回值
 
 如果树结构无效，此方法会抛出一个 `Error`。
 
 ## Changelog
 
-:commit-changelog{prefix="utils/tree"}
+:commit-changelog{prefix="transformers/tree" name="validate"}

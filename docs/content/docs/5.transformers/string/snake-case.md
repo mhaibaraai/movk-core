@@ -4,14 +4,12 @@ description: 将字符串转换为下划线式 (hello_world)。
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/string/case.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/string/snakeCase.ts
 ---
 
-## `snakeCase`
+## 用法
 
 将字符串转换为下划线命名格式（snake_case）。
-
-### 用法
 
 ```ts
 import { snakeCase } from '@movk/core'
@@ -22,11 +20,11 @@ snakeCase('first-name') // => 'first_name'
 snakeCase('XMLHttpRequest') // => 'xml_http_request'
 ```
 
-### API
+## API
 
 `snakeCase(str: string): string`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="str" type="string" required}
@@ -34,7 +32,7 @@ snakeCase('XMLHttpRequest') // => 'xml_http_request'
   ::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="string"}
@@ -44,4 +42,4 @@ snakeCase('XMLHttpRequest') // => 'xml_http_request'
 
 ## Changelog
 
-:commit-changelog{prefix="utils/string"}
+:commit-changelog{prefix="transformers/string"}

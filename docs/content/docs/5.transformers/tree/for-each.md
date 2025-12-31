@@ -4,14 +4,12 @@ description: 遍历树中的每一个节点，并执行 `visitor` 函数。`visi
 links:
   - label: GitHub
     icon: i-lucide-github
-    to: https://github.com/mhaibaraai/movk-core/blob/main/src/utils/tree.ts
+    to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/tree/traverse.ts
 ---
 
-## `forEach`
+## 用法
 
 `forEach` 方法以深度优先的顺序遍历树中的每一个节点，并对每个节点执行 `visitor` 函数。
-
-### 用法
 
 ```ts
 import { Tree } from '@movk/core'
@@ -33,11 +31,11 @@ Tree.forEach(tree, ({ node }) => {
 })
 ```
 
-### API
+## API
 
 `forEach<T extends TreeNode>(tree: T[], visitor: (context: VisitorContext<T>) => void | false, config?: TreeConfig): void`{lang="ts-type"}
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="tree" type="T[]" required}
@@ -90,4 +88,4 @@ Tree.forEach(tree, ({ node }) => {
 
 ## Changelog
 
-:commit-changelog{prefix="utils/tree"}
+:commit-changelog{prefix="transformers/tree" name="traverse"}

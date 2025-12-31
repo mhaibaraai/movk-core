@@ -1,6 +1,6 @@
 ---
 title: Storage
-description: 与 useAppStorage 组合式函数相关的类型和 Zod schema。
+description: 与 useAppStorage 组合式函数相关的存储类型定义。
 links:
   - label: GitHub
     icon: i-lucide-github
@@ -9,7 +9,7 @@ links:
 
 ## `StorageType`
 
-一个表示存储类型的字符串字面量类型。
+表示浏览器存储类型的字符串字面量类型。
 
 ```ts [Source]
 export type StorageType = 'localStorage' | 'sessionStorage'
@@ -21,23 +21,52 @@ const storage: StorageType = 'localStorage'
 
 ## `StorageConfig<T>`
 
-`useAppStorage` 函数的完整配置对象的推断类型。
+`useAppStorage` 函数的完整配置对象类型。
 
 ```ts [Source]
-export type StorageConfig<T = unknown> = z.infer<ReturnType<typeof createStorageConfigSchema<T>>>
+export interface StorageConfig<T = unknown> {
+  key: string
+  defaultValue: T
+  prefix: string
+  storage: StorageType
+}
 ```
+
+### 属性说明
+
+- `key`: 存储项的唯一键名
+- `defaultValue`: 默认值
+- `prefix`: 键名前缀，用于创建命名空间
+- `storage`: 存储类型，`localStorage` 或 `sessionStorage`
 
 ## `StorageConfigInput<T>`
 
-`useAppStorage` 函数的输入配置对象的类型。
+`useAppStorage` 函数的输入配置对象类型，`prefix` 和 `storage` 为可选参数。
 
 ```ts [Source]
-export type StorageConfigInput<T = unknown> = z.input<ReturnType<typeof createStorageConfigSchema<T>>>
+export type StorageConfigInput<T = unknown> = Partial<Omit<StorageConfig<T>, 'key' | 'defaultValue'>> & {
+  key: string
+  defaultValue: T
+}
+```
+
+```ts [Example]
+import type { StorageConfigInput } from '@movk/core'
+import { useAppStorage } from '@movk/core'
+
+const config: StorageConfigInput<{ theme: string }> = {
+  key: 'user-preferences',
+  defaultValue: { theme: 'light' },
+  storage: 'localStorage', // 可选
+  prefix: 'app' // 可选
+}
+
+const storage = useAppStorage(config)
 ```
 
 ## `AppStorageReturn<T>`
 
-`useAppStorage` 函数的返回对象的接口。
+`useAppStorage` 函数的返回对象接口。
 
 ```ts [Source]
 export interface AppStorageReturn<T> {
@@ -48,37 +77,33 @@ export interface AppStorageReturn<T> {
 }
 ```
 
-```ts [Example]
-import { useAppStorage } from '@movk/core'
-import { z } from 'zod'
+### 属性说明
 
-const { state, getItem, setItem, removeItem }: AppStorageReturn<string> = useAppStorage({
+- `state`: 响应式引用，与存储数据同步
+- `getItem`: 从存储中读取数据
+- `setItem`: 设置新值到存储
+- `removeItem`: 从存储中移除项
+
+```ts [Example]
+import type { AppStorageReturn } from '@movk/core'
+import { useAppStorage } from '@movk/core'
+
+const storage: AppStorageReturn<string> = useAppStorage({
   key: 'my-key',
-  schema: z.string(),
   defaultValue: 'hello'
 })
-```
 
-## `createStorageConfigSchema`
+// 使用响应式状态
+console.log(storage.state.value) // 'hello'
 
-一个创建用于验证 `useAppStorage` 配置的 Zod schema 的工厂函数。
+// 更新值
+storage.setItem('world')
 
-```ts [Source]
-export function createStorageConfigSchema<T = unknown>(schema: z.ZodType<T>) {
-  return z.object({
-    key: z.string().min(1, { message: 'Key cannot be empty' }),
-    schema: z.custom<z.ZodType<T>>(
-      val => val instanceof z.ZodType,
-      { message: 'Schema must be a valid Zod schema' },
-    ),
-    defaultValue: z.custom<T>(
-      val => schema.safeParse(val).success,
-      { message: 'Default value must match the provided schema' },
-    ),
-    prefix: z.string().default('movk'),
-    storage: StorageTypeSchema.default('localStorage'),
-  })
-}
+// 读取值
+const value = storage.getItem() // 'world'
+
+// 移除项
+storage.removeItem()
 ```
 
 ## Changelog
