@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { baseTransform, transformFirstChar } from '../../../src/transformers/string/base-transform'
+import { baseTransform, transformFirstChar } from '../../../src/transformers/string/baseTransform'
 
 describe('baseTransform', () => {
   describe('边界情况', () => {

@@ -7,7 +7,7 @@ describe('storage 类型', () => {
     type Input = StorageConfigInput<string>
 
     // 验证包含必需的 key 属性
-    type Expected = { key: string }
+    interface Expected { key: string }
     expectTypeOf<Input>().toExtend<Expected>()
 
     // 验证 prefix 是可选的

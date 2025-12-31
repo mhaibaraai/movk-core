@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { convertToKebabCase } from '../../../src/transformers/object/convert-to-kebab-case'
+import { convertToKebabCase } from '../../../src/transformers/object'
 
 describe('convertToKebabCase', () => {
   describe('基础转换', () => {
@@ -241,7 +241,7 @@ describe('convertToKebabCase', () => {
       expect(result).toEqual({
         'user-info': {
           'middle-name': null,
-          suffix: undefined,
+          'suffix': undefined,
         },
       })
     })
@@ -288,8 +288,8 @@ describe('convertToKebabCase', () => {
       const result = convertToKebabCase(input)
 
       expect(result).toEqual({
-        x: 1,
-        y: 2,
+        'x': 1,
+        'y': 2,
         'a-b': 3,
       })
     })

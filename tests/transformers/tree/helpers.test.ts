@@ -1,6 +1,6 @@
+import type { TreeNode } from '../../../src/transformers/tree/types'
 import { describe, expect, it } from 'vitest'
 import { bfsGenerator, dfsGenerator, parseTreeConfig, selectStrategy } from '../../../src/transformers/tree/helpers'
-import type { TreeNode } from '../../../src/transformers/tree/types'
 
 describe('tree/helpers', () => {
   describe('parseTreeConfig', () => {
@@ -351,7 +351,7 @@ describe('tree/helpers', () => {
   })
 
   describe('生成器对比测试', () => {
-    it('DFS 和 BFS 应产生不同的遍历顺序', () => {
+    it('dFS 和 BFS 应产生不同的遍历顺序', () => {
       const tree: TreeNode[] = [
         {
           id: 1,
@@ -369,7 +369,7 @@ describe('tree/helpers', () => {
       expect(bfsIds).toEqual([1, 2, 3, 4])
     })
 
-    it('DFS 和 BFS 应访问相同数量的节点', () => {
+    it('dFS 和 BFS 应访问相同数量的节点', () => {
       const tree: TreeNode[] = [
         {
           id: 1,
