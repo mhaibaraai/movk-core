@@ -9,7 +9,12 @@ const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 const { navigationByCategory } = useNavigation(navigation!)
 
 const input = useTemplateRef('input')
-const isActiveSearch = computed(() => route.path.startsWith('/docs/utils'))
+const isActiveSearch = computed(() => [
+  '/docs/validators',
+  '/docs/utilities',
+  '/docs/transformers',
+  '/docs/helpers',
+].some(path => route.path.startsWith(path)))
 const searchTerm = ref('')
 
 const { contains } = useFilter({ sensitivity: 'base' })
