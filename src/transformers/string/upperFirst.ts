@@ -1,4 +1,4 @@
-import { transformFirstChar } from './base-transform'
+import { transformFirstChar } from './baseTransform'
 
 /**
  * 将字符串首字母大写，其余字母保持原样。

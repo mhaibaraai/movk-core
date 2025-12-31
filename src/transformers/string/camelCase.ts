@@ -1,4 +1,4 @@
-import { baseTransform } from './base-transform'
+import { baseTransform } from './baseTransform'
 
 /**
  * 将字符串转换为驼峰命名格式（第一个单词小写，后续单词首字母大写）。

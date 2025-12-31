@@ -1,6 +1,6 @@
-import type { PathInput } from './to-path'
-import { isValidContainer } from '../../validators/is-valid-container'
-import { toPath } from './to-path'
+import type { PathInput } from './toPath'
+import { isValidContainer } from '../../validators/isValidContainer'
+import { toPath } from './toPath'
 
 /**
  * 在对象指定路径写入值。缺失路径会被自动创建:

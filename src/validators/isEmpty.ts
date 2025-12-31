@@ -1,6 +1,6 @@
-import { isArray } from './is-array'
-import { isObject } from './is-object'
-import { isString } from './is-string'
+import { isArray } from './isArray'
+import { isObject } from './isObject'
+import { isString } from './isString'
 
 /**
  * 检查值是否为空（null、undefined、空字符串、空数组、空对象）

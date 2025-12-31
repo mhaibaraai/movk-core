@@ -1,4 +1,4 @@
-import { baseTransform } from './base-transform'
+import { baseTransform } from './baseTransform'
 
 /**
  * 将字符串转换为帕斯卡命名格式（PascalCase，每个单词首字母大写）。

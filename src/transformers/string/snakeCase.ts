@@ -1,4 +1,4 @@
-import { baseTransform } from './base-transform'
+import { baseTransform } from './baseTransform'
 
 /**
  * 将字符串转换为下划线命名格式（snake_case）。

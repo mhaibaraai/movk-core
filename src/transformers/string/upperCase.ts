@@ -1,4 +1,4 @@
-import { baseTransform } from './base-transform'
+import { baseTransform } from './baseTransform'
 
 /**
  * 将字符串转换为大写格式，单词之间用空格分隔。

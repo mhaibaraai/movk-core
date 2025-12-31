@@ -1,5 +1,5 @@
-import type { PathInput } from './to-path'
-import { toPath } from './to-path'
+import type { PathInput } from './toPath'
+import { toPath } from './toPath'
 
 /**
  * 读取对象指定路径的值。

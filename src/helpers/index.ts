@@ -1,5 +1,5 @@
 export * from './file'
 export * from './object'
 export * from './path'
-export * from './simple-hash'
+export * from './simpleHash'
 export * from './uuid'

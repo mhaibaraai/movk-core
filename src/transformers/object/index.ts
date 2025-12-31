@@ -1,1 +1,1 @@
-export * from './convert-to-kebab-case'
+export * from './convertToKebabCase'
