@@ -1,24 +1,14 @@
-import type { AppStorageReturn, StorageConfigInput } from '../types'
+import type { AppStorageReturn, StorageConfigInput } from '../types/storage'
 import { useStorage } from '@vueuse/core'
-import { createStorageConfigSchema } from '../types'
 
 /**
- * 应用存储管理的组合式函数，支持localStorage和sessionStorage
+ * 应用存储管理的组合式函数，支持 localStorage 和 sessionStorage
  *
  * @category Composables
  * @param config 存储配置对象
  * @returns 存储管理对象，包含响应式状态和操作方法
  * @example
  * ```ts
- * import { z } from 'zod/v4'
- *
- * // 定义用户偏好设置的schema
- * const userPrefsSchema = z.object({
- *   theme: z.enum(['light', 'dark']),
- *   language: z.string(),
- *   fontSize: z.number().min(12).max(24)
- * })
- *
  * // 创建存储管理实例
  * const { state, setItem, getItem, removeItem } = useAppStorage({
  *   key: 'user-preferences',
@@ -27,7 +17,6 @@ import { createStorageConfigSchema } from '../types'
  *     language: 'zh-CN',
  *     fontSize: 16
  *   },
- *   schema: userPrefsSchema,
  *   storage: 'localStorage',
  *   prefix: 'app'
  * })
@@ -44,16 +33,12 @@ import { createStorageConfigSchema } from '../types'
  * ```
  */
 export function useAppStorage<T = unknown>(config: StorageConfigInput<T>): AppStorageReturn<T> {
-  const configSchema = createStorageConfigSchema<T>(config.schema)
-  const parsedConfig = configSchema.parse(config)
-
   const {
     key,
     defaultValue,
-    schema,
-    storage,
-    prefix,
-  } = parsedConfig
+    storage = 'localStorage',
+    prefix = 'movk',
+  } = config
 
   const fullKey = `${prefix}:${key}`
 
@@ -71,18 +56,7 @@ export function useAppStorage<T = unknown>(config: StorageConfigInput<T>): AppSt
       return defaultValue
 
     try {
-      const parsedValue = JSON.parse(value)
-      const validation = schema.safeParse(parsedValue)
-
-      if (!validation.success) {
-        console.warn(
-          `[AppStorage] Validation failed for key "${fullKey}". Using default value.`,
-          validation.error.issues,
-        )
-        return defaultValue
-      }
-
-      return validation.data
+      return JSON.parse(value) as T
     }
     catch (error) {
       console.warn(
@@ -116,15 +90,7 @@ export function useAppStorage<T = unknown>(config: StorageConfigInput<T>): AppSt
   }
 
   function setItem(value: T): void {
-    const validation = schema.safeParse(value)
-    if (!validation.success) {
-      console.warn(
-        `[AppStorage] Invalid value for key "${fullKey}". Aborting setItem.`,
-        validation.error.issues,
-      )
-      return
-    }
-    state.value = validation.data
+    state.value = value
   }
 
   function removeItem(): void {

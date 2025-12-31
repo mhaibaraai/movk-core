@@ -1,7 +1,7 @@
 ---
 seo:
-  title: 现代 Vue.js 高性能实用工具集
-  description: 一个为现代 Vue.js 应用量身打造的高性能实用工具与组合式函数集合。全面拥抱 TypeScript，轻量、可摇树，为您的项目注入更多活力与效率。
+  title: 现代 TypeScript 工具函数库
+  description: 为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。涵盖数组、对象、字符串、异步操作等多个方面，提供完整的类型定义和 Vue 组合式函数。
 ---
 
 ::u-page-hero{class="dark:bg-gradient-to-b from-neutral-900 to-neutral-950"}
@@ -15,7 +15,7 @@ ui:
 
 #title
 :::motion
-现代 Vue.js [高性能]{.text-primary}实用工具集.
+现代 [TypeScript]{.text-primary} 工具函数库.
 :::
 
 #description
@@ -23,7 +23,7 @@ ui:
 ---
 transition: { duration: 0.6, delay: 0.3 }
 ---
-为现代 Vue.js 应用量身打造的实用工具与组合式函数集合。全面拥抱 TypeScript，轻量、可摇树，为您的项目注入更多活力与效率。
+为 TypeScript 项目设计的现代化工具函数库，涵盖数组、对象、字符串、异步操作等多个方面。全面支持 Tree-Shaking，提供完整类型定义和 Vue 组合式函数。
 :::
 
 #links
@@ -63,7 +63,7 @@ transition: { duration: 0.6, delay: 0.5 }
 特性一览
 
 #description
-`@movk/core` 提供了一套全面的、经过严格测试的实用工具和组合式函数，旨在简化您的日常开发工作。
+`@movk/core` 提供了一套全面的、经过严格测试的 TypeScript 工具函数库，旨在简化您的日常开发工作。
 
 #features
   :::u-page-feature
@@ -71,10 +71,10 @@ transition: { duration: 0.6, delay: 0.5 }
   icon: i-lucide-square-dashed
   ---
   #title
-  50+ 实用工具
+  80+ 实用工具
 
   #description
-  从数组、对象、字符串操作到异步控制与树形结构处理，提供丰富、高效的函数，覆盖各种常见场景。
+  涵盖数组、对象、字符串、异步操作、URL 处理、树形结构等多个领域，提供丰富、高效的函数，覆盖各种常见场景。
   :::
 
   :::u-page-feature
@@ -82,10 +82,10 @@ transition: { duration: 0.6, delay: 0.5 }
   icon: i-lucide-square-function
   ---
   #title
-  组合式函数
+  Vue 组合式函数
 
   #description
-  提供 `useAppStorage`、`useCopyCode` 等即用型组合式函数，轻松集成响应式能力。
+  提供 `useAppStorage`、`useCopyCode` 等即用型 Vue Composables，轻松为 Vue 项目集成响应式能力。
   :::
 
   :::u-page-feature
@@ -104,10 +104,10 @@ transition: { duration: 0.6, delay: 0.5 }
   icon: i-lucide-shield-check
   ---
   #title
-  类型安全
+  完整类型定义
 
   #description
-  全面使用 TypeScript 编写，提供卓越的类型推断和代码提示，确保您的应用稳健可靠。
+  全面使用 TypeScript 编写，提供完整的类型定义和卓越的类型推断，确保开发体验和代码质量。
   :::
 
   :::u-page-feature
@@ -115,10 +115,10 @@ transition: { duration: 0.6, delay: 0.5 }
   icon: i-lucide-package-check
   ---
   #title
-  轻量与可摇树
+  支持 Tree-Shaking
 
   #description
-  精心设计的模块化结构，支持摇树优化（Tree-Shaking），仅打包您需要的代码，减小应用体积。
+  精心设计的模块化结构，支持 Tree-Shaking 优化，仅打包您需要的代码，减小生产环境的包体积。
   :::
 
   :::u-page-feature
@@ -126,9 +126,9 @@ transition: { duration: 0.6, delay: 0.5 }
   icon: i-lucide-file-code-2
   ---
   #title
-  现代 ESM
+  现代化构建
 
   #description
-  原生支持 ES Modules，无缝融入现代前端工程化体系，适用于 Vite、Nuxt 等各种环境。
+  原生支持 ES Modules，使用 Unbuild 构建，无缝融入现代前端工程化体系，适用于 Vite、Nuxt 等环境。
   :::
 ::

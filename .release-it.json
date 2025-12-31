@@ -19,7 +19,7 @@
     "before:init": [
       "pnpm lint",
       "pnpm typecheck",
-      "pnpm test"
+      "pnpm test run"
     ],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },

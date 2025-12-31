@@ -1,6 +1,0 @@
-export * from './convert'
-export * from './deepClone'
-export * from './omit'
-export * from './path'
-export * from './pick'
-export * from './separate'

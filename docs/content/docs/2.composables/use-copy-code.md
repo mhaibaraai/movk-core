@@ -71,7 +71,7 @@ async function handleCopy() {
 
 异步地将指定的文本字符串复制到用户的剪贴板。
 
-#### 参数
+### 参数
 
 ::field-group
   ::field{name="text" type="string" required}
@@ -79,7 +79,7 @@ async function handleCopy() {
   ::
 ::
 
-#### 返回值
+### 返回值
 
 ::field-group
   ::field{name="Promise<boolean>"}
