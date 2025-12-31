@@ -14,30 +14,37 @@ export default defineNuxtConfig({
     // redirects - default root pages
     '/docs': { redirect: '/docs/getting-started', prerender: false },
     '/docs/composables': { redirect: '/docs/composables/use-app-storage', prerender: false },
-    '/docs/utils': { redirect: '/docs/utils/array', prerender: false },
+    '/docs/validators': { redirect: '/docs/validators/is-array', prerender: false },
+    '/docs/utilities': { redirect: '/docs/utilities/array', prerender: false },
+    '/docs/transformers': { redirect: '/docs/transformers/object', prerender: false },
+    '/docs/helpers': { redirect: '/docs/helpers/simple-hash', prerender: false },
     '/docs/types': { redirect: '/docs/types/api', prerender: false },
 
-    // level 2 redirects
-    '/docs/utils/array': { redirect: '/docs/utils/array/chunk', prerender: false },
-    '/docs/utils/async': { redirect: '/docs/utils/async/debounce', prerender: false },
-    '/docs/utils/file': { redirect: '/docs/utils/file/convert-svg-to-png', prerender: false },
-    '/docs/utils/object': { redirect: '/docs/utils/object/convert-to-kebab-case', prerender: false },
-    '/docs/utils/path': { redirect: '/docs/utils/path/get-path', prerender: false },
-    '/docs/utils/string': { redirect: '/docs/utils/string/camel-case', prerender: false },
-    '/docs/utils/tree': { redirect: '/docs/utils/tree/filter', prerender: false },
-    '/docs/utils/utilities': { redirect: '/docs/utils/utilities/get-random-uuid', prerender: false },
-    '/docs/utils/validator': { redirect: '/docs/utils/validator/is-array', prerender: false },
+    // level 2 redirects - utilities
+    '/docs/utilities/array': { redirect: '/docs/utilities/array/chunk', prerender: false },
+    '/docs/utilities/async': { redirect: '/docs/utilities/async/debounce', prerender: false },
+    '/docs/utilities/url': { redirect: '/docs/utilities/url/append-query-param', prerender: false },
+
+    // level 2 redirects - transformers
+    '/docs/transformers/object': { redirect: '/docs/transformers/object/convert-to-kebab-case', prerender: false },
+    '/docs/transformers/string': { redirect: '/docs/transformers/string/camel-case', prerender: false },
+    '/docs/transformers/tree': { redirect: '/docs/transformers/tree/filter', prerender: false },
+
+    // level 2 redirects - helpers
+    '/docs/helpers/file': { redirect: '/docs/helpers/file/convert-svg-to-png', prerender: false },
+    '/docs/helpers/object': { redirect: '/docs/helpers/object/deep-clone', prerender: false },
+    '/docs/helpers/path': { redirect: '/docs/helpers/path/get-path', prerender: false },
   },
   compatibilityDate: 'latest',
   llms: {
     domain: 'https://core.mhaibaraai.cn',
     title: '@movk/core',
-    description: '一个为现代 Vue.js 应用量身打造的高性能实用工具与组合式函数集合。全面拥抱 TypeScript，轻量、可摇树，为您的项目注入更多活力与效率。',
+    description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。涵盖数组、对象、字符串、异步操作等多个方面，提供完整的类型定义和 Vue 组合式函数。',
     full: {
       title: '@movk/core',
-      description: '一个为现代 Vue.js 应用量身打造的高性能实用工具与组合式函数集合。全面拥抱 TypeScript，轻量、可摇树，为您的项目注入更多活力与效率。'
+      description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。涵盖数组、对象、字符串、异步操作等多个方面，提供完整的类型定义和 Vue 组合式函数。'
     },
-    notes: ['Vue.js 工具', '组合式函数', 'TypeScript', '实用库']
+    notes: ['TypeScript', '工具函数库', 'Tree-Shaking', 'Vue Composables', '类型定义']
   },
   robots: {
     sitemap: 'https://core.mhaibaraai.cn/sitemap.xml'

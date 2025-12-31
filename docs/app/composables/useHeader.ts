@@ -21,10 +21,25 @@ export function useHeader() {
     to: '/docs/composables',
     active: route.path.startsWith('/docs/composables')
   }, {
-    label: 'Utils',
+    label: 'Validators',
     icon: 'i-lucide-square-code',
-    to: '/docs/utils',
-    active: route.path.startsWith('/docs/utils')
+    to: '/docs/validators',
+    active: route.path.startsWith('/docs/validators')
+  }, {
+    label: 'Utilities',
+    icon: 'i-lucide-wrench',
+    to: '/docs/utilities',
+    active: route.path.startsWith('/docs/utilities')
+  }, {
+    label: 'Transformers',
+    icon: 'i-lucide-wand-sparkles',
+    to: '/docs/transformers',
+    active: route.path.startsWith('/docs/transformers')
+  }, {
+    label: 'Helpers',
+    icon: 'i-lucide-life-buoy',
+    to: '/docs/helpers',
+    active: route.path.startsWith('/docs/helpers')
   }, {
     label: 'Types',
     icon: 'i-lucide-square-library',
