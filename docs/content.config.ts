@@ -1,5 +1,6 @@
-import { defineCollection, defineContentConfig, property, z } from '@nuxt/content'
+import { defineCollection, defineContentConfig, property } from '@nuxt/content'
 import { asSeoCollection } from '@nuxtjs/seo/content'
+import { z } from 'zod/v4'
 
 export default defineContentConfig({
   collections: {
