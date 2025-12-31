@@ -1,5 +1,66 @@
 # 📋 Changelog
 
+## [1.1.0](https://github.com/mhaibaraai/movk-core/compare/v1.0.3...v1.1.0) (2025-12-31)
+
+### ⚠ BREAKING CHANGES
+
+* 模块导入路径已更改
+
+- 移除旧的 utils 目录(array、async、file、object、string、tree、validator、utilities)
+- 新增 helpers 模块:提供辅助工具函数
+- 新增 transformers 模块:负责数据转换(字符串大小写、树结构等)
+- 新增 validators 模块:类型检查和数据验证
+- 新增 utilities 模块:通用工具函数
+- 重构 types 模块:更细粒度的类型组织(object、url 等)
+- 更新所有相关测试文件和文档
+- 更新 useAppStorage composable 以适配新模块
+
+### ✨ Features
+
+* **docs:** 扩展文档布局以支持新的模块化路径结构 ([131f8b5](https://github.com/mhaibaraai/movk-core/commit/131f8b5744a019ffbc5fefb4bb056cf29ec92a85))
+* **docs:** 添加文档布局组件及导航搜索功能 ([a28a4d3](https://github.com/mhaibaraai/movk-core/commit/a28a4d37feced7192fe8c0097316a90839f20077))
+* 添加 ParsedUrl 类型定义 ([4e1daf0](https://github.com/mhaibaraai/movk-core/commit/4e1daf0243177fd468bbb6a417f0017afee03eeb))
+
+### 🐛 Bug Fixes
+
+* 修复 release-it 测试命令配置 ([c0e29dc](https://github.com/mhaibaraai/movk-core/commit/c0e29dcc36bcffa714d6ea5ff60e0e3d09050047))
+* 增强工具函数的空值安全检查 ([9e6ed06](https://github.com/mhaibaraai/movk-core/commit/9e6ed061f90cb26e8efeaced913fe6d8aac9b5b7))
+
+### 📝 Documentation
+
+* 优化项目文档和模块介绍 ([47e4d77](https://github.com/mhaibaraai/movk-core/commit/47e4d770306e6d8d943628f3498a8d4b691d2faf))
+* 修正树工具函数文档的组件嵌套语法 ([e0abf30](https://github.com/mhaibaraai/movk-core/commit/e0abf30f603ebc13d8c790662563581ecfd7166f))
+* 删除旧的 utils 和 validator 文档结构 ([668d8a5](https://github.com/mhaibaraai/movk-core/commit/668d8a5d5102be8149b40b6c953ac7c5a67341bc))
+* 添加新的模块化文档结构 ([dec4a1f](https://github.com/mhaibaraai/movk-core/commit/dec4a1f7bfb3db3616ad67d8adbb6c7ab2898d06))
+* 移除旧的工具函数和类型文档 ([4a13b1a](https://github.com/mhaibaraai/movk-core/commit/4a13b1ad7274e399b61db6336ac4e97aae087aa3))
+
+### 💄 Styles
+
+* 移除 CI 工作流配置中的尾随空白 ([073f65f](https://github.com/mhaibaraai/movk-core/commit/073f65f67d6bb82b1b4687689a1792828ae68f30))
+
+### ♻️ Code Refactoring
+
+* **docs:** 优化配置并迁移发布页面格式 ([f291687](https://github.com/mhaibaraai/movk-core/commit/f291687325302626464de38d8f2afc28edc429d3))
+* 统一源码文件命名为 camelCase ([b6146b0](https://github.com/mhaibaraai/movk-core/commit/b6146b01e4f31a120144a836a0ea053911baa3f7))
+* 重构模块架构,拆分 utils 为专业化模块 ([7c832ff](https://github.com/mhaibaraai/movk-core/commit/7c832ff43817fba5409355a5c09713d19b389cbe))
+
+### ✅ Tests
+
+* 更新测试以适配文件重命名 ([7248f60](https://github.com/mhaibaraai/movk-core/commit/7248f60149cf99bbb2c624480755aa9eab642996))
+
+### 👷 CI
+
+* 在工作流中添加类型检查步骤 ([03d9cf7](https://github.com/mhaibaraai/movk-core/commit/03d9cf72ef9d95ecbd8b751db090933a5c96240a))
+
+### 🔧 Chores
+
+* **deps:** update devdependency release-it to ^19.2.2 ([7c61cbd](https://github.com/mhaibaraai/movk-core/commit/7c61cbd7f4c88bcf2926290bcf8a3e97bf7ab629))
+* **deps:** 升级文档依赖并迁移至 Zod v4 ([4218b5a](https://github.com/mhaibaraai/movk-core/commit/4218b5ae293b24f87d92e9bfbbad52fee008cbb1))
+* **docs:** 升级 TypeScript 配置以支持 Nuxt 4 项目引用 ([a0cd6f3](https://github.com/mhaibaraai/movk-core/commit/a0cd6f33708db3dc3df20fa9e5203131ab707834))
+* 优化构建脚本和依赖管理 ([c010cdf](https://github.com/mhaibaraai/movk-core/commit/c010cdf24a5bf7151169b4295a6dcdd6a13550bc))
+* 更新项目配置并移除 zod 依赖 ([4fc60f4](https://github.com/mhaibaraai/movk-core/commit/4fc60f46d0f59de71b8c8d55d9bd42bfe18a8722))
+* 清理依赖更新记录，移除重复项 ([39964a5](https://github.com/mhaibaraai/movk-core/commit/39964a5fea9abfea062bb42f9afbe5b87751aeb1))
+
 ## [1.0.3](https://github.com/mhaibaraai/movk-core/compare/v1.0.2...v1.0.3) (2025-12-25)
 
 ### ✨ Features
