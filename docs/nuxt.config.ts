@@ -2,6 +2,7 @@ import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
   extends: ['@movk/nuxt-docs'],
+  modules: ['@nuxtjs/mcp-toolkit'],
   css: ['~/assets/css/main.css'],
   alias: {
     '@movk/core': fileURLToPath(new URL('../src/index.ts', import.meta.url))
@@ -13,6 +14,7 @@ export default defineNuxtConfig({
   routeRules: {
     // redirects - default root pages
     '/docs': { redirect: '/docs/getting-started', prerender: false },
+    '/docs/ai': { redirect: '/docs/getting-started/ai/mcp', prerender: false },
     '/docs/composables': { redirect: '/docs/composables/use-app-storage', prerender: false },
     '/docs/validators': { redirect: '/docs/validators/is-array', prerender: false },
     '/docs/utilities': { redirect: '/docs/utilities/array', prerender: false },
@@ -36,15 +38,69 @@ export default defineNuxtConfig({
     '/docs/helpers/path': { redirect: '/docs/helpers/path/get-path', prerender: false },
   },
   compatibilityDate: 'latest',
+  mcp: {
+    name: '@movk/core',
+    browserRedirect: '/docs/getting-started/ai/mcp'
+  },
   llms: {
     domain: 'https://core.mhaibaraai.cn',
     title: '@movk/core',
     description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。涵盖数组、对象、字符串、异步操作等多个方面，提供完整的类型定义和 Vue 组合式函数。',
     full: {
-      title: '@movk/core',
-      description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。涵盖数组、对象、字符串、异步操作等多个方面，提供完整的类型定义和 Vue 组合式函数。'
+      title: '@movk/core - 完整文档',
+      description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。包含 80+ 工具函数的完整文档、API 参考、类型定义和使用示例。'
     },
-    notes: ['TypeScript', '工具函数库', 'Tree-Shaking', 'Vue Composables', '类型定义']
+    sections: [
+      {
+        title: '快速开始',
+        contentCollection: 'docs',
+        contentFilters: [{ path: '/docs/getting-started/%' }]
+      },
+      {
+        title: 'Vue 组合式函数',
+        contentCollection: 'docs',
+        contentFilters: [{ path: '/docs/composables/%' }]
+      },
+      {
+        title: '类型验证器',
+        contentCollection: 'docs',
+        contentFilters: [{ path: '/docs/validators/%' }]
+      },
+      {
+        title: '工具函数',
+        contentCollection: 'docs',
+        contentFilters: [
+          { path: '/docs/utilities/array/%' },
+          { path: '/docs/utilities/async/%' },
+          { path: '/docs/utilities/url/%' }
+        ]
+      },
+      {
+        title: '数据转换器',
+        contentCollection: 'docs',
+        contentFilters: [
+          { path: '/docs/transformers/object/%' },
+          { path: '/docs/transformers/string/%' },
+          { path: '/docs/transformers/tree/%' }
+        ]
+      },
+      {
+        title: '辅助函数',
+        contentCollection: 'docs',
+        contentFilters: [
+          { path: '/docs/helpers/file/%' },
+          { path: '/docs/helpers/object/%' },
+          { path: '/docs/helpers/path/%' },
+          { path: '/docs/helpers/simple-hash' },
+          { path: '/docs/helpers/uuid' }
+        ]
+      },
+      {
+        title: '类型定义',
+        contentCollection: 'docs',
+        contentFilters: [{ path: '/docs/types/%' }]
+      }
+    ],
   },
   robots: {
     sitemap: 'https://core.mhaibaraai.cn/sitemap.xml'
