@@ -2,7 +2,6 @@ import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
   extends: ['@movk/nuxt-docs'],
-  modules: ['@nuxtjs/mcp-toolkit'],
   css: ['~/assets/css/main.css'],
   alias: {
     '@movk/core': fileURLToPath(new URL('../src/index.ts', import.meta.url))
@@ -39,8 +38,16 @@ export default defineNuxtConfig({
   },
   compatibilityDate: 'latest',
   mcp: {
-    name: '@movk/core',
+    name: 'Movk Core',
     browserRedirect: '/docs/getting-started/ai/mcp'
+  },
+  aiChat: {
+    models: [
+      'mistral/devstral-2',
+      'kwaipilot/kat-coder-pro-v1',
+      'openrouter/mistralai/devstral-2512:free',
+      'openrouter/xiaomi/mimo-v2-flash:free'
+    ]
   },
   llms: {
     domain: 'https://core.mhaibaraai.cn',
@@ -50,57 +57,6 @@ export default defineNuxtConfig({
       title: '@movk/core - 完整文档',
       description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。包含 80+ 工具函数的完整文档、API 参考、类型定义和使用示例。'
     },
-    sections: [
-      {
-        title: '快速开始',
-        contentCollection: 'docs',
-        contentFilters: [{ path: '/docs/getting-started/%' }]
-      },
-      {
-        title: 'Vue 组合式函数',
-        contentCollection: 'docs',
-        contentFilters: [{ path: '/docs/composables/%' }]
-      },
-      {
-        title: '类型验证器',
-        contentCollection: 'docs',
-        contentFilters: [{ path: '/docs/validators/%' }]
-      },
-      {
-        title: '工具函数',
-        contentCollection: 'docs',
-        contentFilters: [
-          { path: '/docs/utilities/array/%' },
-          { path: '/docs/utilities/async/%' },
-          { path: '/docs/utilities/url/%' }
-        ]
-      },
-      {
-        title: '数据转换器',
-        contentCollection: 'docs',
-        contentFilters: [
-          { path: '/docs/transformers/object/%' },
-          { path: '/docs/transformers/string/%' },
-          { path: '/docs/transformers/tree/%' }
-        ]
-      },
-      {
-        title: '辅助函数',
-        contentCollection: 'docs',
-        contentFilters: [
-          { path: '/docs/helpers/file/%' },
-          { path: '/docs/helpers/object/%' },
-          { path: '/docs/helpers/path/%' },
-          { path: '/docs/helpers/simple-hash' },
-          { path: '/docs/helpers/uuid' }
-        ]
-      },
-      {
-        title: '类型定义',
-        contentCollection: 'docs',
-        contentFilters: [{ path: '/docs/types/%' }]
-      }
-    ],
   },
   robots: {
     sitemap: 'https://core.mhaibaraai.cn/sitemap.xml'

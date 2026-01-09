@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to AI coding agents when working with code in this repository.
 
 ## 项目概述
 
@@ -23,6 +23,7 @@ pnpm clean            # 清理 dist 和 node_modules/.cache
 ```
 
 ### 质量控制
+
 ```bash
 pnpm lint             # ESLint 检查
 pnpm lint:fix         # 自动修复 ESLint 问题
@@ -31,12 +32,14 @@ pnpm test run         # 单次运行测试
 ```
 
 ### 文档开发
+
 ```bash
 pnpm docs             # 启动文档开发服务器
 pnpm docs:build       # 构建文档站点
 ```
 
 ### 发布流程
+
 ```bash
 pnpm release          # 自动化发布流程 (release-it)
                       # 发布前会自动执行: lint + typecheck + test
@@ -47,11 +50,13 @@ pnpm release          # 自动化发布流程 (release-it)
 项目采用**分层模块化架构**,所有导出通过 `src/index.ts` 统一管理:
 
 ### 1. Validators (类型验证层)
+
 - **位置**: `src/validators/`
 - **用途**: 提供运行时类型检查函数
 - **示例**: `isObject()`, `isArray()`, `isString()`, `isEmpty()`
 
 ### 2. Utilities (基础工具层)
+
 - **位置**: `src/utilities/`
 - **子模块**:
   - `array/`: 数组操作 (chunk, unique, flatten)
@@ -60,6 +65,7 @@ pnpm release          # 自动化发布流程 (release-it)
 - **特点**: 纯函数,无副作用
 
 ### 3. Transformers (数据转换层)
+
 - **位置**: `src/transformers/`
 - **子模块**:
   - `string/`: 字符串格式转换 (camelCase, kebabCase, snakeCase 等)
@@ -67,6 +73,7 @@ pnpm release          # 自动化发布流程 (release-it)
   - `tree/`: 树形结构操作 (核心模块,见下文)
 
 ### 4. Helpers (辅助函数层)
+
 - **位置**: `src/helpers/`
 - **子模块**:
   - `file/`: 文件处理 (formatFileSize, triggerDownload)
@@ -76,6 +83,7 @@ pnpm release          # 自动化发布流程 (release-it)
   - `simpleHash.ts`: 简单哈希函数
 
 ### 5. Composables (Vue 组合式函数层)
+
 - **位置**: `src/composables/`
 - **内容**:
   - `useAppStorage`: 应用级存储管理 (基于 localStorage)
@@ -83,6 +91,7 @@ pnpm release          # 自动化发布流程 (release-it)
 - **依赖**: 需要 Vue 3.5.25+ 作为 peer dependency
 
 ### 6. Types (类型定义层)
+
 - **位置**: `src/types/`
 - **结构**: 按模块组织类型定义,支持高级类型推断
 
@@ -111,6 +120,7 @@ tree/
 ## 开发规范
 
 ### 新增工具函数
+
 1. **位置选择**:
    - 类型检查 → `validators/`
    - 纯函数工具 → `utilities/`
@@ -128,12 +138,14 @@ tree/
    - 确保 `src/index.ts` 能递归导出
 
 ### 测试要求
+
 - 测试文件命名: `tests/<模块>/<函数名>.test.ts`
 - 使用 Vitest globals API (`describe`, `it`, `expect`)
 - 测试超时: 6000ms (已配置)
 - 运行单个测试: `pnpm test <文件名>`
 
 ### 类型定义原则
+
 - 所有公共 API 必须有显式类型标注
 - 优先使用泛型提供类型推断
 - 复杂类型定义在 `src/types/` 中统一管理
@@ -142,11 +154,13 @@ tree/
 ## 构建与发布
 
 ### 构建配置 (build.config.ts)
+
 - 入口: `src/index`
 - 输出: `dist/index.mjs` + `dist/index.d.mts`
 - 启用 minify 和 declaration
 
 ### 发布检查清单 (.release-it.json)
+
 发布前自动执行:
 1. `pnpm lint` - 代码风格检查
 2. `pnpm typecheck` - 类型检查
@@ -175,12 +189,15 @@ tree/
 ## 常见问题
 
 ### 开发时类型未生效
+
 运行 `pnpm dev` 进入 stub 模式,Unbuild 会生成临时类型定义。
 
 ### 测试超时
+
 默认超时 6000ms,如需调整修改 `vitest.config.ts`。
 
 ### 发布失败
+
 检查:
 1. Git 工作区是否干净 (已配置允许 dirty)
 2. 是否通过 lint + typecheck + test

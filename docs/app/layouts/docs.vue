@@ -3,21 +3,23 @@ import type { ContentNavigationItem } from '@nuxt/content'
 import { useFilter } from 'reka-ui'
 
 const route = useRoute()
-
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 const { navigationByCategory } = useNavigation(navigation!)
 
 const input = useTemplateRef('input')
-const isActiveSearch = computed(() => [
+const searchTerm = ref('')
+
+const { contains } = useFilter({ sensitivity: 'base' })
+
+const isSearchActive = computed(() => [
   '/docs/validators',
   '/docs/utilities',
   '/docs/transformers',
   '/docs/helpers',
 ].some(path => route.path.startsWith(path)))
-const searchTerm = ref('')
+const navigationKey = computed(() => `${route.path}-${searchTerm.value ? 'filtered' : 'unfiltered'}`)
 
-const { contains } = useFilter({ sensitivity: 'base' })
 const filteredNavigation = computed(() => {
   if (!searchTerm.value) {
     return navigationByCategory.value
@@ -30,7 +32,7 @@ const filteredNavigation = computed(() => {
 })
 
 watch(() => route.path, () => {
-  if (!isActiveSearch.value) {
+  if (!isSearchActive.value) {
     searchTerm.value = ''
   }
 })
@@ -47,13 +49,11 @@ defineShortcuts({
 
 <template>
   <UMain class="relative">
-    <HeroBackground />
-
     <UContainer>
       <UPage>
         <template #left>
           <UPageAside>
-            <template v-if="isActiveSearch" #top>
+            <template v-if="isSearchActive" #top>
               <UInput
                 ref="input"
                 v-model="searchTerm"
@@ -68,7 +68,7 @@ defineShortcuts({
             </template>
 
             <UContentNavigation
-              :key="route.path"
+              :key="navigationKey"
               highlight
               :navigation="filteredNavigation"
             />
