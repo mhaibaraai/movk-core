@@ -50,7 +50,7 @@ export function createFunctionAgentTool(mcpTools: Record<string, any>, model: an
         system: SUB_AGENT_SYSTEM_PROMPT,
         stopWhen: stepCountIs(5),
         onStepFinish: ({ toolCalls }) => {
-          if (toolCalls && toolCalls.length > 0) {
+          if (toolCalls && toolCalls.length > 0 && toolCalls[0]) {
             writer?.write({
               id: toolCalls[0].toolCallId,
               type: 'data-tool-calls',
