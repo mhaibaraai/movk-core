@@ -1,5 +1,8 @@
 [![Movk Core](https://core.mhaibaraai.cn/og-image.png)](https://core.mhaibaraai.cn/)
 
+[![Install MCP in Cursor](https://core.mhaibaraai.cn/mcp/badge.svg)](https://core.mhaibaraai.cn/mcp/deeplink)
+[![Install MCP in VS Code](https://core.mhaibaraai.cn/mcp/badge.svg?ide=vscode)](https://core.mhaibaraai.cn/mcp/deeplink?ide=vscode)
+
 > `@movk/core` 是一个为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库，涵盖了数组、对象、字符串、异步操作等多个方面。
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)

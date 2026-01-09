@@ -22,17 +22,11 @@ export default defineAppConfig({
     bottom: {
       links: [
         {
-          icon: 'i-lucide-brain',
+          icon: 'i-lucide-message-circle-code',
           to: 'https://core.mhaibaraai.cn/llms.txt',
           target: '_blank',
           label: 'Open LLMs'
         },
-        {
-          icon: 'i-lucide-link',
-          to: 'https://core.mhaibaraai.cn/__link-checker__/link-checker-report.html',
-          target: '_blank',
-          label: 'Open Link Checker'
-        }
       ]
     }
   },

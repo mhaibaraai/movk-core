@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   routeRules: {
     // redirects - default root pages
     '/docs': { redirect: '/docs/getting-started', prerender: false },
+    '/docs/ai': { redirect: '/docs/getting-started/ai/mcp', prerender: false },
     '/docs/composables': { redirect: '/docs/composables/use-app-storage', prerender: false },
     '/docs/validators': { redirect: '/docs/validators/is-array', prerender: false },
     '/docs/utilities': { redirect: '/docs/utilities/array', prerender: false },
@@ -36,15 +37,26 @@ export default defineNuxtConfig({
     '/docs/helpers/path': { redirect: '/docs/helpers/path/get-path', prerender: false },
   },
   compatibilityDate: 'latest',
+  mcp: {
+    name: 'Movk Core',
+    browserRedirect: '/docs/getting-started/ai/mcp'
+  },
+  aiChat: {
+    models: [
+      'mistral/devstral-2',
+      'kwaipilot/kat-coder-pro-v1',
+      'openrouter/mistralai/devstral-2512:free',
+      'openrouter/xiaomi/mimo-v2-flash:free'
+    ]
+  },
   llms: {
     domain: 'https://core.mhaibaraai.cn',
     title: '@movk/core',
     description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。涵盖数组、对象、字符串、异步操作等多个方面，提供完整的类型定义和 Vue 组合式函数。',
     full: {
-      title: '@movk/core',
-      description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。涵盖数组、对象、字符串、异步操作等多个方面，提供完整的类型定义和 Vue 组合式函数。'
+      title: '@movk/core - 完整文档',
+      description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。包含 80+ 工具函数的完整文档、API 参考、类型定义和使用示例。'
     },
-    notes: ['TypeScript', '工具函数库', 'Tree-Shaking', 'Vue Composables', '类型定义']
   },
   robots: {
     sitemap: 'https://core.mhaibaraai.cn/sitemap.xml'
