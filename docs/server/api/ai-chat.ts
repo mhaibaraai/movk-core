@@ -89,7 +89,7 @@ export default defineEventHandler(async (event) => {
   const { messages, model: requestModel } = await readBody(event)
   const config = useRuntimeConfig()
 
-  const mcpPath = config.aiChat?.mcpPath || '/mcp'
+  const mcpPath = (config.aiChat as any)?.mcpPath || '/mcp'
 
   const httpClient = await createMCPClient({
     transport: {
