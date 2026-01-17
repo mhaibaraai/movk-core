@@ -56,7 +56,7 @@
     "fast-glob": "^3.3.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.7.3",
+    "@antfu/eslint-config": "^7.0.1",
     "@release-it/conventional-changelog": "^10.0.4",
     "@types/node": "^25.0.8",
     "eslint": "^9.39.2",
