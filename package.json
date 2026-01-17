@@ -58,7 +58,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^7.0.1",
     "@release-it/conventional-changelog": "^10.0.4",
-    "@types/node": "^25.0.8",
+    "@types/node": "^25.0.9",
     "eslint": "^9.39.2",
     "release-it": "^19.2.3",
     "typescript": "^5.9.3",
