@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     '@movk/core': fileURLToPath(new URL('../src/index.ts', import.meta.url))
   },
   site: {
-    name: 'Movk Core',
+    name: 'movk-core',
     url: 'https://core.mhaibaraai.cn',
   },
   routeRules: {
@@ -38,7 +38,7 @@ export default defineNuxtConfig({
   },
   compatibilityDate: 'latest',
   mcp: {
-    name: 'Movk Core',
+    name: 'movk-core',
     browserRedirect: '/docs/getting-started/ai/mcp'
   },
   aiChat: {
