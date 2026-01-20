@@ -8,64 +8,32 @@ export default defineAppConfig({
       {
         category: '快速入门',
         items: [
-          '安装与引入',
-          'Tree-Shaking 支持',
-          'TypeScript 类型提示',
-          '查看函数列表'
+          '如何安装和引入 @movk/core？',
+          '如何查找我需要的函数？',
+          '在 Vue 项目中如何使用？',
         ]
       },
       {
-        category: '树形数据',
+        category: '核心功能',
         items: [
-          '扁平数组转树形',
-          '树形转扁平数组',
-          '查找/过滤节点',
-          '插入/删除节点'
+          '如何处理树形数据结构？',
+          '有哪些 URL 处理函数？',
+          '如何实现防抖和节流？',
+          '如何进行字符串大小写转换？',
         ]
       },
       {
-        category: '数组处理',
+        category: 'Vue Composables',
         items: [
-          '数组分块',
-          '去重',
-          '安全取值',
-          '打乱/分组'
+          'useAppStorage 如何使用？',
+          'useCopyCode 如何使用？',
         ]
       },
       {
-        category: '对象操作',
+        category: 'TypeScript 支持',
         items: [
-          '深克隆',
-          '排除属性',
-          '键名转换',
-          '对象合并'
-        ]
-      },
-      {
-        category: '命名转换',
-        items: [
-          'camelCase',
-          'snake_case',
-          'kebab-case',
-          'PascalCase'
-        ]
-      },
-      {
-        category: '异步控制',
-        items: [
-          '防抖',
-          '节流',
-          '并发控制',
-          '延迟执行'
-        ]
-      },
-      {
-        category: 'Vue 集成',
-        items: [
-          'Vue 项目引入',
-          'useAppStorage vs localStorage',
-          'useCopyCode 实现',
-          'Composables vs 普通函数'
+          '如何获得完整的类型提示？',
+          '有哪些可用的类型定义？',
         ]
       }
     ]

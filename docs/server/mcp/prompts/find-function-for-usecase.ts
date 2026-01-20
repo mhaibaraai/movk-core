@@ -50,19 +50,13 @@ export default defineMcpPrompt({
         role: 'user' as const,
         content: {
           type: 'text' as const,
-          text: `用户需求场景: ${usecase}
+          text: `用户需求场景： ${usecase}
 
-以下是 @movk/core 中所有可用的函数(共 ${functionList.length} 个):
+以下是 @movk/core 中所有可用的函数(共 ${functionList.length} 个)：
 
 ${JSON.stringify(functionList, null, 2)}
 
-请根据用户的需求场景,推荐最适合的函数。如果有多个函数可以组合使用,请说明如何组合。如果没有完全匹配的函数,请推荐最接近的方案。
-
-重点关注:
-1. 树形结构操作(fromList, toList, find, filter 等)是核心特性
-2. 所有函数都支持 Tree-Shaking
-3. Vue 项目优先使用 Composables(useAppStorage, useCopyCode)
-4. 提供具体的使用示例和最佳实践`
+请根据用户的需求场景，推荐最适合的函数。如果有多个函数可以组合使用，请说明如何组合。如果没有完全匹配的函数，请推荐最接近的方案。`
         }
       }]
     }
