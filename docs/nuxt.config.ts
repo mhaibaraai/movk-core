@@ -2,14 +2,15 @@ import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
   extends: ['@movk/nuxt-docs'],
-  css: ['~/assets/css/main.css'],
+
   alias: {
     '@movk/core': fileURLToPath(new URL('../src/index.ts', import.meta.url))
   },
+
   site: {
     name: 'movk-core',
-    url: 'https://core.mhaibaraai.cn',
   },
+
   routeRules: {
     // redirects - default root pages
     '/docs': { redirect: '/docs/getting-started', prerender: false },
@@ -36,20 +37,24 @@ export default defineNuxtConfig({
     '/docs/helpers/object': { redirect: '/docs/helpers/object/deep-clone', prerender: false },
     '/docs/helpers/path': { redirect: '/docs/helpers/path/get-path', prerender: false },
   },
+
   compatibilityDate: 'latest',
+
   mcp: {
     name: 'movk-core',
     browserRedirect: '/docs/getting-started/ai/mcp'
   },
+
   aiChat: {
+    model: 'mistral/devstral-3b',
     models: [
       'mistral/devstral-2',
-      'kwaipilot/kat-coder-pro-v1',
-      'openrouter/mistralai/devstral-2512:free',
       'openrouter/xiaomi/mimo-v2-flash:free',
-      'openrouter/z-ai/glm-4.5-air:free'
+      'openrouter/z-ai/glm-4.5-air:free',
+      'mistral/ministral-3b'
     ]
   },
+
   llms: {
     domain: 'https://core.mhaibaraai.cn',
     title: '@movk/core',
@@ -58,8 +63,5 @@ export default defineNuxtConfig({
       title: '@movk/core - 完整文档',
       description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。包含 80+ 工具函数的完整文档、API 参考、类型定义和使用示例。'
     },
-  },
-  robots: {
-    sitemap: 'https://core.mhaibaraai.cn/sitemap.xml'
   },
 })
