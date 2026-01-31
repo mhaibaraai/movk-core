@@ -54,7 +54,7 @@ export default defineMcpTool({
 
       const parts = path.split('/')
       const subcategory = CATEGORY_CONFIG[matchedCategory].hasSubcategory && parts.length > 3
-        ? parts[3]
+        ? parts[3] ?? ''
         : ''
 
       categorized[matchedCategory].push({

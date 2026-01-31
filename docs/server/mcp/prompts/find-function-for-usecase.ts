@@ -1,5 +1,5 @@
 import { queryCollection } from '@nuxt/content/server'
-import { z } from 'zod/v4'
+import { z } from 'zod'
 
 const DOCS_BASE_URL = 'https://core.mhaibaraai.cn'
 
