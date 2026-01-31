@@ -40,6 +40,9 @@ export default defineMcpResource({
       let current = byModule
       for (let i = 0; i < pathParts.length; i++) {
         const part = pathParts[i]
+        if (!part)
+          continue
+
         const isLastLevel = i === pathParts.length - 1
 
         if (!current[part]) {
