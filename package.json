@@ -2,7 +2,7 @@
   "name": "@movk/core",
   "type": "module",
   "version": "1.1.0",
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@10.29.2",
   "description": "为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。",
   "author": "YiXuan <mhaibaraai@gmail.com>",
   "license": "MIT",
@@ -56,9 +56,9 @@
     "fast-glob": "^3.3.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^7.2.0",
-    "@release-it/conventional-changelog": "^10.0.4",
-    "@types/node": "^25.1.0",
+    "@antfu/eslint-config": "^7.3.0",
+    "@release-it/conventional-changelog": "^10.0.5",
+    "@types/node": "^25.2.2",
     "eslint": "^9.39.2",
     "release-it": "^19.2.4",
     "typescript": "^5.9.3",
