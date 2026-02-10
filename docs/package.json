@@ -12,10 +12,12 @@
     "@movk/nuxt-docs": "^1.12.2",
     "@nuxt/content": "^3.11.2",
     "@nuxt/ui": "^4.4.0",
+    "@nuxtjs/mdc": "^0.20.1",
     "better-sqlite3": "^12.6.2",
     "nuxt": "^4.3.1",
     "reka-ui": "^2.8.0",
     "tailwindcss": "^4.1.18",
+    "unist-util-visit": "^5.1.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
