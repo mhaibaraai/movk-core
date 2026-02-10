@@ -3,12 +3,20 @@ import { fileURLToPath } from 'node:url'
 export default defineNuxtConfig({
   extends: ['@movk/nuxt-docs'],
 
-  alias: {
-    '@movk/core': fileURLToPath(new URL('../src/index.ts', import.meta.url))
+  $development: {
+    site: {
+      url: 'http://localhost:3000'
+    }
   },
 
-  site: {
-    name: 'movk-core',
+  $production: {
+    site: {
+      url: 'https://core.mhaibaraai.cn'
+    }
+  },
+
+  alias: {
+    '@movk/core': fileURLToPath(new URL('../src/index.ts', import.meta.url))
   },
 
   routeRules: {
@@ -46,21 +54,22 @@ export default defineNuxtConfig({
   },
 
   aiChat: {
-    model: 'mistral/devstral-3b',
+    model: 'alibaba/qwen3-coder',
     models: [
-      'mistral/devstral-2',
-      'openrouter/xiaomi/mimo-v2-flash:free',
-      'openrouter/z-ai/glm-4.5-air:free',
-      'mistral/ministral-3b'
+      'openai/gpt-4o-mini',
+      'alibaba/qwen3-coder',
+      'deepseek/deepseek-v3.2',
+      'anthropic/claude-3-haiku',
+      'deepseek/deepseek-v3.2-thinking'
     ]
   },
 
   llms: {
     domain: 'https://core.mhaibaraai.cn',
-    title: '@movk/core',
+    title: 'movk-core',
     description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。涵盖数组、对象、字符串、异步操作等多个方面，提供完整的类型定义和 Vue 组合式函数。',
     full: {
-      title: '@movk/core - 完整文档',
+      title: 'movk-core - 完整文档',
       description: '为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。包含 80+ 工具函数的完整文档、API 参考、类型定义和使用示例。'
     },
   },

@@ -1,7 +1,7 @@
 {
   "name": "docs",
   "scripts": {
-    "build": "nuxt build",
+    "build": "NODE_OPTIONS='--max-old-space-size=7168' nuxt build",
     "dev": "nuxt dev",
     "prepare": "nuxt prepare",
     "preview": "nuxt preview",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@movk/core": "workspace:^",
-    "@movk/nuxt-docs": "^1.12.1",
+    "@movk/nuxt-docs": "^1.12.2",
     "@nuxt/content": "^3.11.2",
     "@nuxt/ui": "^4.4.0",
     "better-sqlite3": "^12.6.2",
