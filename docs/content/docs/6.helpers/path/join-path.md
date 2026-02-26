@@ -28,7 +28,7 @@ const p = joinPath(['a', 'x.y', 0, 'space key'])
 ### 参数
 
 ::field-group
-  ::field{name="segments" type="(string | number)[]" required}
+  ::field{name="segments" type="[string | number]()" required}
   路径片段数组。
   ::
 ::

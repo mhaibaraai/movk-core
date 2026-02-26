@@ -70,7 +70,7 @@ Vue 组合式函数，用于状态管理、剪贴板操作等常见场景。
 
 ## 📁 目录结构
 
-```
+```text
 src/
 ├── composables/          # Vue 组合式函数
 │   ├── useAppStorage     # 应用存储管理

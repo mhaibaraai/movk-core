@@ -3,7 +3,10 @@ shellEmulator: true
 trustPolicy: no-downgrade
 
 trustPolicyExclude:
-  - 'langium@3.3.1'
+  - langium
+  - chokidar
+  - undici-types
+  - semver
 
 packages:
   - docs

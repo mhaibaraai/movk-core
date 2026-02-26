@@ -99,7 +99,7 @@ pnpm release          # 自动化发布流程 (release-it)
 
 树形结构工具是本库的核心特性之一,位于 `src/transformers/tree/`:
 
-```
+```text
 tree/
 ├── index.ts          # 统一导出入口
 ├── types.ts          # TreeNode, TreeOptions 等核心类型

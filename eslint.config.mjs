@@ -6,7 +6,17 @@ export default antfu({
     'style/comma-dangle': 'off',
     'ts/no-empty-object-type': 'off',
     'node/prefer-global/process': 'off',
+  },
+}, {
+  files: ['**/*.vue'],
+  rules: {
     'vue/max-attributes-per-line': ['error', { singleline: 3, multiline: 1 }],
+  },
+}, {
+  files: ['docs/content/**/*.md'],
+  rules: {
+    'markdown/no-multiple-h1': 'off',
+    'markdown/no-empty-links': 'off',
   },
 }, {
   files: ['bin/**'],
