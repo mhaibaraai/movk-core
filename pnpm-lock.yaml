@@ -25,7 +25,7 @@ importers:
         specifier: ^10.0.5
         version: 10.0.5(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)(release-it@19.2.4(@types/node@25.3.3)(magicast@0.5.2))
       '@types/node':
-        specifier: ^25.3.2
+        specifier: ^25.3.3
         version: 25.3.3
       eslint:
         specifier: ^10.0.2
@@ -52,7 +52,7 @@ importers:
         specifier: ^1.13.1
         version: 1.13.1(d64512d2db25ae65e7ca58702c842ea9)
       '@nuxt/content':
-        specifier: ^3.11.2
+        specifier: ^3.12.0
         version: 3.12.0(better-sqlite3@12.6.2)(magicast@0.5.2)
       '@nuxt/ui':
         specifier: ^4.5.0
