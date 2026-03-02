@@ -1,5 +1,64 @@
 # 📋 Changelog
 
+## [1.2.0](https://github.com/mhaibaraai/movk-core/compare/v1.1.0...v1.2.0) (2026-03-02)
+
+### ✨ Features
+
+* **docs:** 增强文档站点配置和功能 ([647f9c5](https://github.com/mhaibaraai/movk-core/commit/647f9c5cd1fffdd3837de85c18d436deb02f5e3d))
+* **docs:** 添加 MCP 工具包集成和 AI 文档 ([0285704](https://github.com/mhaibaraai/movk-core/commit/0285704eb1ae34c341c5cb5c9f7aa13e26526bf5))
+* **docs:** 重构文档架构并升级依赖 ([79636cc](https://github.com/mhaibaraai/movk-core/commit/79636cc69a53c1d9275ebd195ee3a4bfdab23602))
+* 新增 deepMerge 深度合并工具函数 ([a9ffedc](https://github.com/mhaibaraai/movk-core/commit/a9ffedc0926f5fe4f389700f710f1d1507f4e62c))
+* 重新设计 FAQ 问题列表并优化配置 ([80a2a70](https://github.com/mhaibaraai/movk-core/commit/80a2a70c8dc0821b054002ac2e012d49945f5cd3))
+
+### 🐛 Bug Fixes
+
+* **aiChat:** 更新 AI 模型为 deepseek/deepseek-v3.2-thinking ([606675a](https://github.com/mhaibaraai/movk-core/commit/606675af30f5f1e8f11d1ceff742ff1fcba55750))
+* **deps:** 更新 @movk/nuxt-docs 版本至 1.12.2 ([fd6dc0f](https://github.com/mhaibaraai/movk-core/commit/fd6dc0f96746e17eebadf4dc322337696fb5e5f9))
+* **docs:** 修复 AI 聊天 API 的类型检查错误 ([c8b86b1](https://github.com/mhaibaraai/movk-core/commit/c8b86b1cd05609ec9d4edba011f1ae9dacc55c2b))
+* **docs:** 修复 mcpPath 属性的类型检查错误 ([b49c685](https://github.com/mhaibaraai/movk-core/commit/b49c6850d6129af45de8ed75a8dc523c862ca3da))
+* **docs:** 修复函数代理工具中的类型安全问题 ([f1d212c](https://github.com/mhaibaraai/movk-core/commit/f1d212c37539d80c4c7b36058b0c9b04b3133d49))
+* **eslint:** 修复 eslint@10 与 vue 插件的兼容性问题 ([f95ed4a](https://github.com/mhaibaraai/movk-core/commit/f95ed4a5d31c659b26756a5fe47638f449a09df9))
+* 修复 MCP 工具中的 TypeScript 类型错误 ([18f137b](https://github.com/mhaibaraai/movk-core/commit/18f137b5d7dbcaf8858e6fe2faccb30a6465a2d3))
+
+### 📝 Documentation
+
+* 添加 MCP 安装徽章和项目指南 ([8438df8](https://github.com/mhaibaraai/movk-core/commit/8438df86eb33d722f9c214343c397e3582ff9593))
+
+### ♻️ Code Refactoring
+
+* **docs:** 移除不再使用的文档组件和页面 ([3b4c53d](https://github.com/mhaibaraai/movk-core/commit/3b4c53d7e0de6d553edf555c15c68d2e4d8025cc))
+* 项目配置重构与 MCP 工具类型修复 ([7332019](https://github.com/mhaibaraai/movk-core/commit/73320197e48f37c9730d8aa16bc4446f8c2ab1bc))
+
+### 🔧 Chores
+
+* **deps:** lock file maintenance ([31e00c1](https://github.com/mhaibaraai/movk-core/commit/31e00c145fff9451d18ae4abe93c2827c1eeb7b3))
+* **deps:** lock file maintenance ([402a598](https://github.com/mhaibaraai/movk-core/commit/402a598ec41b554106c48f28c1091241068a14b4))
+* **deps:** lock file maintenance ([8c3e52a](https://github.com/mhaibaraai/movk-core/commit/8c3e52a74ef5e9ec0a70ace986a21f832ae59b7c))
+* **deps:** lock file maintenance ([3163776](https://github.com/mhaibaraai/movk-core/commit/3163776d522faf4b1727716ef4830a873731df1b))
+* **deps:** update all non-major dependencies ([b2985b5](https://github.com/mhaibaraai/movk-core/commit/b2985b5bf9d84c910894f7b5014561b1cae2688f))
+* **deps:** update all non-major dependencies ([e9a3434](https://github.com/mhaibaraai/movk-core/commit/e9a3434f7cfbf5ebe83076be37f840386465e292))
+* **deps:** update all non-major dependencies ([ca7be9f](https://github.com/mhaibaraai/movk-core/commit/ca7be9f04891a22b523ba3b0fc077a6234e0264a))
+* **deps:** update all non-major dependencies ([ed239fd](https://github.com/mhaibaraai/movk-core/commit/ed239fdf78e33e5900f497d13eeddd124cd0ad78))
+* **deps:** update all non-major dependencies ([2c01429](https://github.com/mhaibaraai/movk-core/commit/2c014299dc8ad29139c704782c53e6d9d20537c8))
+* **deps:** update all non-major dependencies ([3731ce2](https://github.com/mhaibaraai/movk-core/commit/3731ce27078bdc398297f43ee1ba3a64727b985d))
+* **deps:** update all non-major dependencies ([d6a4f55](https://github.com/mhaibaraai/movk-core/commit/d6a4f55296159f74aed29c827c54289f56b555ed))
+* **deps:** update all non-major dependencies ([03cc055](https://github.com/mhaibaraai/movk-core/commit/03cc0552951566cd94cc2de82bf3ea92dc9d0c36))
+* **deps:** update all non-major dependencies ([db84882](https://github.com/mhaibaraai/movk-core/commit/db848828d7291121ed7c5a013dc8246cd755c198))
+* **deps:** update dependency @movk/nuxt-docs to ^1.7.4 ([eca8852](https://github.com/mhaibaraai/movk-core/commit/eca8852476a6cbfc9134ef2fa176d2cab44d85f0))
+* **deps:** update dependency nuxt to ^4.3.0 ([14d5dd7](https://github.com/mhaibaraai/movk-core/commit/14d5dd71eba5be39dce165c8c1a9194706909eeb))
+* **deps:** update dependency nuxt to ^4.3.1 ([9af98a2](https://github.com/mhaibaraai/movk-core/commit/9af98a2a67cebd4abd7eb6498c241d0377630ecb))
+* **deps:** update devdependency @antfu/eslint-config to v7 ([174a122](https://github.com/mhaibaraai/movk-core/commit/174a122d33c30450ca0b8ab5ea0b32b6686a18c8))
+* **deps:** update devdependency eslint to v10 ([7d9d1a9](https://github.com/mhaibaraai/movk-core/commit/7d9d1a964e99e39b506cf69e66538e85c8ecdd96))
+* **deps:** update devdependency eslint to v10 ([e08bbb1](https://github.com/mhaibaraai/movk-core/commit/e08bbb10cfd87eb5173db7a9020e8df25d88428a))
+* **deps:** update pnpm to v10.28.1 ([95ff36d](https://github.com/mhaibaraai/movk-core/commit/95ff36d9b4350870ee424502a1ff7da091c31a4f))
+* **deps:** 更新 @movk/nuxt-docs 至 1.12.3 并添加 langium 信任排除 ([3e9878e](https://github.com/mhaibaraai/movk-core/commit/3e9878e2cf87917e16e367bfc04fd71672eedc05))
+* **deps:** 更新项目依赖版本 ([bbf8651](https://github.com/mhaibaraai/movk-core/commit/bbf8651e5222134a52ddafe01841a2a7272c1212))
+* **docs:** 添加 @nuxtjs/mdc 和 unist-util-visit 依赖 ([13cde02](https://github.com/mhaibaraai/movk-core/commit/13cde0283881360ca45c962dd422c1d226440845))
+* 更新 pnpm-workspace.yaml 配置 ([baa644d](https://github.com/mhaibaraai/movk-core/commit/baa644d0178497290a283c60bbc4c9769bf14a5c))
+* 更新代码结构以提高可读性和维护性 ([178547f](https://github.com/mhaibaraai/movk-core/commit/178547fd3cb0604992b9a9a69ee128b864a123ea))
+* 更新依赖并清理旧 AI Chat 实现 ([faa0431](https://github.com/mhaibaraai/movk-core/commit/faa043104f4c3dd6e51b100f5852ce1e7e1a217a))
+* 更新文档站点配置与依赖 ([d8f0b7c](https://github.com/mhaibaraai/movk-core/commit/d8f0b7cea0f373560a7b0c7d8ea0d342c9e505ee))
+
 ## [1.1.0](https://github.com/mhaibaraai/movk-core/compare/v1.0.3...v1.1.0) (2025-12-31)
 
 ### ⚠ BREAKING CHANGES
