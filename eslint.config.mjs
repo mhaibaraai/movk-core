@@ -17,6 +17,7 @@ export default antfu({
   rules: {
     'markdown/no-multiple-h1': 'off',
     'markdown/no-empty-links': 'off',
+    'markdown/no-missing-atx-heading-space': 'off',
   },
 }, {
   files: ['bin/**'],
