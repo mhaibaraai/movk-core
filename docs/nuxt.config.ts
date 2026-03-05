@@ -54,12 +54,12 @@ export default defineNuxtConfig({
   },
 
   aiChat: {
-    model: 'deepseek/deepseek-v3.2-thinking',
+    model: 'zai/glm-4.7',
     models: [
-      'openai/gpt-4o-mini',
+      'zai/glm-4.7',
+      'openai/gpt-4.1-mini',
       'alibaba/qwen3-coder',
-      'deepseek/deepseek-v3.2',
-      'anthropic/claude-3-haiku',
+      'moonshotai/kimi-k2',
       'deepseek/deepseek-v3.2-thinking'
     ]
   },
