@@ -1,4 +1,4 @@
-import type { ReactiveValue, StripNullable, Suggest } from '../../src/types/general'
+import type { IsAny, ReactiveValue, StripNullable, Suggest, WidenLiteral } from '../../src/types/general'
 import { describe, expectTypeOf, it } from 'vitest'
 
 describe('通用类型工具', () => {
@@ -47,5 +47,23 @@ describe('通用类型工具', () => {
     expectTypeOf<StripNullable<string | null | undefined>>().toEqualTypeOf<string>()
     expectTypeOf<StripNullable<number | null>>().toEqualTypeOf<number>()
     expectTypeOf<StripNullable<string | undefined>>().toEqualTypeOf<string>()
+  })
+
+  it('isAny', () => {
+    expectTypeOf<IsAny<any>>().toEqualTypeOf<true>()
+    expectTypeOf<IsAny<string>>().toEqualTypeOf<false>()
+    expectTypeOf<IsAny<never>>().toEqualTypeOf<false>()
+    expectTypeOf<IsAny<unknown>>().toEqualTypeOf<false>()
+    expectTypeOf<IsAny<object>>().toEqualTypeOf<false>()
+  })
+
+  it('widenLiteral', () => {
+    expectTypeOf<WidenLiteral<'hello'>>().toEqualTypeOf<string>()
+    expectTypeOf<WidenLiteral<true>>().toEqualTypeOf<boolean>()
+    expectTypeOf<WidenLiteral<false>>().toEqualTypeOf<boolean>()
+    expectTypeOf<WidenLiteral<'foo' | undefined>>().toEqualTypeOf<string | undefined>()
+    expectTypeOf<WidenLiteral<number>>().toEqualTypeOf<number>()
+    expectTypeOf<WidenLiteral<any>>().toEqualTypeOf<any>()
+    expectTypeOf<WidenLiteral<never>>().toEqualTypeOf<unknown>()
   })
 })
