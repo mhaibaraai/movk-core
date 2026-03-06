@@ -34,3 +34,44 @@ export type ReactiveValue<T, CTX = never> = [CTX] extends [never]
   : MaybeRefOrGetter<T> | ((ctx: CTX) => T)
 
 export type StripNullable<T> = T extends null | undefined ? never : T
+
+/**
+ * 检测类型 T 是否为 `any`
+ *
+ * 利用 `any` 会穿透类型运算的特性（`1 & any` 为 `any`，`0 extends any` 为 `true`）实现检测。
+ *
+ * @example
+ * ```ts
+ * type A = IsAny<any>     // true
+ * type B = IsAny<string>  // false
+ * type C = IsAny<never>   // false
+ * type D = IsAny<unknown> // false
+ * ```
+ */
+export type IsAny<T> = 0 extends (1 & T) ? true : false
+
+/**
+ * 将字面量类型宽化为其对应的基础类型，同时保留可选性（`undefined`）。
+ *
+ * - `any` → 保持原样
+ * - `undefined | never` → `unknown`
+ * - `boolean` 字面量 → `boolean`
+ * - `string` 字面量 → `string`
+ * - 其他类型 → 保持原样
+ *
+ * 主要用于工厂方法的 props 推断，防止 SFC 泛型默认参数产生的字面量类型污染调用签名。
+ *
+ * @example
+ * ```ts
+ * type A = WidenLiteral<'hello'>           // string
+ * type B = WidenLiteral<true>              // boolean
+ * type C = WidenLiteral<'foo' | undefined> // string | undefined
+ * type D = WidenLiteral<number>            // number
+ * ```
+ */
+export type WidenLiteral<T>
+  = IsAny<T> extends true ? T
+    : [NonNullable<T>] extends [never] ? unknown
+        : NonNullable<T> extends boolean ? boolean | Extract<T, undefined>
+          : NonNullable<T> extends string ? string | Extract<T, undefined>
+            : T

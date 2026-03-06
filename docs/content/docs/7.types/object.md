@@ -243,6 +243,60 @@ type T1 = GetFieldValue<User, 'tags'>
 type T2 = GetFieldValue<User, 'profile.bio'>
 ```
 
+## `Prettify<T>`
+
+强制 TypeScript 展平类型别名，使 IntelliSense 能完整枚举对象的所有属性。
+
+常用于消除交叉类型（`A & B`）的「折叠」显示，让 IDE 悬停时直接展示合并后的属性列表。
+
+```ts [Source]
+export type Prettify<T> = { [K in keyof T]: T[K] } & {}
+```
+
+```ts [Example]
+import type { Prettify } from '@movk/core'
+
+type A = { a: number } & { b: string }
+// IDE hover 显示 "{ a: number } & { b: string }"
+
+type B = Prettify<A>
+// IDE hover 显示 "{ a: number; b: string }"
+```
+
+## `KnownKeys<T>`
+
+从对象类型中提取所有字面量键，过滤掉索引签名（`string`、`number`、`symbol`）。
+
+适用于具体对象类型，常用于泛型工厂方法中精确枚举注册项的键名，防止 `string` 索引污染 IntelliSense 补全。
+
+::callout{icon="i-lucide-info"}
+当 TypeScript 的 `keyof T` 本身已是 `string`（如纯索引签名类型 `{ [key: string]: ... }`），`KnownKeys<T>` 返回 `never`。此类型仅对具体对象类型（键名为字面量）有效。
+::
+
+```ts [Source]
+export type KnownKeys<T> = {
+  [K in keyof T]-?: string extends K
+    ? never
+    : number extends K
+      ? never
+      : symbol extends K
+        ? never
+        : K
+}[keyof T]
+```
+
+```ts [Example]
+import type { KnownKeys } from '@movk/core'
+
+// 具体对象类型：返回所有字面量键
+interface Controls { text: string, select: number }
+type K = KnownKeys<Controls> // 'text' | 'select'
+
+// 纯索引签名类型：返回 never
+interface Indexed { [key: string]: string }
+type L = KnownKeys<Indexed> // never
+```
+
 ## Changelog
 
 :commit-changelog{prefix="types/object"}
