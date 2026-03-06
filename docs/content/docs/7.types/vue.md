@@ -37,8 +37,8 @@ export type ComponentProps<T>
 ```
 
 ```ts [Example]
-import MyComponent from './MyComponent.vue'
 import type { ComponentProps } from '@movk/core'
+import MyComponent from './MyComponent.vue'
 
 type Props = ComponentProps<typeof MyComponent>
 // Props 为 MyComponent 的完整 props 类型，包括泛型 SFC

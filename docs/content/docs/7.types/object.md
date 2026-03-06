@@ -289,11 +289,11 @@ export type KnownKeys<T> = {
 import type { KnownKeys } from '@movk/core'
 
 // 具体对象类型：返回所有字面量键
-type Controls = { text: string, select: number }
+interface Controls { text: string, select: number }
 type K = KnownKeys<Controls> // 'text' | 'select'
 
 // 纯索引签名类型：返回 never
-type Indexed = { [key: string]: string }
+interface Indexed { [key: string]: string }
 type L = KnownKeys<Indexed> // never
 ```
 

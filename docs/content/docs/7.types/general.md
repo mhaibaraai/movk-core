@@ -74,9 +74,9 @@ export type IsAny<T> = 0 extends (1 & T) ? true : false
 ```ts [Example]
 import type { IsAny } from '@movk/core'
 
-type A = IsAny<any>     // true
-type B = IsAny<string>  // false
-type C = IsAny<never>   // false
+type A = IsAny<any> // true
+type B = IsAny<string> // false
+type C = IsAny<never> // false
 type D = IsAny<unknown> // false
 ```
 
@@ -98,11 +98,11 @@ export type WidenLiteral<T>
 ```ts [Example]
 import type { WidenLiteral } from '@movk/core'
 
-type A = WidenLiteral<'hello'>           // string
-type B = WidenLiteral<true>              // boolean
+type A = WidenLiteral<'hello'> // string
+type B = WidenLiteral<true> // boolean
 type C = WidenLiteral<'foo' | undefined> // string | undefined
-type D = WidenLiteral<number>            // number（非字面量，保持原样）
-type E = WidenLiteral<any>              // any（保持原样）
+type D = WidenLiteral<number> // number（非字面量，保持原样）
+type E = WidenLiteral<any> // any（保持原样）
 ```
 
 ## Changelog
