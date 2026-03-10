@@ -36,7 +36,7 @@ export function pick<T extends AnyObject, K extends keyof T>(
   const result = {} as PickByKey<T, K>
 
   for (const key of keys) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+    if (Object.hasOwn(obj, key)) {
       ;(result as any)[key] = obj[key]
     }
   }

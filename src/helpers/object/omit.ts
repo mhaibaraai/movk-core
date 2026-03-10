@@ -35,7 +35,7 @@ export function omit<T extends AnyObject, K extends keyof T>(
   const result = {} as OmitByKey<T, K>
 
   for (const key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key) && !keysSet.has(key as unknown as K)) {
+    if (Object.hasOwn(obj, key) && !keysSet.has(key as unknown as K)) {
       ;(result as any)[key] = obj[key]
     }
   }

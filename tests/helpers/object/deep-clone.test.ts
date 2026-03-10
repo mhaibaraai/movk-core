@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { deepClone } from '../../../src/helpers/object'
 
+const TEST_REGEXP = /test/gi
+
 describe('deepClone', () => {
   it('应该克隆基本类型', () => {
     expect(deepClone(1)).toBe(1)
@@ -42,7 +44,7 @@ describe('deepClone', () => {
 
   it('应该克隆 Date 和 RegExp 对象', () => {
     const date = new Date()
-    const regexp = /test/gi
+    const regexp = TEST_REGEXP
     const obj = { d: date, r: regexp }
     const cloned = deepClone(obj)
     expect(cloned.d).toEqual(date)

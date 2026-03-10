@@ -71,7 +71,7 @@ export async function replaceCurrentColor(path: string, color?: string): Promise
         element.setAttribute('stroke', color)
       }
 
-      Array.from(element.children).forEach((child) => {
+      [...element.children].forEach((child) => {
         traverseAndReplace(child)
       })
     }

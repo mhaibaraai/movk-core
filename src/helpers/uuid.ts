@@ -1,3 +1,5 @@
+const UUID_REPLACE_RE = /[xy]/g
+
 /**
  * 生成随机UUID字符串
  *
@@ -16,7 +18,7 @@
  * ```
  */
 export function getRandomUUID(): string {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(UUID_REPLACE_RE, (c) => {
     const r = Math.random() * 16 | 0
     const v = c === 'x' ? r : (r & 0x3 | 0x8)
     return v.toString(16)

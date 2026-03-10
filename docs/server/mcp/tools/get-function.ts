@@ -2,6 +2,7 @@ import { queryCollection } from '@nuxt/content/server'
 import { z } from 'zod'
 
 const DOCS_BASE_URL = 'https://core.mhaibaraai.cn'
+const CAMEL_TO_KEBAB_RE = /([a-z])([A-Z])/g
 
 export default defineMcpTool({
   description: '获取特定函数的详细文档和使用示例',
@@ -13,7 +14,7 @@ export default defineMcpTool({
     const event = useEvent()
 
     const kebabName = functionName
-      .replace(/([a-z])([A-Z])/g, '$1-$2')
+      .replace(CAMEL_TO_KEBAB_RE, '$1-$2')
       .toLowerCase()
 
     const allDocs = await queryCollection(event, 'docs')
@@ -24,7 +25,7 @@ export default defineMcpTool({
 
     const match = allDocs.find((doc) => {
       const pathParts = doc.path.split('/')
-      const fileName = pathParts[pathParts.length - 1]
+      const fileName = pathParts.at(-1)
       return fileName === kebabName || doc.title?.toLowerCase() === functionName.toLowerCase()
     })
 

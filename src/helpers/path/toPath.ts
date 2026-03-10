@@ -1,3 +1,6 @@
+const WHITESPACE_RE = /\s/
+const DECIMAL_INDEX_RE = /^(?:0|[1-9]\d*)$/
+
 type PathSegment = string | number
 type PathSegments = PathSegment[]
 type PathInput = string | PathSegments
@@ -64,7 +67,7 @@ export function toPath(path: PathInput): PathSegments {
     // start 位于 '['
     let j = start + 1
     // 跳过空白
-    while (j < length && /\s/.test(input[j]!)) j++
+    while (j < length && WHITESPACE_RE.test(input[j]!)) j++
     if (j >= length)
       throw new Error('Invalid path: missing closing "]"')
 
@@ -96,7 +99,7 @@ export function toPath(path: PathInput): PathSegments {
       if (!closed)
         throw new Error('Invalid path: missing closing quote in bracket')
       // 跳过空白与右括号
-      while (j < length && /\s/.test(input[j]!)) j++
+      while (j < length && WHITESPACE_RE.test(input[j]!)) j++
       if (j >= length || input[j] !== ']')
         throw new Error('Invalid path: missing closing "]"')
       j++
@@ -114,7 +117,7 @@ export function toPath(path: PathInput): PathSegments {
     // 去掉两端空白
     const trimmed = value.trim()
     // 纯十进制非负整数字面量 => number 段
-    if (/^(?:0|[1-9]\d*)$/.test(trimmed)) {
+    if (DECIMAL_INDEX_RE.test(trimmed)) {
       j++
       return { segment: Number(trimmed), next: j }
     }

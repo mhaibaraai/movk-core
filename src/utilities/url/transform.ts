@@ -2,6 +2,10 @@ import type { QueryParams } from '../../types'
 import { parseUrl } from './parse'
 import { stringifyQuery } from './query'
 
+const QUERY_HASH_RE = /(?=[?#])/
+const QUERY_HASH_SEARCH_RE = /[?#]/
+const LEADING_SLASHES_RE = /^\/+/
+
 /**
  * 连接 URL 路径片段
  *
@@ -81,7 +85,7 @@ export function normalizeUrl(url: string): string {
   }
 
   // 处理相对 URL 或路径
-  const [pathPart, rest] = url.split(/(?=[?#])/)
+  const [pathPart, rest] = url.split(QUERY_HASH_RE)
   const normalizedPath = normalizePath(pathPart || '')
   return normalizedPath + (rest || '')
 }
@@ -137,7 +141,7 @@ export function removeTrailingSlash(url: string): string {
     return ''
 
   // 保留查询字符串和哈希
-  const [path, ...rest] = url.split(/(?=[?#])/)
+  const [path, ...rest] = url.split(QUERY_HASH_RE)
   if (!path)
     return url
 
@@ -163,7 +167,7 @@ export function ensureTrailingSlash(url: string): string {
     return '/'
 
   // 分离路径和查询字符串/哈希
-  const queryOrHashIndex = url.search(/[?#]/)
+  const queryOrHashIndex = url.search(QUERY_HASH_SEARCH_RE)
   const path = queryOrHashIndex === -1 ? url : url.slice(0, queryOrHashIndex)
   const rest = queryOrHashIndex === -1 ? '' : url.slice(queryOrHashIndex)
   if (!path)
@@ -190,7 +194,7 @@ export function removeLeadingSlash(url: string): string {
   if (!url)
     return ''
 
-  return url.replace(/^\/+/, '')
+  return url.replace(LEADING_SLASHES_RE, '')
 }
 
 /**

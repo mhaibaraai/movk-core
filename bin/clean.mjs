@@ -2,7 +2,7 @@
 import { rm } from 'node:fs/promises'
 import { relative, resolve } from 'node:path'
 import process from 'node:process'
-import fg from 'fast-glob'
+import { glob } from 'tinyglobby'
 
 const DEFAULT_TARGETS = [
   'node_modules',
@@ -44,13 +44,12 @@ async function clean() {
 
   let paths
   try {
-    paths = await fg(targets.map(t => `**/${t}`), {
+    paths = await glob(targets.map(t => `**/${t}`), {
       cwd: root,
       onlyFiles: false,
       dot: true,
       absolute: true,
       ignore: ['**/node_modules/**/node_modules/**'],
-      suppressErrors: true
     })
   }
   catch (e) {
@@ -63,7 +62,7 @@ async function clean() {
     return
   }
 
-  paths = [...new Set(paths)].sort((a, b) => b.length - a.length)
+  paths = new Set(paths).toSorted((a, b) => b.length - a.length)
 
   const results = await processBatch(paths)
   const removed = results.filter(r => r.success).length
