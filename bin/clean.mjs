@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { rm } from 'node:fs/promises'
-import { relative, resolve } from 'node:path'
+import { lstat, rm } from 'node:fs/promises'
+import { basename, relative, resolve } from 'node:path'
 import process from 'node:process'
 import { glob } from 'tinyglobby'
 
@@ -11,68 +11,75 @@ const DEFAULT_TARGETS = [
   '.output',
   '.cache',
   'dist',
-  'dist.zip'
+  'dist.zip',
 ]
-const BATCH_SIZE = 10
-
-async function removePath(path) {
-  try {
-    await rm(path, { recursive: true, force: true, maxRetries: 3 })
-    return { path, success: true }
-  }
-  catch (e) {
-    if (e.code === 'ENOENT')
-      return { path, success: true }
-    return { path, success: false, error: e.message }
-  }
-}
-
-async function processBatch(paths) {
-  const results = []
-  for (let i = 0; i < paths.length; i += BATCH_SIZE) {
-    const batch = paths.slice(i, i + BATCH_SIZE)
-    results.push(...await Promise.all(batch.map(removePath)))
-  }
-  return results
-}
+const RE_PATH_SEP = /[/\\]/
+const RE_TRAILING_SLASH = /\/+$/
 
 async function clean() {
   const start = Date.now()
   const args = process.argv.slice(2)
-  const targets = args.length > 0 ? args : DEFAULT_TARGETS
+  const targets = (args.length > 0 ? args : DEFAULT_TARGETS)
+    .filter(t => t && !RE_PATH_SEP.test(t) && t !== '.' && t !== '..')
   const root = resolve(process.cwd())
+  const targetSet = new Set(targets)
 
-  let paths
-  try {
-    paths = await glob(targets.map(t => `**/${t}`), {
-      cwd: root,
-      onlyFiles: false,
-      dot: true,
-      absolute: true,
-      ignore: ['**/node_modules/**/node_modules/**'],
-    })
-  }
-  catch (e) {
-    console.error('搜索失败:', e.message)
-    process.exit(1)
+  if (targets.length === 0) {
+    console.log('没有有效的清理目标')
+    return
   }
 
-  if (!paths.length) {
+  const rawPaths = await glob(targets.map(t => `**/${t}`), {
+    cwd: root,
+    onlyFiles: false,
+    dot: true,
+    absolute: true,
+    followSymbolicLinks: false,
+    ignore: ['**/.git/**'],
+  })
+
+  const matched = Array.from(new Set(rawPaths), p => p.replace(RE_TRAILING_SLASH, ''))
+    .filter(p => p !== root && p.startsWith(`${root}/`) && targetSet.has(basename(p)))
+    .sort((a, b) => a.length - b.length)
+
+  const deduped = []
+  for (const p of matched) {
+    if (!deduped.some(parent => p.startsWith(`${parent}/`)))
+      deduped.push(p)
+  }
+
+  const paths = []
+  for (const p of deduped) {
+    try {
+      if ((await lstat(p)).isSymbolicLink())
+        continue
+    }
+    catch { continue }
+    paths.push(p)
+  }
+
+  if (paths.length === 0) {
     console.log('未找到需要清理的目标')
     return
   }
 
-  paths = new Set(paths).toSorted((a, b) => b.length - a.length)
+  paths.forEach(p => console.log(`  ${relative(root, p)}`))
 
-  const results = await processBatch(paths)
-  const removed = results.filter(r => r.success).length
-  const failed = results.filter(r => !r.success)
+  const results = await Promise.all(paths.map(async (p) => {
+    try {
+      await rm(p, { recursive: true, force: true, maxRetries: 3 })
+      return null
+    }
+    catch (e) {
+      return e.code === 'ENOENT' ? null : { path: p, error: e.message }
+    }
+  }))
+
+  const failed = results.filter(Boolean)
   const duration = ((Date.now() - start) / 1000).toFixed(2)
-
-  console.log(`已清理 ${removed}/${results.length} 项，耗时 ${duration}s`)
+  console.log(`已清理 ${paths.length - failed.length}/${paths.length} 项，耗时 ${duration}s`)
 
   if (failed.length) {
-    console.warn(`\n${failed.length} 项清理失败:`)
     failed.forEach(f => console.warn(`  ${relative(root, f.path)}: ${f.error}`))
     process.exit(1)
   }
