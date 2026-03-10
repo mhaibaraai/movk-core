@@ -1,5 +1,11 @@
 # 📋 Changelog
 
+## [1.2.2](https://github.com/mhaibaraai/movk-core/compare/v1.2.1...v1.2.2) (2026-03-10)
+
+### 🐛 Bug Fixes
+
+* **clean:** 修复 pnpm workspace symlink 导致源码被删除的问题 ([14ff943](https://github.com/mhaibaraai/movk-core/commit/14ff943be78a8036cd081e84f198f96f914f10e4))
+
 ## [1.2.1](https://github.com/mhaibaraai/movk-core/compare/v1.2.0...v1.2.1) (2026-03-10)
 
 ### ✨ Features
