@@ -1,3 +1,6 @@
+const SEPARATOR_RE = /[_-]/g
+const WORDS_RE = /[A-Z]{2,}(?=[A-Z][a-z]|\b)|[A-Z]?[a-z]+|\d+/g
+
 /**
  * 将字符串分解为单词数组。支持camelCase、snake_case、kebab-case等各种命名风格。
  *
@@ -16,8 +19,8 @@ export function words(str: string): string[] {
   if (!str)
     return []
 
-  const processedStr = str.replace(/[_-]/g, ' ')
-  const matches = processedStr.match(/[A-Z]{2,}(?=[A-Z][a-z]|\b)|[A-Z]?[a-z]+|\d+/g)
+  const processedStr = str.replace(SEPARATOR_RE, ' ')
+  const matches = processedStr.match(WORDS_RE)
 
   return matches || []
 }

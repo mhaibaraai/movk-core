@@ -1,5 +1,7 @@
 import type { AnyObject } from '../../types/object'
 
+const CAMEL_TO_KEBAB_RE = /([a-z\d])([A-Z])/g
+
 /**
  * 将对象的键名转换为kebab-case格式
  *
@@ -44,12 +46,12 @@ export function convertToKebabCase<T extends AnyObject>(
   }
 
   const convertKey = (key: string): string =>
-    key.replace(/([a-z\d])([A-Z])/g, '$1-$2').toLowerCase()
+    key.replace(CAMEL_TO_KEBAB_RE, '$1-$2').toLowerCase()
 
   const result: AnyObject = {}
 
   for (const key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+    if (Object.hasOwn(obj, key)) {
       const newKey = convertKey(key)
       const value = obj[key]
 

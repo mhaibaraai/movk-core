@@ -1,3 +1,7 @@
+const IDENTIFIER_RE = /^[A-Z_$][\w$]*$/i
+const BACKSLASH_RE = /\\/g
+const SINGLE_QUOTE_RE = /'/g
+
 /**
  * 将片段数组序列化为路径字符串。
  *
@@ -26,7 +30,7 @@ export function joinPath(segments: (string | number)[]): string {
     }
     const s = String(seg)
     // 合法标识符:以字母/$_ 开始,后续字母/数字/$_,且不包含点
-    const isIdentifier = /^[A-Z_$][\w$]*$/i.test(s)
+    const isIdentifier = IDENTIFIER_RE.test(s)
     if (out.length === 0 && isIdentifier) {
       out += s
       continue
@@ -36,7 +40,7 @@ export function joinPath(segments: (string | number)[]): string {
       continue
     }
     // 需要括号引号并转义
-    const escaped = s.replace(/\\/g, '\\\\').replace(/'/g, '\\\'')
+    const escaped = s.replace(BACKSLASH_RE, '\\\\').replace(SINGLE_QUOTE_RE, '\\\'')
     out += `['${escaped}']`
   }
   return out

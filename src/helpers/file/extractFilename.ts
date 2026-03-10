@@ -1,3 +1,5 @@
+const FILENAME_RE = /filename\*?=(?:"([^"]+)"|([^;]+))/i
+
 /**
  * 从响应头中提取文件名
  *
@@ -28,7 +30,7 @@ export function extractFilename(headers?: Headers, fallbackName = 'file'): strin
 
   const disposition = headers.get('content-disposition')
   if (disposition) {
-    const filenameMatch = disposition.match(/filename\*?=(?:"([^"]+)"|([^;]+))/i)
+    const filenameMatch = disposition.match(FILENAME_RE)
     if (filenameMatch) {
       let filename = filenameMatch[1] ?? filenameMatch[2]
       if (!filename)

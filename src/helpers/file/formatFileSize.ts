@@ -30,7 +30,7 @@ export function formatFileSize(bytes: number): string {
   const i = Math.floor(Math.log(bytes) / Math.log(k))
 
   if (i >= sizes.length) {
-    return `${Number.parseFloat((bytes / k ** (sizes.length - 1)).toFixed(2))} ${sizes[sizes.length - 1]}`
+    return `${Number.parseFloat((bytes / k ** (sizes.length - 1)).toFixed(2))} ${sizes.at(-1)}`
   }
 
   return `${Number.parseFloat((bytes / k ** i).toFixed(2))} ${sizes[i]}`

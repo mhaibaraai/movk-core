@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import { createDeepMerge, deepMerge } from '../../../src/helpers/object'
 
+const ABC_REGEXP = /abc/g
+const XYZ_REGEXP = /xyz/i
+
 describe('deepMerge', () => {
   // ---- 基础合并 ----
 
@@ -189,8 +192,8 @@ describe('deepMerge', () => {
   })
 
   it('regExp 对象应该被替换，不递归合并', () => {
-    const result = deepMerge([{ r: /abc/g }, { r: /xyz/i }])
-    expect(result.r).toEqual(/xyz/i)
+    const result = deepMerge([{ r: ABC_REGEXP }, { r: XYZ_REGEXP }])
+    expect(result.r).toEqual(XYZ_REGEXP)
   })
 
   it('map 对象应该被替换，不递归合并', () => {

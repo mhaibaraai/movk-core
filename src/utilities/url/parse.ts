@@ -1,5 +1,7 @@
 import type { ParsedUrl } from '../../types/url'
 
+const PROTOCOL_RE = /^[a-z][a-z0-9+.-]*:/i
+
 /**
  * 解析 URL 字符串为结构化对象
  *
@@ -98,7 +100,7 @@ export function isAbsoluteUrl(url: string): boolean {
     return true
 
   // 检查是否包含协议
-  return /^[a-z][a-z0-9+.-]*:/i.test(url)
+  return PROTOCOL_RE.test(url)
 }
 
 /**
