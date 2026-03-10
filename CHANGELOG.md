@@ -1,5 +1,26 @@
 # 📋 Changelog
 
+## [1.2.1](https://github.com/mhaibaraai/movk-core/compare/v1.2.0...v1.2.1) (2026-03-10)
+
+### ✨ Features
+
+* **types:** 新增 IsAny、WidenLiteral、Prettify、KnownKeys 类型工具 ([43c37b2](https://github.com/mhaibaraai/movk-core/commit/43c37b22a1e4f3495fe4daebc1d90fbf3612dab0)), closes [#69](https://github.com/mhaibaraai/movk-core/issues/69)
+
+### 📝 Documentation
+
+* **types:** 格式化类型文档代码示例对齐与导入顺序 ([99ffb2b](https://github.com/mhaibaraai/movk-core/commit/99ffb2b5592d9d3cf6cf095e8d8e3b248f138489))
+
+### ♻️ Code Refactoring
+
+* 代码现代化改进与依赖迁移 ([ab46324](https://github.com/mhaibaraai/movk-core/commit/ab46324fdcc45009acecd70ae51c64c2f849625e))
+* 重构 vue.ts 组件类型提取工具，增强泛型 SFC 支持 ([9b2e244](https://github.com/mhaibaraai/movk-core/commit/9b2e24424a64733ebe89a65cb75a876df9d88953))
+
+### 🔧 Chores
+
+* **deps:** update all non-major dependencies ([4f82ddc](https://github.com/mhaibaraai/movk-core/commit/4f82ddcb83ff56ab2b02b12d8bba51a9a54d098e))
+* **deps:** update dependency @nuxt/ui to ^4.5.1 ([03cb74d](https://github.com/mhaibaraai/movk-core/commit/03cb74dc6cf3cdf667f2f30ff8a58fff48f4db2d))
+* 更新文档依赖及 AI 模型配置 ([788b24b](https://github.com/mhaibaraai/movk-core/commit/788b24b92101112bd64c468a27b52706417f5659))
+
 ## [1.2.0](https://github.com/mhaibaraai/movk-core/compare/v1.1.0...v1.2.0) (2026-03-02)
 
 ### ✨ Features
