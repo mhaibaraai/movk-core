@@ -4,7 +4,7 @@ RUN corepack enable
 FROM base AS deps
 WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-COPY docs/package.json ./docs/、
+COPY docs/package.json ./docs/
 RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
     corepack install && pnpm install --frozen-lockfile --ignore-scripts
 
