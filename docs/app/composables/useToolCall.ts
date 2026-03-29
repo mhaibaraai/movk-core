@@ -1,13 +1,23 @@
-export function useToolCall() {
-  const tools: Record<string, string | ((args: any) => string)> = {
-    'list-pages': '列出所有文档页面',
-    'get-page': (args: any) => `检索${args?.path || '页面'}`,
-    'list-functions': '列出所有函数',
-    'get-function': (args: any) => `检索${args?.functionName || '函数'}`,
-    'search-functions': (args: any) => `搜索函数，关键词：${args?.keyword || '无'}，分类：${args?.category || '无'}`,
+import type { ToolState } from '#ai-chat/types'
+
+export function useToolCall(state: ToolState, toolName: string, input: Record<string, string | undefined>) {
+  const searchVerb = state === 'output-available' ? '已检索' : '检索中'
+  const readVerb = state === 'output-available' ? '已读取' : '读取中'
+
+  const toolMessage: Record<string, string> = {
+    'list-functions': `${searchVerb} 函数列表`,
+    'get-function': `${readVerb} ${input.functionName || ''} 函数信息`,
+    'search-functions': `${searchVerb} 函数，关键词：${input.keyword || '无'}，分类：${input.category || '无'}`,
+  }
+
+  const toolIcon: Record<string, string> = {
+    'list-functions': 'i-lucide-package',
+    'get-function': 'i-lucide-package-open',
+    'search-functions': 'i-lucide-package-search',
   }
 
   return {
-    tools
+    toolMessage,
+    toolIcon
   }
 }

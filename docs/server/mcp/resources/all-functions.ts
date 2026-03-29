@@ -1,13 +1,12 @@
 import { queryCollection } from '@nuxt/content/server'
 
-const DOCS_BASE_URL = 'https://core.mhaibaraai.cn'
-
 export default defineMcpResource({
   uri: 'resource://movk-core/all-functions',
   description: '所有可用函数的完整列表及其元数据',
   cache: '1h',
   async handler(uri: URL) {
     const event = useEvent()
+    const siteUrl = getRequestURL(event).origin
 
     const functions = await queryCollection(event, 'docs')
       .where('path', 'LIKE', '%/docs/%')
@@ -23,7 +22,7 @@ export default defineMcpResource({
         name: fn.title,
         description: fn.description,
         path: fn.path,
-        url: `${DOCS_BASE_URL}${fn.path}`
+        url: `${siteUrl}${fn.path}`
       }
 
       // 从路径提取分类层级: /docs/utilities/array/chunk -> ['utilities', 'array']

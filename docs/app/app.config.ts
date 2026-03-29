@@ -1,25 +1,46 @@
 export default defineAppConfig({
-  vercelAnalytics: {
-    enable: true,
-    debug: false
-  },
   aiChat: {
     faqQuestions: [
       {
         category: '快速入门',
         items: [
           '如何安装和引入 @movk/core？',
-          '如何查找我需要的函数？',
-          '在 Vue 项目中如何使用？',
+          '在 Vue 项目中如何使用 Tree-Shaking？',
+          '如何获得完整的 TypeScript 类型提示？',
         ]
       },
       {
-        category: '核心功能',
+        category: '树形结构',
         items: [
-          '如何处理树形数据结构？',
-          '有哪些 URL 处理函数？',
-          '如何实现防抖和节流？',
-          '如何进行字符串大小写转换？',
+          '如何用 Tree.fromList 将扁平数组转为树形结构？',
+          '如何用 Tree.filter 过滤树节点？',
+          '如何用 Tree.find 查找特定节点？',
+          'Tree.transform 如何转换树节点数据？',
+        ]
+      },
+      {
+        category: '字符串与对象',
+        items: [
+          '如何用 camelCase / kebabCase 转换字符串格式？',
+          '如何用 pick / omit 选择或排除对象属性？',
+          '如何用 getPath / setPath 操作嵌套路径？',
+          'deepClone 和 deepMerge 有什么区别？',
+        ]
+      },
+      {
+        category: 'URL 处理',
+        items: [
+          '如何用 getQueryParam 获取 URL 查询参数？',
+          '如何用 buildUrl / joinUrl 构建完整 URL？',
+          '如何用 isValidUrl 验证 URL 合法性？',
+        ]
+      },
+      {
+        category: '异步与数组',
+        items: [
+          '如何用 debounce 和 throttle 控制调用频率？',
+          'sleepWithCancel 和 sleep 有什么区别？',
+          '如何用 chunk / unique / flatten 处理数组？',
         ]
       },
       {
@@ -29,13 +50,6 @@ export default defineAppConfig({
           'useCopyCode 如何使用？',
         ]
       },
-      {
-        category: 'TypeScript 支持',
-        items: [
-          '如何获得完整的类型提示？',
-          '有哪些可用的类型定义？',
-        ]
-      }
     ]
   },
   header: {

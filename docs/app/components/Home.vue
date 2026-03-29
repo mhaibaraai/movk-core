@@ -1,72 +1,152 @@
 <script lang="ts" setup>
+import type { TreeNode } from '@movk/core'
 import type { TabsItem } from '@nuxt/ui'
-import { camelCase, capitalize, chunk, debounce, kebabCase, pascalCase, unique } from '@movk/core'
+import { debounce, deepMerge, omit, pick, throttle, Tree } from '@movk/core'
 
 const items = [{
-  label: '字符串处理',
-  icon: 'i-lucide:message-square-text',
-  slot: 'string'
+  label: '树形结构',
+  icon: 'i-lucide:list-tree',
+  slot: 'tree',
 }, {
-  label: '数组处理',
-  icon: 'i-lucide:gallery-vertical-end',
-  slot: 'array'
+  label: '对象操作',
+  icon: 'i-lucide:braces',
+  slot: 'object',
 }, {
-  label: '异步工具',
+  label: '异步控制',
   icon: 'i-lucide:clock',
-  slot: 'async'
+  slot: 'async',
 }] satisfies TabsItem[]
 
-// String Demo
-const stringInput = ref('Hello World')
-const stringResult = ref('')
+const ORG_CONFIG = { id: 'id', pid: 'parentId', children: 'children' } as const
 
-function processString(type: 'camel' | 'kebab' | 'cap' | 'pascal') {
-  if (type === 'camel') {
-    stringResult.value = camelCase(stringInput.value)
+const orgFlatList = [
+  { id: '1', name: '技术部', parentId: null },
+  { id: '2', name: '前端组', parentId: '1' },
+  { id: '3', name: '后端组', parentId: '1' },
+  { id: '4', name: 'UI 组', parentId: '2' },
+  { id: '5', name: '测试组', parentId: '2' },
+  { id: '6', name: '运维组', parentId: '3' },
+  { id: '7', name: '安全组', parentId: '3' },
+]
+
+const treeKeyword = ref('')
+const treeResult = ref<TreeNode[]>([])
+const treeMode = ref<'build' | 'filter' | null>(null)
+
+interface FlatNode { node: TreeNode, depth: number }
+
+function flattenTree(nodes: TreeNode[], depth = 0): FlatNode[] {
+  const result: FlatNode[] = []
+  for (const node of nodes) {
+    result.push({ node, depth })
+    const children = node.children as TreeNode[] | undefined
+    if (children?.length) {
+      result.push(...flattenTree(children, depth + 1))
+    }
   }
-  if (type === 'kebab') {
-    stringResult.value = kebabCase(stringInput.value)
-  }
-  if (type === 'cap') {
-    stringResult.value = capitalize(stringInput.value)
-  }
-  if (type === 'pascal') {
-    stringResult.value = pascalCase(stringInput.value)
-  }
+  return result
 }
 
-// Array Demo
-const arrayInput = ref([1, 2, 2, 3, 4, 4, 5, 6, 7, 8])
-const arrayResult = ref<any>(null)
+const flatTree = computed(() => flattenTree(treeResult.value))
 
-function processArray(type: 'chunk' | 'unique') {
-  if (type === 'chunk') {
-    arrayResult.value = chunk(arrayInput.value, 3)
-  }
-  if (type === 'unique') {
-    arrayResult.value = unique(arrayInput.value)
-  }
+function buildTree() {
+  treeMode.value = 'build'
+  treeKeyword.value = ''
+  treeResult.value = Tree.fromList(orgFlatList, ORG_CONFIG)
 }
 
-// Async Demo
-const debounceInput = ref('')
-const debounceCount = ref(0)
-const triggerCount = ref(0)
-const lastTriggerTime = ref('')
+function filterTree() {
+  const keyword = treeKeyword.value.trim()
+  if (!keyword) {
+    buildTree()
+    return
+  }
+  treeMode.value = 'filter'
+  const full = Tree.fromList(orgFlatList, ORG_CONFIG)
+  treeResult.value = Tree.filter(full, ({ node }) =>
+    (node as { name: string }).name.includes(keyword),)
+}
 
-const debouncedFn = debounce(() => {
-  debounceCount.value++
-  lastTriggerTime.value = new Date().toLocaleTimeString()
+const sourceObj = {
+  name: 'Alice',
+  email: 'alice@example.com',
+  password: 's3cr3t',
+  role: 'admin',
+}
+
+const defaultConfig = { theme: 'light', tags: ['ts'], pagination: { page: 1, size: 10 } }
+const userConfig = { theme: 'dark', tags: ['vue', 'ts'], pagination: { size: 20 } }
+
+type ObjOp = 'pick' | 'omit' | null
+const objOp = ref<ObjOp>(null)
+const objResult = ref<Record<string, unknown> | null>(null)
+
+function applyPick() {
+  objOp.value = 'pick'
+  objResult.value = pick(sourceObj, ['name', 'email'])
+}
+
+function applyOmit() {
+  objOp.value = 'omit'
+  objResult.value = omit(sourceObj, ['password'])
+}
+
+function resetObj() {
+  objOp.value = null
+  objResult.value = null
+}
+
+type ArrayStrategy = 'concat' | 'unique' | 'replace'
+const mergeStrategy = ref<ArrayStrategy>('concat')
+
+const objSubItems = [{
+  label: '属性选择',
+  slot: 'pick-omit',
+}, {
+  label: '深度合并',
+  slot: 'deep-merge',
+}] satisfies TabsItem[]
+
+const mergeResult = computed(() =>
+  deepMerge([defaultConfig, userConfig], { arrayStrategy: mergeStrategy.value }),
+)
+
+const asyncInput = ref('')
+const totalTriggerCount = ref(0)
+
+const debounceExecCount = ref(0)
+const debounceLastTime = ref('')
+const debouncedHandler = debounce(() => {
+  debounceExecCount.value++
+  debounceLastTime.value = new Date().toLocaleTimeString()
 }, 500)
 
-function onDebounceInput() {
-  triggerCount.value++
-  debouncedFn()
+const throttleExecCount = ref(0)
+const throttleLastTime = ref('')
+const throttledHandler = throttle(() => {
+  throttleExecCount.value++
+  throttleLastTime.value = new Date().toLocaleTimeString()
+}, 200)
+
+function onAsyncInput() {
+  totalTriggerCount.value++
+  debouncedHandler()
+  throttledHandler()
 }
 
-// 响应式布局
+function resetAsync() {
+  asyncInput.value = ''
+  totalTriggerCount.value = 0
+  debounceExecCount.value = 0
+  debounceLastTime.value = ''
+  throttleExecCount.value = 0
+  throttleLastTime.value = ''
+}
+
 const { width } = useWindowSize()
-const fieldGroupOrientation = computed(() => width.value < 640 ? 'vertical' : 'horizontal')
+const isNarrow = computed(() => width.value < 640)
+
+onMounted(() => buildTree())
 </script>
 
 <template>
@@ -83,145 +163,256 @@ const fieldGroupOrientation = computed(() => width.value < 640 ? 'vertical' : 'h
     </template>
 
     <UTabs :items="items" class="w-full">
-      <template #string>
-        <div class="p-4 space-y-6 min-h-65">
-          <UFormField label="输入文本">
+      <template #tree>
+        <div class="p-3 space-y-3 h-64 overflow-y-auto">
+          <div class="flex gap-2" :class="[isNarrow ? 'flex-col' : 'items-center']">
             <UInput
-              v-model="stringInput"
-              icon="i-lucide:square-pen"
-              placeholder="输入任意字符串..."
-              class="w-full"
+              v-model="treeKeyword"
+              icon="i-lucide:search"
+              placeholder="输入关键词过滤..."
+              class="flex-1"
+              @keyup.enter="filterTree"
             />
-          </UFormField>
-
-          <UFieldGroup :orientation="fieldGroupOrientation">
-            <UButton
-              color="neutral"
-              variant="solid"
-              icon="i-lucide:arrow-left-right"
-              @click="processString('camel')"
-            >
-              camelCase
-            </UButton>
-            <UButton
-              color="neutral"
-              variant="solid"
-              icon="i-lucide:arrow-up-right"
-              @click="processString('pascal')"
-            >
-              PascalCase
-            </UButton>
-            <UButton
-              color="neutral"
-              variant="solid"
-              icon="i-lucide:minus"
-              @click="processString('kebab')"
-            >
-              kebab-case
-            </UButton>
-            <UButton
-              color="neutral"
-              variant="solid"
-              icon="i-lucide:arrow-up"
-              @click="processString('cap')"
-            >
-              Capitalize
-            </UButton>
-          </UFieldGroup>
-
-          <div class="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800 transition-all min-h-[86px]">
-            <div class="text-xs text-gray-500 mb-1">
-              转换结果
+            <div class="flex gap-2">
+              <UButton color="neutral" variant="solid" size="sm" icon="i-lucide:list-tree" @click="buildTree">
+                构建树
+              </UButton>
+              <UButton
+                color="primary"
+                variant="soft"
+                size="sm"
+                icon="i-lucide:filter"
+                :disabled="!treeKeyword.trim()"
+                @click="filterTree"
+              >
+                过滤
+              </UButton>
             </div>
-            <div v-if="stringResult" class="font-mono text-primary-500 font-medium text-lg">
-              {{ stringResult }}
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
+              <div class="text-xs text-gray-400 mb-1">
+                扁平数据
+              </div>
+              <div class="overflow-auto max-h-32 space-y-0.5">
+                <div v-for="item in orgFlatList" :key="item.id" class="font-mono text-xs text-gray-500 dark:text-gray-400">
+                  { "{{ item.id }}", "{{ item.name }}" }
+                </div>
+              </div>
             </div>
-            <div v-else class="text-gray-400 dark:text-gray-500 text-sm italic">
-              等待操作...
+
+            <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
+              <div class="flex items-center gap-1.5 mb-1">
+                <span class="text-xs text-gray-400">树形结构</span>
+                <UBadge v-if="treeMode === 'filter'" color="primary" variant="subtle" size="xs">
+                  已过滤
+                </UBadge>
+              </div>
+              <div v-if="flatTree.length" class="space-y-0.5 overflow-auto max-h-32">
+                <div
+                  v-for="(item, i) in flatTree"
+                  :key="i"
+                  class="flex items-center gap-1 font-mono text-xs"
+                  :style="{ paddingLeft: `${item.depth * 12}px` }"
+                >
+                  <UIcon name="i-lucide:chevron-right" class="size-3 text-gray-400 shrink-0" />
+                  <span :class="treeMode === 'filter' && treeKeyword && (item.node as { name: string }).name.includes(treeKeyword) ? 'text-primary-500 font-semibold' : 'text-gray-700 dark:text-gray-300'">
+                    {{ (item.node as { name: string }).name }}
+                  </span>
+                </div>
+              </div>
+              <div v-else class="text-xs text-gray-400 italic">
+                无匹配节点
+              </div>
             </div>
           </div>
         </div>
       </template>
 
-      <template #array>
-        <div class="p-4 space-y-6 min-h-65">
-          <UFormField label="原始数组">
-            <UInput
-              :model-value="JSON.stringify(arrayInput)"
-              class="w-full"
-              readonly
-            />
-          </UFormField>
+      <template #object>
+        <UTabs :items="objSubItems" variant="link" class="h-64">
+          <template #pick-omit>
+            <div class="p-3 space-y-3">
+              <div class="flex items-center gap-2 flex-wrap">
+                <UButton
+                  color="primary"
+                  :variant="objOp === 'pick' ? 'solid' : 'soft'"
+                  size="xs"
+                  icon="i-lucide:check-square"
+                  @click="applyPick"
+                >
+                  pick(['name','email'])
+                </UButton>
+                <UButton
+                  color="neutral"
+                  :variant="objOp === 'omit' ? 'solid' : 'outline'"
+                  size="xs"
+                  icon="i-lucide:square-minus"
+                  @click="applyOmit"
+                >
+                  omit(['password'])
+                </UButton>
+                <UButton
+                  v-if="objOp"
+                  color="neutral"
+                  variant="ghost"
+                  size="xs"
+                  icon="i-lucide:rotate-ccw"
+                  @click="resetObj"
+                />
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
+                  <div class="text-xs text-gray-400 mb-1">
+                    源对象
+                  </div>
+                  <pre class="font-mono text-xs text-gray-600 dark:text-gray-400 whitespace-pre-wrap">{{ JSON.stringify(sourceObj, null, 1) }}</pre>
+                </div>
+                <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
+                  <div class="text-xs text-gray-400 mb-1">
+                    结果
+                  </div>
+                  <pre v-if="objResult" class="font-mono text-xs text-primary-500 whitespace-pre-wrap">{{ JSON.stringify(objResult, null, 1) }}</pre>
+                  <p v-else class="text-xs text-gray-400 italic mt-1">
+                    点击上方按钮查看结果...
+                  </p>
+                </div>
+              </div>
+            </div>
+          </template>
 
-          <UFieldGroup :orientation="fieldGroupOrientation">
-            <UButton
-              color="primary"
-              variant="soft"
-              icon="i-lucide:funnel"
-              @click="processArray('unique')"
-            >
-              Unique (去重)
-            </UButton>
-            <UButton
-              color="primary"
-              variant="soft"
-              icon="i-lucide:layout-grid"
-              @click="processArray('chunk')"
-            >
-              Chunk (分块 size=3)
-            </UButton>
-          </UFieldGroup>
-
-          <div class="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800 transition-all min-h-[86px]">
-            <div class="text-xs text-gray-500 mb-1">
-              处理结果
+          <template #deep-merge>
+            <div class="p-3 space-y-3">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-xs text-gray-400">tags 合并策略：</span>
+                <UButton
+                  v-for="s in (['concat', 'unique', 'replace'] as ArrayStrategy[])"
+                  :key="s"
+                  size="xs"
+                  :color="mergeStrategy === s ? 'primary' : 'neutral'"
+                  :variant="mergeStrategy === s ? 'solid' : 'outline'"
+                  @click="mergeStrategy = s"
+                >
+                  {{ s }}
+                </UButton>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
+                  <div class="text-xs text-gray-400 mb-1.5">
+                    输入
+                  </div>
+                  <div class="font-mono text-xs space-y-1">
+                    <div class="text-gray-500">
+                      default: <span class="text-gray-600 dark:text-gray-400">{{ JSON.stringify(defaultConfig.tags) }}</span>
+                    </div>
+                    <div class="text-gray-500">
+                      user: <span class="text-gray-600 dark:text-gray-400">{{ JSON.stringify(userConfig.tags) }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
+                  <div class="text-xs text-gray-400 mb-1">
+                    tags 合并结果
+                  </div>
+                  <div class="font-mono text-xs text-primary-500">
+                    {{ JSON.stringify(mergeResult.tags) }}
+                  </div>
+                </div>
+              </div>
             </div>
-            <div v-if="arrayResult" class="font-mono text-primary-500 font-medium">
-              {{ JSON.stringify(arrayResult) }}
-            </div>
-            <div v-else class="text-gray-400 dark:text-gray-500 text-sm italic">
-              等待操作...
-            </div>
-          </div>
-        </div>
+          </template>
+        </UTabs>
       </template>
 
       <template #async>
-        <div class="p-4 space-y-6 min-h-65">
-          <UFormField label="防抖测试 (Debounce 500ms)" hint="请快速输入字符">
-            <UInput
-              v-model="debounceInput"
-              icon="i-lucide:zap"
-              placeholder="在此处快速输入..."
-              class="w-full"
-              @input="onDebounceInput"
-            />
-          </UFormField>
+        <div class="p-3 space-y-3 h-64 overflow-y-auto">
+          <UInput
+            v-model="asyncInput"
+            icon="i-lucide:zap"
+            placeholder="快速连续输入，观察两侧执行次数差异..."
+            @input="onAsyncInput"
+          />
 
-          <div class="grid grid-cols-2 gap-4">
-            <div class="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800 text-center">
-              <div class="text-xs text-gray-500 mb-1">
-                输入事件触发
+          <div class="grid grid-cols-2 gap-2">
+            <div class="p-3 rounded-lg border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-medium text-gray-600 dark:text-gray-400">Debounce</span>
+                <UBadge color="neutral" variant="subtle" size="xs">
+                  500ms
+                </UBadge>
               </div>
-              <div class="text-3xl font-bold text-gray-900 dark:text-white">
-                {{ triggerCount }}
+              <div class="flex items-end gap-3">
+                <div class="text-center">
+                  <div class="text-xs text-gray-400">
+                    触发
+                  </div>
+                  <div class="text-2xl font-bold text-gray-700 dark:text-gray-300">
+                    {{ totalTriggerCount }}
+                  </div>
+                </div>
+                <div class="text-gray-300 dark:text-gray-600 pb-0.5">
+                  →
+                </div>
+                <div class="text-center">
+                  <div class="text-xs text-primary-500">
+                    执行
+                  </div>
+                  <div class="text-2xl font-bold text-primary-500">
+                    {{ debounceExecCount }}
+                  </div>
+                </div>
+              </div>
+              <div class="text-xs text-gray-400 truncate">
+                {{ debounceLastTime ? `最后: ${debounceLastTime}` : '&nbsp;' }}
               </div>
             </div>
-            <div class="p-4 bg-primary-50 dark:bg-primary-900/10 rounded-lg border border-primary-100 dark:border-primary-900/20 text-center">
-              <div class="text-xs text-primary-600 dark:text-primary-400 mb-1">
-                实际执行次数
+
+            <div class="p-3 rounded-lg border border-primary-100 dark:border-primary-900/30 bg-primary-50 dark:bg-primary-900/10 space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-medium text-primary-600 dark:text-primary-400">Throttle</span>
+                <UBadge color="primary" variant="subtle" size="xs">
+                  200ms
+                </UBadge>
               </div>
-              <div class="text-3xl font-bold text-primary-600 dark:text-primary-400">
-                {{ debounceCount }}
+              <div class="flex items-end gap-3">
+                <div class="text-center">
+                  <div class="text-xs text-gray-400">
+                    触发
+                  </div>
+                  <div class="text-2xl font-bold text-gray-700 dark:text-gray-300">
+                    {{ totalTriggerCount }}
+                  </div>
+                </div>
+                <div class="text-primary-300 dark:text-primary-700 pb-0.5">
+                  →
+                </div>
+                <div class="text-center">
+                  <div class="text-xs text-primary-500">
+                    执行
+                  </div>
+                  <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">
+                    {{ throttleExecCount }}
+                  </div>
+                </div>
+              </div>
+              <div class="text-xs text-primary-400 truncate">
+                {{ throttleLastTime ? `最后: ${throttleLastTime}` : '&nbsp;' }}
               </div>
             </div>
           </div>
 
-          <div class="flex justify-end items-center gap-2 text-xs text-gray-400 h-5">
-            <template v-if="lastTriggerTime">
-              <UIcon name="i-lucide:clock" />
-              <span>最后执行: {{ lastTriggerTime }}</span>
-            </template>
+          <div class="flex justify-end">
+            <UButton
+              color="neutral"
+              variant="ghost"
+              size="xs"
+              icon="i-lucide:rotate-ccw"
+              :disabled="totalTriggerCount === 0"
+              @click="resetAsync"
+            >
+              重置
+            </UButton>
           </div>
         </div>
       </template>

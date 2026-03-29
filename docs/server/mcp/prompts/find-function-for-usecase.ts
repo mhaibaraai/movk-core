@@ -1,8 +1,6 @@
 import { queryCollection } from '@nuxt/content/server'
 import { z } from 'zod'
 
-const DOCS_BASE_URL = 'https://core.mhaibaraai.cn'
-
 const CATEGORY_LABELS: Record<string, string> = {
   '/docs/validators/': '类型验证',
   '/docs/utilities/array/': '数组工具',
@@ -30,6 +28,7 @@ export default defineMcpPrompt({
   },
   async handler({ usecase }) {
     const event = useEvent()
+    const siteUrl = getRequestURL(event).origin
 
     const allFunctions = await queryCollection(event, 'docs')
       .where('path', 'LIKE', '%/docs/%')
@@ -42,7 +41,7 @@ export default defineMcpPrompt({
       name: fn.title,
       category: getCategoryLabel(fn.path),
       description: fn.description || '',
-      url: `${DOCS_BASE_URL}${fn.path}`
+      url: `${siteUrl}${fn.path}`
     }))
 
     return {
