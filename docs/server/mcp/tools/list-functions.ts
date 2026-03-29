@@ -1,7 +1,5 @@
 import { queryCollection } from '@nuxt/content/server'
 
-const DOCS_BASE_URL = 'https://core.mhaibaraai.cn'
-
 const CATEGORY_CONFIG = {
   validators: { prefix: '/docs/validators', hasSubcategory: false },
   utilities: { prefix: '/docs/utilities', hasSubcategory: true },
@@ -18,6 +16,7 @@ export default defineMcpTool({
   cache: '1h',
   async handler() {
     const event = useEvent()
+    const siteUrl = getRequestURL(event).origin
 
     const functions = await queryCollection(event, 'docs')
       .where('path', 'LIKE', '%/docs/%')
@@ -62,7 +61,7 @@ export default defineMcpTool({
         title,
         description,
         subcategory,
-        url: `${DOCS_BASE_URL}${path}`
+        url: `${siteUrl}${path}`
       })
     }
 

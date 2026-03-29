@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
-import { useFilter } from 'reka-ui'
+import { useFilter } from '@nuxt/ui/composables'
 
-const route = useRoute()
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
+const route = useRoute()
+const { scoreItem } = useFilter()
 const { navigationByCategory } = useNavigation(navigation!)
 
 const input = useTemplateRef('input')
 const searchTerm = ref('')
-
-const { contains } = useFilter({ sensitivity: 'base' })
 
 const isSearchActive = computed(() => [
   '/docs/validators',
@@ -27,7 +26,7 @@ const filteredNavigation = computed(() => {
 
   return navigationByCategory.value.map(item => ({
     ...item,
-    children: item.children?.filter(child => contains(child.title as string, searchTerm.value) || contains(child.description as string, searchTerm.value))
+    children: item.children?.filter(child => scoreItem(child, searchTerm.value, ['title', 'description']) !== null)
   })).filter(item => item.children && item.children.length > 0)
 })
 
@@ -54,24 +53,14 @@ defineShortcuts({
         <template #left>
           <UPageAside>
             <template v-if="isSearchActive" #top>
-              <UInput
-                ref="input"
-                v-model="searchTerm"
-                variant="soft"
-                placeholder="Filter..."
-                class="group"
-              >
+              <UInput ref="input" v-model="searchTerm" variant="soft" placeholder="Filter..." class="group">
                 <template #trailing>
                   <UKbd value="/" variant="subtle" class="ring-muted bg-transparent text-muted" />
                 </template>
               </UInput>
             </template>
 
-            <UContentNavigation
-              :key="navigationKey"
-              highlight
-              :navigation="filteredNavigation"
-            />
+            <UContentNavigation :key="navigationKey" highlight :navigation="filteredNavigation" />
           </UPageAside>
         </template>
 

@@ -1,8 +1,6 @@
 import { queryCollection } from '@nuxt/content/server'
 import { z } from 'zod'
 
-const DOCS_BASE_URL = 'https://core.mhaibaraai.cn'
-
 export default defineMcpTool({
   description: '按类别或关键词搜索 @movk/core 函数',
   cache: '30m',
@@ -15,6 +13,7 @@ export default defineMcpTool({
   },
   async handler({ category = 'all', subcategory, keyword }) {
     const event = useEvent()
+    const siteUrl = getRequestURL(event).origin
 
     let query = queryCollection(event, 'docs')
       .where('path', 'LIKE', '%/docs/%')
@@ -49,7 +48,7 @@ export default defineMcpTool({
         title: doc.title,
         description: doc.description,
         path: doc.path,
-        url: `${DOCS_BASE_URL}${doc.path}`
+        url: `${siteUrl}${doc.path}`
       }))
     }
 

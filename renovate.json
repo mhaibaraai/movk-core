@@ -1,14 +1,48 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>nuxt/renovate-config-nuxt"
   ],
+  "timezone": "Asia/Shanghai",
+  "schedule": ["* 6-9 * * 1"],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
   "packageRules": [
     {
       "matchDepTypes": [
         "peerDependencies"
       ],
       "enabled": false
+    },
+    {
+      "matchDepTypes": [
+        "resolutions"
+      ],
+      "enabled": false
+    },
+    {
+      "groupName": "nuxt",
+      "matchPackageNames": ["nuxt", "@nuxt/**", "@movk/nuxt-docs"]
+    },
+    {
+      "groupName": "vue",
+      "matchPackageNames": ["@vueuse/**", "vue-tsc"]
+    },
+    {
+      "groupName": "build tooling",
+      "matchPackageNames": ["unbuild", "typescript"]
+    },
+    {
+      "groupName": "code quality",
+      "matchPackageNames": ["eslint", "@antfu/eslint-config", "@types/**"]
+    },
+    {
+      "groupName": "release tooling",
+      "matchPackageNames": ["release-it", "@release-it/**"]
+    },
+    {
+      "groupName": "testing",
+      "matchPackageNames": ["vitest"]
     }
   ],
   "postUpdateOptions": [

@@ -1,7 +1,6 @@
 import { queryCollection } from '@nuxt/content/server'
 import { z } from 'zod'
 
-const DOCS_BASE_URL = 'https://core.mhaibaraai.cn'
 const CAMEL_TO_KEBAB_RE = /([a-z])([A-Z])/g
 
 export default defineMcpTool({
@@ -12,6 +11,7 @@ export default defineMcpTool({
   },
   async handler({ functionName }) {
     const event = useEvent()
+    const siteUrl = getRequestURL(event).origin
 
     const kebabName = functionName
       .replace(CAMEL_TO_KEBAB_RE, '$1-$2')
@@ -48,14 +48,14 @@ export default defineMcpTool({
     }
 
     const content = await $fetch(`/raw${match.path}.md`, {
-      baseURL: event.node.req.headers.origin || 'http://localhost:3000'
+      baseURL: siteUrl,
     })
 
     const result = {
       name: match.title,
       description: match.description,
       path: match.path,
-      url: `${DOCS_BASE_URL}${match.path}`,
+      url: `${siteUrl}${match.path}`,
       documentation: content
     }
 

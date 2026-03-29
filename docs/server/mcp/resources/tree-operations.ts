@@ -1,13 +1,12 @@
 import { queryCollection } from '@nuxt/content/server'
 
-const DOCS_BASE_URL = 'https://core.mhaibaraai.cn'
-
 export default defineMcpResource({
   uri: 'resource://movk-core/tree-operations',
   description: '树形结构操作函数的完整文档（@movk/core 核心特性）',
   cache: '1h',
   async handler(uri: URL) {
     const event = useEvent()
+    const siteUrl = getRequestURL(event).origin
 
     const treeFunctions = await queryCollection(event, 'docs')
       .where('path', 'LIKE', '%/docs/transformers/tree/%')
@@ -34,7 +33,7 @@ export default defineMcpResource({
         name: fn.title,
         description: fn.description,
         path: fn.path,
-        url: `${DOCS_BASE_URL}${fn.path}`
+        url: `${siteUrl}${fn.path}`
       })),
       total: treeFunctions.length
     }
