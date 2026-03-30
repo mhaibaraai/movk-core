@@ -1,4 +1,4 @@
-[![Movk Core](https://core.mhaibaraai.cn/og-image.png)](https://core.mhaibaraai.cn/)
+[![Movk Core Docs](https://core.mhaibaraai.cn/og-image.png)](https://core.mhaibaraai.cn/)
 
 [![Install MCP in Cursor](https://core.mhaibaraai.cn/mcp/badge.svg)](https://core.mhaibaraai.cn/mcp/deeplink)
 [![Install MCP in VS Code](https://core.mhaibaraai.cn/mcp/badge.svg?ide=vscode)](https://core.mhaibaraai.cn/mcp/deeplink?ide=vscode)

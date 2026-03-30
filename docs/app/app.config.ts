@@ -52,17 +52,13 @@ export default defineAppConfig({
       },
     ]
   },
-  header: {
-    title: 'Movk Core'
-  },
   github: {
     rootDir: 'docs',
     suffix: 'ts'
   },
   ui: {
     colors: {
-      primary: 'teal',
-      neutral: 'zinc'
+      primary: 'teal'
     },
     prose: {
       codeIcon: {
