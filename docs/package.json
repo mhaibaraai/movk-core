@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@movk/core": "workspace:^",
-    "@movk/nuxt-docs": "^1.16.2",
+    "@movk/nuxt-docs": "^1.17.1",
     "@nuxt/content": "^3.12.0",
-    "@nuxt/ui": "^4.6.0",
+    "@nuxt/ui": "^4.6.1",
     "better-sqlite3": "^12.8.0",
     "nuxt": "^4.4.2",
     "tailwindcss": "^4.2.2",
