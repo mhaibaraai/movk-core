@@ -1,6 +1,6 @@
 ---
 title: safeDecodeURIComponent
-description: 解码 URL 组件(安全版本,失败返回原字符串)
+description: 安全地解码 URL 组件，解码失败时返回原字符串而非抛出异常，避免格式错误崩溃。
 links:
   - label: GitHub
     icon: i-lucide-github

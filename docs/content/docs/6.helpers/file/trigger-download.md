@@ -1,6 +1,6 @@
 ---
 title: triggerDownload
-description: 触发浏览器下载文件
+description: 触发浏览器文件下载，支持 URL 和 Blob 作为来源，可自定义下载文件名。
 links:
   - label: GitHub
     icon: i-lucide-github

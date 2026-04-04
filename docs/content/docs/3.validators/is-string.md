@@ -1,6 +1,6 @@
 ---
 title: isString
-description: 检查一个值是否为字符串。
+description: 检查一个值是否为字符串的 TypeScript 类型保护函数，可用于运行时类型收窄和输入验证。
 links:
   - label: GitHub
     icon: i-lucide-github

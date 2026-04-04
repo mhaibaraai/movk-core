@@ -11,7 +11,7 @@ links:
 
 `filter` 方法根据 `predicate` 函数过滤树。与数组的 `filter` 不同，它会保留所有满足条件的节点以及这些节点的所有父节点，从而维持树的结构。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 const tree = [

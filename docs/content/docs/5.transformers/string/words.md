@@ -1,6 +1,6 @@
 ---
 title: words
-description: 将字符串分解为单词数组。
+description: 将字符串按空格、驼峰、连字符等分隔规则分解为单词数组，支持多种命名格式。
 links:
   - label: GitHub
     icon: i-lucide-github

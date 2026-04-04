@@ -1,6 +1,6 @@
 ---
 title: isArray
-description: 检查一个值是否为数组。
+description: 检查一个值是否为数组的 TypeScript 类型保护函数，可用于运行时类型收窄和条件分支中的安全判断。
 links:
   - label: GitHub
     icon: i-lucide-github

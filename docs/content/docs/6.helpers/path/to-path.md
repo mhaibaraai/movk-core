@@ -1,6 +1,6 @@
 ---
 title: toPath
-description: 将路径字符串解析为片段数组
+description: 将 a.b[0].c 格式的路径字符串解析为路径片段数组，用于对象路径访问操作。
 links:
   - label: GitHub
     icon: i-lucide-github

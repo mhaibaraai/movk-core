@@ -1,6 +1,6 @@
 ---
 title: getUrlExtension
-description: 获取 URL 的文件扩展名
+description: 从 URL 中提取文件扩展名（如 .jpg、.pdf），适用于文件类型判断和内容协商。
 links:
   - label: GitHub
     icon: i-lucide-github

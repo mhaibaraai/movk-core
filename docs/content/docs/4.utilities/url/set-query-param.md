@@ -1,6 +1,6 @@
 ---
 title: setQueryParam
-description: 设置 URL 的查询参数
+description: 设置或替换 URL 中指定查询参数的值，返回包含更新参数的新 URL 字符串。
 links:
   - label: GitHub
     icon: i-lucide-github

@@ -1,6 +1,6 @@
 ---
 title: removeQueryParam
-description: 删除 URL 的指定查询参数
+description: 从 URL 中删除指定查询参数，返回不含该参数的新 URL 字符串，不修改原 URL。
 links:
   - label: GitHub
     icon: i-lucide-github

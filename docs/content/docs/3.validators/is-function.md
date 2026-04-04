@@ -1,6 +1,6 @@
 ---
 title: isFunction
-description: 检查一个值是否为函数。
+description: 检查一个值是否为函数的 TypeScript 类型保护函数，支持判断普通函数、箭头函数及 async 函数。
 links:
   - label: GitHub
     icon: i-lucide-github

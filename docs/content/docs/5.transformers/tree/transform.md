@@ -11,7 +11,7 @@ links:
 
 `transform` 方法遍历树的每个节点，并使用 `transformer` 函数将其转换为新的形态，从而构建一棵具有新结构的树。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 const tree = [{ id: 1, name: 'Admin', children: [{ id: 2, name: 'Guest' }] }]
@@ -47,8 +47,8 @@ transformedTree 将会是:
   源树形结构数组。
   ::
 
-  :::field{name="predicate" type="(context: VisitorContext<T>) => boolean" required}
-  一个谓词函数，对树中的每个节点调用。如果函数返回 `true`，该节点及其所有父节点将被保留在结果中。
+  :::field{name="transformer" type="(context: VisitorContext<T>) => R" required}
+  一个转换函数，对树中的每个节点调用，返回新结构的节点对象。
   该函数接收一个包含以下属性的 `context` 对象：
   :::collapsible
     ::field-group

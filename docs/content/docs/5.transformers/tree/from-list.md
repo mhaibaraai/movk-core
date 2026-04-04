@@ -11,7 +11,7 @@ links:
 
 `fromList` 方法将一个扁平的、包含父子关系（通过 `pid`）的数组转换为树形结构。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 const list = [

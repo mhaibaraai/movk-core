@@ -1,6 +1,6 @@
 ---
 title: General
-description: 一组通用的高级工具类型。
+description: 一组通用的高级 TypeScript 工具类型，涵盖 Nullable、DeepPartial 等常见类型辅助定义。
 links:
   - label: GitHub
     icon: i-lucide-github

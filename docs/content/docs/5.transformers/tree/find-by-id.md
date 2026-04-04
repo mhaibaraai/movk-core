@@ -1,6 +1,6 @@
 ---
 title: findById
-description: 通过节点 `id` 快速查找节点。
+description: 通过节点 id 在树形结构中快速查找并返回匹配节点，未找到时返回 undefined。
 links:
   - label: GitHub
     icon: i-lucide-github
@@ -11,7 +11,7 @@ links:
 
 `findById` 方法通过节点的 `id` 快速查找并返回对应的节点。这是一个高效率的查找操作。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 const tree = [{ id: 1, name: 'A', children: [{ id: 2, name: 'B' }] }]

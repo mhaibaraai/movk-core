@@ -11,7 +11,7 @@ links:
 
 `insertAfter` 方法在目标节点（通过 `id` 查找）之后插入一个新节点。此方法会 **原地修改** 传入的树数组。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 const tree = [{ id: 1, name: 'A' }, { id: 2, name: 'C' }]

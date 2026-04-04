@@ -25,7 +25,7 @@ export function sleepWithCancel(ms: number): {
   promise: Promise<void>
   cancel: () => void
 } {
-  let timeoutId: NodeJS.Timeout
+  let timeoutId: Parameters<typeof clearTimeout>[0]
   let rejectFn: (reason?: any) => void
 
   const promise = new Promise<void>((resolve, reject) => {

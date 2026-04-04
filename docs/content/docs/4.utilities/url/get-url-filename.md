@@ -1,6 +1,6 @@
 ---
 title: getUrlFilename
-description: 获取 URL 的文件名
+description: 从 URL 中提取文件名（不含路径和查询参数），适用于文件下载和资源管理场景。
 links:
   - label: GitHub
     icon: i-lucide-github

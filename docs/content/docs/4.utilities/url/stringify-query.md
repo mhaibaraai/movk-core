@@ -1,6 +1,6 @@
 ---
 title: stringifyQuery
-description: 将对象序列化为查询字符串
+description: 将键值对对象序列化为 URL 查询字符串，支持数组参数和特殊字符的自动编码。
 links:
   - label: GitHub
     icon: i-lucide-github

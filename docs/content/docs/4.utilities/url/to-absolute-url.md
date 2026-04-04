@@ -1,6 +1,6 @@
 ---
 title: toAbsoluteUrl
-description: 将相对 URL 转换为绝对 URL
+description: 将相对 URL 基于指定基础 URL 转换为绝对 URL，适用于资源路径解析和链接生成。
 links:
   - label: GitHub
     icon: i-lucide-github

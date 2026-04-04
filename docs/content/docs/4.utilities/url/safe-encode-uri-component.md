@@ -1,6 +1,6 @@
 ---
 title: safeEncodeURIComponent
-description: 编码 URL 组件(安全版本)
+description: 安全地编码 URL 组件，与原生 encodeURIComponent 行为兼容，编码失败时不抛出异常。
 links:
   - label: GitHub
     icon: i-lucide-github

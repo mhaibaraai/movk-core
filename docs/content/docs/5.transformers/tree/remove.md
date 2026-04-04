@@ -11,7 +11,7 @@ links:
 
 `remove` 方法根据节点 `id` 从树中移除一个节点及其所有子节点。此方法会 **原地修改** 传入的树数组。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 const tree = [{ id: 1, name: 'A', children: [{ id: 2, name: 'B' }] }]

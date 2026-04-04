@@ -11,7 +11,7 @@ links:
 
 `getStats` 方法遍历整个树，并返回一个包含其统计信息的对象。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 const tree = [

@@ -13,7 +13,7 @@ links:
 1.  是否存在重复的节点 `id`。
 2.  是否存在循环引用（即一个节点是其自身的祖先）。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 // 有效的树
