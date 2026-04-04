@@ -58,8 +58,8 @@
   "devDependencies": {
     "@antfu/eslint-config": "^7.7.3",
     "@release-it/conventional-changelog": "^10.0.6",
-    "@types/node": "^25.5.0",
-    "eslint": "^10.1.0",
+    "@types/node": "^25.5.2",
+    "eslint": "^10.2.0",
     "release-it": "^19.2.4",
     "typescript": "^5.9.3",
     "unbuild": "^3.6.1",
