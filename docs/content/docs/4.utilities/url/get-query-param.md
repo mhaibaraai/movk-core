@@ -1,6 +1,6 @@
 ---
 title: getQueryParam
-description: 从 URL 获取指定查询参数的值
+description: 从 URL 中获取指定查询参数的值，参数不存在时返回 null 或自定义默认值。
 links:
   - label: GitHub
     icon: i-lucide-github

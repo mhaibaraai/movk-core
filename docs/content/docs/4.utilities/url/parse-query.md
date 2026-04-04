@@ -1,6 +1,6 @@
 ---
 title: parseQuery
-description: 解析 URL 查询字符串为对象
+description: 将 URL 查询字符串解析为键值对对象，支持多值参数和特殊字符的正确处理。
 links:
   - label: GitHub
     icon: i-lucide-github

@@ -1,6 +1,6 @@
 ---
 title: getDomain
-description: 获取 URL 的域名部分
+description: 从完整 URL 中提取域名部分（含协议），适用于跨域检测和 URL 分析场景。
 links:
   - label: GitHub
     icon: i-lucide-github

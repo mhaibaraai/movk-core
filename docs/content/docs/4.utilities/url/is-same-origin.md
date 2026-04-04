@@ -1,6 +1,6 @@
 ---
 title: isSameOrigin
-description: 检查两个 URL 是否同源
+description: 检查两个 URL 是否具有相同的协议、主机名和端口（同源），常用于安全策略判断。
 links:
   - label: GitHub
     icon: i-lucide-github

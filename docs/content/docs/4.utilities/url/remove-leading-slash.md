@@ -1,6 +1,6 @@
 ---
 title: removeLeadingSlash
-description: 移除 URL 的开头斜杠
+description: 移除路径字符串的开头斜杠，若无则原样返回，常用于路径拼接前的预处理。
 links:
   - label: GitHub
     icon: i-lucide-github

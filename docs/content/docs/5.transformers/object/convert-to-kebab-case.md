@@ -1,6 +1,6 @@
 ---
 title: convertToKebabCase
-description: 将对象的键名转换为 kebab-case 格式
+description: 将对象的所有键名从任意格式转换为 kebab-case（短横线连接）格式，返回新对象。
 links:
   - label: GitHub
     icon: i-lucide-github

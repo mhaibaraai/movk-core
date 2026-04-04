@@ -1,6 +1,6 @@
 ---
 title: ensureTrailingSlash
-description: 确保 URL 以斜杠结尾
+description: 确保 URL 字符串以斜杠结尾，若已有则原样返回，常用于路径标准化处理。
 links:
   - label: GitHub
     icon: i-lucide-github

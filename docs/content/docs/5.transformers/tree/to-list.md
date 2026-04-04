@@ -1,6 +1,6 @@
 ---
 title: toList
-description: 将树形结构转换回扁平数组。
+description: 将嵌套树形结构转换回包含父子关系字段的扁平数组，与 fromList 互为逆操作。
 links:
   - label: GitHub
     icon: i-lucide-github
@@ -11,7 +11,7 @@ links:
 
 `toList` 方法将树形结构转换回扁平数组。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 const tree = [

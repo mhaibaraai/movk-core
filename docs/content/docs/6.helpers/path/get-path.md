@@ -1,6 +1,6 @@
 ---
 title: getPath
-description: 读取对象指定路径的值
+description: 读取对象指定路径的嵌套值，支持点分隔和数组索引路径，路径不存在时返回 undefined。
 links:
   - label: GitHub
     icon: i-lucide-github

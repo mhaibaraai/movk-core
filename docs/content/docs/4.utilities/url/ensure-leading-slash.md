@@ -1,6 +1,6 @@
 ---
 title: ensureLeadingSlash
-description: 确保路径以斜杠开头
+description: 确保路径字符串以斜杠开头，若已有则原样返回，常用于路径标准化处理。
 links:
   - label: GitHub
     icon: i-lucide-github

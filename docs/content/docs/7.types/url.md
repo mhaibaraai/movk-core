@@ -1,6 +1,6 @@
 ---
 title: URL
-description: URL 相关的类型定义。
+description: 一组用于描述 URL 结构与解析结果的 TypeScript 类型定义，覆盖协议、主机、路径等字段。
 links:
   - label: GitHub
     icon: i-lucide-github

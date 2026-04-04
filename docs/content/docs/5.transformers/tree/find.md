@@ -11,7 +11,7 @@ links:
 
 `find` 方法在树中深度优先搜索，并返回第一个满足 `predicate` 函数条件的节点。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 const tree = [{ id: 1, name: 'A', children: [{ id: 2, name: 'B' }] }]

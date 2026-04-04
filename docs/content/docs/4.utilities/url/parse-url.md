@@ -1,6 +1,6 @@
 ---
 title: parseUrl
-description: 解析 URL 字符串为结构化对象
+description: 将 URL 字符串解析为包含协议、主机、路径、查询参数等字段的结构化对象。
 links:
   - label: GitHub
     icon: i-lucide-github

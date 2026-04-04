@@ -1,6 +1,6 @@
 ---
 title: removeTrailingSlash
-description: 移除 URL 的尾部斜杠
+description: 移除 URL 字符串的尾部斜杠，若无则原样返回，常用于路径规范化和比较。
 links:
   - label: GitHub
     icon: i-lucide-github

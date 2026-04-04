@@ -1,6 +1,6 @@
 ---
 title: normalizeUrl
-description: 规范化 URL 路径(移除多余斜杠、处理 . 和 ..)
+description: 规范化 URL 路径，移除多余斜杠并处理相对路径符号 . 和 ..，返回标准化 URL。
 links:
   - label: GitHub
     icon: i-lucide-github

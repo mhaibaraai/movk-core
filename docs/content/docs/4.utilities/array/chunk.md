@@ -1,6 +1,6 @@
 ---
 title: chunk
-description: 将数组分割成指定大小的块
+description: 将数组分割成指定大小的子数组块，常用于分页展示、批量处理和数据分片场景。
 links:
   - label: GitHub
     icon: i-lucide-github

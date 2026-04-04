@@ -1,6 +1,6 @@
 ---
 title: setQueryParams
-description: 批量设置 URL 的查询参数
+description: 批量设置 URL 的多个查询参数，覆盖同名已有参数，返回更新后的新 URL 字符串。
 links:
   - label: GitHub
     icon: i-lucide-github

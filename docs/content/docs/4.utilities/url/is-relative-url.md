@@ -1,6 +1,6 @@
 ---
 title: isRelativeUrl
-description: 检查 URL 是否为相对路径
+description: 检查字符串是否为相对 URL（不含协议前缀），常用于路径拼接前的类型判断。
 links:
   - label: GitHub
     icon: i-lucide-github

@@ -1,6 +1,6 @@
 ---
 title: isValidUrl
-description: 检查字符串是否为有效的 URL
+description: 检查字符串是否为语法合法的 URL，支持 http、https 等常见协议的格式验证。
 links:
   - label: GitHub
     icon: i-lucide-github

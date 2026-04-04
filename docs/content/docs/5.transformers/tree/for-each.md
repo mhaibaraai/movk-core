@@ -11,7 +11,7 @@ links:
 
 `forEach` 方法以深度优先的顺序遍历树中的每一个节点，并对每个节点执行 `visitor` 函数。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 const tree = [{ id: 1, name: 'A', children: [{ id: 2, name: 'B' }] }]

@@ -269,7 +269,7 @@ type B = Prettify<A>
 
 适用于具体对象类型，常用于泛型工厂方法中精确枚举注册项的键名，防止 `string` 索引污染 IntelliSense 补全。
 
-::callout{icon="i-lucide-info"}
+::note
 当 TypeScript 的 `keyof T` 本身已是 `string`（如纯索引签名类型 `{ [key: string]: ... }`），`KnownKeys<T>` 返回 `never`。此类型仅对具体对象类型（键名为字面量）有效。
 ::
 

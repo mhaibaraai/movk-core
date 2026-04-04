@@ -1,6 +1,6 @@
 ---
 title: simpleHash
-description: 生成字符串的简单哈希值
+description: 生成字符串的轻量哈希值，适合用于缓存 key、去重标识等非加密场景。
 links:
   - label: GitHub
     icon: i-lucide-github

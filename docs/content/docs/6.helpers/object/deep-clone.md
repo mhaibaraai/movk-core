@@ -1,6 +1,6 @@
 ---
 title: deepClone
-description: 深拷贝任意 JavaScript 值
+description: 深拷贝任意 JavaScript 值，优先使用 structuredClone，支持循环引用和内建类型。
 links:
   - label: GitHub
     icon: i-lucide-github

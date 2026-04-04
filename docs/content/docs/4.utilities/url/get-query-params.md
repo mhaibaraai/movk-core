@@ -1,6 +1,6 @@
 ---
 title: getQueryParams
-description: 从 URL 获取所有指定查询参数的值(用于多值参数)
+description: 从 URL 中获取所有同名查询参数的值数组，适用于处理多值参数（如复选框筛选）。
 links:
   - label: GitHub
     icon: i-lucide-github

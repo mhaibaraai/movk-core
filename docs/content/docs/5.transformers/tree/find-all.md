@@ -11,7 +11,7 @@ links:
 
 `findAll` 方法在树中深度优先搜索，并返回所有满足 `predicate` 函数条件的节点组成的数组。
 
-```ts
+```ts [example.ts]
 import { Tree } from '@movk/core'
 
 const tree = [{ id: 1, type: 'folder', children: [{ id: 2, type: 'file' }, { id: 3, type: 'folder' }] }]

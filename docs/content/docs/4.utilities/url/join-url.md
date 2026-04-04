@@ -1,6 +1,6 @@
 ---
 title: joinUrl
-description: 连接 URL 路径片段
+description: 将多个 URL 路径片段连接为一个规范化的路径字符串，自动处理斜杠分隔符。
 links:
   - label: GitHub
     icon: i-lucide-github
