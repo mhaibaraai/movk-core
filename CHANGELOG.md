@@ -1,5 +1,11 @@
 # 📋 Changelog
 
+## [1.2.3](https://github.com/mhaibaraai/movk-core/compare/v1.2.2...v1.2.3) (2026-04-04)
+
+### 🔧 Chores
+
+* **deps:** 升级 TypeScript 至 v6 并修复类型兼容 ([41bb623](https://github.com/mhaibaraai/movk-core/commit/41bb623fa5f62ef2fac48784230269ff8634b7ab))
+
 ## [1.2.2](https://github.com/mhaibaraai/movk-core/compare/v1.2.1...v1.2.2) (2026-03-10)
 
 ### 🐛 Bug Fixes
