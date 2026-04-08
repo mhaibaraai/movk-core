@@ -5,10 +5,20 @@ const CAMEL_TO_KEBAB_RE = /([a-z])([A-Z])/g
 
 export default defineMcpTool({
   description: '获取特定函数的详细文档和使用示例',
+  annotations: {
+    readOnlyHint: true,
+    destructiveHint: false,
+    idempotentHint: true,
+    openWorldHint: false
+  },
   cache: '30m',
   inputSchema: {
     functionName: z.string().describe('函数名称,如 "chunk"、"fromList"、"isArray" 等')
   },
+  inputExamples: [
+    { functionName: 'fromList' },
+    { functionName: 'sleep' }
+  ],
   async handler({ functionName }) {
     const event = useEvent()
     const siteUrl = getRequestURL(event).origin
@@ -30,40 +40,17 @@ export default defineMcpTool({
     })
 
     if (!match) {
-      const result = {
-        error: `找不到函数 "${functionName}"`,
-        availableFunctions: allDocs.map(d => ({
-          path: d.path,
-          title: d.title
-        })).slice(0, 20)
-      }
-
-      return {
-        content: [{
-          type: 'text' as const,
-          text: JSON.stringify(result, null, 2)
-        }],
-        isError: true
-      }
+      throw createError({ statusCode: 404, statusMessage: `函数 "${functionName}" 未找到` })
     }
 
-    const content = await $fetch(`/raw${match.path}.md`, {
-      baseURL: siteUrl,
-    })
+    const documentation = await $fetch(`/raw${match.path}.md`)
 
-    const result = {
+    return {
       name: match.title,
       description: match.description,
       path: match.path,
       url: `${siteUrl}${match.path}`,
-      documentation: content
-    }
-
-    return {
-      content: [{
-        type: 'text' as const,
-        text: JSON.stringify(result, null, 2)
-      }]
+      documentation
     }
   }
 })

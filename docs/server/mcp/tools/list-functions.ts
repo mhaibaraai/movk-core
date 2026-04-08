@@ -13,6 +13,12 @@ type CategoryKey = keyof typeof CATEGORY_CONFIG
 
 export default defineMcpTool({
   description: '列出所有可用的 @movk/core 工具函数及其分类和基本信息',
+  annotations: {
+    readOnlyHint: true,
+    destructiveHint: false,
+    idempotentHint: true,
+    openWorldHint: false
+  },
   cache: '1h',
   async handler() {
     const event = useEvent()
@@ -66,13 +72,8 @@ export default defineMcpTool({
     }
 
     return {
-      content: [{
-        type: 'text' as const,
-        text: JSON.stringify({
-          total: functions.length,
-          categories: categorized
-        }, null, 2)
-      }]
+      total: functions.length,
+      categories: categorized
     }
   }
 })

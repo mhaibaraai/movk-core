@@ -3,6 +3,12 @@ import { z } from 'zod'
 
 export default defineMcpTool({
   description: '按类别或关键词搜索 @movk/core 函数',
+  annotations: {
+    readOnlyHint: true,
+    destructiveHint: false,
+    idempotentHint: true,
+    openWorldHint: false
+  },
   cache: '30m',
   inputSchema: {
     category: z.enum(['validators', 'utilities', 'transformers', 'helpers', 'composables', 'types', 'all'])
@@ -11,6 +17,11 @@ export default defineMcpTool({
     subcategory: z.string().optional().describe('子类别,如 "array"、"string"、"tree" 等'),
     keyword: z.string().optional().describe('搜索关键词,将在标题和描述中搜索')
   },
+  inputExamples: [
+    { category: 'validators', keyword: 'array' },
+    { category: 'utilities', subcategory: 'async', keyword: 'debounce' },
+    { category: 'all', keyword: 'tree' }
+  ],
   async handler({ category = 'all', subcategory, keyword }) {
     const event = useEvent()
     const siteUrl = getRequestURL(event).origin
@@ -41,7 +52,7 @@ export default defineMcpTool({
       )
     }
 
-    const result = {
+    return {
       query: { category, subcategory, keyword },
       total: filtered.length,
       results: filtered.map(doc => ({
@@ -50,13 +61,6 @@ export default defineMcpTool({
         path: doc.path,
         url: `${siteUrl}${doc.path}`
       }))
-    }
-
-    return {
-      content: [{
-        type: 'text' as const,
-        text: JSON.stringify(result, null, 2)
-      }]
     }
   }
 })
