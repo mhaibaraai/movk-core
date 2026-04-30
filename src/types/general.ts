@@ -16,6 +16,24 @@ import type { MaybeRefOrGetter } from 'vue'
 export type Suggest<T extends string> = T | (string & {})
 
 /**
+ * 允许值 T 或一个返回 T 的函数，函数接收一个上下文参数
+ *
+ * @template T - 值类型
+ * @template Ctx - 上下文类型（用于回调函数）
+ *
+ * @example
+ * ```ts
+ * type Config = {
+ *   value: MaybeFn<string, Context>
+ * }
+ *
+ * const config1: Config = { value: 'static' } // 直接使用值
+ * const config2: Config = { value: (ctx) => ctx.dynamicValue } // 使用函数根据上下文计算值
+ * ```
+ */
+export type MaybeFn<T, Ctx> = T | ((ctx: Ctx) => T)
+
+/**
  * 响应式值类型 - 基于 Vue 的 `MaybeRefOrGetter` 扩展，额外支持上下文回调
  *
  * @template T - 值类型
