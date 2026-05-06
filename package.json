@@ -2,7 +2,7 @@
   "name": "@movk/core",
   "type": "module",
   "version": "1.2.3",
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@10.33.4",
   "description": "为 TypeScript 项目设计的现代化、支持 Tree-Shaking 的工具函数库。",
   "author": "YiXuan <mhaibaraai@gmail.com>",
   "license": "MIT",
