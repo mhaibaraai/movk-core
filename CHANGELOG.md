@@ -1,5 +1,16 @@
 # 📋 Changelog
 
+## [1.2.4](https://github.com/mhaibaraai/movk-core/compare/v1.2.3...v1.2.4) (2026-05-08)
+
+### ✨ Features
+
+* **clean:** 支持 + 前缀语法扩展默认清理目标 ([9f73bfa](https://github.com/mhaibaraai/movk-core/commit/9f73bfa4cfe41dc218564af48a4528043b913cfe))
+* **markdown:** 添加 Minimark 序列化工具 ([4d5d8b3](https://github.com/mhaibaraai/movk-core/commit/4d5d8b33a0ece0276ec41fa9118ec3eac57bab3a))
+
+### ♻️ Code Refactoring
+
+* **clean:** 改用原生 readdir 递归实现清理脚本 ([a5c80c7](https://github.com/mhaibaraai/movk-core/commit/a5c80c7207b30a717ca497787bcc877ae7a2c1fa))
+
 ## [1.2.3](https://github.com/mhaibaraai/movk-core/compare/v1.2.2...v1.2.3) (2026-04-04)
 
 ### 🔧 Chores
