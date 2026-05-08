@@ -23,5 +23,7 @@ export default antfu({
   files: ['bin/**'],
   rules: {
     'no-console': 'off',
+    'antfu/curly': 'off',
+    'style/max-statements-per-line': 'off'
   },
 })

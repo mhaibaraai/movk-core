@@ -65,7 +65,10 @@ async function clean() {
   const failed = []
   await Promise.all(paths.map(async (p) => {
     try { await rm(p, { recursive: true, force: true, maxRetries: 3 }) }
-    catch (e) { if (e.code !== 'ENOENT') failed.push({ path: p, error: e.message }) }
+    catch (e) {
+      if (e.code !== 'ENOENT')
+        failed.push({ path: p, error: e.message })
+    }
   }))
 
   const ok = paths.length - failed.length
