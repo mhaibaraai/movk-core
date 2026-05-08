@@ -3,7 +3,7 @@ import { readdir, rm } from 'node:fs/promises'
 import { join, relative, resolve } from 'node:path'
 import process from 'node:process'
 
-const DEFAULT_TARGETS = ['node_modules', '.nuxt', '.data', '.output', '.cache', 'dist', 'dist.zip']
+const DEFAULT_TARGETS = ['node_modules', '.nuxt', '.data', '.output', '.cache', 'dist', 'dist.zip', 'auto-imports.d.ts', 'components.d.ts']
 const SKIP_DIRS = new Set(['.git'])
 const RE_PATH_SEP = /[/\\]/
 
@@ -29,11 +29,29 @@ async function findTargets(dir, targets, out = []) {
   return out
 }
 
+function isValidName(name) {
+  return name && !RE_PATH_SEP.test(name) && name !== '.' && name !== '..'
+}
+
+// 解析参数：`+name` 在 base 上追加，普通 `name` 替换 base
+// base = 存在普通参数时为它们，否则为 DEFAULT_TARGETS
+function resolveTargets(rawArgs) {
+  const additions = []
+  const replacements = []
+  for (const raw of rawArgs) {
+    const isAddition = raw.startsWith('+')
+    const name = isAddition ? raw.slice(1) : raw
+    if (!isValidName(name))
+      continue
+    ;(isAddition ? additions : replacements).push(name)
+  }
+  const base = replacements.length ? replacements : DEFAULT_TARGETS
+  return new Set([...base, ...additions])
+}
+
 async function clean() {
   const start = Date.now()
-  const args = process.argv.slice(2)
-    .filter(t => t && !RE_PATH_SEP.test(t) && t !== '.' && t !== '..')
-  const targets = new Set(args.length ? args : DEFAULT_TARGETS)
+  const targets = resolveTargets(process.argv.slice(2))
   const root = resolve(process.cwd())
 
   const paths = await findTargets(root, targets)
