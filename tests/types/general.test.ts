@@ -1,4 +1,4 @@
-import type { IsAny, ReactiveValue, StripNullable, Suggest, WidenLiteral } from '../../src/types/general'
+import type { IsAny, MaybeFn, ReactiveValue, StripNullable, Suggest, WidenLiteral } from '../../src/types/general'
 import { describe, expectTypeOf, it } from 'vitest'
 
 describe('通用类型工具', () => {
@@ -17,6 +17,62 @@ describe('通用类型工具', () => {
     // 验证可以接受任意字符串
     const other: Color = 'green'
     expectTypeOf(other).toBeString()
+  })
+
+  it('suggest 支持数字字面量', () => {
+    type Status = Suggest<200 | 404>
+
+    expectTypeOf<Status>().toExtend<number>()
+
+    const ok: Status = 200
+    const notFound: Status = 404
+    const other: Status = 500
+    expectTypeOf(ok).toBeNumber()
+    expectTypeOf(notFound).toBeNumber()
+    expectTypeOf(other).toBeNumber()
+  })
+
+  it('suggest 支持 bigint 字面量', () => {
+    type Big = Suggest<1n | 2n>
+
+    expectTypeOf<Big>().toExtend<bigint>()
+
+    const a: Big = 1n
+    const b: Big = 99n
+    expectTypeOf(a).toBeBigInt()
+    expectTypeOf(b).toBeBigInt()
+  })
+
+  it('suggest 不接受 boolean', () => {
+    // @ts-expect-error boolean 不在 Suggest 的 T 约束内
+    type _Bad = Suggest<true>
+  })
+
+  it('maybeFn 不带 Ctx 时回调为无参函数', () => {
+    type Value = MaybeFn<string>
+
+    // 直接值
+    const direct: Value = 'static'
+    expectTypeOf(direct).toBeString()
+
+    // 无参函数
+    const getter: Value = () => 'computed'
+    expectTypeOf(getter).toBeFunction()
+
+    // @ts-expect-error 不接受带参数的函数
+    const withCtx: Value = (ctx: { foo: string }) => ctx.foo
+    void withCtx
+  })
+
+  it('maybeFn 带 Ctx 时回调接收上下文', () => {
+    interface Context { foo: string }
+    type Value = MaybeFn<boolean, Context>
+
+    const direct: Value = true
+    expectTypeOf(direct).toBeBoolean()
+
+    const withCtx: Value = ctx => ctx.foo === 'bar'
+    expectTypeOf(withCtx).toBeFunction()
   })
 
   it('reactiveValue', () => {

@@ -1,37 +1,44 @@
 import type { MaybeRefOrGetter } from 'vue'
 
 /**
- * 提供字符串字面量提示的同时允许任意字符串
- * 在 IDE 中提供 T 类型的自动补全提示，但不限制只能使用这些值
+ * 提供字面量提示的同时允许任意同类原始值
  *
  * @example
  * ```ts
- * type Color = Suggest<'red' | 'blue' | 'green'>
+ * type Color = Suggest<'red' | 'blue'>  // 'red' | 'blue' | (string & {})
+ * type Status = Suggest<200 | 404>      // 200 | 404 | (number & {})
+ * type Mixed = Suggest<'a' | 1>         // 'a' | 1 | (string & {}) | (number & {})
  *
- * // IDE 会提示 'red', 'blue', 'green'，但也可以使用其他字符串
  * const color1: Color = 'red'    // 有提示
- * const color2: Color = 'yellow' // 也可以，虽然没有提示
+ * const color2: Color = 'yellow' // 也允许
  * ```
  */
-export type Suggest<T extends string> = T | (string & {})
+export type Suggest<T extends string | number | bigint>
+  = | T
+    | (T extends string ? string & {} : never)
+    | (T extends number ? number & {} : never)
+    | (T extends bigint ? bigint & {} : never)
 
 /**
- * 允许值 T 或一个返回 T 的函数，函数接收一个上下文参数
+ * 允许值 T 或一个返回 T 的函数；显式传入 Ctx 时回调会接收上下文参数
  *
  * @template T - 值类型
- * @template Ctx - 上下文类型（用于回调函数）
+ * @template Ctx - 上下文类型，省略时回调为无参函数
  *
  * @example
  * ```ts
- * type Config = {
- *   value: MaybeFn<string, Context>
- * }
+ * type A = MaybeFn<string>           // string | (() => string)
+ * type B = MaybeFn<string, Context>  // string | ((ctx: Context) => string)
  *
- * const config1: Config = { value: 'static' } // 直接使用值
- * const config2: Config = { value: (ctx) => ctx.dynamicValue } // 使用函数根据上下文计算值
+ * const a1: A = 'static'
+ * const a2: A = () => 'computed'
+ * const b1: B = 'static'
+ * const b2: B = ctx => ctx.dynamicValue
  * ```
  */
-export type MaybeFn<T, Ctx> = T | ((ctx: Ctx) => T)
+export type MaybeFn<T, Ctx = never> = [Ctx] extends [never]
+  ? T | (() => T)
+  : T | ((ctx: Ctx) => T)
 
 /**
  * 响应式值类型 - 基于 Vue 的 `MaybeRefOrGetter` 扩展，额外支持上下文回调

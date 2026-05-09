@@ -9,6 +9,17 @@
 export type ApiAwaitable<T> = T | Promise<T>
 
 /**
+ * 同步或异步的无返回值回调
+ *
+ * @example
+ * ```ts
+ * const onMounted: VoidCallback = () => doSomething()
+ * const onLoad: VoidCallback = async () => { await fetchData() }
+ * ```
+ */
+export type VoidCallback = () => ApiAwaitable<void>
+
+/**
  * 提取Promise类型
  * @typeParam T - 类型
  * @example
