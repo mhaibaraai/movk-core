@@ -6,6 +6,7 @@ export default antfu({
     'style/comma-dangle': 'off',
     'ts/no-empty-object-type': 'off',
     'node/prefer-global/process': 'off',
+    'antfu/if-newline': 'off',
   },
 }, {
   files: ['**/*.vue'],
