@@ -1,5 +1,28 @@
 # 📋 Changelog
 
+## [1.2.5](https://github.com/mhaibaraai/movk-core/compare/v1.2.4...v1.2.5) (2026-05-19)
+
+### ✨ Features
+
+* **composables:** 新增无限滚动绑定与溢出检测组合式函数 ([2e6e405](https://github.com/mhaibaraai/movk-core/commit/2e6e405d6e0527738db804dbff796cd7f884e3a2))
+* **helpers:** 新增 equalsBy 与 createEqualsBy 等价比较工具 ([52e49fc](https://github.com/mhaibaraai/movk-core/commit/52e49fc71b825d18ee6d6dbb70cae1d4bf63d2ec))
+* **types:** 增强通用类型工具并新增 VoidCallback ([5466779](https://github.com/mhaibaraai/movk-core/commit/546677900aa37d15311276481697e6ad968d090c))
+
+### ♻️ Code Refactoring
+
+* **types:** 顶层入口改用 export type * 仅导出类型 ([f06a8de](https://github.com/mhaibaraai/movk-core/commit/f06a8defa8a80de15de4395a6b993622f5d031c4))
+
+### 🔧 Chores
+
+* **deps:** lock file maintenance ([ce447db](https://github.com/mhaibaraai/movk-core/commit/ce447db088fa0b71c1c438e850cde4567d850ca1))
+* **deps:** update all non-major dependencies ([66ca37a](https://github.com/mhaibaraai/movk-core/commit/66ca37aa8bcb900ff8668d62a54e8ea45d9d4e50))
+* **deps:** update dependency nuxt to ^4.4.5 ([ae755b4](https://github.com/mhaibaraai/movk-core/commit/ae755b46b2299eb791857ef807fe33779ec6e8b3))
+* **deps:** update dependency nuxt to ^4.4.6 ([693cd08](https://github.com/mhaibaraai/movk-core/commit/693cd0899eaaec7c047c6d21c95c86299f777987))
+* **deps:** update devdependency @antfu/eslint-config to v9 ([39e0e8c](https://github.com/mhaibaraai/movk-core/commit/39e0e8c55168c92da1c0915c5b5327fed54ce6bc))
+* **deps:** update pnpm/action-setup action to v6 ([071e083](https://github.com/mhaibaraai/movk-core/commit/071e0838d5b2aba11c4561c59c06175bd5a9c6a8))
+* **eslint:** 关闭 antfu/if-newline 规则 ([8477987](https://github.com/mhaibaraai/movk-core/commit/8477987e38b7aa4a90bbdd0f4536a0508bbb1e74))
+* 忽略 .pnpm-store 目录 ([090b451](https://github.com/mhaibaraai/movk-core/commit/090b4519581368930b9442b96ec4f90e7dd9946b))
+
 ## [1.2.4](https://github.com/mhaibaraai/movk-core/compare/v1.2.3...v1.2.4) (2026-05-08)
 
 ### ✨ Features
