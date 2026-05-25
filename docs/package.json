@@ -10,16 +10,16 @@
   },
   "dependencies": {
     "@movk/core": "workspace:^",
-    "@movk/nuxt-docs": "^1.18.5",
-    "@nuxt/content": "^3.13.0",
-    "@nuxt/ui": "^4.7.1",
-    "better-sqlite3": "^12.9.0",
+    "@movk/nuxt-docs": "^1.19.0",
+    "@nuxt/content": "^3.14.0",
+    "@nuxt/ui": "^4.8.0",
+    "better-sqlite3": "^12.10.0",
     "nuxt": "^4.4.6",
     "tailwindcss": "^4.3.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "typescript": "^6.0.3",
-    "vue-tsc": "^3.2.8"
+    "vue-tsc": "^3.3.1"
   }
 }
