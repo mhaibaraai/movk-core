@@ -1,6 +1,9 @@
 ---
 title: pick
 description: 从对象中选择指定的键，返回新对象
+seo:
+  title: pick
+  description: Return a new object containing only the given keys from the source, a type-safe way to project a subset of an object’s fields.
 links:
   - label: GitHub
     icon: i-lucide-github

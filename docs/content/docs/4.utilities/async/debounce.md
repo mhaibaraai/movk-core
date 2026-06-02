@@ -1,6 +1,9 @@
 ---
 title: debounce
 description: 防抖函数，在指定时间内多次触发只执行最后一次
+seo:
+  title: debounce
+  description: Create a debounced function that delays invoking the callback until the wait time elapses since the last call, ideal for input and resize handlers.
 links:
   - label: GitHub
     icon: i-lucide-github

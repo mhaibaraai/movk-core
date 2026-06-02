@@ -1,6 +1,9 @@
 ---
 title: toList
 description: 将嵌套树形结构转换回包含父子关系字段的扁平数组，与 fromList 互为逆操作。
+seo:
+  title: toList
+  description: Flatten a tree back into a flat array using the configured fields, the inverse of fromList for persistence and serialization.
 links:
   - label: GitHub
     icon: i-lucide-github

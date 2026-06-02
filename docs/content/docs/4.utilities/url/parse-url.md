@@ -1,6 +1,9 @@
 ---
 title: parseUrl
 description: 将 URL 字符串解析为包含协议、主机、路径、查询参数等字段的结构化对象。
+seo:
+  title: parseUrl
+  description: Parse a URL string into a structured object of protocol, host, pathname, query, and hash, returning null when the input is invalid.
 links:
   - label: GitHub
     icon: i-lucide-github

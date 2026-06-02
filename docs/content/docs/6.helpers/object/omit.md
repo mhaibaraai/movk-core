@@ -1,6 +1,9 @@
 ---
 title: omit
 description: 从对象中排除指定的键，返回新对象
+seo:
+  title: omit
+  description: Return a new object that excludes the given keys, leaving the source untouched, useful for stripping fields before output.
 links:
   - label: GitHub
     icon: i-lucide-github

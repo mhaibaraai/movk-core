@@ -1,6 +1,9 @@
 ---
 title: capitalize
 description: 将字符串的第一个字母转换为大写，其余字母转换为小写。
+seo:
+  title: capitalize
+  description: Capitalize the first character of a string and lowercase the remaining characters, returning a tidy single-word display form.
 links:
   - label: GitHub
     icon: i-lucide-github

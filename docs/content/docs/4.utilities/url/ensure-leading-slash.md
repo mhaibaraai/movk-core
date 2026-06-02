@@ -1,6 +1,9 @@
 ---
 title: ensureLeadingSlash
 description: 确保路径字符串以斜杠开头，若已有则原样返回，常用于路径标准化处理。
+seo:
+  title: ensureLeadingSlash
+  description: Ensure a path starts with a single leading slash, adding one when missing so route and URL joins stay consistent across your app.
 links:
   - label: GitHub
     icon: i-lucide-github

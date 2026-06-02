@@ -1,6 +1,9 @@
 ---
 title: setQueryParams
 description: 批量设置 URL 的多个查询参数，覆盖同名已有参数，返回更新后的新 URL 字符串。
+seo:
+  title: setQueryParams
+  description: Set or replace multiple query parameters in a URL from an object in one call, returning a new URL string with every value applied.
 links:
   - label: GitHub
     icon: i-lucide-github

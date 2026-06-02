@@ -1,6 +1,9 @@
 ---
 title: isSameOrigin
 description: 检查两个 URL 是否具有相同的协议、主机名和端口（同源），常用于安全策略判断。
+seo:
+  title: isSameOrigin
+  description: Check whether two URLs share the same origin (protocol, host, and port), a common guard before trusting cross-document navigation.
 links:
   - label: GitHub
     icon: i-lucide-github

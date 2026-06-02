@@ -1,6 +1,9 @@
 ---
 title: convertToKebabCase
 description: 将对象的所有键名从任意格式转换为 kebab-case（短横线连接）格式，返回新对象。
+seo:
+  title: convertToKebabCase
+  description: Convert an object’s camelCase keys to kebab-case, optionally deeply, returning a new object useful for CSS or HTML attribute mapping.
 links:
   - label: GitHub
     icon: i-lucide-github

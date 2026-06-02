@@ -33,9 +33,11 @@ export default defineNuxtConfig({
     // level 2 redirects - utilities
     '/docs/utilities/array': { redirect: '/docs/utilities/array/chunk', prerender: false },
     '/docs/utilities/async': { redirect: '/docs/utilities/async/debounce', prerender: false },
+    '/docs/utilities/css': { redirect: '/docs/utilities/css/length-to-px', prerender: false },
     '/docs/utilities/url': { redirect: '/docs/utilities/url/append-query-param', prerender: false },
 
     // level 2 redirects - transformers
+    '/docs/transformers/markdown': { redirect: '/docs/transformers/markdown/stringify-minimark', prerender: false },
     '/docs/transformers/object': { redirect: '/docs/transformers/object/convert-to-kebab-case', prerender: false },
     '/docs/transformers/string': { redirect: '/docs/transformers/string/camel-case', prerender: false },
     '/docs/transformers/tree': { redirect: '/docs/transformers/tree/filter', prerender: false },
@@ -54,13 +56,11 @@ export default defineNuxtConfig({
   },
 
   aiChat: {
-    model: 'anthropic/claude-sonnet-4.6',
+    model: 'zai/glm-5.1',
     models: [
-      'zai/glm-5',
-      'openai/gpt-5-mini',
-      'google/gemini-2.5-flash',
-      'moonshotai/kimi-k2-thinking',
-      'anthropic/claude-sonnet-4.6'
+      'zai/glm-5.1',
+      'openai/gpt-5.4-mini',
+      'alibaba/qwen3.6-plus'
     ]
   },
 

@@ -1,6 +1,9 @@
 ---
 title: isArray
 description: 检查一个值是否为数组的 TypeScript 类型保护函数，可用于运行时类型收窄和条件分支中的安全判断。
+seo:
+  title: isArray
+  description: A TypeScript type guard that checks whether a value is an array, narrowing the type so you can safely access array methods in your code.
 links:
   - label: GitHub
     icon: i-lucide-github

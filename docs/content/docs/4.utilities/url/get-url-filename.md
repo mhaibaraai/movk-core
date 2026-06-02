@@ -1,6 +1,9 @@
 ---
 title: getUrlFilename
 description: 从 URL 中提取文件名（不含路径和查询参数），适用于文件下载和资源管理场景。
+seo:
+  title: getUrlFilename
+  description: Extract the filename from a URL pathname, optionally including the extension, so downloads and asset labels are simple to derive.
 links:
   - label: GitHub
     icon: i-lucide-github

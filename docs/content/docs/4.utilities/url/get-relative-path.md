@@ -1,6 +1,9 @@
 ---
 title: getRelativePath
 description: 计算从一个 URL 到另一个 URL 的相对路径，常用于动态路由生成和链接处理。
+seo:
+  title: getRelativePath
+  description: Compute the relative path between two URLs, returning a path that navigates from the source location to the target location.
 links:
   - label: GitHub
     icon: i-lucide-github

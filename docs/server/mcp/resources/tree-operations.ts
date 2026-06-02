@@ -2,7 +2,7 @@ import { queryCollection } from '@nuxt/content/server'
 
 export default defineMcpResource({
   uri: 'resource://movk-core/tree-operations',
-  description: '树形结构操作函数的完整文档（@movk/core 核心特性）',
+  description: 'Complete documentation for the tree-structure operations (a core @movk/core feature)',
   cache: '1h',
   async handler(uri: URL) {
     const event = useEvent()
@@ -15,19 +15,19 @@ export default defineMcpResource({
       .all()
 
     const data = {
-      description: '树形结构操作是 @movk/core 的核心特性之一',
+      description: 'Tree-structure operations are one of the core features of @movk/core',
       features: [
-        '扁平与树形互转 (fromList, toList)',
-        '节点查找与过滤 (find, filter, findAll)',
-        '节点转换 (transform, forEach)',
-        '节点修改 (insertBefore, insertAfter, remove)',
-        '树遍历和统计 (getStats)',
-        '树结构验证 (validate)'
+        'Convert between flat lists and trees (fromList, toList)',
+        'Find and filter nodes (find, filter, findAll)',
+        'Transform nodes (transform, forEach)',
+        'Modify nodes (insertBefore, insertAfter, remove)',
+        'Traverse and summarize trees (getStats)',
+        'Validate tree structure (validate)'
       ],
       keyFeatures: {
-        customFields: '支持自定义字段名 (idField, parentIdField, childrenField)',
-        defaultFields: '默认字段: id, parentId, children',
-        typeSupport: '完整的 TypeScript 类型定义和泛型支持'
+        customFields: 'Supports custom field names (idField, parentIdField, childrenField)',
+        defaultFields: 'Default fields: id, parentId, children',
+        typeSupport: 'Full TypeScript type definitions and generic support'
       },
       functions: treeFunctions.map(fn => ({
         name: fn.title,

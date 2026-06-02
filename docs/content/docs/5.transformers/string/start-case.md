@@ -1,6 +1,9 @@
 ---
 title: startCase
 description: 将字符串转换为标题式 (Hello World)。
+seo:
+  title: startCase
+  description: Convert a string to Start Case, capitalizing each word and separating them with spaces, ideal for readable titles and headings.
 links:
   - label: GitHub
     icon: i-lucide-github

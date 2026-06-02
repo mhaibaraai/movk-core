@@ -1,6 +1,9 @@
 ---
 title: getPath
 description: 读取对象指定路径的嵌套值，支持点分隔和数组索引路径，路径不存在时返回 undefined。
+seo:
+  title: getPath
+  description: Read a value at a dot or bracket path inside a nested object, returning an optional default when the path does not resolve.
 links:
   - label: GitHub
     icon: i-lucide-github

@@ -1,6 +1,9 @@
 ---
 title: separate
 description: 将对象按指定键分离为两个对象
+seo:
+  title: separate
+  description: Split an object into picked and omitted parts by the given keys, returning both in one call, ideal for separating sensitive fields.
 links:
   - label: GitHub
     icon: i-lucide-github

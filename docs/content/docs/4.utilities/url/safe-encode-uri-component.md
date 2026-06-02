@@ -1,6 +1,9 @@
 ---
 title: safeEncodeURIComponent
 description: 安全地编码 URL 组件，与原生 encodeURIComponent 行为兼容，编码失败时不抛出异常。
+seo:
+  title: safeEncodeURIComponent
+  description: Encode a URI component safely, returning a percent-encoded string and avoiding exceptions on edge-case input during URL building.
 links:
   - label: GitHub
     icon: i-lucide-github

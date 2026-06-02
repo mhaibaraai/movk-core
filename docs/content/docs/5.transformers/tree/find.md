@@ -1,6 +1,9 @@
 ---
 title: find
 description: 查找并返回第一个满足 `predicate` 条件的节点。
+seo:
+  title: find
+  description: Find the first tree node that matches a predicate during traversal, returning the node or undefined when nothing matches.
 links:
   - label: GitHub
     icon: i-lucide-github

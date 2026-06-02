@@ -1,6 +1,9 @@
 ---
 title: lowerFirst
 description: 仅将字符串的第一个字母转换为小写。
+seo:
+  title: lowerFirst
+  description: Lowercase only the first character of a string while preserving the rest, a small helper for identifier and label formatting.
 links:
   - label: GitHub
     icon: i-lucide-github

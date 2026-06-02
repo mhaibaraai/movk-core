@@ -1,6 +1,9 @@
 ---
 title: replaceCurrentColor
 description: 替换 SVG 文件中的 currentColor 为指定颜色
+seo:
+  title: replaceCurrentColor
+  description: Fetch an SVG and replace its currentColor references with a given color, returning the recolored markup as a string.
 links:
   - label: GitHub
     icon: i-lucide-github

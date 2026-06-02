@@ -1,6 +1,9 @@
 ---
 title: useAppStorage
 description: 一个用于管理 localStorage 和 sessionStorage 的组合式函数，提供类型安全的存储操作。
+seo:
+  title: useAppStorage
+  description: A Vue composable that manages reactive localStorage or sessionStorage state with type-safe defaults, serialization, and cross-tab sync.
 links:
   - label: GitHub
     icon: i-lucide-github

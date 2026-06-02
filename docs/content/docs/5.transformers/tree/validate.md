@@ -1,6 +1,9 @@
 ---
 title: validate
 description: 验证树的结构是否有效，检查重复 ID 和循环引用。
+seo:
+  title: validate
+  description: Validate the integrity of a tree structure, returning whether it is valid along with a list of errors describing any problems.
 links:
   - label: GitHub
     icon: i-lucide-github

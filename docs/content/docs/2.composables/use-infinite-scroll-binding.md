@@ -1,6 +1,9 @@
 ---
 title: useInfiniteScrollBinding
 description: 对 vueuse useInfiniteScroll 的薄包装，允许 canLoadMore 以 ref/getter 形式传入，并透传 direction / interval 等原生选项。
+seo:
+  title: useInfiniteScrollBinding
+  description: A Vue composable wrapping VueUse useInfiniteScroll, adding a reactive canLoadMore guard so you control exactly when more items are fetched.
 links:
   - label: GitHub
     icon: i-lucide-github

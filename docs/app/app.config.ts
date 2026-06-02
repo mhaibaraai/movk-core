@@ -1,4 +1,9 @@
 export default defineAppConfig({
+  aside: {
+    filter: {
+      enabled: true,
+    }
+  },
   aiChat: {
     faqQuestions: [
       {

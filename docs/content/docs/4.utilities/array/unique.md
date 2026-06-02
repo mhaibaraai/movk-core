@@ -1,6 +1,9 @@
 ---
 title: unique
 description: 数组去重，返回去除重复元素后的新数组
+seo:
+  title: unique
+  description: Remove duplicate values from an array and return a new array of unique items, preserving the order of first appearance.
 links:
   - label: GitHub
     icon: i-lucide-github

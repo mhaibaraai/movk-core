@@ -1,6 +1,9 @@
 ---
 title: stringifyQuery
 description: 将键值对对象序列化为 URL 查询字符串，支持数组参数和特殊字符的自动编码。
+seo:
+  title: stringifyQuery
+  description: Serialize a query parameters object into a query string, with options for how repeated array values are formatted in the output.
 links:
   - label: GitHub
     icon: i-lucide-github

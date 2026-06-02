@@ -2,29 +2,31 @@ import { queryCollection } from '@nuxt/content/server'
 import { z } from 'zod'
 
 const CATEGORY_LABELS: Record<string, string> = {
-  '/docs/validators/': '类型验证',
-  '/docs/utilities/array/': '数组工具',
-  '/docs/utilities/async/': '异步控制',
-  '/docs/utilities/url/': 'URL 处理',
-  '/docs/transformers/string/': '字符串转换',
-  '/docs/transformers/object/': '对象转换',
-  '/docs/transformers/tree/': '树形结构',
-  '/docs/helpers/file/': '文件处理',
-  '/docs/helpers/object/': '对象辅助',
-  '/docs/helpers/path/': '路径处理',
-  '/docs/composables/': 'Vue Composables',
-  '/docs/types/': '类型定义'
+  '/docs/validators/': 'Validators',
+  '/docs/utilities/array/': 'Array utilities',
+  '/docs/utilities/async/': 'Async control',
+  '/docs/utilities/css/': 'CSS utilities',
+  '/docs/utilities/url/': 'URL handling',
+  '/docs/transformers/string/': 'String transformers',
+  '/docs/transformers/object/': 'Object transformers',
+  '/docs/transformers/tree/': 'Tree structure',
+  '/docs/transformers/markdown/': 'Markdown transformers',
+  '/docs/helpers/file/': 'File helpers',
+  '/docs/helpers/object/': 'Object helpers',
+  '/docs/helpers/path/': 'Path helpers',
+  '/docs/composables/': 'Vue composables',
+  '/docs/types/': 'Type definitions'
 }
 
 function getCategoryLabel(path: string): string {
   const entry = Object.entries(CATEGORY_LABELS).find(([prefix]) => path.startsWith(prefix))
-  return entry ? entry[1] : '其他'
+  return entry ? entry[1] : 'Other'
 }
 
 export default defineMcpPrompt({
-  description: '根据使用场景找到最适合的 @movk/core 函数',
+  description: 'Find the most suitable @movk/core function for a given use case',
   inputSchema: {
-    usecase: z.string().describe('使用场景描述,例如 "数组去重"、"树形数据转扁平" 等')
+    usecase: z.string().describe('Use case description, such as "deduplicate an array" or "flatten tree data"')
   },
   async handler({ usecase }) {
     const event = useEvent()
@@ -49,13 +51,13 @@ export default defineMcpPrompt({
         role: 'user' as const,
         content: {
           type: 'text' as const,
-          text: `用户需求场景： ${usecase}
+          text: `User use case: ${usecase}
 
-以下是 @movk/core 中所有可用的函数(共 ${functionList.length} 个)：
+Here are all available functions in @movk/core (${functionList.length} total):
 
 ${JSON.stringify(functionList, null, 2)}
 
-请根据用户的需求场景，推荐最适合的函数。如果有多个函数可以组合使用，请说明如何组合。如果没有完全匹配的函数，请推荐最接近的方案。`
+Based on the user's use case, recommend the most suitable function(s). If several functions can be combined, explain how to combine them. If there is no exact match, recommend the closest alternative.`
         }
       }]
     }

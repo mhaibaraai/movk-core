@@ -1,6 +1,9 @@
 ---
 title: joinPath
 description: 将片段数组序列化为路径字符串
+seo:
+  title: joinPath
+  description: Serialize an array of path segments into a single path string, the inverse of toPath for building dot and bracket accessors.
 links:
   - label: GitHub
     icon: i-lucide-github

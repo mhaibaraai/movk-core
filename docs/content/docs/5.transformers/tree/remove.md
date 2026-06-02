@@ -1,6 +1,9 @@
 ---
 title: remove
 description: 根据 `id` 从树中移除一个节点及其所有子节点。 (此方法会**原地修改**传入的树数组)
+seo:
+  title: remove
+  description: Remove a node from a tree by id and return the removed node, detaching its subtree from the parent in a single call.
 links:
   - label: GitHub
     icon: i-lucide-github

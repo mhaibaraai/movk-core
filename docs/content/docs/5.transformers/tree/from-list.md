@@ -1,6 +1,9 @@
 ---
 title: fromList
 description: 将一个扁平的、包含父子关系（通过 `pid`）的数组转换为树形结构。
+seo:
+  title: fromList
+  description: Convert a flat array into a nested tree using configurable id, parent id, and children fields, the core of tree-structured data.
 links:
   - label: GitHub
     icon: i-lucide-github

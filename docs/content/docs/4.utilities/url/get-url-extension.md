@@ -1,6 +1,9 @@
 ---
 title: getUrlExtension
 description: 从 URL 中提取文件扩展名（如 .jpg、.pdf），适用于文件类型判断和内容协商。
+seo:
+  title: getUrlExtension
+  description: Extract the file extension from a URL pathname, returning the part after the last dot so you can branch on asset or document types.
 links:
   - label: GitHub
     icon: i-lucide-github

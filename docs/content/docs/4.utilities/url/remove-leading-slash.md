@@ -1,6 +1,9 @@
 ---
 title: removeLeadingSlash
 description: 移除路径字符串的开头斜杠，若无则原样返回，常用于路径拼接前的预处理。
+seo:
+  title: removeLeadingSlash
+  description: Remove leading slashes from a path, returning a clean relative segment that is safe to join with other URL or route parts.
 links:
   - label: GitHub
     icon: i-lucide-github

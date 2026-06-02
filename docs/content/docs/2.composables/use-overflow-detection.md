@@ -1,6 +1,9 @@
 ---
 title: useOverflowDetection
 description: 检测元素文本是否被截断的组合式函数，自动追踪尺寸变化与内容变化，并按水平/垂直方向分别报告溢出状态。
+seo:
+  title: useOverflowDetection
+  description: A Vue composable that detects truncated text via ResizeObserver and MutationObserver, supporting single-line ellipsis and multi-line clamping.
 links:
   - label: GitHub
     icon: i-lucide-github

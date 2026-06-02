@@ -1,6 +1,9 @@
 ---
 title: isAbsoluteUrl
 description: 检查字符串是否为绝对 URL（含协议前缀），可用于区分相对路径和完整 URL。
+seo:
+  title: isAbsoluteUrl
+  description: Check whether a URL is absolute, including protocol-relative URLs, so you can decide when to resolve it against a base location.
 links:
   - label: GitHub
     icon: i-lucide-github

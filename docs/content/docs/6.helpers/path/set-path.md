@@ -1,6 +1,9 @@
 ---
 title: setPath
 description: 在对象指定路径写入新值，支持深层嵌套路径和自动创建中间对象，返回新对象。
+seo:
+  title: setPath
+  description: Set a value at a dot or bracket path inside an object, creating intermediate objects as needed and returning the updated object.
 links:
   - label: GitHub
     icon: i-lucide-github

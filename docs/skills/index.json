@@ -1,0 +1,11 @@
+{
+  "skills": [
+    {
+      "name": "movk-core",
+      "description": "Use @movk/core, a tree-shakable TypeScript utility library — type guards (validators), array/async/css/url utilities, string/object/tree/markdown transformers, object/path/file helpers, and Vue composables. Use when picking a utility, converting flat data to a tree, transforming naming cases, parsing or building URLs, deep cloning or merging objects, or calling @movk/core composables.",
+      "files": [
+        "SKILL.md"
+      ]
+    }
+  ]
+}

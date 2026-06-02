@@ -1,6 +1,9 @@
 ---
 title: Object
 description: 一系列用于在类型级别操作和转换对象的高级工具类型。
+seo:
+  title: Object Types
+  description: Reference for @movk/core object utility types covering keys, fields, nested paths, pick and omit, deep partial, and deep merge transformations.
 links:
   - label: GitHub
     icon: i-lucide-github

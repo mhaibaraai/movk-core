@@ -1,6 +1,9 @@
 ---
 title: getRootDomain
 description: 获取 URL 的根域名(顶级域名 + 二级域名)
+seo:
+  title: getRootDomain
+  description: Extract the root domain from a URL, correctly handling compound top-level domains so subdomains collapse to their registrable base.
 links:
   - label: GitHub
     icon: i-lucide-github

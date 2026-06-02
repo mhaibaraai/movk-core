@@ -1,6 +1,9 @@
 ---
 title: appendQueryParam
 description: 追加查询参数(不覆盖已有同名参数)
+seo:
+  title: appendQueryParam
+  description: Append a query parameter to a URL without replacing existing values of the same name, returning a new URL string with the value added.
 links:
   - label: GitHub
     icon: i-lucide-github

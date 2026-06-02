@@ -2,7 +2,7 @@ import { queryCollection } from '@nuxt/content/server'
 import { z } from 'zod'
 
 export default defineMcpTool({
-  description: '按类别或关键词搜索 @movk/core 函数',
+  description: 'Search @movk/core functions by category or keyword',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,
@@ -13,9 +13,9 @@ export default defineMcpTool({
   inputSchema: {
     category: z.enum(['validators', 'utilities', 'transformers', 'helpers', 'composables', 'types', 'all'])
       .optional()
-      .describe('函数类别'),
-    subcategory: z.string().optional().describe('子类别,如 "array"、"string"、"tree" 等'),
-    keyword: z.string().optional().describe('搜索关键词,将在标题和描述中搜索')
+      .describe('Function category'),
+    subcategory: z.string().optional().describe('Subcategory, such as "array", "string", or "tree"'),
+    keyword: z.string().optional().describe('Search keyword, matched against the title and description')
   },
   inputExamples: [
     { category: 'validators', keyword: 'array' },

@@ -1,6 +1,9 @@
 ---
 title: Storage
 description: 与 useAppStorage 组合式函数相关的存储类型定义。
+seo:
+  title: Storage Types
+  description: Reference for @movk/core storage types used by useAppStorage, including storage kind, configuration input, and the composable return shape.
 links:
   - label: GitHub
     icon: i-lucide-github

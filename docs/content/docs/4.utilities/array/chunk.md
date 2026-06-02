@@ -1,6 +1,9 @@
 ---
 title: chunk
 description: 将数组分割成指定大小的子数组块，常用于分页展示、批量处理和数据分片场景。
+seo:
+  title: chunk
+  description: Split an array into smaller arrays of a fixed size, returning a new array of chunks without mutating the original input array.
 links:
   - label: GitHub
     icon: i-lucide-github

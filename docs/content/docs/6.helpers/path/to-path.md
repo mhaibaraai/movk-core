@@ -1,6 +1,9 @@
 ---
 title: toPath
 description: 将 a.b[0].c 格式的路径字符串解析为路径片段数组，用于对象路径访问操作。
+seo:
+  title: toPath
+  description: Parse a path string into an array of segments, supporting dot and bracket notation, the basis for safe nested property access.
 links:
   - label: GitHub
     icon: i-lucide-github

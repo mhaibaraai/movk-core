@@ -1,6 +1,9 @@
 ---
 title: buildUrl
 description: 根据基础 URL、路径和查询参数构建完整的 URL 字符串，支持灵活的参数组合。
+seo:
+  title: buildUrl
+  description: Build a complete URL from a base, optional path, query parameters, and hash, handling slashes and encoding to produce a valid result.
 links:
   - label: GitHub
     icon: i-lucide-github

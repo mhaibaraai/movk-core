@@ -2,7 +2,7 @@ import { queryCollection } from '@nuxt/content/server'
 
 export default defineMcpResource({
   uri: 'resource://movk-core/all-functions',
-  description: '所有可用函数的完整列表及其元数据',
+  description: 'A complete list of all available functions with their metadata',
   cache: '1h',
   async handler(uri: URL) {
     const event = useEvent()
@@ -25,17 +25,17 @@ export default defineMcpResource({
         url: `${siteUrl}${fn.path}`
       }
 
-      // 从路径提取分类层级: /docs/utilities/array/chunk -> ['utilities', 'array']
+      // Extract the category hierarchy from the path: /docs/utilities/array/chunk -> ['utilities', 'array']
       const pathParts = fn.path
         .replace('/docs/', '')
         .split('/')
         .filter(Boolean)
-        .slice(0, -1) // 去掉最后的文件名部分
+        .slice(0, -1) // drop the trailing file name
 
       if (pathParts.length === 0)
         continue
 
-      // 递归创建嵌套结构
+      // Build the nested structure recursively
       let current = byModule
       for (let i = 0; i < pathParts.length; i++) {
         const part = pathParts[i]
@@ -49,13 +49,13 @@ export default defineMcpResource({
         }
 
         if (isLastLevel) {
-          // 最后一级,添加到数组
+          // Leaf level: push into the array
           if (Array.isArray(current[part])) {
             current[part].push(item)
           }
         }
         else {
-          // 继续深入下一层
+          // Descend into the next level
           current = current[part]
         }
       }
