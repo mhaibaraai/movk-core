@@ -4,7 +4,7 @@ import { z } from 'zod'
 const CAMEL_TO_KEBAB_RE = /([a-z])([A-Z])/g
 
 export default defineMcpTool({
-  description: '获取特定函数的详细文档和使用示例',
+  description: 'Get the detailed documentation and usage examples for a specific function',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,
@@ -13,7 +13,7 @@ export default defineMcpTool({
   },
   cache: '30m',
   inputSchema: {
-    functionName: z.string().describe('函数名称,如 "chunk"、"fromList"、"isArray" 等')
+    functionName: z.string().describe('Function name, such as "chunk", "fromList", or "isArray"')
   },
   inputExamples: [
     { functionName: 'fromList' },
@@ -40,7 +40,7 @@ export default defineMcpTool({
     })
 
     if (!match) {
-      throw createError({ statusCode: 404, statusMessage: `函数 "${functionName}" 未找到` })
+      throw createError({ statusCode: 404, statusMessage: `Function "${functionName}" not found` })
     }
 
     const documentation = await $fetch(`/raw${match.path}.md`)

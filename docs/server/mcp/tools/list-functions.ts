@@ -6,13 +6,13 @@ const CATEGORY_CONFIG = {
   transformers: { prefix: '/docs/transformers', hasSubcategory: true },
   helpers: { prefix: '/docs/helpers', hasSubcategory: true },
   composables: { prefix: '/docs/composables', hasSubcategory: false },
-  types: { prefix: '/docs/types', hasSubcategory: true }
+  types: { prefix: '/docs/types', hasSubcategory: false }
 } as const
 
 type CategoryKey = keyof typeof CATEGORY_CONFIG
 
 export default defineMcpTool({
-  description: '列出所有可用的 @movk/core 工具函数及其分类和基本信息',
+  description: 'List all available @movk/core utility functions with their categories and basic information',
   annotations: {
     readOnlyHint: true,
     destructiveHint: false,
