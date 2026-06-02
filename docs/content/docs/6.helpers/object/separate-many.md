@@ -1,6 +1,9 @@
 ---
 title: separateMany
 description: 将对象按多分组键集合进行分离
+seo:
+  title: separateMany
+  description: Partition an object into several named groups of keys plus an others catch-all, returning a new object for each group in one pass.
 links:
   - label: GitHub
     icon: i-lucide-github

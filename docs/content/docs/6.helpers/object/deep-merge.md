@@ -1,6 +1,9 @@
 ---
 title: deepMerge
 description: 递归深度合并多个对象，支持数组策略、null 处理和自定义合并函数
+seo:
+  title: deepMerge
+  description: Recursively merge multiple objects into a new one, with configurable array strategies, null handling, and custom per-key mergers.
 links:
   - label: GitHub
     icon: i-lucide-github

@@ -1,6 +1,9 @@
 ---
 title: camelCase
 description: 将字符串转换为驼峰式 (helloWorld)。
+seo:
+  title: camelCase
+  description: Convert a string to camelCase, lowercasing the first word and capitalizing the rest, with no separators between joined words.
 links:
   - label: GitHub
     icon: i-lucide-github

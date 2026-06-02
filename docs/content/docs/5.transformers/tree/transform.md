@@ -1,6 +1,9 @@
 ---
 title: transform
 description: 遍历树并根据 `transformer` 函数返回一个具有新结构的新树。
+seo:
+  title: transform
+  description: Transform every node of a tree with a mapper function, returning a new tree whose nodes carry reshaped data and the same structure.
 links:
   - label: GitHub
     icon: i-lucide-github

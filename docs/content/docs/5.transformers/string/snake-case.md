@@ -1,6 +1,9 @@
 ---
 title: snakeCase
 description: 将字符串转换为下划线式 (hello_world)。
+seo:
+  title: snakeCase
+  description: Convert a string to snake_case, lowercasing words and joining them with underscores, ideal for database columns and config keys.
 links:
   - label: GitHub
     icon: i-lucide-github

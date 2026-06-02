@@ -1,6 +1,9 @@
 ---
 title: useCopyCode
 description: 一个用于将文本复制到剪贴板的组合式函数，支持现代 Clipboard API 并优雅地回退到传统方法。
+seo:
+  title: useCopyCode
+  description: A Vue composable that copies text to the clipboard using the async Clipboard API, with a legacy execCommand fallback for older browsers.
 links:
   - label: GitHub
     icon: i-lucide-github

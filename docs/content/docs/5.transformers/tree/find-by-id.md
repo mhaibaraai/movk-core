@@ -1,6 +1,9 @@
 ---
 title: findById
 description: 通过节点 id 在树形结构中快速查找并返回匹配节点，未找到时返回 undefined。
+seo:
+  title: findById
+  description: Find a single tree node by its id using the configured id field, returning the node or undefined when no match exists.
 links:
   - label: GitHub
     icon: i-lucide-github

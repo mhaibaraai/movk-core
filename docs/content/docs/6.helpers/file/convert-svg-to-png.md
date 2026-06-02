@@ -1,6 +1,9 @@
 ---
 title: convertSvgToPng
 description: 将 SVG 字符串转换为 PNG 格式的 Blob 对象
+seo:
+  title: convertSvgToPng
+  description: Convert an SVG string into a PNG Blob using a canvas, returning a promise so you can download or upload rasterized image output.
 links:
   - label: GitHub
     icon: i-lucide-github

@@ -1,6 +1,9 @@
 ---
 title: API
 description: 一组用于处理异步函数和 Promise 的工具类型。
+seo:
+  title: API Types
+  description: Reference for @movk/core async and Promise utility types, including awaitable values, unwrapped promises, and awaited function return types.
 links:
   - label: GitHub
     icon: i-lucide-github

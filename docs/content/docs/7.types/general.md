@@ -1,6 +1,9 @@
 ---
 title: General
 description: 一组通用的高级 TypeScript 工具类型，涵盖 Nullable、DeepPartial 等常见类型辅助定义。
+seo:
+  title: General Types
+  description: Reference for general-purpose @movk/core utility types such as Suggest, MaybeFn, ReactiveValue, StripNullable, IsAny, and WidenLiteral.
 links:
   - label: GitHub
     icon: i-lucide-github

@@ -1,6 +1,9 @@
 ---
 title: filter
 description: 根据 `predicate` 过滤树，只保留满足条件的节点及其所有父节点。
+seo:
+  title: filter
+  description: Filter a tree by a predicate, keeping matching nodes along with their ancestors so the surviving branches remain navigable.
 links:
   - label: GitHub
     icon: i-lucide-github

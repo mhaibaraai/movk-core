@@ -1,6 +1,9 @@
 ---
 title: forEach
 description: 遍历树中的每一个节点，并执行 `visitor` 函数。`visitor` 函数可以返回 `false` 来提前终止整个遍历。
+seo:
+  title: forEach
+  description: Traverse a tree and run a visitor callback on every node, an easy way to collect, log, or mutate nodes across all depths.
 links:
   - label: GitHub
     icon: i-lucide-github

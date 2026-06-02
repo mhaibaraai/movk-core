@@ -1,6 +1,9 @@
 ---
 title: getQueryParam
 description: 从 URL 中获取指定查询参数的值，参数不存在时返回 null 或自定义默认值。
+seo:
+  title: getQueryParam
+  description: Read a single query parameter value from a URL by key, returning the first match or null when the parameter is not present.
 links:
   - label: GitHub
     icon: i-lucide-github

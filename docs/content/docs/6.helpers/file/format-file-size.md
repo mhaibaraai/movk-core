@@ -1,6 +1,9 @@
 ---
 title: formatFileSize
 description: 格式化文件大小,将字节数转换为可读的文件大小字符串
+seo:
+  title: formatFileSize
+  description: Format a byte count into a human-readable size string such as KB, MB, or GB, ideal for upload and download user interfaces.
 links:
   - label: GitHub
     icon: i-lucide-github

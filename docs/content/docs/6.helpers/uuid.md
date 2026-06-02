@@ -1,6 +1,9 @@
 ---
 title: getRandomUUID
 description: 生成符合 RFC 4122 标准的随机 UUID v4 字符串，优先使用 crypto.randomUUID。
+seo:
+  title: getRandomUUID
+  description: Generate a random RFC 4122 version 4 UUID string, using the platform crypto API for collision-resistant unique identifiers.
 links:
   - label: GitHub
     icon: i-lucide-github

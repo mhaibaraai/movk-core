@@ -1,6 +1,9 @@
 ---
 title: kebabCase
 description: 将字符串转换为短横线式 (hello-world)。
+seo:
+  title: kebabCase
+  description: Convert a string to kebab-case, lowercasing words and joining them with hyphens, ideal for URLs, file names, and CSS classes.
 links:
   - label: GitHub
     icon: i-lucide-github

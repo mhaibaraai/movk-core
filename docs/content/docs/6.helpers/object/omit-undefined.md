@@ -1,6 +1,9 @@
 ---
 title: omitUndefined
 description: 从对象中排除值为 undefined 的键
+seo:
+  title: omitUndefined
+  description: Return a new object with undefined-valued properties removed, a clean way to drop optional fields before serializing or merging.
 links:
   - label: GitHub
     icon: i-lucide-github

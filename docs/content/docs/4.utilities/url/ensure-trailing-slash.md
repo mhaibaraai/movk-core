@@ -1,6 +1,9 @@
 ---
 title: ensureTrailingSlash
 description: 确保 URL 字符串以斜杠结尾，若已有则原样返回，常用于路径标准化处理。
+seo:
+  title: ensureTrailingSlash
+  description: Ensure a URL ends with a single trailing slash, adding one when missing so directory-style links resolve consistently.
 links:
   - label: GitHub
     icon: i-lucide-github

@@ -1,6 +1,9 @@
 ---
 title: flatten
 description: 数组扁平化，将嵌套数组展平到指定深度
+seo:
+  title: flatten
+  description: Flatten a nested array to a given depth, returning a new flattened array while leaving the original nested structure untouched.
 links:
   - label: GitHub
     icon: i-lucide-github

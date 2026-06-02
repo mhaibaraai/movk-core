@@ -1,6 +1,9 @@
 ---
 title: triggerDownload
 description: 触发浏览器文件下载，支持 URL 和 Blob 作为来源，可自定义下载文件名。
+seo:
+  title: triggerDownload
+  description: Trigger a browser file download from a Blob with a chosen filename, wiring up the temporary anchor and object URL for you.
 links:
   - label: GitHub
     icon: i-lucide-github

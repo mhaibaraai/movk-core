@@ -1,6 +1,9 @@
 ---
 title: removeTrailingSlash
 description: 移除 URL 字符串的尾部斜杠，若无则原样返回，常用于路径规范化和比较。
+seo:
+  title: removeTrailingSlash
+  description: Remove a trailing slash from a URL and return a new string, normalizing links so identical routes are not duplicated.
 links:
   - label: GitHub
     icon: i-lucide-github

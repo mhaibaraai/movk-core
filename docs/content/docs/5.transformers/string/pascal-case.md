@@ -1,6 +1,9 @@
 ---
 title: pascalCase
 description: 将字符串转换为帕斯卡式 (HelloWorld)。
+seo:
+  title: pascalCase
+  description: Convert a string to PascalCase, capitalizing each word and removing separators, ideal for type, class, and component names.
 links:
   - label: GitHub
     icon: i-lucide-github

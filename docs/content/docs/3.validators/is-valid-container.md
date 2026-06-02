@@ -1,6 +1,9 @@
 ---
 title: isValidContainer
 description: 检查值是否为有效的容器类型（对象或数组）
+seo:
+  title: isValidContainer
+  description: Check whether a value is a valid container, an object or array including Proxy instances, before iterating or assigning nested keys.
 links:
   - label: GitHub
     icon: i-lucide-github

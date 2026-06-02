@@ -1,6 +1,9 @@
 ---
 title: throttle
 description: 节流函数，在指定时间内多次触发只执行第一次
+seo:
+  title: throttle
+  description: Create a throttled function that runs at most once per interval, limiting how often expensive handlers fire during rapid events.
 links:
   - label: GitHub
     icon: i-lucide-github

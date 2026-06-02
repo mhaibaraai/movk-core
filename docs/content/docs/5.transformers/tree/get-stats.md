@@ -1,6 +1,9 @@
 ---
 title: getStats
 description: 获取关于树的统计信息，如总节点数、叶子节点数、深度等。
+seo:
+  title: getStats
+  description: Compute statistics for a tree, including total nodes, leaves, branches, and maximum depth, to summarize its size and shape.
 links:
   - label: GitHub
     icon: i-lucide-github

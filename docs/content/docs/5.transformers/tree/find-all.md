@@ -1,6 +1,9 @@
 ---
 title: findAll
 description: 查找并返回所有满足 `predicate` 条件的节点。
+seo:
+  title: findAll
+  description: Find every node in a tree that matches a predicate, returning a flat array of matches across all branches and depth levels.
 links:
   - label: GitHub
     icon: i-lucide-github

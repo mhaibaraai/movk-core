@@ -1,6 +1,9 @@
 ---
 title: upperCase
 description: 将字符串转换为全大写，单词间用空格分隔 (HELLO WORLD)。
+seo:
+  title: upperCase
+  description: Convert a string to UPPERCASE words separated by single spaces, splitting camelCase, snake_case, and kebab-case input first.
 links:
   - label: GitHub
     icon: i-lucide-github

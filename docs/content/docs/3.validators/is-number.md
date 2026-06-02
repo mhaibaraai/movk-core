@@ -1,6 +1,9 @@
 ---
 title: isNumber
 description: 检查一个值是否为数字，并排除 NaN。
+seo:
+  title: isNumber
+  description: A TypeScript type guard that checks whether a value is a finite number, excluding NaN, so numeric logic stays safe and predictable.
 links:
   - label: GitHub
     icon: i-lucide-github

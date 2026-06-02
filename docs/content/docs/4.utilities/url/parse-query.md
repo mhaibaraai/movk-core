@@ -1,6 +1,9 @@
 ---
 title: parseQuery
 description: 将 URL 查询字符串解析为键值对对象，支持多值参数和特殊字符的正确处理。
+seo:
+  title: parseQuery
+  description: Parse a URL query string into a key-value object, grouping repeated keys into arrays so query data is easy to read and update.
 links:
   - label: GitHub
     icon: i-lucide-github

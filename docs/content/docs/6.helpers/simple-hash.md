@@ -1,6 +1,9 @@
 ---
 title: simpleHash
 description: 生成字符串的轻量哈希值，适合用于缓存 key、去重标识等非加密场景。
+seo:
+  title: simpleHash
+  description: Generate a fast non-cryptographic hash of a string as a base-36 encoded value, handy for cache keys and lightweight fingerprints.
 links:
   - label: GitHub
     icon: i-lucide-github

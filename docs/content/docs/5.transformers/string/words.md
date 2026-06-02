@@ -1,6 +1,9 @@
 ---
 title: words
 description: 将字符串按空格、驼峰、连字符等分隔规则分解为单词数组，支持多种命名格式。
+seo:
+  title: words
+  description: Split a string into an array of words, recognizing camelCase, snake_case, and kebab-case boundaries for reliable tokenization.
 links:
   - label: GitHub
     icon: i-lucide-github

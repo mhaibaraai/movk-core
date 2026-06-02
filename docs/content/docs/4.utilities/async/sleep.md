@@ -1,6 +1,9 @@
 ---
 title: sleep
 description: 延迟执行函数，返回一个在指定时间后 resolve 的 Promise
+seo:
+  title: sleep
+  description: Return a promise that resolves after the given number of milliseconds, letting you pause an async flow with a simple await expression.
 links:
   - label: GitHub
     icon: i-lucide-github

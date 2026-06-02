@@ -1,6 +1,9 @@
 ---
 title: isEmpty
 description: 检查一个值是否为空（null、undefined、空字符串、空数组、空对象）。
+seo:
+  title: isEmpty
+  description: Check whether a value is empty: null, undefined, an empty string, an empty array, or an object with no own enumerable properties.
 links:
   - label: GitHub
     icon: i-lucide-github

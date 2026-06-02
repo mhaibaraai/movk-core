@@ -1,6 +1,9 @@
 ---
 title: insertBefore
 description: 在目标节点之前插入一个新节点。 (此方法会**原地修改**传入的树数组)
+seo:
+  title: insertBefore
+  description: Insert a new node immediately before a target node in a tree by id, returning whether the insertion succeeded.
 links:
   - label: GitHub
     icon: i-lucide-github

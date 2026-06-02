@@ -1,6 +1,9 @@
 ---
 title: sleepWithCancel
 description: 可取消的延迟函数，返回 Promise 和取消函数
+seo:
+  title: sleepWithCancel
+  description: Return a cancellable delay: a promise plus a cancel function so you can abort a pending timeout before it resolves in async flows.
 links:
   - label: GitHub
     icon: i-lucide-github

@@ -1,6 +1,9 @@
 ---
 title: lowerCase
 description: 将字符串转换为全小写，单词间用空格分隔 (hello world)。
+seo:
+  title: lowerCase
+  description: Convert a string to lowercase words separated by single spaces, splitting camelCase, snake_case, and kebab-case input first.
 links:
   - label: GitHub
     icon: i-lucide-github

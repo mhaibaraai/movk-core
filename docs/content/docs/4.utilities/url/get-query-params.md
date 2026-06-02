@@ -1,6 +1,9 @@
 ---
 title: getQueryParams
 description: 从 URL 中获取所有同名查询参数的值数组，适用于处理多值参数（如复选框筛选）。
+seo:
+  title: getQueryParams
+  description: Read every value of a repeated query parameter from a URL by key, returning an array so multi-value filters and tags are easy to handle.
 links:
   - label: GitHub
     icon: i-lucide-github

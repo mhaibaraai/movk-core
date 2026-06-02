@@ -1,6 +1,9 @@
 ---
 title: isObject
 description: 检查一个值是否为对象，并排除 null 和数组。
+seo:
+  title: isObject
+  description: A TypeScript type guard that checks whether a value is a non-null object, excluding arrays, so property access is narrowed safely.
 links:
   - label: GitHub
     icon: i-lucide-github

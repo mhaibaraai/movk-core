@@ -1,6 +1,9 @@
 ---
 title: URL
 description: 一组用于描述 URL 结构与解析结果的 TypeScript 类型定义，覆盖协议、主机、路径等字段。
+seo:
+  title: URL Types
+  description: Reference for @movk/core URL types, including the parsed URL shape and the query parameter value and record types used by URL utilities.
 links:
   - label: GitHub
     icon: i-lucide-github

@@ -1,6 +1,9 @@
 ---
 title: joinUrl
 description: 将多个 URL 路径片段连接为一个规范化的路径字符串，自动处理斜杠分隔符。
+seo:
+  title: joinUrl
+  description: Join URL path segments into a single path, collapsing duplicate slashes so concatenated routes and endpoints stay well formed.
 links:
   - label: GitHub
     icon: i-lucide-github

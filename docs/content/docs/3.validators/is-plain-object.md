@@ -1,6 +1,9 @@
 ---
 title: isPlainObject
 description: 检查一个值是否为“纯”对象（由 {} 或 new Object() 创建）。
+seo:
+  title: isPlainObject
+  description: Check whether a value is a plain object created by an object literal or Object, excluding arrays, dates, functions, and class instances.
 links:
   - label: GitHub
     icon: i-lucide-github

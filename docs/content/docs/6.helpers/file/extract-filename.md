@@ -1,6 +1,9 @@
 ---
 title: extractFilename
 description: 从响应头中提取文件名
+seo:
+  title: extractFilename
+  description: Extract a filename from HTTP response headers, parsing Content-Disposition with a fallback name for reliable file downloads.
 links:
   - label: GitHub
     icon: i-lucide-github

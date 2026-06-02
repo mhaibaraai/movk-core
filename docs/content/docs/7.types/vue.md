@@ -1,6 +1,9 @@
 ---
 title: Vue
 description: 一组用于从 Vue 组件中提取类型信息的辅助类型。
+seo:
+  title: Vue Types
+  description: Reference for @movk/core Vue helper types that extract a component’s props, slots, attrs, emit, and exposed types for stronger typing.
 links:
   - label: GitHub
     icon: i-lucide-github

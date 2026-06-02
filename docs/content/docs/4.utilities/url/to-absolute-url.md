@@ -1,6 +1,9 @@
 ---
 title: toAbsoluteUrl
 description: 将相对 URL 基于指定基础 URL 转换为绝对 URL，适用于资源路径解析和链接生成。
+seo:
+  title: toAbsoluteUrl
+  description: Resolve a relative URL against a base URL and return the absolute form, so links built from fragments point to the right location.
 links:
   - label: GitHub
     icon: i-lucide-github

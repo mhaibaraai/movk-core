@@ -1,6 +1,9 @@
 ---
 title: hasQueryParam
 description: 检查 URL 是否包含指定查询参数，返回布尔值，常用于条件跳转和参数存在性验证。
+seo:
+  title: hasQueryParam
+  description: Check whether a URL contains a query parameter with the given key, returning a boolean so you can branch on the presence of a flag.
 links:
   - label: GitHub
     icon: i-lucide-github

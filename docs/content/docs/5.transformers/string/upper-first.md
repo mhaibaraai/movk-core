@@ -1,6 +1,9 @@
 ---
 title: upperFirst
 description: 仅将字符串的第一个字母转换为大写。
+seo:
+  title: upperFirst
+  description: Uppercase only the first character of a string while preserving the rest, a small helper for sentence and label formatting.
 links:
   - label: GitHub
     icon: i-lucide-github

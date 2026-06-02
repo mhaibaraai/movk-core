@@ -1,6 +1,9 @@
 ---
 title: isRelativeUrl
 description: 检查字符串是否为相对 URL（不含协议前缀），常用于路径拼接前的类型判断。
+seo:
+  title: isRelativeUrl
+  description: Check whether a URL is a relative path rather than an absolute or protocol-relative URL, useful before joining it to a base.
 links:
   - label: GitHub
     icon: i-lucide-github
