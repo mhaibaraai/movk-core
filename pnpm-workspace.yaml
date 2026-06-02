@@ -16,6 +16,9 @@ minimumReleaseAgeExclude:
   - '@movk/nuxt-docs@1.19.4'
   - ai@6.0.194
 
+shellEmulator: true
+trustPolicy: no-downgrade
+
 trustPolicyExclude:
   - chokidar@4.0.3
   - semver@6.3.1
