@@ -1,5 +1,28 @@
 # 📋 Changelog
 
+## [1.3.0](https://github.com/mhaibaraai/movk-core/compare/v1.2.5...v1.3.0) (2026-06-02)
+
+### ✨ Features
+
+* **docs:** 发布 movk-core Agent Skill ([a7d98a5](https://github.com/mhaibaraai/movk-core/commit/a7d98a5a71215ec9f7f4eb65d8d8eb3f9c7f6696))
+* **utilities:** 新增 CSS 工具模块 ([e58648f](https://github.com/mhaibaraai/movk-core/commit/e58648f952308a6676cadce63845c4932c78d7b1))
+
+### 📝 Documentation
+
+* 为文档补充英文 SEO frontmatter ([329e331](https://github.com/mhaibaraai/movk-core/commit/329e331d503f26d1af1f604beb4ecaaa709d19a2))
+* 新增 css/markdown/equalsBy 函数文档并对齐说明 ([90da8b4](https://github.com/mhaibaraai/movk-core/commit/90da8b42ca808548adc434193494b5bdffc36596))
+* 重写 MCP 配置指南 ([e6b88b7](https://github.com/mhaibaraai/movk-core/commit/e6b88b7bbfabef8ba385f3529e74724c9bae5cb8))
+
+### ♻️ Code Refactoring
+
+* **mcp:** MCP 服务实现改用英文并修正 types 分类 ([319946d](https://github.com/mhaibaraai/movk-core/commit/319946daf595f7b2bd7358efa3738ca09cdab3f4))
+
+### 🔧 Chores
+
+* **deps:** update all non-major dependencies ([7468207](https://github.com/mhaibaraai/movk-core/commit/74682078130bdd247d6a1ffda2a7dc2c093c0c48))
+* **deps:** 更新依赖版本并调整 pnpm 工作区配置 ([a759fb5](https://github.com/mhaibaraai/movk-core/commit/a759fb5fc4272a3fa916239789c3a93e590f4e6e))
+* **docs:** 调整文档站点配置 ([13aa72c](https://github.com/mhaibaraai/movk-core/commit/13aa72c94c434487cd524b13eaf15c3e99ab35b0))
+
 ## [1.2.5](https://github.com/mhaibaraai/movk-core/compare/v1.2.4...v1.2.5) (2026-05-19)
 
 ### ✨ Features
