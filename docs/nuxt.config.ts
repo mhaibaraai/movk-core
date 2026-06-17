@@ -57,6 +57,14 @@ export default defineNuxtConfig({
 
   compatibilityDate: 'latest',
 
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@unhead/schema-org/vue',
+      ]
+    }
+  },
+
   mcp: {
     name: 'movk-core',
     browserRedirect: '/docs/getting-started/ai/mcp'
