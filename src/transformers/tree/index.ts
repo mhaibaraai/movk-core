@@ -3,6 +3,7 @@ import { insertAfter, insertBefore, remove } from './mutate'
 import { find, findAll, findById } from './query'
 import { filter, transform } from './transform'
 import { forEach } from './traverse'
+import { updateNode } from './update'
 import { getStats, validate } from './validate'
 
 export type {
@@ -119,6 +120,7 @@ export class Tree {
   // 转换方法
   static filter = filter
   static transform = transform
+  static updateNode = updateNode
 
   // 遍历方法
   static forEach = forEach
