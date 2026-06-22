@@ -51,6 +51,7 @@ splitHighlight('Hello World', '')
 ::field-group
   :::field{name="HighlightSegment[]"}
   片段数组，依次拼接即为原文本。每个片段包含：
+
   :::collapsible
     ::field-group
       ::field{name="text" type="string"}

@@ -1,5 +1,16 @@
 # 📋 Changelog
 
+## [1.3.1](https://github.com/mhaibaraai/movk-core/compare/v1.3.0...v1.3.1) (2026-06-22)
+
+### ✨ Features
+
+* **string:** 新增 splitHighlight 关键字高亮切分方法 ([9485c33](https://github.com/mhaibaraai/movk-core/commit/9485c33722442cce3fe5907712321b75abbdf831))
+* **tree:** 新增 updateNode 不可变节点更新方法 ([15a3d23](https://github.com/mhaibaraai/movk-core/commit/15a3d2380795a2881b4dec1ff3ea8f752f246d17))
+
+### 👷 CI
+
+* **docs:** 将构建迁移至 CI 运行器并精简 Docker 镜像 ([993d0f5](https://github.com/mhaibaraai/movk-core/commit/993d0f5368702d4e0f48ca7f473a567898e37d93))
+
 ## [1.3.0](https://github.com/mhaibaraai/movk-core/compare/v1.2.5...v1.3.0) (2026-06-02)
 
 ### ✨ Features
