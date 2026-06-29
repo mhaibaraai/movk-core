@@ -8,6 +8,7 @@ links:
   - label: GitHub
     icon: i-lucide-github
     to: https://github.com/mhaibaraai/movk-core/blob/main/src/transformers/string/splitHighlight.ts
+navigation.badge: v1.3.1
 ---
 
 ## 用法
