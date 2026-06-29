@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@movk/core": "workspace:^",
-    "@movk/nuxt-docs": "https://pkg.pr.new/@movk/nuxt-docs@ec8a748",
+    "@movk/nuxt-docs": "^2.0.0",
     "@nuxt/content": "^3.14.0",
     "@nuxt/ui": "^4.9.0",
     "better-sqlite3": "^12.11.1",
