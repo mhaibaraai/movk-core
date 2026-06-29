@@ -46,14 +46,17 @@ importers:
         specifier: workspace:^
         version: link:..
       '@movk/nuxt-docs':
-        specifier: ^2.0.0
-        version: 2.0.0(d7dfd3fac04bac5f06993e52714de21b)
+        specifier: ^2.0.1
+        version: 2.0.1(d7dfd3fac04bac5f06993e52714de21b)
       '@nuxt/content':
         specifier: ^3.14.0
         version: 3.14.0(better-sqlite3@12.11.1)(magicast@0.5.3)
       '@nuxt/ui':
         specifier: ^4.9.0
         version: 4.9.0(aa3e2d81ae9004a6fb57a083774646ce)
+      '@nuxtjs/i18n':
+        specifier: ^10.4.0
+        version: 10.4.0(@vue/compiler-dom@3.5.39)(db0@0.3.4(better-sqlite3@12.11.1))(eslint@10.6.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.3)(rollup@4.61.1)(typescript@6.0.3)(vite@7.3.5(@types/node@26.0.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.48.0)(yaml@2.9.0))(vue@3.5.35(typescript@6.0.3))
       better-sqlite3:
         specifier: ^12.11.1
         version: 12.11.1
@@ -1471,8 +1474,8 @@ packages:
     peerDependencies:
       vue: ^3.5.25
 
-  '@movk/nuxt-docs@2.0.0':
-    resolution: {integrity: sha512-t3t6WDeCLYRirOuwZEBiT3EEVdVOIMdntKl38wDLI6T8SA0PWGMN8LYy8tXGnUPxoeSBx6CfPObvHDNZSF6H8Q==}
+  '@movk/nuxt-docs@2.0.1':
+    resolution: {integrity: sha512-1/39beOaiEp7YQqxVMAFPur1de6qfpEawX/mgsJtVPyr3vatUONuHkOT34iBZnvec4BTbPpTD9jVcEL/NtApEQ==}
     peerDependencies:
       '@nuxt/content': ^3.14.0
       better-sqlite3: 12.x
@@ -9667,7 +9670,7 @@ snapshots:
       '@vueuse/core': 14.3.0(vue@3.5.35(typescript@6.0.3))
       vue: 3.5.35(typescript@6.0.3)
 
-  '@movk/nuxt-docs@2.0.0(d7dfd3fac04bac5f06993e52714de21b)':
+  '@movk/nuxt-docs@2.0.1(d7dfd3fac04bac5f06993e52714de21b)':
     dependencies:
       '@ai-sdk/alibaba': 1.0.32(zod@4.4.3)
       '@ai-sdk/anthropic': 3.0.89(zod@4.4.3)
@@ -12078,7 +12081,7 @@ snapshots:
       '@babel/types': 7.29.7
       '@vue/babel-helper-vue-transform-on': 2.0.1
       '@vue/babel-plugin-resolve-type': 2.0.1(@babel/core@7.29.7)
-      '@vue/shared': 3.5.35
+      '@vue/shared': 3.5.39
     optionalDependencies:
       '@babel/core': 7.29.7
     transitivePeerDependencies:
