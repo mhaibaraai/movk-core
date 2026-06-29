@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "docs": "文档",
+    "releases": "版本发布",
+    "getStarted": "快速开始",
+    "composables": "Composables",
+    "validators": "Validators",
+    "utilities": "Utilities",
+    "transformers": "Transformers",
+    "helpers": "Helpers",
+    "types": "Types",
+    "github": "GitHub"
+  }
+}

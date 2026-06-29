@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "docs": "Docs",
+    "releases": "Releases",
+    "getStarted": "Get Started",
+    "composables": "Composables",
+    "validators": "Validators",
+    "utilities": "Utilities",
+    "transformers": "Transformers",
+    "helpers": "Helpers",
+    "types": "Types",
+    "github": "GitHub"
+  }
+}

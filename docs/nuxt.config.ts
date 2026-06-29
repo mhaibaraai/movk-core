@@ -4,6 +4,8 @@ import pkg from '../package.json'
 export default defineNuxtConfig({
   extends: ['@movk/nuxt-docs'],
 
+  modules: ['@nuxtjs/i18n'],
+
   $development: {
     site: {
       url: 'http://localhost:3000'
@@ -53,6 +55,41 @@ export default defineNuxtConfig({
     '/docs/helpers/file': { redirect: '/docs/helpers/file/convert-svg-to-png', prerender: false },
     '/docs/helpers/object': { redirect: '/docs/helpers/object/deep-clone', prerender: false },
     '/docs/helpers/path': { redirect: '/docs/helpers/path/get-path', prerender: false },
+
+    // en - redirects - default root pages
+    '/en/docs': { redirect: '/en/docs/getting-started', prerender: false },
+    '/en/docs/ai': { redirect: '/en/docs/getting-started/ai/mcp', prerender: false },
+    '/en/docs/composables': { redirect: '/en/docs/composables/use-app-storage', prerender: false },
+    '/en/docs/validators': { redirect: '/en/docs/validators/is-array', prerender: false },
+    '/en/docs/utilities': { redirect: '/en/docs/utilities/array', prerender: false },
+    '/en/docs/transformers': { redirect: '/en/docs/transformers/object', prerender: false },
+    '/en/docs/helpers': { redirect: '/en/docs/helpers/simple-hash', prerender: false },
+    '/en/docs/types': { redirect: '/en/docs/types/api', prerender: false },
+
+    // en - level 2 redirects - utilities
+    '/en/docs/utilities/array': { redirect: '/en/docs/utilities/array/chunk', prerender: false },
+    '/en/docs/utilities/async': { redirect: '/en/docs/utilities/async/debounce', prerender: false },
+    '/en/docs/utilities/css': { redirect: '/en/docs/utilities/css/length-to-px', prerender: false },
+    '/en/docs/utilities/url': { redirect: '/en/docs/utilities/url/append-query-param', prerender: false },
+
+    // en - level 2 redirects - transformers
+    '/en/docs/transformers/markdown': { redirect: '/en/docs/transformers/markdown/stringify-minimark', prerender: false },
+    '/en/docs/transformers/object': { redirect: '/en/docs/transformers/object/convert-to-kebab-case', prerender: false },
+    '/en/docs/transformers/string': { redirect: '/en/docs/transformers/string/camel-case', prerender: false },
+    '/en/docs/transformers/tree': { redirect: '/en/docs/transformers/tree/filter', prerender: false },
+
+    // en - level 2 redirects - helpers
+    '/en/docs/helpers/file': { redirect: '/en/docs/helpers/file/convert-svg-to-png', prerender: false },
+    '/en/docs/helpers/object': { redirect: '/en/docs/helpers/object/deep-clone', prerender: false },
+    '/en/docs/helpers/path': { redirect: '/en/docs/helpers/path/get-path', prerender: false },
+  },
+
+  i18n: {
+    defaultLocale: 'zh-CN',
+    locales: [
+      { code: 'zh-CN', name: '简体中文', file: 'zh-CN.json' },
+      { code: 'en', name: 'English', file: 'en.json' }
+    ]
   },
 
   compatibilityDate: 'latest',
