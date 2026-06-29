@@ -1,5 +1,7 @@
 [![Movk Core Docs](https://core.mhaibaraai.cn/og-image.png)](https://core.mhaibaraai.cn/)
 
+简体中文 | [English](./README.en.md)
+
 [![Install MCP in Cursor](https://core.mhaibaraai.cn/mcp/badge.svg)](https://core.mhaibaraai.cn/mcp/deeplink)
 [![Install MCP in VS Code](https://core.mhaibaraai.cn/mcp/badge.svg?ide=vscode)](https://core.mhaibaraai.cn/mcp/deeplink?ide=vscode)
 
