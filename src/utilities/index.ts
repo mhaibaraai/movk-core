@@ -1,5 +1,6 @@
 export * from './array'
 export * from './async'
 export * from './css'
+export * from './function'
 export * from './math'
 export * from './url'
