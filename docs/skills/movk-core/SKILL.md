@@ -1,11 +1,11 @@
 ---
 name: movk-core
-description: Use @movk/core, a tree-shakable TypeScript utility library — type guards (validators), array/async/css/url utilities, string/object/tree/markdown transformers, object/path/file helpers, and Vue composables. Use when picking a utility, converting flat data to a tree, transforming naming cases, parsing or building URLs, deep cloning or merging objects, or calling @movk/core composables.
+description: Use @movk/core, a tree-shakable TypeScript utility library — type guards (validators), array/async/css/function/math/url utilities, string/object/tree/markdown transformers, object/path/file helpers, and Vue composables. Use when picking a utility, converting flat data to a tree, transforming naming cases, parsing or building URLs, clamping or remapping numbers, composing functions, keeping an id-keyed instance registry, deep cloning or merging objects, or calling @movk/core composables.
 ---
 
 # movk-core
 
-`@movk/core` is a tree-shakable TypeScript utility library. The entry `src/index.ts` re-exports every module: **validators** (type guards), **utilities** (array / async / css / url), **transformers** (string / object / tree / markdown), **helpers** (object / path / file), and Vue **composables**. Prefer an existing function over writing new code.
+`@movk/core` is a tree-shakable TypeScript utility library. The entry `src/index.ts` re-exports every module: **validators** (type guards), **utilities** (array / async / css / function / math / url), **transformers** (string / object / tree / markdown), **helpers** (object / path / file), and Vue **composables**. Prefer an existing function over writing new code.
 
 ## MCP Server
 
@@ -50,6 +50,8 @@ Match the task to a module, then pick the function. Use the MCP `get-function` f
 | utilities/array | `src/utilities/array` | `chunk`, `flatten`, `unique` |
 | utilities/async | `src/utilities/async` | `debounce`, `throttle`, `sleep`, `sleepWithCancel` |
 | utilities/css | `src/utilities/css` | `lengthToPx` |
+| utilities/function | `src/utilities/function` | `pipe` |
+| utilities/math | `src/utilities/math` | `clamp`, `mapRange` |
 | utilities/url | `src/utilities/url` | `parseUrl`, `buildUrl`, `joinUrl`, `normalizeUrl`, `parseQuery`, `stringifyQuery`, `getQueryParam(s)`, `set/append/removeQueryParam`, `getDomain`, `getRootDomain`, `toAbsoluteUrl`, `getRelativePath` |
 | transformers/string | `src/transformers/string` | `camelCase`, `pascalCase`, `kebabCase`, `snakeCase`, `startCase`, `capitalize`, `upper/lowerCase`, `upper/lowerFirst`, `words` |
 | transformers/object | `src/transformers/object` | `convertToKebabCase` |
@@ -58,7 +60,7 @@ Match the task to a module, then pick the function. Use the MCP `get-function` f
 | helpers/file | `src/helpers/file` | `formatFileSize`, `extractFilename`, `triggerDownload`, `convertSvgToPng`, `replaceCurrentColor` |
 | helpers/object | `src/helpers/object` | `deepClone`, `deepMerge`/`createDeepMerge`, `pick`, `omit`, `omitUndefined`, `separate`, `separateMany`, `equalsBy`/`createEqualsBy` |
 | helpers/path | `src/helpers/path` | `toPath`, `getPath`, `setPath`, `joinPath` |
-| helpers (root) | `src/helpers` | `simpleHash`, `getRandomUUID` |
+| helpers (root) | `src/helpers` | `simpleHash`, `getRandomUUID`, `createRegistry` (types `Registry`, `RegistryOptions`) |
 | types | `src/types` | utility types under `general`, `api`, `storage`, `url`, `vue`, `object` |
 
 ### Use case → function
@@ -76,4 +78,7 @@ Match the task to a module, then pick the function. Use the MCP `get-function` f
 | Type guards | `isArray`, `isObject`, `isPlainObject`, `isString`, `isEmpty` |
 | File size / download / SVG | `formatFileSize`, `triggerDownload`, `convertSvgToPng` |
 | CSS length to pixels | `lengthToPx` |
+| Constrain a number / map between ranges | `clamp`, `mapRange` |
+| Compose functions left to right | `pipe` |
+| Track instances by id across trees or routes | `createRegistry` |
 | Vue local storage / copy / scroll | `useAppStorage`, `useCopyCode`, `useInfiniteScrollBinding` |

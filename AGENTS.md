@@ -54,6 +54,8 @@ pnpm clean
 | `utilities/array` | 数组工具（`chunk`、`flatten`、`unique`） |
 | `utilities/async` | 异步控制（`debounce`、`throttle`、`sleep`、`sleepWithCancel`） |
 | `utilities/css` | CSS 工具（`lengthToPx`） |
+| `utilities/function` | 函数组合（`pipe`） |
+| `utilities/math` | 数值工具（`clamp`、`mapRange`） |
 | `utilities/url` | URL 操作（`parseUrl`、`buildUrl`、查询参数处理等） |
 | `transformers/string` | 字符串格式转换（`camelCase`、`kebabCase`、`snakeCase` 等） |
 | `transformers/object` | 对象键转换（`convertToKebabCase`） |
@@ -62,7 +64,7 @@ pnpm clean
 | `helpers/object` | 对象辅助（`deepClone`、`deepMerge`、`pick`、`omit`、`separate`、`equalsBy`） |
 | `helpers/path` | 路径访问（`toPath`、`getPath`、`setPath`、`joinPath`） |
 | `helpers/file` | 文件处理（`formatFileSize`、`triggerDownload`、`convertSvgToPng` 等） |
-| `helpers/`（根） | `simpleHash`、`getRandomUUID` |
+| `helpers/`（根） | `simpleHash`、`getRandomUUID`、`createRegistry`（按 id 索引实例的注册表） |
 | `types/` | 共享类型定义（`general`、`api`、`storage`、`url`、`vue`、`object`） |
 
 构建配置在 `build.config.ts`：单入口 `src/index`，启用 `declaration`（`.d.mts`），Rollup + esbuild minify。
