@@ -8,6 +8,7 @@ links:
   - label: GitHub
     icon: i-lucide-github
     to: https://github.com/mhaibaraai/movk-core/blob/main/src/helpers/createRegistry.ts
+navigation.badge: v1.4.0
 ---
 
 ## 用法

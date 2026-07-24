@@ -8,6 +8,7 @@ links:
   - label: GitHub
     icon: i-lucide-github
     to: https://github.com/mhaibaraai/movk-core/blob/main/src/utilities/function/pipe.ts
+navigation.badge: v1.4.0
 ---
 
 ## Usage
