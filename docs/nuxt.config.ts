@@ -43,6 +43,8 @@ export default defineNuxtConfig({
     '/docs/utilities/array': { redirect: '/docs/utilities/array/chunk', prerender: false },
     '/docs/utilities/async': { redirect: '/docs/utilities/async/debounce', prerender: false },
     '/docs/utilities/css': { redirect: '/docs/utilities/css/length-to-px', prerender: false },
+    '/docs/utilities/function': { redirect: '/docs/utilities/function/pipe', prerender: false },
+    '/docs/utilities/math': { redirect: '/docs/utilities/math/clamp', prerender: false },
     '/docs/utilities/url': { redirect: '/docs/utilities/url/append-query-param', prerender: false },
 
     // level 2 redirects - transformers
@@ -70,6 +72,8 @@ export default defineNuxtConfig({
     '/en/docs/utilities/array': { redirect: '/en/docs/utilities/array/chunk', prerender: false },
     '/en/docs/utilities/async': { redirect: '/en/docs/utilities/async/debounce', prerender: false },
     '/en/docs/utilities/css': { redirect: '/en/docs/utilities/css/length-to-px', prerender: false },
+    '/en/docs/utilities/function': { redirect: '/en/docs/utilities/function/pipe', prerender: false },
+    '/en/docs/utilities/math': { redirect: '/en/docs/utilities/math/clamp', prerender: false },
     '/en/docs/utilities/url': { redirect: '/en/docs/utilities/url/append-query-param', prerender: false },
 
     // en - level 2 redirects - transformers
