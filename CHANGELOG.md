@@ -1,5 +1,34 @@
 # 📋 Changelog
 
+## [1.4.0](https://github.com/mhaibaraai/movk-core/compare/v1.3.1...v1.4.0) (2026-07-24)
+
+### ✨ Features
+
+* **docs:** 添加国际化（i18n）支持 ([2906fd3](https://github.com/mhaibaraai/movk-core/commit/2906fd39e04eb9aa7bc00fb0619d6462dee1642c))
+* **helpers:** 新增 createRegistry 实例注册表 ([ddf1c84](https://github.com/mhaibaraai/movk-core/commit/ddf1c848b46e6ee59c10388e32f75e37209ea04b))
+* **utilities:** 新增 clamp 与 mapRange 数值工具 ([d739eac](https://github.com/mhaibaraai/movk-core/commit/d739eac7956cde61aa89583f7379636a13c12b41))
+* **utilities:** 新增 pipe 函数组合工具 ([190f5df](https://github.com/mhaibaraai/movk-core/commit/190f5dff34c6f95a299a42eb6e744c55c1234adb))
+
+### 📝 Documentation
+
+* **skills:** 同步 AI 索引与模块表 ([96ee38f](https://github.com/mhaibaraai/movk-core/commit/96ee38fb58f31ad1c3e7dc109e76c72d96337b83))
+* 为文档添加 v1.3.1 版本标签 ([84c2aec](https://github.com/mhaibaraai/movk-core/commit/84c2aecffbdf0220f1777aa8959387ec369d8c3b))
+* 为新增函数文档标注 v1.4.0 版本徽标 ([da7fc64](https://github.com/mhaibaraai/movk-core/commit/da7fc64b57e22ae00a0ca9b46706ff91040dac65))
+* 新增英文 README，README.md 添加语言切换链接 ([406a702](https://github.com/mhaibaraai/movk-core/commit/406a7026a2a55e4bebd3c367437ae901368e44d2))
+* 补充 math、function 与 createRegistry 文档 ([bcbc5ea](https://github.com/mhaibaraai/movk-core/commit/bcbc5ea7b7716d4478b6d25c86d45d676b3e55c9))
+
+### 🔧 Chores
+
+* **deps:** update actions/cache action to v6 ([06d9375](https://github.com/mhaibaraai/movk-core/commit/06d93750a6e175203ce316a8130b28feede8b99e))
+* **deps:** update actions/setup-node action to v7 ([8ce09fa](https://github.com/mhaibaraai/movk-core/commit/8ce09facc12ba4a61b25d24340b3771eb7610769))
+* **deps:** update all non-major dependencies ([57b1684](https://github.com/mhaibaraai/movk-core/commit/57b16845f75b642ad4ec3944d59b294d47d5000f))
+* **deps:** update all non-major dependencies ([a7754f2](https://github.com/mhaibaraai/movk-core/commit/a7754f26baada3ab9fa1d62a32fd449fafe34042))
+* **deps:** update dependency nuxt to ^4.5.0 ([ceeab3f](https://github.com/mhaibaraai/movk-core/commit/ceeab3f5de98416da4d42800d0871347415f6695))
+* **deps:** 升级 @movk/nuxt-docs 与 better-sqlite3 ([e1cd8e4](https://github.com/mhaibaraai/movk-core/commit/e1cd8e47ecd8311dfb98e7aa123d1d37bfadfde1))
+* **deps:** 升级依赖版本 ([ef2e35f](https://github.com/mhaibaraai/movk-core/commit/ef2e35fe4032317562abbad9bde90e5259926e0c))
+* 更新 @movk/nuxt-docs 依赖版本 ([38ae427](https://github.com/mhaibaraai/movk-core/commit/38ae42704686e63f2a460cfc4b4d61a16f0649d0))
+* 更新 pnpm-lock.yaml，同步 @nuxtjs/i18n 依赖 ([b4d8fe2](https://github.com/mhaibaraai/movk-core/commit/b4d8fe20dcc8f12c17e64bd8393019a84576f9f1))
+
 ## [1.3.1](https://github.com/mhaibaraai/movk-core/compare/v1.3.0...v1.3.1) (2026-06-22)
 
 ### ✨ Features
