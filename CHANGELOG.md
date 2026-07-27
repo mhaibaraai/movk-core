@@ -1,5 +1,11 @@
 # 📋 Changelog
 
+## [1.4.1](https://github.com/mhaibaraai/movk-core/compare/v1.4.0...v1.4.1) (2026-07-27)
+
+### 🔧 Chores
+
+* **deps:** update dependency nuxt to ^4.5.1 ([fe6a508](https://github.com/mhaibaraai/movk-core/commit/fe6a508f7a21ee5ddd747072938b6aabbad1d763))
+
 ## [1.4.0](https://github.com/mhaibaraai/movk-core/compare/v1.3.1...v1.4.0) (2026-07-24)
 
 ### ✨ Features
