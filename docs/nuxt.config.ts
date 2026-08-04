@@ -4,7 +4,11 @@ import pkg from '../package.json'
 export default defineNuxtConfig({
   extends: ['@movk/nuxt-docs'],
 
-  modules: ['@nuxtjs/i18n'],
+  modules: [
+    '@nuxtjs/i18n',
+    '@vercel/analytics',
+    '@vercel/speed-insights'
+  ],
 
   $development: {
     site: {
@@ -96,7 +100,7 @@ export default defineNuxtConfig({
     ]
   },
 
-  compatibilityDate: 'latest',
+  compatibilityDate: '2026-06-30',
 
   vite: {
     optimizeDeps: {
