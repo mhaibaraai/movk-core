@@ -87,7 +87,8 @@ export function deepClone<T>(obj: T, cache = new WeakMap<object, any>()): T {
 
   // Error
   if (obj instanceof Error) {
-    const err = new (obj as any).constructor(obj.message)
+    const ErrorCtor = (obj as any).constructor as new (message?: string) => Error
+    const err = new ErrorCtor(obj.message)
     err.name = obj.name
     err.stack = obj.stack
     return err as T
