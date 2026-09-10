@@ -19,7 +19,7 @@
     "better-sqlite3": "^13.0.3",
     "nuxt": "^4.5.2",
     "tailwindcss": "^4.3.3",
-    "zod": "^4.5.4"
+    "zod": "^4.6.1"
   },
   "devDependencies": {
     "typescript": "^6.0.3",
