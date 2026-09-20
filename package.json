@@ -43,7 +43,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepack": "pnpm build",
-    "release": "release-it && npm publish",
+    "release": "release-it",
     "typecheck": "tsc --noEmit && cd docs && pnpm typecheck",
     "test": "vitest",
     "clean": "node bin/clean.mjs"
