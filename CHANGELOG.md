@@ -1,5 +1,48 @@
 # 📋 Changelog
 
+## [1.5.0](https://github.com/mhaibaraai/movk-core/compare/v1.4.1...v1.5.0) (2026-09-24)
+
+### ✨ Features
+
+* **helpers:** triggerDownload 支持 URL 与 dataURL 字符串来源 ([e8ab289](https://github.com/mhaibaraai/movk-core/commit/e8ab289eab905d31b51e3ed25860374e2cb5dad9))
+* **helpers:** 新增 defineGlobalSingleton 跨副本全局单例 ([862b0fc](https://github.com/mhaibaraai/movk-core/commit/862b0fcd265ae6be6405aa17ba0014a56b8c1be2))
+* **helpers:** 新增 isDeepEqual 纯数据结构化深比较 ([acef312](https://github.com/mhaibaraai/movk-core/commit/acef312de28b032bcfbe2eae63f27c5da280579a))
+* **utilities:** 新增 onceAsync 异步单次执行并在失败后允许重试 ([ddaca20](https://github.com/mhaibaraai/movk-core/commit/ddaca202d2a11584c97bc288d71f864caeb6c793))
+
+### 📝 Documentation
+
+* **releases:** 精简版本发布页 frontmatter ([f8c28ac](https://github.com/mhaibaraai/movk-core/commit/f8c28ac6e23fe9a3ce03f43d29af5ab7b36806a2))
+* 补充 isDeepEqual、defineGlobalSingleton、onceAsync 文档并更新 triggerDownload 签名 ([09f5074](https://github.com/mhaibaraai/movk-core/commit/09f50743658567617151d1d09663e25039fd20a5))
+
+### ♻️ Code Refactoring
+
+* **docs:** 统一 AI Chat 的密钥与端点配置 ([b8dd2a5](https://github.com/mhaibaraai/movk-core/commit/b8dd2a55b125055b89485f3c8ba6d34559a41ffd))
+* **helpers:** 明确 deepClone 中 Error 构造函数类型 ([33f761c](https://github.com/mhaibaraai/movk-core/commit/33f761cbb29b1a2bd09fa1da6ce41382c3fb462b))
+
+### 📦 Build System
+
+* **docs:** 移除 Docker 部署流程，接入 Vercel 原生部署 ([b6b4fe2](https://github.com/mhaibaraai/movk-core/commit/b6b4fe238104d5992dc0e351a5e7167a4692fc85))
+
+### 👷 CI
+
+* **release:** 新增 npm trusted publishing 发布工作流 ([aaebb6f](https://github.com/mhaibaraai/movk-core/commit/aaebb6f6c90631c3176cf97365d54775a2c7115d))
+
+### 🔧 Chores
+
+* **config:** 调整 pnpm workspace 配置分组 ([fc76e14](https://github.com/mhaibaraai/movk-core/commit/fc76e147bf729c3e540b972f12d9fba166a5428e))
+* **config:** 调整 VSCode 编辑器配置 ([69c578e](https://github.com/mhaibaraai/movk-core/commit/69c578ea35ccb8bf80bfa38032f1f01a4c0a6890))
+* **deps:** lock file maintenance ([b656c94](https://github.com/mhaibaraai/movk-core/commit/b656c949987f1e570b766d910d99a90df0e67cbe))
+* **deps:** lock file maintenance ([a6c197c](https://github.com/mhaibaraai/movk-core/commit/a6c197c6a028a08f9d6a3686901b1996190a1570))
+* **deps:** update all non-major dependencies ([002359e](https://github.com/mhaibaraai/movk-core/commit/002359e9b9d584e76a1f0f8941471fd07bd9dd35))
+* **deps:** update all non-major dependencies ([2defa26](https://github.com/mhaibaraai/movk-core/commit/2defa262a1d0eca480367499eea565ccf7acbcb6))
+* **deps:** update all non-major dependencies ([60ba0a8](https://github.com/mhaibaraai/movk-core/commit/60ba0a816eb2832664107163d30c001adda90c43))
+* **deps:** update all non-major dependencies ([8208c27](https://github.com/mhaibaraai/movk-core/commit/8208c2778d943a8db6033b574c4fda58dbe77a24))
+* **deps:** update all non-major dependencies ([48e3398](https://github.com/mhaibaraai/movk-core/commit/48e33980de8689bec70ce0d04c7e312ee7c54df2))
+* **deps:** update dependency nuxt to ^4.5.2 ([97dd3a7](https://github.com/mhaibaraai/movk-core/commit/97dd3a746ed0f1847393aecf8eee4d3a966a3c54))
+* **deps:** update pnpm to v12 ([4af7811](https://github.com/mhaibaraai/movk-core/commit/4af78115948e631b81a7a73b705347acc73e80ad))
+* **deps:** 升级 @vueuse/core 与 @movk/nuxt-docs 主版本 ([4084e5b](https://github.com/mhaibaraai/movk-core/commit/4084e5b7abb000268b35acc0ced6f15627272f03))
+* **deps:** 更新非主版本依赖 ([7a4a094](https://github.com/mhaibaraai/movk-core/commit/7a4a094efd0d730a159a00daef1a214550c60bcd))
+
 ## [1.4.1](https://github.com/mhaibaraai/movk-core/compare/v1.4.0...v1.4.1) (2026-07-27)
 
 ### 🔧 Chores
