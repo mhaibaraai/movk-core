@@ -52,7 +52,7 @@ pnpm clean
 | `composables/` | Vue 组合式函数（`useAppStorage`、`useCopyCode`、`useInfiniteScrollBinding`、`useOverflowDetection`），依赖 `@vueuse/core` |
 | `validators/` | 类型守卫函数（`isArray`、`isObject`、`isString` 等），无副作用纯函数 |
 | `utilities/array` | 数组工具（`chunk`、`flatten`、`unique`） |
-| `utilities/async` | 异步控制（`debounce`、`throttle`、`sleep`、`sleepWithCancel`） |
+| `utilities/async` | 异步控制（`debounce`、`throttle`、`sleep`、`sleepWithCancel`、`onceAsync`） |
 | `utilities/css` | CSS 工具（`lengthToPx`） |
 | `utilities/function` | 函数组合（`pipe`） |
 | `utilities/math` | 数值工具（`clamp`、`mapRange`） |
@@ -61,10 +61,10 @@ pnpm clean
 | `transformers/object` | 对象键转换（`convertToKebabCase`） |
 | `transformers/tree` | 树形结构操作（`Tree` 静态类：`fromList`、`toList`、`find`、`filter`、`transform` 等） |
 | `transformers/markdown` | Markdown 序列化（`stringifyMinimark`） |
-| `helpers/object` | 对象辅助（`deepClone`、`deepMerge`、`pick`、`omit`、`separate`、`equalsBy`） |
+| `helpers/object` | 对象辅助（`deepClone`、`deepMerge`、`pick`、`omit`、`separate`、`equalsBy`、`isDeepEqual`） |
 | `helpers/path` | 路径访问（`toPath`、`getPath`、`setPath`、`joinPath`） |
 | `helpers/file` | 文件处理（`formatFileSize`、`triggerDownload`、`convertSvgToPng` 等） |
-| `helpers/`（根） | `simpleHash`、`getRandomUUID`、`createRegistry`（按 id 索引实例的注册表） |
+| `helpers/`（根） | `simpleHash`、`getRandomUUID`、`createRegistry`（按 id 索引实例的注册表）、`defineGlobalSingleton`（跨副本全局单例） |
 | `types/` | 共享类型定义（`general`、`api`、`storage`、`url`、`vue`、`object`） |
 
 构建配置在 `build.config.ts`：单入口 `src/index`，启用 `declaration`（`.d.mts`），Rollup + esbuild minify。
