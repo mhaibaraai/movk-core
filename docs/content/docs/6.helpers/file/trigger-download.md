@@ -3,7 +3,7 @@ title: triggerDownload
 description: 触发浏览器文件下载，支持 URL 和 Blob 作为来源，可自定义下载文件名。
 seo:
   title: triggerDownload
-  description: Trigger a browser file download from a Blob with a chosen filename, wiring up the temporary anchor and object URL for you.
+  description: Trigger a browser file download from a Blob or URL with a chosen filename, wiring up the temporary anchor and object URL for you.
 links:
   - label: GitHub
     icon: i-lucide-github
@@ -39,19 +39,22 @@ canvas.toBlob((blob) => {
     triggerDownload(blob, 'image.png')
   }
 })
+
+// 下载 URL 或 dataURL（v1.5.0 起）
+triggerDownload(canvas.toDataURL('image/png'), 'image.png')
 ```
 
 ## API
 
-### `triggerDownload(blob, filename)`{lang="ts-type"}
+### `triggerDownload(source, filename)`{lang="ts-type"}
 
 触发浏览器下载文件。
 
 ### 参数
 
 ::field-group
-  ::field{name="blob" type="Blob" required}
-  文件数据。
+  ::field{name="source" type="Blob | string" required}
+  文件数据；字符串视为可直接下载的 URL 或 dataURL，不会创建 object URL。
   ::
 
   ::field{name="filename" type="string" required}

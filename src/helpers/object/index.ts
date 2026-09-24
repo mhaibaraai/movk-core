@@ -1,6 +1,7 @@
 export * from './deepClone'
 export * from './deepMerge'
 export * from './equalsBy'
+export * from './isDeepEqual'
 export * from './omit'
 export * from './omitUndefined'
 export * from './pick'

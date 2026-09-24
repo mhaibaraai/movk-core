@@ -1,4 +1,5 @@
 export * from './createRegistry'
+export * from './defineGlobalSingleton'
 export * from './file'
 export * from './object'
 export * from './path'

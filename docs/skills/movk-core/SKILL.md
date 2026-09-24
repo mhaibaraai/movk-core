@@ -48,7 +48,7 @@ Match the task to a module, then pick the function. Use the MCP `get-function` f
 | composables | `src/composables` | `useAppStorage`, `useCopyCode`, `useInfiniteScrollBinding`, `useOverflowDetection` |
 | validators | `src/validators` | `isArray`, `isObject`, `isPlainObject`, `isString`, `isNumber`, `isFunction`, `isEmpty`, `isValidContainer` |
 | utilities/array | `src/utilities/array` | `chunk`, `flatten`, `unique` |
-| utilities/async | `src/utilities/async` | `debounce`, `throttle`, `sleep`, `sleepWithCancel` |
+| utilities/async | `src/utilities/async` | `debounce`, `throttle`, `sleep`, `sleepWithCancel`, `onceAsync` |
 | utilities/css | `src/utilities/css` | `lengthToPx` |
 | utilities/function | `src/utilities/function` | `pipe` |
 | utilities/math | `src/utilities/math` | `clamp`, `mapRange` |
@@ -58,9 +58,9 @@ Match the task to a module, then pick the function. Use the MCP `get-function` f
 | transformers/tree | `src/transformers/tree` | `Tree.fromList`, `Tree.toList`, `Tree.find/findAll/findById`, `Tree.filter`, `Tree.transform`, `Tree.forEach`, `Tree.insertBefore/After`, `Tree.remove`, `Tree.getStats`, `Tree.validate` |
 | transformers/markdown | `src/transformers/markdown` | `stringifyMinimark` (types `MinimarkNode`, `MinimarkDocument`) |
 | helpers/file | `src/helpers/file` | `formatFileSize`, `extractFilename`, `triggerDownload`, `convertSvgToPng`, `replaceCurrentColor` |
-| helpers/object | `src/helpers/object` | `deepClone`, `deepMerge`/`createDeepMerge`, `pick`, `omit`, `omitUndefined`, `separate`, `separateMany`, `equalsBy`/`createEqualsBy` |
+| helpers/object | `src/helpers/object` | `deepClone`, `deepMerge`/`createDeepMerge`, `pick`, `omit`, `omitUndefined`, `separate`, `separateMany`, `equalsBy`/`createEqualsBy`, `isDeepEqual` |
 | helpers/path | `src/helpers/path` | `toPath`, `getPath`, `setPath`, `joinPath` |
-| helpers (root) | `src/helpers` | `simpleHash`, `getRandomUUID`, `createRegistry` (types `Registry`, `RegistryOptions`) |
+| helpers (root) | `src/helpers` | `simpleHash`, `getRandomUUID`, `createRegistry` (types `Registry`, `RegistryOptions`), `defineGlobalSingleton` |
 | types | `src/types` | utility types under `general`, `api`, `storage`, `url`, `vue`, `object` |
 
 ### Use case → function
@@ -73,6 +73,7 @@ Match the task to a module, then pick the function. Use the MCP `get-function` f
 | Naming-case conversion | `camelCase`, `pascalCase`, `kebabCase`, `snakeCase`, `startCase` |
 | Deep clone / merge / pick keys | `deepClone`, `deepMerge`, `pick`, `omit`, `separate` |
 | Whether two objects are the same item | `equalsBy`, `createEqualsBy` |
+| Whether two plain data values have identical content | `isDeepEqual` |
 | Read/write nested paths | `getPath`, `setPath`, `toPath`, `joinPath` |
 | URL parse / build / query params | `parseUrl`, `buildUrl`, `joinUrl`, `parseQuery`, `*QueryParam(s)` |
 | Type guards | `isArray`, `isObject`, `isPlainObject`, `isString`, `isEmpty` |
@@ -81,4 +82,6 @@ Match the task to a module, then pick the function. Use the MCP `get-function` f
 | Constrain a number / map between ranges | `clamp`, `mapRange` |
 | Compose functions left to right | `pipe` |
 | Track instances by id across trees or routes | `createRegistry` |
+| Share one state across duplicated bundle copies | `defineGlobalSingleton` |
+| Run an async loader once, retry on failure | `onceAsync` |
 | Vue local storage / copy / scroll | `useAppStorage`, `useCopyCode`, `useInfiniteScrollBinding` |

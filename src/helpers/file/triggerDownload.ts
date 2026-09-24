@@ -2,7 +2,7 @@
  * 触发浏览器下载文件
  *
  * @category File
- * @param blob 文件数据
+ * @param source 文件数据；字符串视为可直接下载的 URL 或 dataURL
  * @param filename 文件名
  * @example
  * ```ts
@@ -22,16 +22,20 @@
  *     triggerDownload(blob, 'image.png')
  *   }
  * })
+ *
+ * // 下载 dataURL
+ * triggerDownload(canvas.toDataURL(), 'image.png')
  * ```
  */
-export function triggerDownload(blob: Blob, filename: string): void {
+export function triggerDownload(source: Blob | string, filename: string): void {
   // 检查是否在浏览器环境中
   if (typeof window === 'undefined' || typeof document === 'undefined') {
     console.warn('triggerDownload: Not available in server environment')
     return
   }
 
-  const url = URL.createObjectURL(blob)
+  const isBlob = typeof source !== 'string'
+  const url = isBlob ? URL.createObjectURL(source) : source
   const link = document.createElement('a')
   link.href = url
   link.download = filename
@@ -39,5 +43,6 @@ export function triggerDownload(blob: Blob, filename: string): void {
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
-  URL.revokeObjectURL(url)
+  if (isBlob)
+    URL.revokeObjectURL(url)
 }
