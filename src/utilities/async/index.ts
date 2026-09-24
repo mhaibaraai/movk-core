@@ -1,4 +1,5 @@
 export * from './debounce'
+export * from './onceAsync'
 export * from './sleep'
 export * from './sleepWithCancel'
 export * from './throttle'
