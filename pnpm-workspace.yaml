@@ -13,7 +13,7 @@ packages:
   - docs
 
 overrides:
-  h3: 1.15.11
+  h3: 2.0.8
   typescript: ^6.0.3
 
 allowBuilds:
