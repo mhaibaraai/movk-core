@@ -17,7 +17,15 @@ The `transform` method traverses every node in the tree and uses a `transformer`
 ```ts [example.ts]
 import { Tree } from '@movk/core'
 
-const tree = [{ id: 1, name: 'Admin', children: [{ id: 2, name: 'Guest' }] }]
+const tree = [
+  {
+    id: 1,
+    name: 'Admin',
+    children: [
+      { id: 2, name: 'Guest' }
+    ]
+  }
+]
 
 const transformedTree = Tree.transform(tree, ({ node }) => ({
   key: node.id,

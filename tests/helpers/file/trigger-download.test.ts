@@ -45,7 +45,9 @@ describe('triggerDownload', () => {
     triggerDownload(new Blob(['x']), 'a.txt')
 
     expect(create).toHaveBeenCalledOnce()
-    expect(clicked).toEqual([{ href: 'blob:mock', download: 'a.txt' }])
+    expect(clicked).toEqual([
+      { href: 'blob:mock', download: 'a.txt' }
+    ])
     expect(revoke).toHaveBeenCalledWith('blob:mock')
   })
 
@@ -57,7 +59,9 @@ describe('triggerDownload', () => {
 
     expect(create).not.toHaveBeenCalled()
     expect(revoke).not.toHaveBeenCalled()
-    expect(clicked).toEqual([{ href: 'data:image/png;base64,AAAA', download: 'map.png' }])
+    expect(clicked).toEqual([
+      { href: 'data:image/png;base64,AAAA', download: 'map.png' }
+    ])
   })
 
   it('下载后移除临时 a 标签', () => {

@@ -145,7 +145,9 @@ export function removeTrailingSlash(url: string): string {
   if (!path)
     return url
 
-  const trimmed = path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path
+  const trimmed = path.length > 1 && path.endsWith('/')
+    ? path.slice(0, -1)
+    : path
   return trimmed + rest.join('')
 }
 
@@ -168,12 +170,18 @@ export function ensureTrailingSlash(url: string): string {
 
   // 分离路径和查询字符串/哈希
   const queryOrHashIndex = url.search(QUERY_HASH_SEARCH_RE)
-  const path = queryOrHashIndex === -1 ? url : url.slice(0, queryOrHashIndex)
-  const rest = queryOrHashIndex === -1 ? '' : url.slice(queryOrHashIndex)
+  const path = queryOrHashIndex === -1
+    ? url
+    : url.slice(0, queryOrHashIndex)
+  const rest = queryOrHashIndex === -1
+    ? ''
+    : url.slice(queryOrHashIndex)
   if (!path)
     return `/${rest}`
 
-  const withSlash = path.endsWith('/') ? path : `${path}/`
+  const withSlash = path.endsWith('/')
+    ? path
+    : `${path}/`
   return withSlash + rest
 }
 
@@ -213,7 +221,9 @@ export function ensureLeadingSlash(path: string): string {
   if (!path)
     return '/'
 
-  return path.startsWith('/') ? path : `/${path}`
+  return path.startsWith('/')
+    ? path
+    : `/${path}`
 }
 
 /**
@@ -252,12 +262,16 @@ export function buildUrl(
   if (query && Object.keys(query).length > 0) {
     const queryString = stringifyQuery(query)
     if (queryString) {
-      url += (url.includes('?') ? '&' : '?') + queryString
+      url += (url.includes('?')
+        ? '&'
+        : '?') + queryString
     }
   }
 
   if (hash) {
-    const hashPart = hash.startsWith('#') ? hash : `#${hash}`
+    const hashPart = hash.startsWith('#')
+      ? hash
+      : `#${hash}`
     url += hashPart
   }
 

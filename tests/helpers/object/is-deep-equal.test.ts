@@ -10,12 +10,32 @@ describe('isDeepEqual', () => {
   })
 
   it('结构相同的新引用对象视为相等', () => {
-    expect(isDeepEqual({ a: 1, b: { c: [1, 2] } }, { b: { c: [1, 2] }, a: 1 })).toBe(true)
+    expect(isDeepEqual({
+      a: 1,
+      b: {
+        c: [1, 2]
+      }
+    }, {
+      b: {
+        c: [1, 2]
+      },
+      a: 1
+    })).toBe(true)
   })
 
   it('嵌套值不同返回 false', () => {
-    expect(isDeepEqual({ a: { b: 1 } }, { a: { b: 2 } })).toBe(false)
-    expect(isDeepEqual([1, [2, 3]], [1, [2, 4]])).toBe(false)
+    expect(isDeepEqual({
+      a: { b: 1 }
+    }, {
+      a: { b: 2 }
+    })).toBe(false)
+    expect(isDeepEqual([
+      1,
+      [2, 3]
+    ], [
+      1,
+      [2, 4]
+    ])).toBe(false)
   })
 
   it('键数量或键名不同返回 false', () => {
@@ -30,6 +50,8 @@ describe('isDeepEqual', () => {
 
   it('对象与原始值不相等', () => {
     expect(isDeepEqual({}, null)).toBe(false)
-    expect(isDeepEqual(1, { valueOf: () => 1 })).toBe(false)
+    expect(isDeepEqual(1, {
+      valueOf: () => 1
+    })).toBe(false)
   })
 })

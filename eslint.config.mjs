@@ -11,7 +11,10 @@ export default antfu({
 }, {
   files: ['**/*.vue'],
   rules: {
-    'vue/max-attributes-per-line': ['error', { singleline: 5, multiline: 1 }],
+    'vue/max-attributes-per-line': [
+      'error',
+      { singleline: 5, multiline: 1 }
+    ],
   },
 }, {
   files: ['docs/content/**/*.md'],

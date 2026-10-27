@@ -59,7 +59,9 @@ export function useInfiniteScrollBinding(
     () => options.onLoadMore(),
     {
       distance: toValue(options.distance),
-      canLoadMore: () => (options.canLoadMore == null ? true : toValue(options.canLoadMore)),
+      canLoadMore: () => (options.canLoadMore == null
+        ? true
+        : toValue(options.canLoadMore)),
       direction: options.direction,
       interval: options.interval,
     },

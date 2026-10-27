@@ -22,8 +22,11 @@ export interface HighlightSegment {
  * ```
  */
 export function splitHighlight(text: string, term: string): HighlightSegment[] {
-  if (!term.trim() || !text)
-    return [{ text, match: false }]
+  if (!term.trim() || !text) {
+    return [
+      { text, match: false }
+    ]
+  }
 
   const lower = text.toLowerCase()
   const needle = term.toLowerCase()
@@ -31,14 +34,29 @@ export function splitHighlight(text: string, term: string): HighlightSegment[] {
   let cursor = 0
 
   for (let index = lower.indexOf(needle); index !== -1; index = lower.indexOf(needle, cursor)) {
-    if (index > cursor)
-      segments.push({ text: text.slice(cursor, index), match: false })
-    segments.push({ text: text.slice(index, index + needle.length), match: true })
+    if (index > cursor) {
+      segments.push({
+        text: text.slice(cursor, index),
+        match: false
+      })
+    }
+    segments.push({
+      text: text.slice(index, index + needle.length),
+      match: true
+    })
     cursor = index + needle.length
   }
 
-  if (cursor < text.length)
-    segments.push({ text: text.slice(cursor), match: false })
+  if (cursor < text.length) {
+    segments.push({
+      text: text.slice(cursor),
+      match: false
+    })
+  }
 
-  return segments.length > 0 ? segments : [{ text, match: false }]
+  return segments.length > 0
+    ? segments
+    : [
+        { text, match: false }
+      ]
 }

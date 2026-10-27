@@ -23,7 +23,9 @@ buildUrl('https://example.com', '/api/users', { page: 1, limit: 10 })
 buildUrl('https://example.com', '/page', null, 'section')
 // 'https://example.com/page#section'
 
-buildUrl('https://example.com', '/api', { ids: [1, 2, 3] })
+buildUrl('https://example.com', '/api', {
+  ids: [1, 2, 3]
+})
 // 'https://example.com/api?ids=1&ids=2&ids=3'
 ```
 

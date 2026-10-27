@@ -7,8 +7,28 @@ describe('stringifyMinimark', () => {
     const document: MinimarkDocument = {
       value: [
         ['h1', {}, 'Title'],
-        ['p', {}, 'Hello ', ['strong', {}, 'world'], ' ', ['em', {}, 'again']],
-        ['p', {}, ['a', { href: '/x' }, 'link'], ' ', ['img', { src: '/logo.png', alt: 'Logo', title: 'Brand' }]],
+        [
+          'p',
+          {},
+          'Hello ',
+          ['strong', {}, 'world'],
+          ' ',
+          ['em', {}, 'again']
+        ],
+        [
+          'p',
+          {},
+          [
+            'a',
+            { href: '/x' },
+            'link'
+          ],
+          ' ',
+          [
+            'img',
+            { src: '/logo.png', alt: 'Logo', title: 'Brand' }
+          ]
+        ],
       ],
     }
 
@@ -25,8 +45,21 @@ describe('stringifyMinimark', () => {
   it('将未知标签回退为安全 HTML', () => {
     const document: MinimarkDocument = {
       value: [
-        ['span', { title: 'a" onclick="alert(1)&<tag>', hidden: true, inert: false, data: { ok: true } }, 'x'],
-        ['div', { class: 'box' }, ['p', {}, 'Hello']],
+        [
+          'span',
+          {
+            title: 'a" onclick="alert(1)&<tag>',
+            hidden: true,
+            inert: false,
+            data: { ok: true }
+          },
+          'x'
+        ],
+        [
+          'div',
+          { class: 'box' },
+          ['p', {}, 'Hello']
+        ],
       ],
     }
 
@@ -58,7 +91,15 @@ describe('stringifyMinimark', () => {
   it('根据内容选择行内代码 fence', () => {
     const document: MinimarkDocument = {
       value: [
-        ['p', {}, ['code', {}, 'a`b'], ' ', ['code', {}, 'a``b'], ' ', ['code', {}, '`edge`']],
+        [
+          'p',
+          {},
+          ['code', {}, 'a`b'],
+          ' ',
+          ['code', {}, 'a``b'],
+          ' ',
+          ['code', {}, '`edge`']
+        ],
       ],
     }
 
@@ -68,7 +109,31 @@ describe('stringifyMinimark', () => {
   it('序列化列表和任务列表且不修改输入 AST', () => {
     const document: MinimarkDocument = {
       value: [
-        ['ul', {}, ['li', {}, 'A', ['ul', {}, ['li', {}, 'B']]], ['li', { className: ['task-list-item'] }, ['input', { checked: true }], 'Done'],],
+        [
+          'ul',
+          {},
+          [
+            'li',
+            {},
+            'A',
+            [
+              'ul',
+              {},
+              ['li', {}, 'B']
+            ]
+          ],
+          [
+            'li',
+            {
+              className: ['task-list-item']
+            },
+            [
+              'input',
+              { checked: true }
+            ],
+            'Done'
+          ],
+        ],
       ],
     }
     const before = structuredClone(document)
@@ -85,7 +150,38 @@ describe('stringifyMinimark', () => {
   it('序列化表格并转义单元格管道字符', () => {
     const document: MinimarkDocument = {
       value: [
-        ['table', {}, ['thead', {}, ['tr', {}, ['th', { style: 'text-align: left' }, 'Name'], ['th', { style: 'text-align: right' }, 'Age']]], ['tbody', {}, ['tr', {}, ['td', {}, 'Alice | Bob'], ['td', {}, '18']]],],
+        [
+          'table',
+          {},
+          [
+            'thead',
+            {},
+            [
+              'tr',
+              {},
+              [
+                'th',
+                { style: 'text-align: left' },
+                'Name'
+              ],
+              [
+                'th',
+                { style: 'text-align: right' },
+                'Age'
+              ]
+            ]
+          ],
+          [
+            'tbody',
+            {},
+            [
+              'tr',
+              {},
+              ['td', {}, 'Alice | Bob'],
+              ['td', {}, '18']
+            ]
+          ],
+        ],
       ],
     }
 
@@ -100,7 +196,20 @@ describe('stringifyMinimark', () => {
   it('在缺失表头时自动生成表头', () => {
     const document: MinimarkDocument = {
       value: [
-        ['table', {}, ['tbody', {}, ['tr', {}, ['td', {}, 'Alice'], ['td', {}, '18']]],],
+        [
+          'table',
+          {},
+          [
+            'tbody',
+            {},
+            [
+              'tr',
+              {},
+              ['td', {}, 'Alice'],
+              ['td', {}, '18']
+            ]
+          ],
+        ],
       ],
     }
 

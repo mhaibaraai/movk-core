@@ -11,7 +11,15 @@ export default defineMcpTool({
   },
   cache: '30m',
   inputSchema: {
-    category: z.enum(['validators', 'utilities', 'transformers', 'helpers', 'composables', 'types', 'all'])
+    category: z.enum([
+      'validators',
+      'utilities',
+      'transformers',
+      'helpers',
+      'composables',
+      'types',
+      'all'
+    ])
       .optional()
       .describe('Function category'),
     subcategory: z.string().optional().describe('Subcategory, such as "array", "string", or "tree"'),

@@ -17,7 +17,15 @@ The `findById` method quickly finds and returns a node by its `id`. This is an e
 ```ts [example.ts]
 import { Tree } from '@movk/core'
 
-const tree = [{ id: 1, name: 'A', children: [{ id: 2, name: 'B' }] }]
+const tree = [
+  {
+    id: 1,
+    name: 'A',
+    children: [
+      { id: 2, name: 'B' }
+    ]
+  }
+]
 
 const node = Tree.findById(tree, 2)
 

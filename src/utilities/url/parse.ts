@@ -34,7 +34,9 @@ export function parseUrl(url: string, base?: string): ParsedUrl | null {
     return null
 
   try {
-    const parsed = base ? new URL(url, base) : new URL(url)
+    const parsed = base
+      ? new URL(url, base)
+      : new URL(url)
     return {
       href: parsed.href,
       protocol: parsed.protocol,
@@ -44,7 +46,11 @@ export function parseUrl(url: string, base?: string): ParsedUrl | null {
       pathname: parsed.pathname,
       search: parsed.search,
       hash: parsed.hash,
-      auth: parsed.username ? `${parsed.username}${parsed.password ? `:${parsed.password}` : ''}` : '',
+      auth: parsed.username
+        ? `${parsed.username}${parsed.password
+          ? `:${parsed.password}`
+          : ''}`
+        : '',
       origin: parsed.origin,
     }
   }
@@ -195,7 +201,9 @@ export function getRootDomain(url: string): string {
   }
 
   // 返回最后两部分
-  return parts.length >= 2 ? parts.slice(-2).join('.') : hostname
+  return parts.length >= 2
+    ? parts.slice(-2).join('.')
+    : hostname
 }
 
 /**
@@ -255,5 +263,7 @@ export function getUrlFilename(url: string, includeExtension = true): string {
     return lastSegment
 
   const dotIndex = lastSegment.lastIndexOf('.')
-  return dotIndex > 0 ? lastSegment.slice(0, dotIndex) : lastSegment
+  return dotIndex > 0
+    ? lastSegment.slice(0, dotIndex)
+    : lastSegment
 }

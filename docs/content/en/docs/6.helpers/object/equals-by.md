@@ -28,7 +28,11 @@ When both values are objects, the path is used to extract and compare values. Se
 
 ```ts
 equalsBy({ id: 1, name: 'A' }, { id: 1, name: 'B' }, { by: 'id' }) // true
-equalsBy({ meta: { id: 1 } }, { meta: { id: 2 } }, { by: 'meta.id' }) // false
+equalsBy({
+  meta: { id: 1 }
+}, {
+  meta: { id: 2 }
+}, { by: 'meta.id' }) // false
 ```
 
 ### by predicate function
@@ -37,7 +41,9 @@ equalsBy({ meta: { id: 1 } }, { meta: { id: 2 } }, { by: 'meta.id' }) // false
 equalsBy(
   { tenant: 't1', user: 'u1' },
   { tenant: 't1', user: 'u1' },
-  { by: (a, b) => a.tenant === b.tenant && a.user === b.user },
+  {
+    by: (a, b) => a.tenant === b.tenant && a.user === b.user
+  },
 ) // true
 ```
 
@@ -49,7 +55,9 @@ Only used when `by` is not set and both values are objects. Candidate keys are i
 equalsBy(
   { label: 'HSL', value: 'hsl' },
   { label: 'HSL', value: 'hsl' },
-  { keys: ['value', 'label'] },
+  {
+    keys: ['value', 'label']
+  },
 ) // true (first candidate 'value' matches)
 ```
 

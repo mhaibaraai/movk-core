@@ -35,7 +35,10 @@ export function updateNode<T = any>(
     index: number,
   ): { node: TreeNode<T>, changed: boolean } => {
     if (node[idKey] === targetId) {
-      return { node: updater({ node, depth, path, index }) as TreeNode<T>, changed: true }
+      return {
+        node: updater({ node, depth, path, index }) as TreeNode<T>,
+        changed: true
+      }
     }
 
     const children = node[childrenKey]
@@ -48,8 +51,12 @@ export function updateNode<T = any>(
           changed = true
         return result.node
       })
-      if (changed)
-        return { node: { ...node, [childrenKey]: newChildren }, changed: true }
+      if (changed) {
+        return {
+          node: { ...node, [childrenKey]: newChildren },
+          changed: true
+        }
+      }
     }
 
     return { node, changed: false }

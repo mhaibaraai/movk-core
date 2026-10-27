@@ -25,8 +25,35 @@ interface State {
 const BLOCK_SEP = '\n\n'
 const HEADING_TAG_RE = /^h([1-6])$/
 
-const SELF_CLOSE_TAGS = new Set(['br', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'])
-const INLINE_TAGS = new Set(['strong', 'em', 'code', 'a', 'br', 'span', 'img', 'b', 'i', 's', 'del', 'sub', 'sup', 'mark', 'abbr', 'kbd'])
+const SELF_CLOSE_TAGS = new Set([
+  'br',
+  'hr',
+  'img',
+  'input',
+  'link',
+  'meta',
+  'source',
+  'track',
+  'wbr'
+])
+const INLINE_TAGS = new Set([
+  'strong',
+  'em',
+  'code',
+  'a',
+  'br',
+  'span',
+  'img',
+  'b',
+  'i',
+  's',
+  'del',
+  'sub',
+  'sup',
+  'mark',
+  'abbr',
+  'kbd'
+])
 
 function createState(context: State['context'] = 'block', listDepth = 0): State {
   return { context, listDepth }
@@ -108,7 +135,9 @@ function inlineCode(content: string): string {
   const max = Math.max(0, ...matches.map(match => match.length))
   const fence = '`'.repeat(max + 1)
   const needsPadding = content.startsWith('`') || content.endsWith('`')
-  const body = needsPadding ? ` ${content} ` : content
+  const body = needsPadding
+    ? ` ${content} `
+    : content
   return `${fence}${body}${fence}`
 }
 
@@ -128,11 +157,17 @@ function rawText(children: MinimarkNode[]): string {
 
 function indent(text: string, level: number): string {
   const prefix = '  '.repeat(level)
-  return text.split('\n').map((line, index) => index === 0 ? line : (line ? prefix + line : line)).join('\n')
+  return text.split('\n').map((line, index) => index === 0
+    ? line
+    : (line
+        ? prefix + line
+        : line)).join('\n')
 }
 
 function toHtml(state: State, tag: string, attrs: MinimarkAttributes, children: MinimarkNode[]): string {
-  const attrStr = Object.keys(attrs).length > 0 ? ` ${htmlAttributes(attrs)}`.trimEnd() : ''
+  const attrStr = Object.keys(attrs).length > 0
+    ? ` ${htmlAttributes(attrs)}`.trimEnd()
+    : ''
 
   if (SELF_CLOSE_TAGS.has(tag)) {
     return `<${tag}${attrStr} />`
@@ -163,7 +198,9 @@ function formatHighlights(highlights: number[]): string {
       continue
     }
 
-    ranges.push(start === end ? String(start) : `${start}-${end}`)
+    ranges.push(start === end
+      ? String(start)
+      : `${start}-${end}`)
     if (index < sorted.length) {
       start = sorted[index]!
       end = sorted[index]!
@@ -182,7 +219,9 @@ function stringifyLi(node: MinimarkNode, state: State, ordered: boolean, index: 
     ? attrs.className.join(' ')
     : String(attrs?.className || attrs?.class || '')
 
-  let prefix = ordered ? `${index}. ` : '- '
+  let prefix = ordered
+    ? `${index}. `
+    : '- '
   let itemChildren = children
 
   if (className.includes('task-list-item') && children.length > 0) {
@@ -269,7 +308,13 @@ function stringifyTable(children: MinimarkNode[], state: State): string {
   if (headerRows.length === 0 && bodyRows.length > 0) {
     const firstRow = bodyRows[0]!
     const cellCount = getCells(firstRow).length
-    headerRows = [['tr', {}, ...Array.from({ length: cellCount }, (_, index): MinimarkNode => ['th', {}, `Column ${index + 1}`])]]
+    headerRows = [
+      [
+        'tr',
+        {},
+        ...Array.from({ length: cellCount }, (_, index): MinimarkNode => ['th', {}, `Column ${index + 1}`])
+      ]
+    ]
   }
 
   if (headerRows.length === 0)
@@ -278,7 +323,9 @@ function stringifyTable(children: MinimarkNode[], state: State): string {
   const headerRow = headerRows[0]!
   const headerCells = getCells(headerRow)
   const headerContent = headerCells.map(cell => getCellContent(cell, state))
-  const alignments = headerCells.map(cell => typeof cell !== 'string' ? getAlignment(cell[1] || {}) : null)
+  const alignments = headerCells.map(cell => typeof cell !== 'string'
+    ? getAlignment(cell[1] || {})
+    : null)
   const colWidths = headerContent.map(content => Math.max(3, content.length))
 
   for (const row of bodyRows) {
@@ -332,9 +379,15 @@ function stringify(node: MinimarkNode, state: State): string {
     case 'pre': {
       const lang = attrs.language || ''
       const code = attrs.code ?? flow(children, state)
-      const filename = attrs.filename ? ` [${String(attrs.filename).replace(/\]/g, '\\]')}]` : ''
-      const highlights = Array.isArray(attrs.highlights) ? ` {${formatHighlights(attrs.highlights)}}` : ''
-      const meta = attrs.meta ? ` ${String(attrs.meta)}` : ''
+      const filename = attrs.filename
+        ? ` [${String(attrs.filename).replace(/\]/g, '\\]')}]`
+        : ''
+      const highlights = Array.isArray(attrs.highlights)
+        ? ` {${formatHighlights(attrs.highlights)}}`
+        : ''
+      const meta = attrs.meta
+        ? ` ${String(attrs.meta)}`
+        : ''
       return `\`\`\`${lang}${filename}${highlights}${meta}\n${String(code).trim()}\n\`\`\`${BLOCK_SEP}`
     }
 
@@ -357,7 +410,9 @@ function stringify(node: MinimarkNode, state: State): string {
       const { href, ...rest } = attrs
       const attrsStr = Object.keys(rest).length > 0
         ? `{${Object.entries(rest)
-          .flatMap(([key, value]) => value === false || value === null || value === undefined ? [] : [`${key}="${escapeMdcAttribute(value)}"`])
+          .flatMap(([key, value]) => value === false || value === null || value === undefined
+            ? []
+            : [`${key}="${escapeMdcAttribute(value)}"`])
           .join(' ')}}`
         : ''
       return `[${escapeLinkText(flow(children, withContext(state, 'inline')))}](${escapeLinkDestination(href)})${attrsStr}`

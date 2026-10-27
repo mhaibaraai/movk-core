@@ -57,7 +57,9 @@ describe('baseTransform', () => {
   describe('自定义 transform 函数', () => {
     it('应优先使用自定义 transform 函数', () => {
       const customTransform = (word: string, index: number) => {
-        return index === 0 ? word.toLowerCase() : word.toUpperCase()
+        return index === 0
+          ? word.toLowerCase()
+          : word.toUpperCase()
       }
 
       expect(baseTransform('hello world', {
@@ -80,14 +82,26 @@ describe('baseTransform', () => {
       })
 
       expect(calls).toEqual([
-        { word: 'Hello', index: 0, lower: 'hello', upper: 'HELLO' },
-        { word: 'WORLD', index: 1, lower: 'world', upper: 'WORLD' },
+        {
+          word: 'Hello',
+          index: 0,
+          lower: 'hello',
+          upper: 'HELLO'
+        },
+        {
+          word: 'WORLD',
+          index: 1,
+          lower: 'world',
+          upper: 'WORLD'
+        },
       ])
     })
 
     it('应允许基于索引的条件转换', () => {
       const transform = (word: string, index: number, lower: string) => {
-        return index === 0 ? lower : lower.charAt(0).toUpperCase() + lower.slice(1)
+        return index === 0
+          ? lower
+          : lower.charAt(0).toUpperCase() + lower.slice(1)
       }
 
       expect(baseTransform('foo bar baz', {

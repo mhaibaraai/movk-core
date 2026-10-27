@@ -1,8 +1,12 @@
 import type { ToolState } from '#ai-chat/types'
 
 export function useToolCall(state: ToolState, toolName: string, input: Record<string, string | undefined>) {
-  const searchVerb = state === 'output-available' ? '已检索' : '检索中'
-  const readVerb = state === 'output-available' ? '已读取' : '读取中'
+  const searchVerb = state === 'output-available'
+    ? '已检索'
+    : '检索中'
+  const readVerb = state === 'output-available'
+    ? '已读取'
+    : '读取中'
 
   const toolMessage: Record<string, string> = {
     'list-functions': `${searchVerb} 函数列表`,

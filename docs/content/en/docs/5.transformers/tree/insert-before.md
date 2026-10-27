@@ -17,7 +17,10 @@ The `insertBefore` method inserts a new node immediately before the target node 
 ```ts [example.ts]
 import { Tree } from '@movk/core'
 
-const tree = [{ id: 1, name: 'A' }, { id: 2, name: 'C' }]
+const tree = [
+  { id: 1, name: 'A' },
+  { id: 2, name: 'C' }
+]
 const newNode = { id: 3, name: 'B' }
 
 Tree.insertBefore(tree, newNode, 2)

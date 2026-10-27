@@ -76,6 +76,8 @@ export function transformFirstChar(str: string, toUpper: boolean): string {
     return ''
 
   const first = str.charAt(0)
-  const transformed = toUpper ? first.toUpperCase() : first.toLowerCase()
+  const transformed = toUpper
+    ? first.toUpperCase()
+    : first.toLowerCase()
   return transformed + str.slice(1)
 }

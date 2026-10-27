@@ -17,7 +17,15 @@ The `find` method performs a depth-first search on the tree and returns the firs
 ```ts [example.ts]
 import { Tree } from '@movk/core'
 
-const tree = [{ id: 1, name: 'A', children: [{ id: 2, name: 'B' }] }]
+const tree = [
+  {
+    id: 1,
+    name: 'A',
+    children: [
+      { id: 2, name: 'B' }
+    ]
+  }
+]
 
 const node = Tree.find(tree, ({ node }) => node.name === 'B')
 

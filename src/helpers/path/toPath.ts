@@ -119,7 +119,10 @@ export function toPath(path: PathInput): PathSegments {
     // 纯十进制非负整数字面量 => number 段
     if (DECIMAL_INDEX_RE.test(trimmed)) {
       j++
-      return { segment: Number(trimmed), next: j }
+      return {
+        segment: Number(trimmed),
+        next: j
+      }
     }
     // 否则作为字符串键
     j++

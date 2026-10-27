@@ -23,7 +23,9 @@ interface EqualsByOptions<T = unknown> {
 }
 
 function unwrap<T>(value: T): T {
-  return isObject(value) ? (toRaw(value) as T) : value
+  return isObject(value)
+    ? (toRaw(value) as T)
+    : value
 }
 
 function isUsableScalar(value: unknown): boolean {

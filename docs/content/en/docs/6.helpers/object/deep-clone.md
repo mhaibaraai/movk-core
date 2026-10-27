@@ -19,7 +19,16 @@ It prefers the native `structuredClone` when available, falling back to a custom
 ```ts
 import { deepClone } from '@movk/core'
 
-const source = { a: 1, d: new Date(), m: new Map([[1, { x: 2 }]]) }
+const source = {
+  a: 1,
+  d: new Date(),
+  m: new Map([
+    [
+      1,
+      { x: 2 }
+    ]
+  ])
+}
 const cloned = deepClone(source)
 cloned !== source // true
 cloned.d !== source.d // true

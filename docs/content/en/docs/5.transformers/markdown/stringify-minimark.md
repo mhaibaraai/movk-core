@@ -20,7 +20,12 @@ import { stringifyMinimark } from '@movk/core'
 stringifyMinimark({
   value: [
     ['h1', {}, 'Title'],
-    ['p', {}, 'Hello ', ['strong', {}, 'world']],
+    [
+      'p',
+      {},
+      'Hello ',
+      ['strong', {}, 'world']
+    ],
   ],
 })
 // => "# Title\n\nHello **world**\n"
@@ -31,7 +36,12 @@ stringifyMinimark({
 ```ts
 stringifyMinimark({
   value: [
-    ['ul', {}, ['li', {}, 'first'], ['li', {}, 'second']],
+    [
+      'ul',
+      {},
+      ['li', {}, 'first'],
+      ['li', {}, 'second']
+    ],
   ],
 })
 // => "- first\n- second\n"
@@ -42,7 +52,11 @@ stringifyMinimark({
 ```ts
 stringifyMinimark({
   value: [
-    ['div', { class: 'note' }, ['p', {}, 'content']],
+    [
+      'div',
+      { class: 'note' },
+      ['p', {}, 'content']
+    ],
   ],
 })
 // => unsupported div tag falls back to HTML output

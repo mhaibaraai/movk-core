@@ -17,7 +17,15 @@ links:
 ```ts
 import { getPath } from '@movk/core'
 
-const obj = { a: { b: { c: 1, d: undefined }, e: null }, arr: [{ x: 9 }] }
+const obj = {
+  a: {
+    b: { c: 1, d: undefined },
+    e: null
+  },
+  arr: [
+    { x: 9 }
+  ]
+}
 getPath(obj, 'a.b.c') // 1
 getPath(obj, 'a.b.d', 42) // 42 (d is undefined, default value is used)
 getPath(obj, 'a.e', 100) // null (null does not trigger the default value)

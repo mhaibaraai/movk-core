@@ -20,7 +20,9 @@ import { stringifyQuery } from '@movk/core'
 stringifyQuery({ name: 'John', age: 30 })
 // 'name=John&age=30'
 
-stringifyQuery({ tags: ['a', 'b', 'c'] })
+stringifyQuery({
+  tags: ['a', 'b', 'c']
+})
 // 'tags=a&tags=b&tags=c'
 
 stringifyQuery({ name: '中文' })

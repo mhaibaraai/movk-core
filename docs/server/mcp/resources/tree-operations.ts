@@ -39,11 +39,13 @@ export default defineMcpResource({
     }
 
     return {
-      contents: [{
-        uri: uri.toString(),
-        mimeType: 'application/json',
-        text: JSON.stringify(data, null, 2),
-      }]
+      contents: [
+        {
+          uri: uri.toString(),
+          mimeType: 'application/json',
+          text: JSON.stringify(data, null, 2),
+        }
+      ]
     }
   }
 })

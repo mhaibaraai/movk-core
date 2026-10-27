@@ -95,7 +95,9 @@ export function toList<T = any>(
   const { children: childrenKey } = parseTreeConfig(config)
   const result: T[] = []
 
-  const nodes = Array.isArray(tree) ? tree : [tree]
+  const nodes = Array.isArray(tree)
+    ? tree
+    : [tree]
 
   const traverse = (node: TreeNode<T>) => {
     const { [childrenKey]: children, ...rest } = node
@@ -140,7 +142,9 @@ export function estimateSize<T = any>(
 ): number {
   const { children: childrenKey } = parseTreeConfig(config)
 
-  const nodes = Array.isArray(tree) ? tree : [tree]
+  const nodes = Array.isArray(tree)
+    ? tree
+    : [tree]
   let count = 0
 
   const traverse = (node: TreeNode<T>) => {

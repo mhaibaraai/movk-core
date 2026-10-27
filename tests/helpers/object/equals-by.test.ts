@@ -78,7 +78,10 @@ describe('equalsBy', () => {
       const res = equalsBy(
         { id: 1, value: 'v' },
         { id: 2, value: 'v' },
-        { by, keys: ['value'] },
+        {
+          by,
+          keys: ['value']
+        },
       )
       expect(res).toBe(false)
       expect(by).toHaveBeenCalledTimes(1)
@@ -102,10 +105,18 @@ describe('equalsBy', () => {
 
     it('嵌套路径', () => {
       expect(
-        equalsBy({ meta: { id: 1 } }, { meta: { id: 1 } }, { by: 'meta.id' }),
+        equalsBy({
+          meta: { id: 1 }
+        }, {
+          meta: { id: 1 }
+        }, { by: 'meta.id' }),
       ).toBe(true)
       expect(
-        equalsBy({ meta: { id: 1 } }, { meta: { id: 2 } }, { by: 'meta.id' }),
+        equalsBy({
+          meta: { id: 1 }
+        }, {
+          meta: { id: 2 }
+        }, { by: 'meta.id' }),
       ).toBe(false)
     })
 
@@ -117,7 +128,10 @@ describe('equalsBy', () => {
       const res = equalsBy(
         { id: 1, value: 'v' },
         { id: 2, value: 'v' },
-        { by: 'id', keys: ['value'] },
+        {
+          by: 'id',
+          keys: ['value']
+        },
       )
       expect(res).toBe(false)
     })
@@ -129,7 +143,9 @@ describe('equalsBy', () => {
         equalsBy(
           { label: 'A', value: 'a' },
           { label: 'A', value: 'a' },
-          { keys: ['value', 'label'] },
+          {
+            keys: ['value', 'label']
+          },
         ),
       ).toBe(true)
     })
@@ -139,7 +155,9 @@ describe('equalsBy', () => {
         equalsBy(
           { label: 'HSL' },
           { label: 'HSL' },
-          { keys: ['value', 'label'] },
+          {
+            keys: ['value', 'label']
+          },
         ),
       ).toBe(true)
     })
@@ -147,9 +165,17 @@ describe('equalsBy', () => {
     it('候选键值为对象时跳过', () => {
       expect(
         equalsBy(
-          { meta: { v: 1 }, label: 'A' },
-          { meta: { v: 1 }, label: 'A' },
-          { keys: ['meta', 'label'] },
+          {
+            meta: { v: 1 },
+            label: 'A'
+          },
+          {
+            meta: { v: 1 },
+            label: 'A'
+          },
+          {
+            keys: ['meta', 'label']
+          },
         ),
       ).toBe(true)
     })
@@ -159,7 +185,9 @@ describe('equalsBy', () => {
         equalsBy(
           { value: 'a' },
           { value: 'a' },
-          { keys: [null, undefined, 'value'] },
+          {
+            keys: [null, undefined, 'value']
+          },
         ),
       ).toBe(true)
     })
@@ -167,15 +195,23 @@ describe('equalsBy', () => {
     it('所有候选键都无可用标量返回 false', () => {
       expect(
         equalsBy(
-          { a: { x: 1 } },
-          { a: { x: 1 } },
-          { keys: ['missing', 'a'] },
+          {
+            a: { x: 1 }
+          },
+          {
+            a: { x: 1 }
+          },
+          {
+            keys: ['missing', 'a']
+          },
         ),
       ).toBe(false)
     })
 
     it('任一非对象时不启用 keys 回退', () => {
-      expect(equalsBy('hsl' as any, { value: 'hsl' } as any, { keys: ['value'] })).toBe(false)
+      expect(equalsBy('hsl' as any, { value: 'hsl' } as any, {
+        keys: ['value']
+      })).toBe(false)
     })
   })
 
@@ -188,7 +224,11 @@ describe('equalsBy', () => {
 
     it('可用于 Array.some 回调', () => {
       const sameUser = createEqualsBy<{ id: number }>({ by: 'id' })
-      const list = [{ id: 1 }, { id: 2 }, { id: 3 }]
+      const list = [
+        { id: 1 },
+        { id: 2 },
+        { id: 3 }
+      ]
       expect(list.some(u => sameUser(u, { id: 2 }))).toBe(true)
       expect(list.some(u => sameUser(u, { id: 99 }))).toBe(false)
     })

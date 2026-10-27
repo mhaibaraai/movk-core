@@ -53,7 +53,9 @@ export function setPath<T extends Record<string, any>>(object: T, path: PathInpu
     const isValidObject = isValidContainer(nextVal)
 
     if (!isValidObject) {
-      nextVal = needArray ? [] : {}
+      nextVal = needArray
+        ? []
+        : {}
       cur[key as any] = nextVal
     }
     else if (needArray && !Array.isArray(nextVal)) {

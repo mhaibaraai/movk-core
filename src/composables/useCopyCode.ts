@@ -78,7 +78,9 @@ function copyTextLegacy(text: string): boolean {
   const element = document.createElement('textarea')
   const previouslyFocusedElement = document.activeElement
   const selection = document.getSelection()
-  const originalRange = selection && selection.rangeCount > 0 ? selection.getRangeAt(0) : null
+  const originalRange = selection && selection.rangeCount > 0
+    ? selection.getRangeAt(0)
+    : null
 
   try {
     element.value = text

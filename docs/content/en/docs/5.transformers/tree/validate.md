@@ -20,11 +20,21 @@ The `validate` method checks whether a tree structure is valid. It primarily che
 import { Tree } from '@movk/core'
 
 // Valid tree
-const validTree = [{ id: 1, children: [{ id: 2 }] }]
+const validTree = [
+  {
+    id: 1,
+    children: [
+      { id: 2 }
+    ]
+  }
+]
 Tree.validate(validTree) // no error thrown
 
 // Invalid tree (duplicate IDs)
-const invalidTree1 = [{ id: 1 }, { id: 1 }]
+const invalidTree1 = [
+  { id: 1 },
+  { id: 1 }
+]
 try {
   Tree.validate(invalidTree1)
 }
@@ -34,7 +44,10 @@ catch (e) {
 
 // Invalid tree (circular reference)
 const node1 = { id: 1 }
-const node2 = { id: 2, children: [node1] }
+const node2 = {
+  id: 2,
+  children: [node1]
+}
 node1.children = [node2]
 const invalidTree2 = [node1]
 try {

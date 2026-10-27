@@ -152,7 +152,9 @@ describe('buildUrl', () => {
   })
 
   it('应该支持数组查询参数', () => {
-    expect(buildUrl('https://example.com', '/api', { ids: [1, 2, 3] }))
+    expect(buildUrl('https://example.com', '/api', {
+      ids: [1, 2, 3]
+    }))
       .toBe('https://example.com/api?ids=1&ids=2&ids=3')
   })
 

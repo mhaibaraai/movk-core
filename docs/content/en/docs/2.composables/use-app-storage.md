@@ -52,7 +52,9 @@ console.log(state.value.theme) // 'light'
 function toggleTheme() {
   setItem({
     ...state.value,
-    theme: state.value.theme === 'light' ? 'dark' : 'light'
+    theme: state.value.theme === 'light'
+      ? 'dark'
+      : 'light'
   })
 }
 

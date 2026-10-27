@@ -34,5 +34,7 @@ export function getPath<T, D = undefined>(object: T, path: PathInput, defaultVal
     const key = segments[idx] as any
     cur = cur[key]
   }
-  return cur === undefined ? (defaultValue as D) : cur
+  return cur === undefined
+    ? (defaultValue as D)
+    : cur
 }

@@ -4,30 +4,34 @@ const { header } = useAppConfig()
 
 const { localePath } = useMovkI18n()
 const logoRef = ref()
-const logoTo = computed(() => header.to?.startsWith('/') ? localePath(header.to) : header.to)
+const logoTo = computed(() => header.to?.startsWith('/')
+  ? localePath(header.to)
+  : header.to)
 
 const toast = useToast()
 const { copy } = useClipboard()
 
 const items = [
-  [{
-    label: 'Copy logo as SVG',
-    icon: 'i-simple-icons-nuxt',
-    onSelect() {
-      if (!logoRef.value) {
-        return
+  [
+    {
+      label: 'Copy logo as SVG',
+      icon: 'i-simple-icons-nuxt',
+      onSelect() {
+        if (!logoRef.value) {
+          return
+        }
+
+        copy(logoRef.value.$el.outerHTML)
+
+        toast.add({
+          title: 'logo copied as SVG',
+          description: 'You can now paste it into your project',
+          icon: 'i-lucide-circle-check',
+          color: 'success'
+        })
       }
-
-      copy(logoRef.value.$el.outerHTML)
-
-      toast.add({
-        title: 'logo copied as SVG',
-        description: 'You can now paste it into your project',
-        icon: 'i-lucide-circle-check',
-        color: 'success'
-      })
     }
-  }]
+  ]
 ]
 </script>
 

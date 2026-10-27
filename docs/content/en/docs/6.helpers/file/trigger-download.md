@@ -29,7 +29,9 @@ triggerDownload(textBlob, 'hello.txt')
 
 // Download JSON data
 const data = { name: 'John', age: 30 }
-const jsonBlob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+const jsonBlob = new Blob([
+  JSON.stringify(data, null, 2)
+], { type: 'application/json' })
 triggerDownload(jsonBlob, 'data.json')
 
 // Download an image

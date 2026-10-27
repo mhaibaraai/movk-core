@@ -121,7 +121,9 @@ describe('convertToKebabCase', () => {
     })
 
     it('应保持数组值不变', () => {
-      const input = { userTags: ['tag1', 'tag2'] }
+      const input = {
+        userTags: ['tag1', 'tag2']
+      }
       const result = convertToKebabCase(input) as any
       expect(result['user-tags']).toEqual(['tag1', 'tag2'])
     })

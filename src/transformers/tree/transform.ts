@@ -36,7 +36,9 @@ export function filter<T = any>(
 ): TreeNode<T>[] {
   const { children: childrenKey } = parseTreeConfig(config)
 
-  const nodes = Array.isArray(tree) ? tree : [tree]
+  const nodes = Array.isArray(tree)
+    ? tree
+    : [tree]
   const results: TreeNode<T>[] = []
 
   const traverse = (
@@ -114,7 +116,9 @@ export function transform<T = any, R = any>(
 ): TreeNode<R>[] {
   const { children: childrenKey } = parseTreeConfig(config)
 
-  const nodes = Array.isArray(tree) ? tree : [tree]
+  const nodes = Array.isArray(tree)
+    ? tree
+    : [tree]
   const results: TreeNode<R>[] = []
 
   const traverse = (

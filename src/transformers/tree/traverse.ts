@@ -31,7 +31,9 @@ export function forEach<T = any>(
   visitor: TreeVisitor<T>,
   config: TreeConfigInput = {},
 ): void {
-  const nodes = Array.isArray(tree) ? tree : [tree]
+  const nodes = Array.isArray(tree)
+    ? tree
+    : [tree]
   const strategy = selectStrategy('forEach')
 
   const generator = strategy === 'dfs'
@@ -39,7 +41,12 @@ export function forEach<T = any>(
     : bfsGenerator(nodes, config)
 
   for (const result of generator) {
-    const shouldContinue = visitor({ node: result.node, depth: result.depth, path: result.path, index: result.index })
+    const shouldContinue = visitor({
+      node: result.node,
+      depth: result.depth,
+      path: result.path,
+      index: result.index
+    })
     if (shouldContinue === false) {
       break
     }

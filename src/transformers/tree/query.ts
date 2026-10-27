@@ -30,7 +30,9 @@ export function find<T = any>(
   predicate: TreePredicate<T>,
   config: TreeConfigInput = {},
 ): TreeNode<T> | undefined {
-  const nodes = Array.isArray(tree) ? tree : [tree]
+  const nodes = Array.isArray(tree)
+    ? tree
+    : [tree]
   const strategy = selectStrategy('find')
 
   const generator = strategy === 'dfs'
@@ -38,7 +40,12 @@ export function find<T = any>(
     : bfsGenerator(nodes, config)
 
   for (const result of generator) {
-    if (predicate({ node: result.node, depth: result.depth, path: result.path, index: result.index })) {
+    if (predicate({
+      node: result.node,
+      depth: result.depth,
+      path: result.path,
+      index: result.index
+    })) {
       return result.node
     }
   }
@@ -76,7 +83,9 @@ export function findAll<T = any>(
   predicate: TreePredicate<T>,
   config: TreeConfigInput = {},
 ): TreeNode<T>[] {
-  const nodes = Array.isArray(tree) ? tree : [tree]
+  const nodes = Array.isArray(tree)
+    ? tree
+    : [tree]
   const strategy = selectStrategy('findAll')
   const results: TreeNode<T>[] = []
 
@@ -85,7 +94,12 @@ export function findAll<T = any>(
     : bfsGenerator(nodes, config)
 
   for (const result of generator) {
-    if (predicate({ node: result.node, depth: result.depth, path: result.path, index: result.index })) {
+    if (predicate({
+      node: result.node,
+      depth: result.depth,
+      path: result.path,
+      index: result.index
+    })) {
       results.push(result.node)
     }
   }

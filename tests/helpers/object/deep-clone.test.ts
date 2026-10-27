@@ -19,14 +19,22 @@ describe('deepClone', () => {
   })
 
   it('应该克隆嵌套对象', () => {
-    const obj = { a: { b: { c: 1 } } }
+    const obj = {
+      a: {
+        b: { c: 1 }
+      }
+    }
     const cloned = deepClone(obj)
     expect(cloned).toEqual(obj)
     expect(cloned.a.b).not.toBe(obj.a.b)
   })
 
   it('应该克隆数组', () => {
-    const arr = [1, { a: 2 }, [3]]
+    const arr = [
+      1,
+      { a: 2 },
+      [3]
+    ]
     const cloned = deepClone(arr)
     expect(cloned).toEqual(arr)
     expect(cloned).not.toBe(arr)

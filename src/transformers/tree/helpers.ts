@@ -44,7 +44,12 @@ function* dfsGenerator<T = any>(
 
   for (const node of nodes) {
     const currentPath = [...path, node]
-    yield { node, path: currentPath, depth: path.length, index: index++ }
+    yield {
+      node,
+      path: currentPath,
+      depth: path.length,
+      index: index++
+    }
 
     const children = node[childrenKey]
     if (children && children.length > 0) {

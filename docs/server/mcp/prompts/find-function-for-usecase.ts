@@ -47,19 +47,21 @@ export default defineMcpPrompt({
     }))
 
     return {
-      messages: [{
-        role: 'user' as const,
-        content: {
-          type: 'text' as const,
-          text: `User use case: ${usecase}
+      messages: [
+        {
+          role: 'user' as const,
+          content: {
+            type: 'text' as const,
+            text: `User use case: ${usecase}
 
 Here are all available functions in @movk/core (${functionList.length} total):
 
 ${JSON.stringify(functionList, null, 2)}
 
 Based on the user's use case, recommend the most suitable function(s). If several functions can be combined, explain how to combine them. If there is no exact match, recommend the closest alternative.`
+          }
         }
-      }]
+      ]
     }
   }
 })
