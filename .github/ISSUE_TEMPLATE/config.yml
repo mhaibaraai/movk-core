@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 文档
+    url: https://core.mhaibaraai.cn
+    about: 函数用法与 API 说明，提问前请先查阅文档
