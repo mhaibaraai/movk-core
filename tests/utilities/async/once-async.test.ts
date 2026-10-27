@@ -5,7 +5,10 @@ describe('onceAsync', () => {
   it('并发调用共享同一个 Promise，fn 只执行一次', async () => {
     const fn = vi.fn(async () => 42)
     const load = onceAsync(fn)
-    const [a, b] = await Promise.all([load(), load()])
+    const [a, b] = await Promise.all([
+      load(),
+      load()
+    ])
     expect(a).toBe(42)
     expect(b).toBe(42)
     expect(fn).toHaveBeenCalledOnce()

@@ -17,7 +17,15 @@ links:
 ```ts [example.ts]
 import { Tree } from '@movk/core'
 
-const tree = [{ id: 1, name: 'Admin', children: [{ id: 2, name: 'Guest' }] }]
+const tree = [
+  {
+    id: 1,
+    name: 'Admin',
+    children: [
+      { id: 2, name: 'Guest' }
+    ]
+  }
+]
 
 const transformedTree = Tree.transform(tree, ({ node }) => ({
   key: node.id,

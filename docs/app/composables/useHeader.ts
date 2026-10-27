@@ -5,14 +5,17 @@ export function useHeader() {
 
   const isActive = (path: string) => route.path.startsWith(localePath(path))
 
-  const desktopLinks = computed(() => [{
-    label: t('nav.docs'),
-    to: localePath('/docs/getting-started'),
-    active: isActive('/docs')
-  }, {
-    label: t('nav.releases'),
-    to: localePath('/releases')
-  }])
+  const desktopLinks = computed(() => [
+    {
+      label: t('nav.docs'),
+      to: localePath('/docs/getting-started'),
+      active: isActive('/docs')
+    },
+    {
+      label: t('nav.releases'),
+      to: localePath('/releases')
+    }
+  ])
 
   const docsNav = [
     { key: 'getStarted', icon: 'i-lucide-square-play', slug: 'getting-started' },

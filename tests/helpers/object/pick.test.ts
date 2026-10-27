@@ -2,7 +2,12 @@ import { describe, expect, it } from 'vitest'
 import { pick } from '../../../src/helpers/object'
 
 describe('pick', () => {
-  const user = { id: 1, name: 'John', email: 'john@example.com', password: 'secret' }
+  const user = {
+    id: 1,
+    name: 'John',
+    email: 'john@example.com',
+    password: 'secret'
+  }
 
   it('应该从对象中选择指定的键', () => {
     const publicInfo = pick(user, ['id', 'name', 'email'])

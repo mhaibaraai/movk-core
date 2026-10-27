@@ -16,5 +16,7 @@
  * ```
  */
 export function flatten<T>(arr: T[], depth = 1): any[] {
-  return depth === 1 ? arr.flat() : arr.flat(depth)
+  return depth === 1
+    ? arr.flat()
+    : arr.flat(depth)
 }

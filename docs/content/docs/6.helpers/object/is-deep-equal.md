@@ -18,8 +18,16 @@ navigation.badge: v1.5.0
 ```ts
 import { isDeepEqual } from '@movk/core'
 
-isDeepEqual({ a: [1, 2] }, { a: [1, 2] }) // true
-isDeepEqual({ a: { b: 1 } }, { a: { b: 2 } }) // false
+isDeepEqual({
+  a: [1, 2]
+}, {
+  a: [1, 2]
+}) // true
+isDeepEqual({
+  a: { b: 1 }
+}, {
+  a: { b: 2 }
+}) // false
 isDeepEqual({ a: 1 }, { a: 1, b: undefined }) // false
 isDeepEqual(Number.NaN, Number.NaN) // true
 ```

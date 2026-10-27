@@ -63,7 +63,9 @@ describe('tree/helpers', () => {
         },
       ]
 
-      const results = [...dfsGenerator(tree)]
+      const results = [
+        ...dfsGenerator(tree)
+      ]
       const ids = results.map(r => r.node.id)
 
       // DFS: 根 -> 左子树 -> 右子树
@@ -85,7 +87,9 @@ describe('tree/helpers', () => {
         },
       ]
 
-      const results = [...dfsGenerator(tree)]
+      const results = [
+        ...dfsGenerator(tree)
+      ]
       const depths = results.map(r => ({ id: r.node.id, depth: r.depth }))
 
       expect(depths).toEqual([
@@ -110,7 +114,9 @@ describe('tree/helpers', () => {
         },
       ]
 
-      const results = [...dfsGenerator(tree)]
+      const results = [
+        ...dfsGenerator(tree)
+      ]
       const lastResult = results.at(-1)!
 
       expect(lastResult.path.map(n => n.id)).toEqual([1, 2, 3])
@@ -127,7 +133,9 @@ describe('tree/helpers', () => {
         },
       ]
 
-      const results = [...dfsGenerator(tree)]
+      const results = [
+        ...dfsGenerator(tree)
+      ]
       const indices = results.map(r => ({ id: r.node.id, index: r.index }))
 
       // DFS 的索引在每个层级独立计数
@@ -139,7 +147,9 @@ describe('tree/helpers', () => {
     })
 
     it('应处理空树', () => {
-      const results = [...dfsGenerator([])]
+      const results = [
+        ...dfsGenerator([])
+      ]
       expect(results).toEqual([])
     })
 
@@ -153,7 +163,9 @@ describe('tree/helpers', () => {
         },
       ]
 
-      const results = [...dfsGenerator(tree, { children: 'items' })]
+      const results = [
+        ...dfsGenerator(tree, { children: 'items' })
+      ]
       const ids = results.map(r => r.node.id)
 
       expect(ids).toEqual([1, 2])
@@ -165,7 +177,9 @@ describe('tree/helpers', () => {
         { id: 2 },
       ]
 
-      const results = [...dfsGenerator(tree)]
+      const results = [
+        ...dfsGenerator(tree)
+      ]
       const ids = results.map(r => r.node.id)
 
       expect(ids).toEqual([1, 2])
@@ -190,7 +204,9 @@ describe('tree/helpers', () => {
         },
       ]
 
-      const results = [...bfsGenerator(tree)]
+      const results = [
+        ...bfsGenerator(tree)
+      ]
       const ids = results.map(r => r.node.id)
 
       // BFS: 逐层遍历
@@ -213,7 +229,9 @@ describe('tree/helpers', () => {
         },
       ]
 
-      const results = [...bfsGenerator(tree)]
+      const results = [
+        ...bfsGenerator(tree)
+      ]
       const depths = results.map(r => ({ id: r.node.id, depth: r.depth }))
 
       expect(depths).toEqual([
@@ -239,7 +257,9 @@ describe('tree/helpers', () => {
         },
       ]
 
-      const results = [...bfsGenerator(tree)]
+      const results = [
+        ...bfsGenerator(tree)
+      ]
       const lastResult = results.at(-1)!
 
       expect(lastResult.path.map(n => n.id)).toEqual([1, 2, 3])
@@ -256,7 +276,9 @@ describe('tree/helpers', () => {
         },
       ]
 
-      const results = [...bfsGenerator(tree)]
+      const results = [
+        ...bfsGenerator(tree)
+      ]
       const indices = results.map(r => ({ id: r.node.id, index: r.index }))
 
       expect(indices).toEqual([
@@ -267,7 +289,9 @@ describe('tree/helpers', () => {
     })
 
     it('应处理空树', () => {
-      const results = [...bfsGenerator([])]
+      const results = [
+        ...bfsGenerator([])
+      ]
       expect(results).toEqual([])
     })
 
@@ -281,7 +305,9 @@ describe('tree/helpers', () => {
         },
       ]
 
-      const results = [...bfsGenerator(tree, { children: 'items' })]
+      const results = [
+        ...bfsGenerator(tree, { children: 'items' })
+      ]
       const ids = results.map(r => r.node.id)
 
       expect(ids).toEqual([1, 2])
@@ -310,7 +336,9 @@ describe('tree/helpers', () => {
         },
       ]
 
-      const results = [...bfsGenerator(tree)]
+      const results = [
+        ...bfsGenerator(tree)
+      ]
       const ids = results.map(r => r.node.id)
 
       // 第0层: 1
@@ -356,7 +384,12 @@ describe('tree/helpers', () => {
         {
           id: 1,
           children: [
-            { id: 2, children: [{ id: 4, children: [] }] },
+            {
+              id: 2,
+              children: [
+                { id: 4, children: [] }
+              ]
+            },
             { id: 3, children: [] },
           ],
         },
@@ -374,14 +407,28 @@ describe('tree/helpers', () => {
         {
           id: 1,
           children: [
-            { id: 2, children: [{ id: 4, children: [] }] },
-            { id: 3, children: [{ id: 5, children: [] }] },
+            {
+              id: 2,
+              children: [
+                { id: 4, children: [] }
+              ]
+            },
+            {
+              id: 3,
+              children: [
+                { id: 5, children: [] }
+              ]
+            },
           ],
         },
       ]
 
-      const dfsCount = [...dfsGenerator(tree)].length
-      const bfsCount = [...bfsGenerator(tree)].length
+      const dfsCount = [
+        ...dfsGenerator(tree)
+      ].length
+      const bfsCount = [
+        ...bfsGenerator(tree)
+      ].length
 
       expect(dfsCount).toBe(5)
       expect(bfsCount).toBe(5)

@@ -2,7 +2,12 @@ import { describe, expect, it } from 'vitest'
 import { omit } from '../../../src/helpers/object'
 
 describe('omit', () => {
-  const user = { id: 1, name: 'John', password: 'secret', email: 'john@example.com' }
+  const user = {
+    id: 1,
+    name: 'John',
+    password: 'secret',
+    email: 'john@example.com'
+  }
 
   it('应该从对象中忽略指定的键', () => {
     const publicUser = omit(user, ['password'])

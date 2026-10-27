@@ -39,7 +39,12 @@ describe('对象操作类型', () => {
     expectTypeOf<Required['name']>().toEqualTypeOf<string>()
 
     // 验证类型可赋值性（类型注解本身即为验证）
-    const user: Required = { id: '1', name: 'John', age: 30, role: 'admin' }
+    const user: Required = {
+      id: '1',
+      name: 'John',
+      age: 30,
+      role: 'admin'
+    }
     expectTypeOf(user).toEqualTypeOf<Required>()
   })
 

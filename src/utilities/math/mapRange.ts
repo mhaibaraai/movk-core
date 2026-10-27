@@ -44,8 +44,12 @@ export function mapRange(
   const [outMin, outMax] = outRange
 
   const span = inMax - inMin
-  const ratio = span === 0 ? 0 : (value - inMin) / span
+  const ratio = span === 0
+    ? 0
+    : (value - inMin) / span
   const mapped = outMin + ratio * (outMax - outMin)
 
-  return options?.clamp ? clamp(mapped, outMin, outMax) : mapped
+  return options?.clamp
+    ? clamp(mapped, outMin, outMax)
+    : mapped
 }

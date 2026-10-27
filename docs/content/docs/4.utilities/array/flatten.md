@@ -17,7 +17,14 @@ links:
 ```ts
 import { flatten } from '@movk/core'
 
-const nested = [1, [2, 3], [4, [5, 6]]]
+const nested = [
+  1,
+  [2, 3],
+  [
+    4,
+    [5, 6]
+  ]
+]
 const flat1 = flatten(nested)
 console.log(flat1) // [1, 2, 3, 4, [5, 6]]
 

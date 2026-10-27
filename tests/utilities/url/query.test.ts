@@ -56,21 +56,29 @@ describe('stringifyQuery', () => {
   })
 
   it('应该处理数组值（默认 repeat 格式）', () => {
-    expect(stringifyQuery({ tags: ['a', 'b', 'c'] })).toBe('tags=a&tags=b&tags=c')
+    expect(stringifyQuery({
+      tags: ['a', 'b', 'c']
+    })).toBe('tags=a&tags=b&tags=c')
   })
 
   it('应该支持 bracket 数组格式', () => {
-    expect(stringifyQuery({ tags: ['a', 'b'] }, { arrayFormat: 'bracket' }))
+    expect(stringifyQuery({
+      tags: ['a', 'b']
+    }, { arrayFormat: 'bracket' }))
       .toBe('tags[]=a&tags[]=b')
   })
 
   it('应该支持 index 数组格式', () => {
-    expect(stringifyQuery({ tags: ['a', 'b'] }, { arrayFormat: 'index' }))
+    expect(stringifyQuery({
+      tags: ['a', 'b']
+    }, { arrayFormat: 'index' }))
       .toBe('tags[0]=a&tags[1]=b')
   })
 
   it('应该支持 comma 数组格式', () => {
-    expect(stringifyQuery({ tags: ['a', 'b'] }, { arrayFormat: 'comma' }))
+    expect(stringifyQuery({
+      tags: ['a', 'b']
+    }, { arrayFormat: 'comma' }))
       .toBe('tags=a,b')
   })
 
@@ -166,7 +174,9 @@ describe('setQueryParams', () => {
   })
 
   it('应该支持数组参数', () => {
-    const result = setQueryParams('https://example.com', { tags: ['a', 'b'] })
+    const result = setQueryParams('https://example.com', {
+      tags: ['a', 'b']
+    })
     expect(result).toContain('tags=a')
     expect(result).toContain('tags=b')
   })

@@ -17,7 +17,10 @@ The `insertAfter` method inserts a new node immediately after the target node (f
 ```ts [example.ts]
 import { Tree } from '@movk/core'
 
-const tree = [{ id: 1, name: 'A' }, { id: 2, name: 'C' }]
+const tree = [
+  { id: 1, name: 'A' },
+  { id: 2, name: 'C' }
+]
 const newNode = { id: 3, name: 'B' }
 
 Tree.insertAfter(tree, newNode, 1)

@@ -118,11 +118,19 @@ function mergeTwo(
             ;(result as any)[key] = [...sourceVal]
             break
           case 'unique':
-            ;(result as any)[key] = [...new Set([...targetVal, ...sourceVal])]
+            ;(result as any)[key] = [
+              ...new Set([
+                ...targetVal,
+                ...sourceVal
+              ])
+            ]
             break
           case 'concat':
           default:
-            ;(result as any)[key] = [...targetVal, ...sourceVal]
+            ;(result as any)[key] = [
+              ...targetVal,
+              ...sourceVal
+            ]
             break
         }
       }

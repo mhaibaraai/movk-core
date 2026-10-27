@@ -20,11 +20,21 @@ links:
 import { Tree } from '@movk/core'
 
 // 有效的树
-const validTree = [{ id: 1, children: [{ id: 2 }] }]
+const validTree = [
+  {
+    id: 1,
+    children: [
+      { id: 2 }
+    ]
+  }
+]
 Tree.validate(validTree) // 不会抛出错误
 
 // 无效的树 (重复ID)
-const invalidTree1 = [{ id: 1 }, { id: 1 }]
+const invalidTree1 = [
+  { id: 1 },
+  { id: 1 }
+]
 try {
   Tree.validate(invalidTree1)
 }
@@ -34,7 +44,10 @@ catch (e) {
 
 // 无效的树 (循环引用)
 const node1 = { id: 1 }
-const node2 = { id: 2, children: [node1] }
+const node2 = {
+  id: 2,
+  children: [node1]
+}
 node1.children = [node2]
 const invalidTree2 = [node1]
 try {

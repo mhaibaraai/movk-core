@@ -45,7 +45,9 @@ export default defineMcpResource({
         const isLastLevel = i === pathParts.length - 1
 
         if (!current[part]) {
-          current[part] = isLastLevel ? [] : {}
+          current[part] = isLastLevel
+            ? []
+            : {}
         }
 
         if (isLastLevel) {
@@ -62,11 +64,13 @@ export default defineMcpResource({
     }
 
     return {
-      contents: [{
-        uri: uri.toString(),
-        mimeType: 'application/json',
-        text: JSON.stringify(byModule, null, 2),
-      }]
+      contents: [
+        {
+          uri: uri.toString(),
+          mimeType: 'application/json',
+          text: JSON.stringify(byModule, null, 2),
+        }
+      ]
     }
   }
 })

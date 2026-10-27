@@ -22,5 +22,7 @@ export function lengthToPx(value: string, fallback = 16): number {
   if (!matched) return fallback
   const num = Number.parseFloat(matched[1]!)
   const unit = (matched[2] ?? 'px').toLowerCase()
-  return unit === 'rem' || unit === 'em' ? num * 16 : num
+  return unit === 'rem' || unit === 'em'
+    ? num * 16
+    : num
 }

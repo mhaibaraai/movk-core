@@ -73,7 +73,9 @@ export function createRegistry<T>(options?: RegistryOptions): Registry<T> {
     unregister: id => store.delete(id),
     get: id => store.get(id),
     has: id => store.has(id),
-    keys: () => [...store.keys()],
+    keys: () => [
+      ...store.keys()
+    ],
     clear: () => store.clear(),
     get size() {
       return store.size

@@ -33,7 +33,9 @@ export function getStats<T = any>(
 ): TreeStats {
   const { children: childrenKey } = parseTreeConfig(config)
 
-  const nodes = Array.isArray(tree) ? tree : [tree]
+  const nodes = Array.isArray(tree)
+    ? tree
+    : [tree]
   let total = 0
   let leaves = 0
   let maxDepth = 0
@@ -93,7 +95,9 @@ export function validate<T = any>(
 ): { isValid: boolean, errors: string[] } {
   const { id: idKey, children: childrenKey } = parseTreeConfig(config)
 
-  const nodes = Array.isArray(tree) ? tree : [tree]
+  const nodes = Array.isArray(tree)
+    ? tree
+    : [tree]
   const errors: string[] = []
   const visitedIds = new Set<string>()
 

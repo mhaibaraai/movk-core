@@ -12,7 +12,19 @@ interface Node {
 
 function makeTree(): Node[] {
   return [
-    { id: '1', name: '根', children: [{ id: '2', name: '子', children: [{ id: '3', name: '孙' }] }] },
+    {
+      id: '1',
+      name: '根',
+      children: [
+        {
+          id: '2',
+          name: '子',
+          children: [
+            { id: '3', name: '孙' }
+          ]
+        }
+      ]
+    },
     { id: '4', name: '另一根' },
   ]
 }
@@ -42,8 +54,16 @@ describe('updateNode (按 id 不可变更新节点)', () => {
 
   it('可写入 children（懒加载注入场景）', () => {
     const tree = makeTree()
-    const out = updateNode(tree, '4', ({ node }) => ({ ...node, loaded: true, children: [{ id: '5' }] }))
-    expect(out[1]!.children).toEqual([{ id: '5' }])
+    const out = updateNode(tree, '4', ({ node }) => ({
+      ...node,
+      loaded: true,
+      children: [
+        { id: '5' }
+      ]
+    }))
+    expect(out[1]!.children).toEqual([
+      { id: '5' }
+    ])
     expect(out[1]!.loaded).toBe(true)
   })
 
@@ -66,7 +86,14 @@ describe('updateNode (按 id 不可变更新节点)', () => {
   })
 
   it('支持自定义 id 字段', () => {
-    const tree = [{ key: 'a', children: [{ key: 'b' }] }]
+    const tree = [
+      {
+        key: 'a',
+        children: [
+          { key: 'b' }
+        ]
+      }
+    ]
     const out = updateNode(tree, 'b', ({ node }) => ({ ...node, hit: true }), { id: 'key' })
     expect((out[0]!.children![0] as any).hit).toBe(true)
   })

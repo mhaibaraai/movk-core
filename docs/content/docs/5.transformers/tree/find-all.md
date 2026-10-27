@@ -17,7 +17,16 @@ links:
 ```ts [example.ts]
 import { Tree } from '@movk/core'
 
-const tree = [{ id: 1, type: 'folder', children: [{ id: 2, type: 'file' }, { id: 3, type: 'folder' }] }]
+const tree = [
+  {
+    id: 1,
+    type: 'folder',
+    children: [
+      { id: 2, type: 'file' },
+      { id: 3, type: 'folder' }
+    ]
+  }
+]
 
 const folders = Tree.findAll(tree, ({ node }) => node.type === 'folder')
 

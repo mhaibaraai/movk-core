@@ -88,11 +88,17 @@ function measureOverflow(el: HTMLElement): { x: boolean, y: boolean } {
   const cs = window.getComputedStyle(el)
 
   if (isLineClamp(cs)) {
-    return { x: false, y: measureHeightWithProbe(el, cs) }
+    return {
+      x: false,
+      y: measureHeightWithProbe(el, cs)
+    }
   }
 
   if (isSingleLineEllipsis(cs)) {
-    return { x: measureWidthWithProbe(el, cs), y: false }
+    return {
+      x: measureWidthWithProbe(el, cs),
+      y: false
+    }
   }
 
   return {

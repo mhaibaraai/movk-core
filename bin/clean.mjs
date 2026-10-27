@@ -3,7 +3,17 @@ import { readdir, rm } from 'node:fs/promises'
 import { join, relative, resolve } from 'node:path'
 import process from 'node:process'
 
-const DEFAULT_TARGETS = ['node_modules', '.nuxt', '.data', '.output', '.cache', 'dist', 'dist.zip', 'auto-imports.d.ts', 'components.d.ts']
+const DEFAULT_TARGETS = [
+  'node_modules',
+  '.nuxt',
+  '.data',
+  '.output',
+  '.cache',
+  'dist',
+  'dist.zip',
+  'auto-imports.d.ts',
+  'components.d.ts'
+]
 const SKIP_DIRS = new Set(['.git'])
 const RE_PATH_SEP = /[/\\]/
 
@@ -40,13 +50,18 @@ function resolveTargets(rawArgs) {
   const replacements = []
   for (const raw of rawArgs) {
     const isAddition = raw.startsWith('+')
-    const name = isAddition ? raw.slice(1) : raw
+    const name = isAddition
+      ? raw.slice(1)
+      : raw
     if (!isValidName(name))
       continue
     ;(isAddition ? additions : replacements).push(name)
   }
   const base = replacements.length ? replacements : DEFAULT_TARGETS
-  return new Set([...base, ...additions])
+  return new Set([
+    ...base,
+    ...additions
+  ])
 }
 
 async function clean() {

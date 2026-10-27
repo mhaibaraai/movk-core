@@ -19,8 +19,14 @@ Later sources take priority. Properties that are plain objects on both sides are
 ```ts
 import { deepMerge } from '@movk/core'
 
-const defaults = { theme: 'light', pagination: { page: 1, size: 10 } }
-const userConfig = { pagination: { size: 20 }, debug: true }
+const defaults = {
+  theme: 'light',
+  pagination: { page: 1, size: 10 }
+}
+const userConfig = {
+  pagination: { size: 20 },
+  debug: true
+}
 
 const result = deepMerge([defaults, userConfig])
 // => { theme: 'light', pagination: { page: 1, size: 20 }, debug: true }
@@ -30,15 +36,36 @@ const result = deepMerge([defaults, userConfig])
 
 ```ts
 // concat (default): concatenate arrays
-deepMerge([{ tags: ['a'] }, { tags: ['b'] }])
+deepMerge([
+  {
+    tags: ['a']
+  },
+  {
+    tags: ['b']
+  }
+])
 // => { tags: ['a', 'b'] }
 
 // replace: replace entirely
-deepMerge([{ tags: ['a'] }, { tags: ['b'] }], { arrayStrategy: 'replace' })
+deepMerge([
+  {
+    tags: ['a']
+  },
+  {
+    tags: ['b']
+  }
+], { arrayStrategy: 'replace' })
 // => { tags: ['b'] }
 
 // unique: concatenate and deduplicate
-deepMerge([{ tags: ['a', 'b'] }, { tags: ['b', 'c'] }], { arrayStrategy: 'unique' })
+deepMerge([
+  {
+    tags: ['a', 'b']
+  },
+  {
+    tags: ['b', 'c']
+  }
+], { arrayStrategy: 'unique' })
 // => { tags: ['a', 'b', 'c'] }
 ```
 
@@ -46,11 +73,17 @@ deepMerge([{ tags: ['a', 'b'] }, { tags: ['b', 'c'] }], { arrayStrategy: 'unique
 
 ```ts
 // skip (default): ignore null/undefined from source
-deepMerge([{ a: 1 }, { a: null }])
+deepMerge([
+  { a: 1 },
+  { a: null }
+])
 // => { a: 1 }
 
 // override: allow null/undefined to overwrite
-deepMerge([{ a: 1 }, { a: null }], { nullHandling: 'override' })
+deepMerge([
+  { a: 1 },
+  { a: null }
+], { nullHandling: 'override' })
 // => { a: null }
 ```
 
@@ -59,7 +92,10 @@ deepMerge([{ a: 1 }, { a: null }], { nullHandling: 'override' })
 ```ts
 // add numbers instead of overwriting
 const result = deepMerge(
-  [{ count: 10 }, { count: 5 }],
+  [
+    { count: 10 },
+    { count: 5 }
+  ],
   {
     customMerger: (key, targetVal, sourceVal) => {
       if (typeof targetVal === 'number' && typeof sourceVal === 'number')
@@ -80,7 +116,14 @@ import { createDeepMerge } from '@movk/core'
 
 const mergeReplace = createDeepMerge({ arrayStrategy: 'replace' })
 
-mergeReplace([{ tags: ['a'] }, { tags: ['b'] }])
+mergeReplace([
+  {
+    tags: ['a']
+  },
+  {
+    tags: ['b']
+  }
+])
 // => { tags: ['b'] }
 ```
 

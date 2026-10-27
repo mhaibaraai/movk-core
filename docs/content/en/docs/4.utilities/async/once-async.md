@@ -21,7 +21,10 @@ import { onceAsync } from '@movk/core'
 // Load an optional dependency only once
 const loadPmtiles = onceAsync(() => import('pmtiles'))
 
-const [a, b] = await Promise.all([loadPmtiles(), loadPmtiles()])
+const [a, b] = await Promise.all([
+  loadPmtiles(),
+  loadPmtiles()
+])
 a === b // true
 
 // One-time registration

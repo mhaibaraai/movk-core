@@ -23,7 +23,9 @@ export function parseQuery(search: string): Record<string, string | string[]> {
     return {}
 
   // 移除开头的 ?
-  const queryString = search.startsWith('?') ? search.slice(1) : search
+  const queryString = search.startsWith('?')
+    ? search.slice(1)
+    : search
   if (!queryString)
     return {}
 
@@ -217,7 +219,9 @@ export function getQueryParams(url: string, key: string): string[] {
     const value = params[key]
     if (!value)
       return []
-    return Array.isArray(value) ? value : [value]
+    return Array.isArray(value)
+      ? value
+      : [value]
   }
 }
 
@@ -259,13 +263,21 @@ export function setQueryParam(url: string, key: string, value: QueryParamValue):
     // 处理相对 URL 或无效 URL
     // 先分离哈希部分
     const hashIndex = url.indexOf('#')
-    const hash = hashIndex !== -1 ? url.slice(hashIndex + 1) : ''
-    const urlWithoutHash = hashIndex !== -1 ? url.slice(0, hashIndex) : url
+    const hash = hashIndex !== -1
+      ? url.slice(hashIndex + 1)
+      : ''
+    const urlWithoutHash = hashIndex !== -1
+      ? url.slice(0, hashIndex)
+      : url
 
     // 再分离查询字符串
     const queryIndex = urlWithoutHash.indexOf('?')
-    const base = queryIndex !== -1 ? urlWithoutHash.slice(0, queryIndex) : urlWithoutHash
-    const query = queryIndex !== -1 ? urlWithoutHash.slice(queryIndex + 1) : ''
+    const base = queryIndex !== -1
+      ? urlWithoutHash.slice(0, queryIndex)
+      : urlWithoutHash
+    const query = queryIndex !== -1
+      ? urlWithoutHash.slice(queryIndex + 1)
+      : ''
 
     const params = parseQuery(query)
     if (value === null || value === undefined) {

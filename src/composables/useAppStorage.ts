@@ -46,7 +46,9 @@ export function useAppStorage<T = unknown>(config: StorageConfigInput<T>): AppSt
     if (typeof window === 'undefined') {
       return undefined
     }
-    return storage === 'localStorage' ? localStorage : sessionStorage
+    return storage === 'localStorage'
+      ? localStorage
+      : sessionStorage
   }
 
   const storageDriver = getStorageDriver()

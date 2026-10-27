@@ -21,7 +21,13 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 const chunks = chunk(numbers, 3)
 console.log(chunks) // [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
-const names = ['Alice', 'Bob', 'Charlie', 'David', 'Eve']
+const names = [
+  'Alice',
+  'Bob',
+  'Charlie',
+  'David',
+  'Eve'
+]
 const pairs = chunk(names, 2)
 console.log(pairs) // [['Alice', 'Bob'], ['Charlie', 'David'], ['Eve']]
 ```

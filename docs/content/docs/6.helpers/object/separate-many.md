@@ -17,8 +17,16 @@ links:
 ```ts
 import { separateMany } from '@movk/core'
 
-const options = { id: 1, name: 'John', email: 'a@b.com', role: 'admin' }
-const { a, b, others } = separateMany(options, { a: ['id'], b: ['name'] as const })
+const options = {
+  id: 1,
+  name: 'John',
+  email: 'a@b.com',
+  role: 'admin'
+}
+const { a, b, others } = separateMany(options, {
+  a: ['id'],
+  b: ['name'] as const
+})
 // a: { id: 1 }
 // b: { name: 'John' }
 // others: { email: 'a@b.com', role: 'admin' }

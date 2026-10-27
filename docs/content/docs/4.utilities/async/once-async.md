@@ -21,7 +21,10 @@ import { onceAsync } from '@movk/core'
 // 可选依赖只加载一次
 const loadPmtiles = onceAsync(() => import('pmtiles'))
 
-const [a, b] = await Promise.all([loadPmtiles(), loadPmtiles()])
+const [a, b] = await Promise.all([
+  loadPmtiles(),
+  loadPmtiles()
+])
 a === b // true
 
 // 一次性注册

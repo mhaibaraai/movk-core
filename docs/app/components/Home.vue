@@ -3,19 +3,23 @@ import type { TreeNode } from '@movk/core'
 import type { TabsItem } from '@nuxt/ui'
 import { debounce, deepMerge, omit, pick, throttle, Tree } from '@movk/core'
 
-const items = [{
-  label: '树形结构',
-  icon: 'i-lucide:list-tree',
-  slot: 'tree',
-}, {
-  label: '对象操作',
-  icon: 'i-lucide:braces',
-  slot: 'object',
-}, {
-  label: '异步控制',
-  icon: 'i-lucide:clock',
-  slot: 'async',
-}] satisfies TabsItem[]
+const items = [
+  {
+    label: '树形结构',
+    icon: 'i-lucide:list-tree',
+    slot: 'tree',
+  },
+  {
+    label: '对象操作',
+    icon: 'i-lucide:braces',
+    slot: 'object',
+  },
+  {
+    label: '异步控制',
+    icon: 'i-lucide:clock',
+    slot: 'async',
+  }
+] satisfies TabsItem[]
 
 const ORG_CONFIG = { id: 'id', pid: 'parentId', children: 'children' } as const
 
@@ -74,8 +78,16 @@ const sourceObj = {
   role: 'admin',
 }
 
-const defaultConfig = { theme: 'light', tags: ['ts'], pagination: { page: 1, size: 10 } }
-const userConfig = { theme: 'dark', tags: ['vue', 'ts'], pagination: { size: 20 } }
+const defaultConfig = {
+  theme: 'light',
+  tags: ['ts'],
+  pagination: { page: 1, size: 10 }
+}
+const userConfig = {
+  theme: 'dark',
+  tags: ['vue', 'ts'],
+  pagination: { size: 20 }
+}
 
 type ObjOp = 'pick' | 'omit' | null
 const objOp = ref<ObjOp>(null)
@@ -99,13 +111,16 @@ function resetObj() {
 type ArrayStrategy = 'concat' | 'unique' | 'replace'
 const mergeStrategy = ref<ArrayStrategy>('concat')
 
-const objSubItems = [{
-  label: '属性选择',
-  slot: 'pick-omit',
-}, {
-  label: '深度合并',
-  slot: 'deep-merge',
-}] satisfies TabsItem[]
+const objSubItems = [
+  {
+    label: '属性选择',
+    slot: 'pick-omit',
+  },
+  {
+    label: '深度合并',
+    slot: 'deep-merge',
+  }
+] satisfies TabsItem[]
 
 const mergeResult = computed(() =>
   deepMerge([defaultConfig, userConfig], { arrayStrategy: mergeStrategy.value }),

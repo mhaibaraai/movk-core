@@ -35,7 +35,9 @@ export function triggerDownload(source: Blob | string, filename: string): void {
   }
 
   const isBlob = typeof source !== 'string'
-  const url = isBlob ? URL.createObjectURL(source) : source
+  const url = isBlob
+    ? URL.createObjectURL(source)
+    : source
   const link = document.createElement('a')
   link.href = url
   link.download = filename

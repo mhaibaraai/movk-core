@@ -21,8 +21,20 @@ const sampleTree: TestNode[] = [
         name: 'folder1',
         type: 'folder',
         children: [
-          { id: '3', name: 'file1.txt', type: 'file', value: 10, children: [] },
-          { id: '4', name: 'file2.txt', type: 'file', value: 20, children: [] },
+          {
+            id: '3',
+            name: 'file1.txt',
+            type: 'file',
+            value: 10,
+            children: []
+          },
+          {
+            id: '4',
+            name: 'file2.txt',
+            type: 'file',
+            value: 20,
+            children: []
+          },
         ],
       },
       {
@@ -30,18 +42,36 @@ const sampleTree: TestNode[] = [
         name: 'folder2',
         type: 'folder',
         children: [
-          { id: '6', name: 'file3.txt', type: 'file', value: 30, children: [] },
+          {
+            id: '6',
+            name: 'file3.txt',
+            type: 'file',
+            value: 30,
+            children: []
+          },
           {
             id: '7',
             name: 'subfolder',
             type: 'folder',
             children: [
-              { id: '8', name: 'file4.txt', type: 'file', value: 40, children: [] },
+              {
+                id: '8',
+                name: 'file4.txt',
+                type: 'file',
+                value: 40,
+                children: []
+              },
             ],
           },
         ],
       },
-      { id: '9', name: 'file5.txt', type: 'file', value: 50, children: [] },
+      {
+        id: '9',
+        name: 'file5.txt',
+        type: 'file',
+        value: 50,
+        children: []
+      },
     ],
   },
 ]
@@ -145,7 +175,17 @@ describe('tree 工具类', () => {
         visited.push(node.id)
       })
       expect(visited).toHaveLength(9)
-      expect(visited).toEqual(['1', '2', '3', '4', '5', '6', '7', '8', '9'])
+      expect(visited).toEqual([
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9'
+      ])
     })
   })
 

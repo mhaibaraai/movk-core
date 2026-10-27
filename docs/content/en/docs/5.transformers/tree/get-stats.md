@@ -18,10 +18,18 @@ The `getStats` method traverses the entire tree and returns an object containing
 import { Tree } from '@movk/core'
 
 const tree = [
-  { id: 1, children: [
-    { id: 2 },
-    { id: 3, children: [{ id: 4 }] }
-  ] }
+  {
+    id: 1,
+    children: [
+      { id: 2 },
+      {
+        id: 3,
+        children: [
+          { id: 4 }
+        ]
+      }
+    ]
+  }
 ]
 
 const stats = Tree.getStats(tree)

@@ -28,7 +28,11 @@ equalsBy('a', 'b') // false
 
 ```ts
 equalsBy({ id: 1, name: 'A' }, { id: 1, name: 'B' }, { by: 'id' }) // true
-equalsBy({ meta: { id: 1 } }, { meta: { id: 2 } }, { by: 'meta.id' }) // false
+equalsBy({
+  meta: { id: 1 }
+}, {
+  meta: { id: 2 }
+}, { by: 'meta.id' }) // false
 ```
 
 ### by 谓词函数
@@ -37,7 +41,9 @@ equalsBy({ meta: { id: 1 } }, { meta: { id: 2 } }, { by: 'meta.id' }) // false
 equalsBy(
   { tenant: 't1', user: 'u1' },
   { tenant: 't1', user: 'u1' },
-  { by: (a, b) => a.tenant === b.tenant && a.user === b.user },
+  {
+    by: (a, b) => a.tenant === b.tenant && a.user === b.user
+  },
 ) // true
 ```
 
@@ -49,7 +55,9 @@ equalsBy(
 equalsBy(
   { label: 'HSL', value: 'hsl' },
   { label: 'HSL', value: 'hsl' },
-  { keys: ['value', 'label'] },
+  {
+    keys: ['value', 'label']
+  },
 ) // true（首个候选 value 即命中）
 ```
 

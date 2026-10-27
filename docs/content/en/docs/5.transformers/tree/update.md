@@ -18,7 +18,14 @@ navigation.badge: v1.3.1
 ```ts [example.ts]
 import { Tree } from '@movk/core'
 
-const tree = [{ id: '1', children: [{ id: '2', name: 'old' }] }]
+const tree = [
+  {
+    id: '1',
+    children: [
+      { id: '2', name: 'old' }
+    ]
+  }
+]
 
 const next = Tree.updateNode(tree, '2', ({ node }) => ({ ...node, name: 'new' }))
 

@@ -26,15 +26,23 @@ describe('splitHighlight (高亮切分)', () => {
   })
 
   it('空关键字返回整段不命中', () => {
-    expect(splitHighlight('hello', '')).toEqual([{ text: 'hello', match: false }])
-    expect(splitHighlight('hello', '   ')).toEqual([{ text: 'hello', match: false }])
+    expect(splitHighlight('hello', '')).toEqual([
+      { text: 'hello', match: false }
+    ])
+    expect(splitHighlight('hello', '   ')).toEqual([
+      { text: 'hello', match: false }
+    ])
   })
 
   it('未命中返回整段不命中', () => {
-    expect(splitHighlight('abc', 'z')).toEqual([{ text: 'abc', match: false }])
+    expect(splitHighlight('abc', 'z')).toEqual([
+      { text: 'abc', match: false }
+    ])
   })
 
   it('空文本返回单个空片段', () => {
-    expect(splitHighlight('', 'a')).toEqual([{ text: '', match: false }])
+    expect(splitHighlight('', 'a')).toEqual([
+      { text: '', match: false }
+    ])
   })
 })

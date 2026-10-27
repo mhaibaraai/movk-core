@@ -17,7 +17,15 @@ links:
 ```ts [example.ts]
 import { Tree } from '@movk/core'
 
-const tree = [{ id: 1, name: 'A', children: [{ id: 2, name: 'B' }] }]
+const tree = [
+  {
+    id: 1,
+    name: 'A',
+    children: [
+      { id: 2, name: 'B' }
+    ]
+  }
+]
 
 const names: string[] = []
 Tree.forEach(tree, ({ node }) => {
