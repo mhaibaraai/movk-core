@@ -1,6 +1,4 @@
-import type { ToolState } from '#ai-chat/types'
-
-export function useToolCall(state: ToolState, toolName: string, input: Record<string, string | undefined>) {
+export function useToolCall(state: string, toolName: string, input: Record<string, string | undefined>) {
   const searchVerb = state === 'output-available'
     ? '已检索'
     : '检索中'
