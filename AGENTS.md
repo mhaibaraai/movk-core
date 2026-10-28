@@ -81,7 +81,7 @@ pnpm clean
 - **内容**：文档固定位于 `docs/content/docs/`（英文 `docs/content/en/docs/`），路由前缀固定为 `/docs`；目录镜像 `src/`（kebab-case 文件名）；frontmatter 正文用中文，附英文 `seo` 块。`content/index.md`、`content/releases.md` 保留在 `content/` 根目录。`docs/nuxt.config.ts` 的 `routeRules` 配置了目录到首篇的重定向，新增目录时同步补充
 - **导航**：页头导航在 `docs/app/app.config.ts` 的 `header.nav` / `header.mobileNav` 中声明，文案按语言写成 `{ 'zh-CN': ..., en: ... }`
 - **功能开关**：v3 的可选功能为 optional peer 依赖，启用而未安装时构建报错。本站启用 AI Chat 与国际化（`@nuxtjs/i18n`），已安装对应依赖；`movkNuxtDocs.componentDocs`、`mermaid`、`a11y` 保持默认关闭，开启前需先安装依赖。`i18n.locales` 不要声明 `file`
-- **视觉**：使用 v3 默认主色、中性色、字体与代码高亮主题，不在站点内覆盖；中文字体通过 `app.head.link` 引入 Alibaba PuHuiTi 样式表
+- **视觉**：使用 v3 默认主色、中性色、字体与代码高亮主题，不在站点内覆盖
 - **组件覆盖**：`HeaderLogo` 覆盖遵循 layer 的覆盖契约；`useToolCall` 覆盖的 `state` 参数类型为 `string`
 - **MCP Server**：`docs/server/mcp/` 暴露 `list-functions`、`get-function`、`search-functions` 三个工具，`all-functions`、`tree-operations` 两个资源与 `find-function-for-usecase` 提示，供 AI 工具查询函数文档；服务实现以英文撰写
 - **Agent Skills**：`docs/skills/movk-core/SKILL.md` 由 layer 约定式发布到 `/.well-known/skills/`，配套 `docs/skills/index.json` 清单
