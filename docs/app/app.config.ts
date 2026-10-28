@@ -144,7 +144,17 @@ export default defineAppConfig({
   },
   github: {
     rootDir: 'docs',
-    suffix: 'ts'
+    suffix: 'ts',
+    dateFormat: {
+      options: {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZone: 'Asia/Shanghai'
+      }
+    }
   },
   ui: {
     prose: {
