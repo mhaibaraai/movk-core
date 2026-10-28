@@ -6,6 +6,8 @@ minimumReleaseAgeExcludePrune: true
 trustPolicy: no-downgrade
 trustPolicyExclude:
   - semver@6.3.1
+  # 维护者手动发布、缺少 provenance；与 1.7.1 相比仅一行修复，无安装脚本
+  - seroval@1.7.2
 
 shellEmulator: true
 
