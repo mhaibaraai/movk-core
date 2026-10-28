@@ -75,13 +75,30 @@ pnpm clean
 
 ### 文档站点（`docs/`）
 
-独立 Nuxt 4 应用，继承自 `@movk/nuxt-docs` layer。关键设计：
+独立 Nuxt 4 应用，继承自 `@movk/nuxt-docs` v3 layer。关键设计：
 
 - **别名**：`docs/nuxt.config.ts` 中将 `@movk/core` 别名指向 `../src/index.ts`，开发时直接使用源码，无需构建
+- **内容**：文档固定位于 `docs/content/docs/`（英文 `docs/content/en/docs/`），路由前缀固定为 `/docs`；目录镜像 `src/`（kebab-case 文件名）；frontmatter 正文用中文，附英文 `seo` 块。`content/index.md`、`content/releases.md` 保留在 `content/` 根目录。`docs/nuxt.config.ts` 的 `routeRules` 配置了目录到首篇的重定向，新增目录时同步补充
+- **导航**：页头导航在 `docs/app/app.config.ts` 的 `header.nav` / `header.mobileNav` 中声明，文案按语言写成 `{ 'zh-CN': ..., en: ... }`
+- **功能开关**：v3 的可选功能为 optional peer 依赖，启用而未安装时构建报错。本站启用 AI Chat 与国际化（`@nuxtjs/i18n`），已安装对应依赖；`movkNuxtDocs.componentDocs`、`mermaid`、`a11y` 保持默认关闭，开启前需先安装依赖。`i18n.locales` 不要声明 `file`
+- **视觉**：使用 v3 默认主色、中性色、字体与代码高亮主题，不在站点内覆盖
+- **组件覆盖**：`HeaderLogo` 覆盖遵循 layer 的覆盖契约；`useToolCall` 覆盖的 `state` 参数类型为 `string`
 - **MCP Server**：`docs/server/mcp/` 暴露 `list-functions`、`get-function`、`search-functions` 三个工具，`all-functions`、`tree-operations` 两个资源与 `find-function-for-usecase` 提示，供 AI 工具查询函数文档；服务实现以英文撰写
 - **Agent Skills**：`docs/skills/movk-core/SKILL.md` 由 layer 约定式发布到 `/.well-known/skills/`，配套 `docs/skills/index.json` 清单
-- **内容**：文档以 Markdown 编写，通过 `@nuxt/content` 管理，目录镜像 `src/`（kebab-case 文件名）；frontmatter 正文用中文，附英文 `seo` 块；`docs/nuxt.config.ts` 的 `routeRules` 配置了多层重定向。AI 集成文档位于 `docs/content/docs/1.getting-started/3.ai/`（MCP、LLMs.txt、Agent Skills）
+- **AI 集成文档**：位于 `docs/content/docs/1.getting-started/3.ai/`（MCP、LLMs.txt、Agent Skills）
+
+### 环境变量（文档站）
+
+| 变量 | 说明 |
+|------|------|
+| `NUXT_GITHUB_TOKEN` | 生产环境必需，获取 Releases 与提交历史 |
+| `AI_API_KEY` | AI Chat 总开关，构建期存在时启用 AI Chat |
+| `AI_BASE_URL` | OpenAI 兼容端点；留空走 AI Gateway |
+
+### CI
+
+`.github/workflows/ci.yml` 包含 `build`（lint、typecheck、单测、库构建、pkg-pr-new 预览包）与 `docs`（不注入 `AI_API_KEY` 构建文档站，并拦截预渲染 `[request error]` 死链）两个任务。
 
 ### 发布流程
 
-通过 `release-it` + `@release-it/conventional-changelog` 管理版本。`prepack` 钩子自动触发 `pnpm build`，确保发布前完成构建。`bin/clean.mjs` 提供清理脚本（同时可通过 `movk-clean` CLI 命令调用）。
+通过 `release-it` + `@release-it/conventional-changelog` 管理版本，要求工作区干净；推送 `v*` tag 后 `release.yml` 校验 tag 与 `package.json` 版本一致，并以 npm Trusted Publishing 发布。`prepack` 钩子自动触发 `pnpm build`，确保发布前完成构建。`bin/clean.mjs` 提供清理脚本（同时可通过 `movk-clean` CLI 命令调用）。

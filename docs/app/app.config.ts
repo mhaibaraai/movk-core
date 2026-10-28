@@ -1,4 +1,36 @@
 export default defineAppConfig({
+  header: {
+    nav: [
+      {
+        label: { 'zh-CN': '文档', 'en': 'Docs' },
+        to: '/docs/getting-started',
+        activeMatch: '/docs'
+      },
+      {
+        label: { 'zh-CN': '版本发布', 'en': 'Releases' },
+        to: '/releases'
+      }
+    ],
+    mobileNav: [
+      {
+        label: { 'zh-CN': '快速开始', 'en': 'Get Started' },
+        icon: 'i-lucide-square-play',
+        to: '/docs/getting-started'
+      },
+      { label: 'Composables', icon: 'i-lucide-square-function', to: '/docs/composables' },
+      { label: 'Validators', icon: 'i-lucide-square-code', to: '/docs/validators' },
+      { label: 'Utilities', icon: 'i-lucide-wrench', to: '/docs/utilities' },
+      { label: 'Transformers', icon: 'i-lucide-wand-sparkles', to: '/docs/transformers' },
+      { label: 'Helpers', icon: 'i-lucide-life-buoy', to: '/docs/helpers' },
+      { label: 'Types', icon: 'i-lucide-square-library', to: '/docs/types' },
+      {
+        label: { 'zh-CN': '版本发布', 'en': 'Releases' },
+        icon: 'i-lucide-newspaper',
+        to: '/releases'
+      },
+      { label: 'GitHub', icon: 'i-simple-icons-github', to: 'https://github.com/mhaibaraai/movk-core' }
+    ]
+  },
   aside: {
     filter: {
       enabled: true,
@@ -112,12 +144,19 @@ export default defineAppConfig({
   },
   github: {
     rootDir: 'docs',
-    suffix: 'ts'
+    suffix: 'ts',
+    dateFormat: {
+      options: {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZone: 'Asia/Shanghai'
+      }
+    }
   },
   ui: {
-    colors: {
-      primary: 'teal'
-    },
     prose: {
       codeIcon: {
         source: 'i-lucide-file-code',

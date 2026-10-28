@@ -10,9 +10,6 @@ orientation: horizontal
 ui:
   container: lg:py-20
 ---
-#top
-:hero-background
-
 #title
   :::motion
   Modern [TypeScript]{.text-primary} Utility Library.

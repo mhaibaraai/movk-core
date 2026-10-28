@@ -165,10 +165,10 @@ onMounted(() => buildTree())
 </script>
 
 <template>
-  <UCard class="w-full max-w-2xl mx-auto shadow-lg ring-1 ring-gray-200 dark:ring-gray-800">
+  <UCard class="w-full max-w-2xl mx-auto shadow-lg ring-1 ring-default">
     <template #header>
       <div class="flex items-center justify-between">
-        <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
+        <h3 class="text-base font-semibold leading-6 text-highlighted">
           交互式演示
         </h3>
         <UBadge color="primary" variant="subtle" size="xs">
@@ -206,20 +206,20 @@ onMounted(() => buildTree())
           </div>
 
           <div class="grid grid-cols-2 gap-2">
-            <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
-              <div class="text-xs text-gray-400 mb-1">
+            <div class="p-2 bg-elevated/50 rounded-lg border border-default">
+              <div class="text-xs text-dimmed mb-1">
                 扁平数据
               </div>
               <div class="overflow-auto max-h-32 space-y-0.5">
-                <div v-for="item in orgFlatList" :key="item.id" class="font-mono text-xs text-gray-500 dark:text-gray-400">
+                <div v-for="item in orgFlatList" :key="item.id" class="font-mono text-xs text-muted">
                   { "{{ item.id }}", "{{ item.name }}" }
                 </div>
               </div>
             </div>
 
-            <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
+            <div class="p-2 bg-elevated/50 rounded-lg border border-default">
               <div class="flex items-center gap-1.5 mb-1">
-                <span class="text-xs text-gray-400">树形结构</span>
+                <span class="text-xs text-dimmed">树形结构</span>
                 <UBadge v-if="treeMode === 'filter'" color="primary" variant="subtle" size="xs">
                   已过滤
                 </UBadge>
@@ -231,13 +231,13 @@ onMounted(() => buildTree())
                   class="flex items-center gap-1 font-mono text-xs"
                   :style="{ paddingLeft: `${item.depth * 12}px` }"
                 >
-                  <UIcon name="i-lucide:chevron-right" class="size-3 text-gray-400 shrink-0" />
-                  <span :class="treeMode === 'filter' && treeKeyword && (item.node as { name: string }).name.includes(treeKeyword) ? 'text-primary-500 font-semibold' : 'text-gray-700 dark:text-gray-300'">
+                  <UIcon name="i-lucide:chevron-right" class="size-3 text-dimmed shrink-0" />
+                  <span :class="treeMode === 'filter' && treeKeyword && (item.node as { name: string }).name.includes(treeKeyword) ? 'text-primary-500 font-semibold' : 'text-toned'">
                     {{ (item.node as { name: string }).name }}
                   </span>
                 </div>
               </div>
-              <div v-else class="text-xs text-gray-400 italic">
+              <div v-else class="text-xs text-dimmed italic">
                 无匹配节点
               </div>
             </div>
@@ -278,18 +278,18 @@ onMounted(() => buildTree())
                 />
               </div>
               <div class="grid grid-cols-2 gap-2">
-                <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
-                  <div class="text-xs text-gray-400 mb-1">
+                <div class="p-2 bg-elevated/50 rounded-lg border border-default">
+                  <div class="text-xs text-dimmed mb-1">
                     源对象
                   </div>
-                  <pre class="font-mono text-xs text-gray-600 dark:text-gray-400 whitespace-pre-wrap">{{ JSON.stringify(sourceObj, null, 1) }}</pre>
+                  <pre class="font-mono text-xs text-muted whitespace-pre-wrap">{{ JSON.stringify(sourceObj, null, 1) }}</pre>
                 </div>
-                <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
-                  <div class="text-xs text-gray-400 mb-1">
+                <div class="p-2 bg-elevated/50 rounded-lg border border-default">
+                  <div class="text-xs text-dimmed mb-1">
                     结果
                   </div>
                   <pre v-if="objResult" class="font-mono text-xs text-primary-500 whitespace-pre-wrap">{{ JSON.stringify(objResult, null, 1) }}</pre>
-                  <p v-else class="text-xs text-gray-400 italic mt-1">
+                  <p v-else class="text-xs text-dimmed italic mt-1">
                     点击上方按钮查看结果...
                   </p>
                 </div>
@@ -300,7 +300,7 @@ onMounted(() => buildTree())
           <template #deep-merge>
             <div class="p-3 space-y-3">
               <div class="flex items-center gap-2 flex-wrap">
-                <span class="text-xs text-gray-400">tags 合并策略：</span>
+                <span class="text-xs text-dimmed">tags 合并策略：</span>
                 <UButton
                   v-for="s in (['concat', 'unique', 'replace'] as ArrayStrategy[])"
                   :key="s"
@@ -313,21 +313,21 @@ onMounted(() => buildTree())
                 </UButton>
               </div>
               <div class="grid grid-cols-2 gap-2">
-                <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
-                  <div class="text-xs text-gray-400 mb-1.5">
+                <div class="p-2 bg-elevated/50 rounded-lg border border-default">
+                  <div class="text-xs text-dimmed mb-1.5">
                     输入
                   </div>
                   <div class="font-mono text-xs space-y-1">
-                    <div class="text-gray-500">
-                      default: <span class="text-gray-600 dark:text-gray-400">{{ JSON.stringify(defaultConfig.tags) }}</span>
+                    <div class="text-muted">
+                      default: <span class="text-muted">{{ JSON.stringify(defaultConfig.tags) }}</span>
                     </div>
-                    <div class="text-gray-500">
-                      user: <span class="text-gray-600 dark:text-gray-400">{{ JSON.stringify(userConfig.tags) }}</span>
+                    <div class="text-muted">
+                      user: <span class="text-muted">{{ JSON.stringify(userConfig.tags) }}</span>
                     </div>
                   </div>
                 </div>
-                <div class="p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-800">
-                  <div class="text-xs text-gray-400 mb-1">
+                <div class="p-2 bg-elevated/50 rounded-lg border border-default">
+                  <div class="text-xs text-dimmed mb-1">
                     tags 合并结果
                   </div>
                   <div class="font-mono text-xs text-primary-500">
@@ -350,23 +350,23 @@ onMounted(() => buildTree())
           />
 
           <div class="grid grid-cols-2 gap-2">
-            <div class="p-3 rounded-lg border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 space-y-1.5">
+            <div class="p-3 rounded-lg border border-default bg-elevated/50 space-y-1.5">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-medium text-gray-600 dark:text-gray-400">Debounce</span>
+                <span class="text-xs font-medium text-muted">Debounce</span>
                 <UBadge color="neutral" variant="subtle" size="xs">
                   500ms
                 </UBadge>
               </div>
               <div class="flex items-end gap-3">
                 <div class="text-center">
-                  <div class="text-xs text-gray-400">
+                  <div class="text-xs text-dimmed">
                     触发
                   </div>
-                  <div class="text-2xl font-bold text-gray-700 dark:text-gray-300">
+                  <div class="text-2xl font-bold text-toned">
                     {{ totalTriggerCount }}
                   </div>
                 </div>
-                <div class="text-gray-300 dark:text-gray-600 pb-0.5">
+                <div class="text-dimmed pb-0.5">
                   →
                 </div>
                 <div class="text-center">
@@ -378,7 +378,7 @@ onMounted(() => buildTree())
                   </div>
                 </div>
               </div>
-              <div class="text-xs text-gray-400 truncate">
+              <div class="text-xs text-dimmed truncate">
                 {{ debounceLastTime ? `最后: ${debounceLastTime}` : '&nbsp;' }}
               </div>
             </div>
@@ -392,10 +392,10 @@ onMounted(() => buildTree())
               </div>
               <div class="flex items-end gap-3">
                 <div class="text-center">
-                  <div class="text-xs text-gray-400">
+                  <div class="text-xs text-dimmed">
                     触发
                   </div>
-                  <div class="text-2xl font-bold text-gray-700 dark:text-gray-300">
+                  <div class="text-2xl font-bold text-toned">
                     {{ totalTriggerCount }}
                   </div>
                 </div>

@@ -10,9 +10,6 @@ orientation: horizontal
 ui:
   container: lg:py-20
 ---
-#top
-:hero-background
-
 #title
   :::motion
   现代 [TypeScript]{.text-primary} 工具函数库.
