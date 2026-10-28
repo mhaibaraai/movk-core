@@ -36,18 +36,13 @@ const items = [
 </script>
 
 <template>
-  <div class="flex items-center gap-2" aria-label="Site Logo">
+  <div class="flex items-center gap-3 min-w-0" aria-label="Site Logo">
     <UContextMenu :items="items">
-      <NuxtLink :to="logoTo" class="flex items-end gap-2 font-bold text-xl text-highlighted min-w-0 outline-primary/25 focus-visible:outline-3 shrink-0 rounded-md p-1 -ms-1" aria-label="Movk Core">
+      <NuxtLink :to="logoTo" class="flex items-center shrink-0 rounded-sm outline-primary/25 focus-visible:outline-3" aria-label="Movk Core">
         <Logo ref="logoRef" class="w-auto h-6 shrink-0" />
       </NuxtLink>
     </UContextMenu>
 
-    <UButton
-      :label="`v${config.version}`"
-      variant="subtle"
-      size="xs"
-      class="font-semibold rounded-full truncate"
-    />
+    <span class="kicker truncate">v{{ config.version }}</span>
   </div>
 </template>
