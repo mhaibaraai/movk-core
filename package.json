@@ -58,7 +58,7 @@
     "@antfu/eslint-config": "^10.0.0",
     "@release-it/conventional-changelog": "^12.0.2",
     "@types/node": "^26.6.5",
-    "eslint": "^10.13.0",
+    "eslint": "^10.14.0",
     "release-it": "^21.1.1",
     "typescript": "^6.0.3",
     "unbuild": "^3.6.1",
