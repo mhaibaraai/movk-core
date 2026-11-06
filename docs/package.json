@@ -9,26 +9,26 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^4.0.103",
-    "@ai-sdk/vue": "^4.0.154",
-    "@comark/vue": "^0.7.0",
+    "@ai-sdk/openai": "^4.0.109",
+    "@ai-sdk/vue": "^4.0.163",
+    "@comark/vue": "^0.8.1",
     "@movk/core": "workspace:^",
     "@movk/nuxt-docs": "^3.0.2",
     "@nuxt/content": "^3.16.2",
     "@nuxt/ui": "^4.12.0",
     "@nuxtjs/i18n": "^10.6.0",
-    "@shikijs/engine-javascript": "^4.5.0",
-    "@shikijs/langs": "^4.5.0",
-    "@shikijs/themes": "^4.5.0",
+    "@shikijs/engine-javascript": "^4.6.0",
+    "@shikijs/langs": "^4.6.0",
+    "@shikijs/themes": "^4.6.0",
     "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
-    "ai": "^7.0.154",
+    "@vercel/speed-insights": "^2.1.0",
+    "ai": "^7.0.163",
     "nuxt": "^4.6.3",
-    "tailwindcss": "^4.3.3",
+    "tailwindcss": "^4.3.4",
     "zod": "^4.6.7"
   },
   "devDependencies": {
     "typescript": "^6.0.3",
-    "vue-tsc": "^3.3.13"
+    "vue-tsc": "^3.3.14"
   }
 }
